@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "title": "ORUS Gallery | 當代藝術 | 台灣",
+    "description": "ORUS Gallery 代理國際當代藝術家，為亞洲及全球藏家呈獻。Origin + Us：藝術與身份的交匯。"
+  },
+  "nav": {
+    "about": "關於",
+    "artists": "藝術家",
+    "events": "活動",
+    "press": "媒體",
+    "contact": "聯繫"
+  },
+  "about": {
+    "title": "關於 ORUS Gallery",
+    "tagline": "Origin + Us",
+    "mission": {
+      "eyebrow": "我們的使命",
+      "title": "透過藝術連結文化",
+      "text": "ORUS Gallery 的存在是為了將傑出的當代藝術家與亞洲及其他地區有鑑賞力的藏家連結起來。我們相信藝術超越國界，最有意義的收藏是通過信任、專業和共同熱情建立的。"
+    },
+    "team": {
+      "eyebrow": "國際團隊",
+      "title": "法國與台灣",
+      "paris": "我們的巴黎團隊擁有來自頂尖拍賣行和畫廊數十年的經驗，與歐洲當代藝術家保持緊密連結。",
+      "taiwan": "我們的台灣團隊是亞洲藏家的門戶，提供本地專業知識，在整個地區建立持久關係。"
+    },
+    "curatorial": {
+      "eyebrow": "策展方向",
+      "title": "我們的理念",
+      "value1": {
+        "title": "持續勝於速度",
+        "text": "我們與藝術家和藏家建立持久關係，以數十年而非季度來培養事業和收藏。"
+      },
+      "value2": {
+        "title": "深度勝於廣度",
+        "text": "我們代理更少的藝術家，投入更深的承諾，確保每個聲音都獲得應有的關注和照顧。"
+      },
+      "quote": "藝術不是交易。它是跨越世代的對話。"
+    },
+    "approach": {
+      "eyebrow": "我們的方式",
+      "title": "尊貴而謹慎的服務",
+      "text": "我們為藏家提供量身定制的諮詢服務，包括私人觀展、個人化推薦和謹慎的交易。您的藝術之旅是私人的，我們如此對待。"
+    },
+    "cta": {
+      "title": "開啟您的旅程",
+      "subtitle": "探索我們的藝術家或開始對話",
+      "artists": "認識藝術家",
+      "contact": "聯繫我們"
+    }
+  },
+  "home": {
+    "hero": {
+      "positioning": "台北 — 巴黎",
+      "response": "我們於24小時內回覆"
+    },
+    "curatorial": {
+      "eyebrow": "策展方向",
+      "title": "藝術與身份的交匯",
+      "text1": "ORUS Gallery 源於一個深刻的信念：藝術超越國界、文化和時間。以台灣為基地，與巴黎有著深厚的連結，我們推廣探索記憶、身份和人類處境的當代藝術家。",
+      "text2": "我們相信持續勝於速度，深度勝於廣度。我們代理的每位藝術家都擁有獨特的聲音，跨越文化共鳴。"
+    },
+    "value": {
+      "eyebrow": "為何選擇ORUS",
+      "title": "我們的承諾",
+      "pillar1": {
+        "title": "嚴謹策展",
+        "text": "我們陣容中的每位藝術家都經過嚴格評估。我們只代理那些願景和技藝符合我們嚴格標準的藝術家。"
+      },
+      "pillar2": {
+        "title": "量身定制的收藏支持",
+        "text": "根據您的旅程量身定制的個人諮詢服務。從首次收購到建立全面的收藏，我們在每一步都為您提供指導。"
+      },
+      "pillar3": {
+        "title": "國際網絡",
+        "text": "在台灣和巴黎都有據點，我們將亞洲藏家與歐洲藝術家連結起來，促進跨文化對話。"
+      }
+    },
+    "cta": {
+      "title": "開始對話",
+      "subtitle": "歡迎藏家和藝術愛好者垂詢。我們的團隊於24小時內回覆。",
+      "contact": "聯繫我們",
+      "artists": "查看藝術家"
+    }
+  },
+  "artists": {
+    "title": "藝術家",
+    "subtitle": "畫廊陣容",
+    "viewBio": "傳記",
+    "viewWorks": "作品",
+    "viewCV": "履歷",
+    "comingSoon": "藝術家公告即將發布",
+    "stayTuned": "率先了解我們代理的藝術家"
+  },
+  "artist": {
+    "biography": "傳記",
+    "works": "精選作品",
+    "cv": "履歷",
+    "exhibitions": "展覽",
+    "collections": "收藏",
+    "backToArtists": "返回藝術家",
+    "inquire": "諮詢此藝術家",
+    "placeholder": {
+      "bio": "傳記即將推出。此藝術家是ORUS Gallery代理陣容的一員，展示探索記憶、身份和人類處境主題的作品。",
+      "cv": "完整履歷可應要求提供。"
+    }
+  },
+  "events": {
+    "title": "活動",
+    "subtitle": "展覽、藝博會及特別活動",
+    "upcoming": "即將舉行",
+    "past": "過往活動",
+    "comingSoon": "即將公布活動安排",
+    "stayTuned": "敬請期待最新消息"
+  },
+  "press": {
+    "title": "媒體",
+    "subtitle": "媒體查詢及新聞資源",
+    "contact": "媒體聯繫",
+    "email": "press@orusgallery.com",
+    "kit": "媒體資料包",
+    "downloadKit": "下載媒體資料包",
+    "articles": "媒體報導",
+    "comingSoon": "媒體資料即將提供",
+    "stayTuned": "敬請期待最新消息"
+  },
+  "contact": {
+    "title": "聯繫",
+    "subtitle": "歡迎藏家和藝術愛好者垂詢",
+    "response": "我們於24小時內回覆",
+    "form": {
+      "email": "電子郵件",
+      "message": "訊息",
+      "messagePlaceholder": "告訴我們您的興趣...",
+      "submit": "發送訊息",
+      "sending": "發送中...",
+      "success": "感謝您的訊息。",
+      "error": "發生錯誤，請重試。"
+    }
+  },
+  "footer": {
+    "tagline": "Origin + Us — 藝術與身份的交匯",
+    "navigation": "導航",
+    "contactTitle": "聯繫方式",
+    "copyright": "© 2025 ORUS Gallery",
+    "privacy": "隱私政策",
+    "rights": "版權所有"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "title": "ORUS Gallery | Contemporary Art | Taiwan",
+    "description": "ORUS Gallery represents international contemporary artists for Asian and global collectors. Origin + Us: where art meets identity."
+  },
+  "nav": {
+    "about": "About",
+    "artists": "Artists",
+    "events": "Events",
+    "press": "Press",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About ORUS Gallery",
+    "tagline": "Origin + Us",
+    "mission": {
+      "eyebrow": "Our Mission",
+      "title": "Bridging Cultures Through Art",
+      "text": "ORUS Gallery exists to connect exceptional contemporary artists with discerning collectors across Asia and beyond. We believe that art transcends borders, and that the most meaningful collections are built through trust, expertise, and shared passion."
+    },
+    "team": {
+      "eyebrow": "International Team",
+      "title": "France & Taiwan",
+      "paris": "Our Paris team brings decades of experience from leading auction houses and galleries, maintaining strong connections with European contemporary artists.",
+      "taiwan": "Our Taiwan team serves as the gateway to Asian collectors, offering local expertise and building lasting relationships across the region."
+    },
+    "curatorial": {
+      "eyebrow": "Curatorial Direction",
+      "title": "Our Philosophy",
+      "value1": {
+        "title": "Continuity over Speed",
+        "text": "We build lasting relationships with artists and collectors, nurturing careers and collections over decades, not seasons."
+      },
+      "value2": {
+        "title": "Depth over Breadth",
+        "text": "We represent fewer artists with deeper commitment, ensuring each voice receives the attention and care it deserves."
+      },
+      "quote": "Art is not a transaction. It is a conversation that spans generations."
+    },
+    "approach": {
+      "eyebrow": "Our Approach",
+      "title": "Premium, Discrete Service",
+      "text": "We provide bespoke advisory services to collectors, offering private viewings, personalized recommendations, and discreet transactions. Your journey with art is personal, and we treat it as such."
+    },
+    "cta": {
+      "title": "Begin Your Journey",
+      "subtitle": "Discover our artists or start a conversation",
+      "artists": "Meet the Artists",
+      "contact": "Get in Touch"
+    }
+  },
+  "home": {
+    "hero": {
+      "positioning": "Taipei — Paris",
+      "response": "We respond within 24 hours"
+    },
+    "curatorial": {
+      "eyebrow": "Curatorial Direction",
+      "title": "Where Art Meets Identity",
+      "text1": "ORUS Gallery emerges from a profound conviction: art transcends borders, cultures, and time. Based in Taiwan with deep connections to Paris, we champion contemporary artists whose work explores memory, identity, and the human condition.",
+      "text2": "We believe in continuity over speed, depth over breadth. Each artist we represent carries a singular voice that resonates across cultures, creating bridges between the intimate and the universal."
+    },
+    "value": {
+      "eyebrow": "Why ORUS",
+      "title": "Our Promise",
+      "pillar1": {
+        "title": "Exacting Curation",
+        "text": "Every artist in our roster is selected through rigorous evaluation. We represent only those whose vision and craft meet our exacting standards."
+      },
+      "pillar2": {
+        "title": "Bespoke Collector Support",
+        "text": "Personal advisory services tailored to your journey. From first acquisition to building a comprehensive collection, we guide you at every step."
+      },
+      "pillar3": {
+        "title": "International Network",
+        "text": "With presence in Taiwan and Paris, we connect Asian collectors with European artists and facilitate cross-cultural dialogue through art."
+      }
+    },
+    "cta": {
+      "title": "Start a Conversation",
+      "subtitle": "We welcome inquiries from collectors and art enthusiasts. Our team responds within 24 hours.",
+      "contact": "Contact Us",
+      "artists": "View Artists"
+    }
+  },
+  "artists": {
+    "title": "Artists",
+    "subtitle": "Gallery Roster",
+    "viewBio": "Biography",
+    "viewWorks": "Works",
+    "viewCV": "CV",
+    "comingSoon": "Artist announcements coming soon",
+    "stayTuned": "Be the first to discover our represented artists"
+  },
+  "artist": {
+    "biography": "Biography",
+    "works": "Selected Works",
+    "cv": "Curriculum Vitae",
+    "exhibitions": "Exhibitions",
+    "collections": "Collections",
+    "backToArtists": "Back to Artists",
+    "inquire": "Inquire About This Artist",
+    "placeholder": {
+      "bio": "Biography coming soon. This artist is part of ORUS Gallery's represented roster, showcasing works that explore themes of memory, identity, and the human condition.",
+      "cv": "Full curriculum vitae available upon request."
+    }
+  },
+  "events": {
+    "title": "Events",
+    "subtitle": "Exhibitions, fairs and special events",
+    "upcoming": "Upcoming",
+    "past": "Past",
+    "comingSoon": "Upcoming events will be announced soon",
+    "stayTuned": "Check back soon for updates"
+  },
+  "press": {
+    "title": "Press",
+    "subtitle": "Media inquiries and press resources",
+    "contact": "Press Contact",
+    "email": "press@orusgallery.com",
+    "kit": "Press Kit",
+    "downloadKit": "Download Press Kit",
+    "articles": "Press Coverage",
+    "comingSoon": "Press materials coming soon",
+    "stayTuned": "Check back soon for updates"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "We welcome inquiries from collectors and art enthusiasts",
+    "response": "We respond within 24 hours",
+    "form": {
+      "email": "Email",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your interest...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Thank you for your message.",
+      "error": "An error occurred. Please try again."
+    }
+  },
+  "footer": {
+    "tagline": "Origin + Us — Where art meets identity",
+    "navigation": "Navigation",
+    "contactTitle": "Contact",
+    "copyright": "© 2025 ORUS Gallery",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved"
+  }
+}
