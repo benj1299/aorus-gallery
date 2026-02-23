@@ -93,12 +93,23 @@
   },
   "artists": {
     "title": "Artistes",
-    "subtitle": "Notre Selection",
+    "subtitle": "Roster international / peinture / programme interculturel",
     "viewBio": "Biographie",
     "viewWorks": "Œuvres",
     "viewCV": "CV",
     "comingSoon": "Annonces des artistes prochainement",
-    "stayTuned": "Soyez les premiers à découvrir nos artistes représentés"
+    "stayTuned": "Soyez les premiers à découvrir nos artistes représentés",
+    "filterMedium": "Médium",
+    "filterRegion": "Région",
+    "mediumPainting": "Peinture",
+    "mediumMixedMedia": "Technique mixte",
+    "mediumResin": "Résine",
+    "regionEurope": "Europe",
+    "regionAfrica": "Afrique",
+    "regionAmericas": "Amériques",
+    "regionAsia": "Asie",
+    "viewProfile": "Voir le profil",
+    "noResults": "Aucun artiste ne correspond aux filtres sélectionnés"
   },
   "artist": {
     "biography": "Biographie",

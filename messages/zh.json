@@ -93,12 +93,23 @@
   },
   "artists": {
     "title": "藝術家",
-    "subtitle": "畫廊陣容",
+    "subtitle": "國際陣容 / 繪畫為主 / 跨文化計畫",
     "viewBio": "傳記",
     "viewWorks": "作品",
     "viewCV": "履歷",
     "comingSoon": "藝術家公告即將發布",
-    "stayTuned": "率先了解我們代理的藝術家"
+    "stayTuned": "率先了解我們代理的藝術家",
+    "filterMedium": "媒材",
+    "filterRegion": "地區",
+    "mediumPainting": "繪畫",
+    "mediumMixedMedia": "混合媒材",
+    "mediumResin": "樹脂",
+    "regionEurope": "歐洲",
+    "regionAfrica": "非洲",
+    "regionAmericas": "美洲",
+    "regionAsia": "亞洲",
+    "viewProfile": "查看檔案",
+    "noResults": "沒有符合所選篩選條件的藝術家"
   },
   "artist": {
     "biography": "傳記",
