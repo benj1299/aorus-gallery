@@ -13,46 +13,69 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 
-// Contact form schema with RGPD compliance
 const contactSchema = z.object({
   status: z.enum(['collector', 'press', 'institution', 'corporate', 'artist', 'other']),
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Valid email is required'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
-  interestedIn: z.enum(['artist', 'work', 'advisory', 'event']).optional(),
-  preferredLanguage: z.enum(['en', 'fr', 'zh']).optional(),
-  rgpd: z.boolean().refine((val) => val === true, {
-    message: 'You must agree to the processing of your personal data',
-  }),
+  interestedIn: z.string().optional(),
+  preferredLanguage: z.string().optional(),
+  rgpd: z.literal(true, { message: 'You must accept the privacy policy' }),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
 export default function ContactPage() {
   const t = useTranslations('contact');
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    watch,
     setValue,
+    watch,
+    formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    defaultValues: {
+      status: undefined,
+      interestedIn: '',
+      preferredLanguage: '',
+    },
   });
 
+  const selectedStatus = watch('status');
+
   const onSubmit = async (data: ContactFormData) => {
-    setStatus('sending');
-
-    // Simulate API call
+    setFormStatus('sending');
     await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    // In production, you'd send this to your email service
     console.log('Form data:', data);
-
-    setStatus('success');
+    setFormStatus('success');
   };
+
+  const statusOptions = [
+    { value: 'collector', label: t('form.statusOptions.collector') },
+    { value: 'press', label: t('form.statusOptions.press') },
+    { value: 'institution', label: t('form.statusOptions.institution') },
+    { value: 'corporate', label: t('form.statusOptions.corporate') },
+    { value: 'artist', label: t('form.statusOptions.artist') },
+    { value: 'other', label: t('form.statusOptions.other') },
+  ] as const;
+
+  const interestedInOptions = [
+    { value: '', label: t('form.selectOption') },
+    { value: 'artist', label: t('form.interestedInOptions.artist') },
+    { value: 'work', label: t('form.interestedInOptions.work') },
+    { value: 'advisory', label: t('form.interestedInOptions.advisory') },
+    { value: 'event', label: t('form.interestedInOptions.event') },
+  ];
+
+  const languageOptions = [
+    { value: '', label: t('form.selectOption') },
+    { value: 'en', label: t('form.languageOptions.en') },
+    { value: 'fr', label: t('form.languageOptions.fr') },
+    { value: 'zh', label: t('form.languageOptions.zh') },
+  ];
 
   return (
     <div className="flex flex-col">
@@ -64,7 +87,6 @@ export default function ContactPage() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="container-narrow text-center"
         >
-          {/* 24h Response Promise */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -95,7 +117,6 @@ export default function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              {/* Gallery Image */}
               <div className="aspect-[4/3] relative overflow-hidden mb-10">
                 <Image
                   src="https://images.unsplash.com/photo-1577720643272-265f09367456?w=800&q=80"
@@ -106,32 +127,25 @@ export default function ContactPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-noir/30 to-transparent" />
               </div>
 
-              {/* Contact Details */}
               <div className="space-y-8">
                 <div>
-                  <p className="text-or text-xs tracking-[0.2em] uppercase font-medium mb-3">
+                  <p className="text-or text-xs tracking-[0.2em] uppercase font-medium mb-2">
                     {t('contactInfo.email')}
                   </p>
-                  <div className="space-y-2">
-                    <div>
-                      <p className="text-noir/50 text-xs tracking-[0.08em] uppercase mb-1">{t('contactInfo.general')}</p>
-                      <a
-                        href="mailto:info@orusgallery.com"
-                        className="text-noir hover:text-or text-base font-display transition-colors duration-300"
-                      >
-                        info@orusgallery.com
-                      </a>
-                    </div>
-                    <div>
-                      <p className="text-noir/50 text-xs tracking-[0.08em] uppercase mb-1">{t('contactInfo.press')}</p>
-                      <a
-                        href="mailto:press@orusgallery.com"
-                        className="text-noir hover:text-or text-base font-display transition-colors duration-300"
-                      >
-                        press@orusgallery.com
-                      </a>
-                    </div>
-                  </div>
+                  <a
+                    href="mailto:info@orusgallery.com"
+                    className="text-noir hover:text-or text-lg font-display transition-colors duration-300"
+                  >
+                    info@orusgallery.com
+                  </a>
+                  <p className="text-noir/50 text-sm mt-1">{t('contactInfo.general')}</p>
+                  <a
+                    href="mailto:press@orusgallery.com"
+                    className="text-noir hover:text-or text-lg font-display transition-colors duration-300 block mt-2"
+                  >
+                    press@orusgallery.com
+                  </a>
+                  <p className="text-noir/50 text-sm mt-1">{t('contactInfo.press')}</p>
                 </div>
 
                 <div>
@@ -160,7 +174,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              {status === 'success' ? (
+              {formStatus === 'success' ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -183,8 +197,8 @@ export default function ContactPage() {
                   </div>
                   <p className="text-noir text-xl font-display mb-2">{t('form.success')}</p>
                   <p className="text-noir/60 text-sm mb-6">{t('form.successSubtext')}</p>
-                  <Link href="/artists" className="inline-block text-or hover:text-or/70 text-sm font-medium tracking-[0.08em] uppercase transition-colors">
-                    {t('form.backToArtists')}
+                  <Link href="/artists" className="btn-text">
+                    {t('form.backToArtists')} →
                   </Link>
                 </motion.div>
               ) : (
@@ -192,145 +206,150 @@ export default function ContactPage() {
                   <h2 className="font-display text-2xl text-noir mb-8">{t('form.title')}</h2>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                    {/* Status */}
+                    {/* Status (RadioGroup) */}
                     <div className="space-y-3">
-                      <Label className="text-micro text-ink tracking-[0.12em] uppercase font-medium">
-                        {t('form.status')} *
+                      <Label className="text-or text-xs tracking-[0.2em] uppercase font-medium">
+                        {t('form.status')}
                       </Label>
                       <RadioGroup
-                        value={watch('status') || ''}
-                        onValueChange={(value) => setValue('status', value as any)}
+                        value={selectedStatus}
+                        onValueChange={(val) => setValue('status', val as ContactFormData['status'])}
+                        className="grid grid-cols-2 gap-3"
                       >
-                        <div className="space-y-2">
-                          {['collector', 'press', 'institution', 'corporate', 'artist', 'other'].map((opt) => (
-                            <div key={opt} className="flex items-center gap-3">
-                              <RadioGroupItem value={opt} id={`status-${opt}`} />
-                              <Label htmlFor={`status-${opt}`} className="text-noir cursor-pointer text-sm font-normal">
-                                {t(`form.statusOptions.${opt}`)}
-                              </Label>
-                            </div>
-                          ))}
-                        </div>
+                        {statusOptions.map((option) => (
+                          <div key={option.value} className="flex items-center gap-2">
+                            <RadioGroupItem
+                              value={option.value}
+                              id={`status-${option.value}`}
+                              className="border-noir/30 text-[#C9A227] data-[state=checked]:border-[#C9A227]"
+                            />
+                            <Label
+                              htmlFor={`status-${option.value}`}
+                              className="text-noir text-sm cursor-pointer"
+                            >
+                              {option.label}
+                            </Label>
+                          </div>
+                        ))}
                       </RadioGroup>
                       {errors.status && (
-                        <p className="text-red-600 text-xs mt-1">{errors.status.message}</p>
+                        <p className="text-red-600 text-xs">{errors.status.message}</p>
                       )}
                     </div>
 
                     {/* Name */}
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="text-micro text-ink tracking-[0.12em] uppercase font-medium">
+                      <Label htmlFor="name" className="text-or text-xs tracking-[0.2em] uppercase font-medium">
                         {t('form.name')} *
                       </Label>
                       <input
                         id="name"
                         type="text"
                         {...register('name')}
-                        className="w-full h-11 px-4 bg-paper border border-hairline text-ink placeholder:text-ink/40 focus:border-jade focus:ring-2 focus:ring-jade/20 focus:outline-none transition-colors"
+                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-or focus:ring-1 focus:ring-or/20 focus:outline-none tracking-wide transition-colors"
                         placeholder={t('form.namePlaceholder')}
                         autoComplete="name"
                       />
                       {errors.name && (
-                        <p className="text-red-600 text-xs mt-1">{errors.name.message}</p>
+                        <p className="text-red-600 text-xs">{errors.name.message}</p>
                       )}
                     </div>
 
                     {/* Email */}
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-micro text-ink tracking-[0.12em] uppercase font-medium">
+                      <Label htmlFor="email" className="text-or text-xs tracking-[0.2em] uppercase font-medium">
                         {t('form.email')} *
                       </Label>
                       <input
                         id="email"
                         type="email"
                         {...register('email')}
-                        className="w-full h-11 px-4 bg-paper border border-hairline text-ink placeholder:text-ink/40 focus:border-jade focus:ring-2 focus:ring-jade/20 focus:outline-none transition-colors"
+                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-or focus:ring-1 focus:ring-or/20 focus:outline-none tracking-wide transition-colors"
                         placeholder="your@email.com"
                         autoComplete="email"
                       />
                       {errors.email && (
-                        <p className="text-red-600 text-xs mt-1">{errors.email.message}</p>
+                        <p className="text-red-600 text-xs">{errors.email.message}</p>
                       )}
                     </div>
 
                     {/* Message */}
                     <div className="space-y-2">
-                      <Label htmlFor="message" className="text-micro text-ink tracking-[0.12em] uppercase font-medium">
+                      <Label htmlFor="message" className="text-or text-xs tracking-[0.2em] uppercase font-medium">
                         {t('form.message')} *
                       </Label>
                       <Textarea
                         id="message"
                         {...register('message')}
                         rows={5}
-                        className="bg-paper border border-hairline text-ink placeholder:text-ink/40 focus:border-jade focus:ring-2 focus:ring-jade/20 focus:outline-none resize-none transition-colors px-4 py-3"
+                        className="bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-or focus:ring-1 focus:ring-or/20 resize-none tracking-wide px-4 py-4"
                         placeholder={t('form.messagePlaceholder')}
                       />
                       {errors.message && (
-                        <p className="text-red-600 text-xs mt-1">{errors.message.message}</p>
+                        <p className="text-red-600 text-xs">{errors.message.message}</p>
                       )}
                     </div>
 
-                    {/* Interested In */}
-                    <div className="space-y-3">
-                      <Label className="text-micro text-ink tracking-[0.12em] uppercase font-medium">
+                    {/* Interested In (optional select) */}
+                    <div className="space-y-2">
+                      <Label htmlFor="interestedIn" className="text-or text-xs tracking-[0.2em] uppercase font-medium">
                         {t('form.interestedIn')}
                       </Label>
                       <select
+                        id="interestedIn"
                         {...register('interestedIn')}
-                        className="w-full h-11 px-4 bg-paper border border-hairline text-ink placeholder:text-ink/40 focus:border-jade focus:ring-2 focus:ring-jade/20 focus:outline-none transition-colors"
+                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir focus:border-or focus:ring-1 focus:ring-or/20 focus:outline-none tracking-wide transition-colors appearance-none"
                       >
-                        <option value="">{t('form.selectOption')}</option>
-                        <option value="artist">{t('form.interestedInOptions.artist')}</option>
-                        <option value="work">{t('form.interestedInOptions.work')}</option>
-                        <option value="advisory">{t('form.interestedInOptions.advisory')}</option>
-                        <option value="event">{t('form.interestedInOptions.event')}</option>
+                        {interestedInOptions.map((opt) => (
+                          <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        ))}
                       </select>
                     </div>
 
-                    {/* Preferred Language */}
-                    <div className="space-y-3">
-                      <Label className="text-micro text-ink tracking-[0.12em] uppercase font-medium">
+                    {/* Preferred Language (optional select) */}
+                    <div className="space-y-2">
+                      <Label htmlFor="preferredLanguage" className="text-or text-xs tracking-[0.2em] uppercase font-medium">
                         {t('form.preferredLanguage')}
                       </Label>
                       <select
+                        id="preferredLanguage"
                         {...register('preferredLanguage')}
-                        className="w-full h-11 px-4 bg-paper border border-hairline text-ink placeholder:text-ink/40 focus:border-jade focus:ring-2 focus:ring-jade/20 focus:outline-none transition-colors"
+                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir focus:border-or focus:ring-1 focus:ring-or/20 focus:outline-none tracking-wide transition-colors appearance-none"
                       >
-                        <option value="">{t('form.selectOption')}</option>
-                        <option value="en">{t('form.languageOptions.en')}</option>
-                        <option value="fr">{t('form.languageOptions.fr')}</option>
-                        <option value="zh">{t('form.languageOptions.zh')}</option>
+                        {languageOptions.map((opt) => (
+                          <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        ))}
                       </select>
                     </div>
 
                     {/* RGPD Checkbox */}
-                    <div className="space-y-2 pt-2">
+                    <div className="space-y-2">
                       <div className="flex items-start gap-3">
                         <input
-                          id="rgpd"
                           type="checkbox"
+                          id="rgpd"
                           {...register('rgpd')}
-                          className="mt-1 w-5 h-5 accent-jade cursor-pointer border border-hairline focus:ring-2 focus:ring-jade/20 focus:outline-none"
+                          className="mt-1 h-4 w-4 accent-[#C9A227] border-noir/15"
                         />
-                        <Label htmlFor="rgpd" className="text-noir/70 cursor-pointer text-sm font-normal leading-tight">
+                        <Label htmlFor="rgpd" className="text-noir/70 text-sm leading-relaxed cursor-pointer">
                           {t('form.rgpdText')}
                         </Label>
                       </div>
                       {errors.rgpd && (
-                        <p className="text-red-600 text-xs mt-1">{errors.rgpd.message}</p>
+                        <p className="text-red-600 text-xs">{errors.rgpd.message}</p>
                       )}
                     </div>
 
                     {/* Submit */}
                     <Button
                       type="submit"
-                      disabled={status === 'sending'}
-                      className="w-full h-11 bg-ink text-paper font-medium tracking-[0.08em] uppercase hover:bg-ink/80 transition-colors mt-8"
+                      disabled={formStatus === 'sending'}
+                      className="w-full h-14 btn-primary mt-4"
                     >
-                      {status === 'sending' ? t('form.sending') : t('form.submit')}
+                      {formStatus === 'sending' ? t('form.sending') : t('form.submit')}
                     </Button>
 
-                    {status === 'error' && (
+                    {formStatus === 'error' && (
                       <p className="text-red-600 text-sm text-center mt-4">{t('form.error')}</p>
                     )}
                   </form>

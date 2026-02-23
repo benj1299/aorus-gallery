@@ -3,11 +3,8 @@
     "title": "ORUS Gallery | Contemporary Art | Taiwan",
     "description": "ORUS Gallery represents international contemporary artists for Asian and global collectors. Origin + Us: where art meets identity."
   },
-  "header": {
-    "home": "Home",
-    "cta": "Inquire"
-  },
   "nav": {
+    "home": "Home",
     "about": "About",
     "artists": "Artists",
     "events": "Events",
@@ -15,131 +12,95 @@
     "contact": "Contact"
   },
   "about": {
-    "title": "About",
+    "title": "About ORUS Gallery",
+    "tagline": "Origin + Us",
     "mission": {
-      "label": "Mission",
-      "text1": "Connecting international contemporary artists with Asian and global collectors.",
-      "text2": "Taiwan as strategic entry point — a growing market with deep institutional and collector infrastructure.",
-      "text3": "Structured diffusion through exhibitions, private sales, and targeted fairs."
-    },
-    "program": {
-      "label": "Program",
-      "item1": "Exhibitions",
-      "item2": "Private Sales",
-      "item3": "Curated Introductions",
-      "item4": "Advisory"
-    },
-    "method": {
-      "label": "Method",
-      "principle1": "Long-term careers over hype",
-      "principle2": "Limited roster, deep support",
-      "principle3": "Process, documentation, discretion"
-    },
-    "locations": {
-      "label": "Locations",
-      "taipei": "Taipei",
-      "paris": "Paris",
-      "appointment": "By appointment only"
+      "eyebrow": "Our Mission",
+      "title": "Bridging Cultures Through Art",
+      "text": "ORUS Gallery exists to connect exceptional contemporary artists with discerning collectors across Asia and beyond. We believe that art transcends borders, and that the most meaningful collections are built through trust, expertise, and shared passion."
     },
     "team": {
-      "label": "Team",
-      "placeholder": "Team profiles will be published shortly."
+      "eyebrow": "International Team",
+      "title": "France & Taiwan",
+      "paris": "Our Paris team brings decades of experience from leading auction houses and galleries, maintaining strong connections with European contemporary artists.",
+      "taiwan": "Our Taiwan team serves as the gateway to Asian collectors, offering local expertise and building lasting relationships across the region."
     },
-    "partnerships": {
-      "label": "Partnerships",
-      "description": "ORUS Gallery works with institutions, corporate collectors, and private clients seeking structured access to contemporary art. We facilitate long-term relationships grounded in curatorial integrity and market knowledge."
+    "curatorial": {
+      "eyebrow": "Curatorial Direction",
+      "title": "Our Philosophy",
+      "value1": {
+        "title": "Continuity over Speed",
+        "text": "We build lasting relationships with artists and collectors, nurturing careers and collections over decades, not seasons."
+      },
+      "value2": {
+        "title": "Depth over Breadth",
+        "text": "We represent fewer artists with deeper commitment, ensuring each voice receives the attention and care it deserves."
+      },
+      "quote": "Art is not a transaction. It is a conversation that spans generations."
+    },
+    "approach": {
+      "eyebrow": "Our Approach",
+      "title": "Premium, Discrete Service",
+      "text": "We provide bespoke advisory services to collectors, offering private viewings, personalized recommendations, and discreet transactions. Your journey with art is personal, and we treat it as such."
+    },
+    "cta": {
+      "title": "Begin Your Journey",
+      "subtitle": "Discover our artists or start a conversation",
+      "artists": "Meet the Artists",
+      "contact": "Get in Touch"
     }
   },
   "home": {
     "hero": {
-      "title": "ORUS Gallery",
-      "location": "Taipei",
-      "locationSeparator": "Paris",
-      "cta": "Request a viewing"
+      "positioning": "Taipei — Paris",
+      "response": "We respond within 24 hours"
     },
-    "activity": {
-      "sectionLabel": "Activity",
-      "currentLabel": "Current",
-      "upcomingLabel": "Upcoming",
-      "currentTitle": "Private Selections",
-      "currentFormat": "By appointment",
-      "currentCta": "Inquire",
-      "upcomingTitle": "Private Exhibition",
-      "upcomingDate": "Spring 2026",
-      "upcomingCity": "Paris",
-      "upcomingFormat": "On request",
-      "upcomingCta": "Inquire"
+    "curatorial": {
+      "eyebrow": "Curatorial Direction",
+      "title": "Where Art Meets Identity",
+      "text1": "ORUS Gallery emerges from a profound conviction: art transcends borders, cultures, and time. Based in Taiwan with deep connections to Paris, we champion contemporary artists whose work explores memory, identity, and the human condition.",
+      "text2": "We believe in continuity over speed, depth over breadth. Each artist we represent carries a singular voice that resonates across cultures, creating bridges between the intimate and the universal."
     },
-    "roster": {
-      "sectionLabel": "Roster",
-      "basedIn": "based in",
-      "viewArtist": "View artist"
+    "value": {
+      "eyebrow": "Why ORUS",
+      "title": "Our Promise",
+      "pillar1": {
+        "title": "Exacting Curation",
+        "text": "Every artist in our roster is selected through rigorous evaluation. We represent only those whose vision and craft meet our exacting standards."
+      },
+      "pillar2": {
+        "title": "Bespoke Collector Support",
+        "text": "Personal advisory services tailored to your journey. From first acquisition to building a comprehensive collection, we guide you at every step."
+      },
+      "pillar3": {
+        "title": "International Network",
+        "text": "With presence in Taiwan and Paris, we connect Asian collectors with European artists and facilitate cross-cultural dialogue through art."
+      }
     },
-    "statement": {
-      "sectionLabel": "Statement",
-      "text": "ORUS is Origin + Us. We bridge international contemporary artists with Asian and global collectors who understand that a collection is built over a lifetime, not a season. Limited roster. Long-term careers over hype. Deep support: documentation, process, placement, discretion. We operate by appointment and respond within 24 hours."
-    },
-    "contact": {
-      "general": "General inquiries",
-      "generalEmail": "info@orusgallery.com",
-      "press": "Press",
-      "pressEmail": "press@orusgallery.com",
-      "appointment": "Appointments only",
-      "response": "Response within 24h"
+    "cta": {
+      "title": "Start a Conversation",
+      "subtitle": "We welcome inquiries from collectors and art enthusiasts. Our team responds within 24 hours.",
+      "contact": "Contact Us",
+      "artists": "View Artists"
     }
   },
   "artists": {
     "title": "Artists",
-    "subtitle": "International roster / painting-forward / cross-cultural program",
+    "subtitle": "Gallery Roster",
     "viewBio": "Biography",
     "viewWorks": "Works",
     "viewCV": "CV",
     "comingSoon": "Artist announcements coming soon",
-    "stayTuned": "Be the first to discover our represented artists",
-    "filterMedium": "Medium",
-    "filterRegion": "Region",
-    "mediumPainting": "Painting",
-    "mediumMixedMedia": "Mixed Media",
-    "mediumResin": "Resin",
-    "regionEurope": "Europe",
-    "regionAfrica": "Africa",
-    "regionAmericas": "Americas",
-    "regionAsia": "Asia",
-    "viewProfile": "View profile",
-    "noResults": "No artists match the selected filters"
+    "stayTuned": "Be the first to discover our represented artists"
   },
   "artist": {
     "biography": "Biography",
-    "statement": "Artist Statement",
-    "selectedWorks": "Selected Works",
+    "works": "Selected Works",
     "cv": "Curriculum Vitae",
     "exhibitions": "Exhibitions",
-    "fairs": "Fairs",
-    "residencies": "Residencies",
-    "awards": "Awards",
     "collections": "Collections",
-    "press": "Press",
     "backToArtists": "Back to Artists",
     "inquire": "Inquire About This Artist",
-    "inquireLabel": "Inquiry",
-    "inquireHeading": "Inquire about {name}",
-    "inquireAboutArtist": "Inquire about {name}",
-    "interestedInArtist": "Interested in this artist?",
-    "downloadCV": "Download CV (PDF)",
-    "downloadPressKit": "Download Press Kit (PDF)",
-    "notFound": "Artist not found",
-    "notFoundMessage": "This page is being prepared. Please check back soon or explore our roster.",
-    "comingSoonMessage": "This artist profile is currently in preparation. Please contact us to express your interest or to receive updates.",
-    "rgpd": "Your personal data is collected solely to respond to your inquiry and will not be shared with third parties. In accordance with GDPR, you may request access, correction, or deletion of your data at any time.",
-    "form": {
-      "name": "Name",
-      "namePlaceholder": "Your name",
-      "email": "Email",
-      "emailPlaceholder": "your@email.com",
-      "message": "Message",
-      "messagePlaceholder": "I am interested in learning more about {artist}'s work...",
-      "submit": "Send Inquiry"
-    },
     "placeholder": {
       "bio": "Biography coming soon. This artist is part of ORUS Gallery's represented roster, showcasing works that explore themes of memory, identity, and the human condition.",
       "cv": "Full curriculum vitae available upon request."
@@ -156,25 +117,13 @@
   "press": {
     "title": "Press",
     "subtitle": "Media inquiries and press resources",
-    "contact": {
-      "label": "Press Contact",
-      "email": "press@orusgallery.com",
-      "response": "We respond to press inquiries within 48 hours."
-    },
-    "kit": {
-      "label": "Press Kit",
-      "status": "Press kit in preparation — Q1 2026",
-      "includes": "Logo SVG, gallery photos, director portrait, institutional text, roster, copyright-clear images.",
-      "request": "Available on request — contact press@orusgallery.com"
-    },
-    "releases": {
-      "label": "Press Releases",
-      "empty": "First institutional press release in preparation — Q1 2026"
-    },
-    "assets": {
-      "label": "Media Assets",
-      "description": "Available on request — contact press@orusgallery.com"
-    }
+    "contact": "Press Contact",
+    "email": "press@orusgallery.com",
+    "kit": "Press Kit",
+    "downloadKit": "Download Press Kit",
+    "articles": "Press Coverage",
+    "comingSoon": "Press coverage coming soon",
+    "stayTuned": "Check back soon for updates"
   },
   "contact": {
     "title": "Contact",
@@ -182,19 +131,19 @@
     "response": "We respond within 24 hours",
     "contactInfo": {
       "email": "Email",
-      "general": "General Inquiries",
-      "press": "Press",
+      "general": "General inquiries",
+      "press": "Press & media",
       "locations": "Locations",
-      "cities": "Taipei / Paris",
+      "cities": "Taipei, Taiwan — Paris, France",
       "hours": "Hours",
       "byAppointment": "By appointment only"
     },
     "form": {
       "title": "Send a Message",
-      "status": "I am a",
+      "status": "You are",
       "statusOptions": {
         "collector": "Collector",
-        "press": "Press",
+        "press": "Press / Media",
         "institution": "Institution",
         "corporate": "Corporate",
         "artist": "Artist",
@@ -204,13 +153,13 @@
       "namePlaceholder": "Your full name",
       "email": "Email",
       "message": "Message",
-      "messagePlaceholder": "Tell us about your interest or the artists you'd like to discuss...",
-      "interestedIn": "What are you interested in?",
+      "messagePlaceholder": "Tell us about your interest...",
+      "interestedIn": "Interested in",
       "interestedInOptions": {
-        "artist": "Artist",
-        "work": "Work",
-        "advisory": "Advisory Services",
-        "event": "Event"
+        "artist": "A specific artist",
+        "work": "A specific work",
+        "advisory": "Advisory services",
+        "event": "An event"
       },
       "preferredLanguage": "Preferred language",
       "languageOptions": {
@@ -218,13 +167,13 @@
         "fr": "Français",
         "zh": "中文"
       },
-      "selectOption": "Select an option",
-      "rgpdText": "I agree to the processing of my personal data in accordance with the Privacy Policy.",
+      "selectOption": "— Select —",
+      "rgpdText": "I agree to the processing of my personal data in accordance with the privacy policy. Your information will only be used to respond to your inquiry.",
       "submit": "Send Message",
       "sending": "Sending...",
       "success": "Thank you for your message.",
-      "successSubtext": "We'll review your inquiry and respond within 24 hours.",
-      "backToArtists": "Back to Artists",
+      "successSubtext": "We will respond within 24 hours.",
+      "backToArtists": "Discover our artists",
       "error": "An error occurred. Please try again."
     }
   },
@@ -233,10 +182,10 @@
     "navigation": "Navigation",
     "contactTitle": "Contact",
     "copyright": "© 2026 ORUS Gallery",
-    "privacy": "Privacy",
-    "terms": "Terms",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved",
     "appointment": "By appointment only",
     "cities": "Taipei / Paris",
-    "rights": "All rights reserved"
+    "terms": "Terms & Conditions"
   }
 }

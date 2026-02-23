@@ -7,57 +7,42 @@ export function Footer() {
   const t = useTranslations('footer');
 
   return (
-    <footer className="bg-paper border-t border-hairline">
-      <div className="container-wide px-edge py-6">
-        {/* Line 1: Email | By appointment only | Taipei / Paris */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 text-stone text-xs tracking-[0.08em]">
-          <a
-            href="mailto:info@orusgallery.com"
-            className="text-ink hover:text-jade transition-colors duration-200"
-          >
-            info@orusgallery.com
-          </a>
+    <footer className="bg-noir border-t border-blanc/10">
+      <div className="py-10 md:py-12 px-6 md:px-12 lg:px-20">
+        <div className="max-w-7xl mx-auto space-y-6">
+          {/* Line 1 — Info */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+            <a
+              href="mailto:info@orusgallery.com"
+              className="text-blanc hover:text-or text-sm tracking-[0.08em] transition-colors duration-300"
+            >
+              info@orusgallery.com
+            </a>
+            <div className="hidden md:block w-px h-4 bg-or" />
+            <span className="text-blanc/60 text-sm tracking-[0.08em]">
+              {t('appointment')}
+            </span>
+            <div className="hidden md:block w-px h-4 bg-or" />
+            <span className="text-blanc/60 text-sm tracking-[0.08em]">
+              {t('cities')}
+            </span>
+          </div>
 
-          {/* Vertical jade separator */}
-          <span
-            className="hidden sm:block mx-4 bg-jade self-stretch"
-            style={{ width: '1px', minHeight: '14px' }}
-            aria-hidden="true"
-          />
+          {/* Divider */}
+          <div className="w-full h-px bg-blanc/10" />
 
-          <span>{t('appointment')}</span>
-
-          {/* Vertical jade separator */}
-          <span
-            className="hidden sm:block mx-4 bg-jade self-stretch"
-            style={{ width: '1px', minHeight: '14px' }}
-            aria-hidden="true"
-          />
-
-          <span>{t('cities')}</span>
-        </div>
-
-        {/* Line 2: Copyright + Privacy / Terms */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-3 text-stone text-xs tracking-[0.06em]">
-          <span className="text-ink">{t('copyright')}</span>
-
-          <span className="hidden sm:inline text-hairline">·</span>
-
-          <Link
-            href="/privacy"
-            className="hover:text-ink transition-colors duration-200"
-          >
-            {t('privacy')}
-          </Link>
-
-          <span className="hidden sm:inline text-hairline">·</span>
-
-          <Link
-            href="/terms"
-            className="hover:text-ink transition-colors duration-200"
-          >
-            {t('terms')}
-          </Link>
+          {/* Line 2 — Legal */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-blanc/40 text-xs tracking-wider">
+            <span>{t('copyright')}</span>
+            <span className="hidden md:inline">&middot;</span>
+            <Link href="/privacy" className="hover:text-or transition-colors duration-300">
+              {t('privacy')}
+            </Link>
+            <span className="hidden md:inline">&middot;</span>
+            <Link href="/terms" className="hover:text-or transition-colors duration-300">
+              {t('terms')}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
