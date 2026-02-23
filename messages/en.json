@@ -3,6 +3,10 @@
     "title": "ORUS Gallery | Contemporary Art | Taiwan",
     "description": "ORUS Gallery represents international contemporary artists for Asian and global collectors. Origin + Us: where art meets identity."
   },
+  "header": {
+    "home": "Home",
+    "cta": "Inquire"
+  },
   "nav": {
     "about": "About",
     "artists": "Artists",
@@ -142,8 +146,11 @@
     "tagline": "Origin + Us — Where art meets identity",
     "navigation": "Navigation",
     "contactTitle": "Contact",
-    "copyright": "© 2025 ORUS Gallery",
-    "privacy": "Privacy Policy",
+    "copyright": "© 2026 ORUS Gallery",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "appointment": "By appointment only",
+    "cities": "Taipei / Paris",
     "rights": "All rights reserved"
   }
 }

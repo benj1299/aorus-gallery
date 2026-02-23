@@ -421,17 +421,29 @@
     }
   }
 
-  /* Top padding for pages with fixed header (72px) */
+  /* Top padding for pages with fixed header (60px mobile / 72px desktop) */
   .pt-header {
-    padding-top: 72px;
+    padding-top: 60px;
+  }
+
+  @media (min-width: 768px) {
+    .pt-header {
+      padding-top: 72px;
+    }
   }
 
   /* Hero section with header offset */
   .hero-offset {
     @apply pb-16 md:pb-20 lg:pb-24;
-    padding-top: 72px;
+    padding-top: 60px;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-offset {
+      padding-top: 72px;
+    }
   }
 
   @media (min-width: 1024px) {
