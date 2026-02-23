@@ -11,14 +11,14 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="section-noir min-h-[60vh] flex items-center justify-center hero-offset">
+      <section className="bg-blanc min-h-[60vh] flex items-center justify-center hero-offset">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="container-narrow text-center"
         >
-          <h1 className="title-section text-blanc mb-6">{t('title')}</h1>
+          <h1 className="title-section text-noir mb-6">{t('title')}</h1>
           <p className="text-or text-lg tracking-[0.15em] uppercase font-medium">
             {t('tagline')}
           </p>
@@ -27,7 +27,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section with Image */}
-      <section className="section-blanc section-padding-lg">
+      <section className="bg-blanc-muted section-padding-lg">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Image */}
@@ -44,7 +44,6 @@ export default function AboutPage() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-noir/20 to-transparent" />
             </motion.div>
 
             {/* Text */}
@@ -69,7 +68,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="section-noir section-padding-lg">
+      <section className="bg-blanc section-padding-lg">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,8 +77,8 @@ export default function AboutPage() {
           className="container-wide"
         >
           <div className="text-center mb-16">
-            <p className="text-eyebrow mb-4">{t('team.eyebrow')}</p>
-            <h2 className="title-section text-blanc">{t('team.title')}</h2>
+            <p className="text-or text-sm tracking-[0.2em] uppercase font-medium mb-4">{t('team.eyebrow')}</p>
+            <h2 className="title-section text-noir">{t('team.title')}</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -103,7 +102,7 @@ export default function AboutPage() {
                   <span className="text-blanc font-display text-4xl tracking-[0.2em]">PARIS</span>
                 </div>
               </div>
-              <p className="text-blanc/70 leading-relaxed text-center">
+              <p className="text-noir/60 leading-relaxed text-center">
                 {t('team.paris')}
               </p>
             </motion.div>
@@ -128,7 +127,7 @@ export default function AboutPage() {
                   <span className="text-blanc font-display text-4xl tracking-[0.2em]">TAIPEI</span>
                 </div>
               </div>
-              <p className="text-blanc/70 leading-relaxed text-center">
+              <p className="text-noir/60 leading-relaxed text-center">
                 {t('team.taiwan')}
               </p>
             </motion.div>
@@ -137,7 +136,7 @@ export default function AboutPage() {
       </section>
 
       {/* Curatorial Direction with Image */}
-      <section className="section-blanc section-padding-lg">
+      <section className="bg-blanc-muted section-padding-lg">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Text */}
@@ -201,7 +200,7 @@ export default function AboutPage() {
       </section>
 
       {/* Approach Section */}
-      <section className="section-noir section-padding-lg">
+      <section className="bg-blanc section-padding-lg">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -209,18 +208,18 @@ export default function AboutPage() {
           transition={{ duration: 1 }}
           className="container-narrow text-center"
         >
-          <p className="text-eyebrow mb-4">{t('approach.eyebrow')}</p>
+          <p className="text-or text-sm tracking-[0.2em] uppercase font-medium mb-4">{t('approach.eyebrow')}</p>
           <h2 className="font-display text-3xl md:text-4xl text-or mb-8 tracking-wide">
             {t('approach.title')}
           </h2>
-          <p className="text-blanc/70 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-noir/60 text-lg leading-relaxed max-w-2xl mx-auto">
             {t('approach.text')}
           </p>
         </motion.div>
       </section>
 
       {/* CTA Section */}
-      <section className="section-blanc section-padding">
+      <section className="bg-blanc-muted section-padding">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

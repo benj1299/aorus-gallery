@@ -18,7 +18,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
 
   if (!artist) {
     return (
-      <div className="min-h-screen hero-offset section-noir">
+      <div className="min-h-screen hero-offset bg-blanc">
         <div className="container-narrow text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -26,9 +26,9 @@ export default function ArtistPage({ params }: ArtistPageProps) {
             transition={{ duration: 0.8 }}
           >
             {/* Icon */}
-            <div className="w-24 h-24 mx-auto mb-10 border border-blanc/20 flex items-center justify-center">
+            <div className="w-24 h-24 mx-auto mb-10 border border-noir/15 flex items-center justify-center">
               <svg
-                className="w-10 h-10 text-blanc/40"
+                className="w-10 h-10 text-noir/30"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -42,10 +42,10 @@ export default function ArtistPage({ params }: ArtistPageProps) {
               </svg>
             </div>
 
-            <h1 className="font-display text-3xl text-blanc mb-4">
+            <h1 className="font-display text-3xl text-noir mb-4">
               Page Not Found
             </h1>
-            <p className="text-blanc/60 text-base mb-10 max-w-md mx-auto">
+            <p className="text-noir/50 text-base mb-10 max-w-md mx-auto">
               This page is being prepared. Please check back soon or explore our roster.
             </p>
 
@@ -72,7 +72,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="section-noir hero-offset">
+      <section className="bg-blanc hero-offset">
         <div className="container-wide">
           {/* Back Link */}
           <motion.div
@@ -83,7 +83,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
           >
             <Link
               href="/artists"
-              className="text-blanc/50 hover:text-blanc transition-colors duration-300 text-sm tracking-[0.1em] uppercase inline-flex items-center gap-2 group"
+              className="text-noir/40 hover:text-noir transition-colors duration-300 text-sm tracking-[0.1em] uppercase inline-flex items-center gap-2 group"
             >
               <svg
                 className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -118,20 +118,19 @@ export default function ArtistPage({ params }: ArtistPageProps) {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir/30 to-transparent" />
               </div>
             </div>
 
             {/* Artist Details */}
             <div className="md:col-span-2">
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-blanc mb-4 tracking-wide">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-noir mb-4 tracking-wide">
                 {artist.name}
               </h1>
               <p className="text-or text-sm tracking-[0.15em] uppercase mb-8">
                 {artist.nationality}
               </p>
               <div className="divider-gold mb-8" />
-              <p className="text-blanc/70 text-lg leading-relaxed">
+              <p className="text-noir/60 text-lg leading-relaxed">
                 {artist.bio}
               </p>
             </div>
@@ -140,7 +139,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
       </section>
 
       {/* Works Section */}
-      <section className="section-blanc section-padding-lg">
+      <section className="bg-blanc-muted section-padding-lg">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -166,7 +165,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="aspect-square bg-noir/5 border border-noir/10 flex items-center justify-center"
+                className="aspect-square bg-blanc border border-noir/10 flex items-center justify-center"
               >
                 <span className="text-noir/20 text-sm tracking-[0.1em] uppercase">
                   Work {index}
@@ -178,7 +177,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
       </section>
 
       {/* CV Section */}
-      <section className="section-noir section-padding-lg">
+      <section className="bg-blanc section-padding-lg">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -187,8 +186,8 @@ export default function ArtistPage({ params }: ArtistPageProps) {
           className="container-narrow"
         >
           <div className="text-center mb-16">
-            <p className="text-eyebrow mb-4">{t('cv')}</p>
-            <h2 className="title-section text-blanc">Career</h2>
+            <p className="text-or text-sm tracking-[0.2em] uppercase font-medium mb-4">{t('cv')}</p>
+            <h2 className="title-section text-noir">Career</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -199,7 +198,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
               </h3>
               <ul className="space-y-3">
                 {artist.cv.exhibitions.map((exhibition, index) => (
-                  <li key={index} className="text-blanc/70 text-sm leading-relaxed">
+                  <li key={index} className="text-noir/60 text-sm leading-relaxed">
                     {exhibition}
                   </li>
                 ))}
@@ -213,7 +212,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
               </h3>
               <ul className="space-y-3">
                 {artist.cv.collections.map((collection, index) => (
-                  <li key={index} className="text-blanc/70 text-sm leading-relaxed">
+                  <li key={index} className="text-noir/60 text-sm leading-relaxed">
                     {collection}
                   </li>
                 ))}
@@ -221,14 +220,14 @@ export default function ArtistPage({ params }: ArtistPageProps) {
             </div>
           </div>
 
-          <p className="text-blanc/50 text-sm text-center mt-12">
+          <p className="text-noir/40 text-sm text-center mt-12">
             {t('placeholder.cv')}
           </p>
         </motion.div>
       </section>
 
       {/* Inquire CTA */}
-      <section className="section-blanc section-padding">
+      <section className="bg-blanc-muted section-padding">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

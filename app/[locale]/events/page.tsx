@@ -8,24 +8,24 @@ export default function EventsPage() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Header - Noir Background */}
-      <section className="section-noir hero-offset">
+      {/* Hero Header */}
+      <section className="bg-blanc hero-offset">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="container-narrow text-center"
         >
-          <h1 className="font-display text-4xl md:text-5xl text-blanc tracking-wide mb-6">
+          <h1 className="font-display text-4xl md:text-5xl text-noir tracking-wide mb-6">
             {t('title')}
           </h1>
-          <p className="text-blanc/60 text-lg tracking-wide">{t('subtitle')}</p>
+          <p className="text-noir/50 text-lg tracking-wide">{t('subtitle')}</p>
           <div className="divider-gold mx-auto mt-10" />
         </motion.div>
       </section>
 
-      {/* Coming Soon Section - Blanc Background */}
-      <section className="section-blanc section-padding-lg">
+      {/* Coming Soon Section */}
+      <section className="bg-blanc-muted section-padding-lg">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export default function EventsPage() {
         >
           <div className="text-center py-20">
             {/* Calendar Icon */}
-            <div className="w-24 h-24 mx-auto mb-12 border border-noir/20 flex items-center justify-center">
+            <div className="w-24 h-24 mx-auto mb-12 border border-noir/15 flex items-center justify-center">
               <svg
                 className="w-12 h-12 text-or"
                 fill="none"
@@ -53,7 +53,7 @@ export default function EventsPage() {
             <p className="text-noir text-2xl font-display mb-4 tracking-wide">
               {t('comingSoon')}
             </p>
-            <p className="text-noir/60 text-base mb-8 tracking-wide max-w-md mx-auto">
+            <p className="text-noir/50 text-base mb-8 tracking-wide max-w-md mx-auto">
               {t('stayTuned')}
             </p>
 

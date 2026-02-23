@@ -51,19 +51,12 @@ export function Header() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-noir/95 backdrop-blur-sm py-4 md:py-5'
+            ? 'bg-blanc/95 backdrop-blur-sm py-4 md:py-5 shadow-[0_1px_0_rgba(0,0,0,0.06)]'
             : 'bg-transparent py-6 md:py-8'
         }`}
       >
-        {/* Gradient overlay - only show when not scrolled */}
-        <div
-          className={`absolute inset-0 bg-gradient-to-b from-noir/80 to-transparent pointer-events-none transition-opacity duration-500 ${
-            isScrolled ? 'opacity-0' : 'opacity-100'
-          }`}
-        />
-
         <nav className="relative container-wide px-edge flex items-center justify-between">
-          {/* Logo - 2 lines: ORUS on top, gallery below */}
+          {/* Logo */}
           <Link
             href="/"
             className="flex flex-col items-start hover:opacity-80 transition-opacity duration-300"
@@ -75,7 +68,7 @@ export function Header() {
               ORUS
             </span>
             <span
-              className="font-display text-sm md:text-base tracking-[0.25em] uppercase text-blanc/70"
+              className="font-display text-sm md:text-base tracking-[0.25em] uppercase text-noir/50"
               style={{ fontWeight: 300 }}
             >
               gallery
@@ -91,7 +84,7 @@ export function Header() {
                 className={`text-sm tracking-[0.12em] uppercase transition-colors duration-300 ${
                   pathname === item.href
                     ? 'text-or'
-                    : 'text-blanc/60 hover:text-blanc'
+                    : 'text-noir/50 hover:text-noir'
                 }`}
               >
                 {item.label}
@@ -99,7 +92,7 @@ export function Header() {
             ))}
 
             {/* Separator */}
-            <div className="w-px h-4 bg-blanc/20" />
+            <div className="w-px h-4 bg-noir/15" />
 
             {/* Language Switcher */}
             <LanguageSwitcher />
@@ -118,7 +111,7 @@ export function Header() {
                   y: isMobileMenuOpen ? 6 : 0,
                 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="absolute top-0 left-0 w-full h-px bg-blanc"
+                className="absolute top-0 left-0 w-full h-px bg-noir"
               />
               <motion.span
                 animate={{
@@ -126,7 +119,7 @@ export function Header() {
                   x: isMobileMenuOpen ? 10 : 0,
                 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-1/2 left-0 w-full h-px bg-blanc"
+                className="absolute top-1/2 left-0 w-full h-px bg-noir"
               />
               <motion.span
                 animate={{
@@ -134,7 +127,7 @@ export function Header() {
                   y: isMobileMenuOpen ? -6 : 0,
                 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="absolute bottom-0 left-0 w-full h-px bg-blanc"
+                className="absolute bottom-0 left-0 w-full h-px bg-noir"
               />
             </div>
           </button>
@@ -153,7 +146,7 @@ export function Header() {
           >
             {/* Backdrop */}
             <div
-              className="absolute inset-0 bg-noir/95 backdrop-blur-md"
+              className="absolute inset-0 bg-blanc/95 backdrop-blur-md"
               onClick={closeMobileMenu}
             />
 
@@ -180,7 +173,7 @@ export function Header() {
                       className={`font-display text-2xl tracking-[0.15em] uppercase transition-colors duration-300 ${
                         pathname === item.href
                           ? 'text-or'
-                          : 'text-blanc hover:text-or'
+                          : 'text-noir hover:text-or'
                       }`}
                     >
                       {item.label}
@@ -211,7 +204,7 @@ export function Header() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, delay: 0.6 }}
-                className="text-blanc/50 text-sm tracking-[0.2em] uppercase mt-10"
+                className="text-noir/40 text-sm tracking-[0.2em] uppercase mt-10"
               >
                 Taiwan — Paris
               </motion.p>

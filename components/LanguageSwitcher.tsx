@@ -28,13 +28,13 @@ export function LanguageSwitcher() {
             className={`text-sm tracking-wider transition-colors duration-300 ${
               locale === loc
                 ? 'text-or'
-                : 'text-ivoire/50 hover:text-ivoire/80'
+                : 'text-noir/40 hover:text-noir/70'
             }`}
           >
             {localeNames[loc]}
           </button>
           {index < routing.locales.length - 1 && (
-            <span className="text-ivoire/20">|</span>
+            <span className="text-noir/20">|</span>
           )}
         </span>
       ))}

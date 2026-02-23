@@ -9,21 +9,21 @@ export default function PressPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Header */}
-      <section className="section-noir hero-offset">
+      <section className="bg-blanc hero-offset">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="container-narrow text-center"
         >
-          <h1 className="title-section text-blanc mb-6">{t('title')}</h1>
-          <p className="text-blanc/60 text-lg tracking-wide">{t('subtitle')}</p>
+          <h1 className="title-section text-noir mb-6">{t('title')}</h1>
+          <p className="text-noir/50 text-lg tracking-wide">{t('subtitle')}</p>
           <div className="divider-gold mx-auto mt-10" />
         </motion.div>
       </section>
 
       {/* Selected Coverage — Empty State */}
-      <section className="section-noir section-padding-lg">
+      <section className="bg-blanc-muted section-padding-lg">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,28 +32,28 @@ export default function PressPage() {
           className="container-wide"
         >
           <div className="text-center mb-20">
-            <p className="text-noir/50 text-sm tracking-[0.2em] uppercase font-medium mb-4">
+            <p className="text-noir/40 text-sm tracking-[0.2em] uppercase font-medium mb-4">
               {t('articles')}
             </p>
-            <h2 className="title-section text-blanc">Selected Coverage</h2>
+            <h2 className="title-section text-noir">Selected Coverage</h2>
           </div>
 
           {/* Empty state */}
           <div className="text-center py-16">
-            <div className="w-16 h-px bg-blanc/10 mx-auto mb-8" />
-            <p className="text-blanc/40 text-lg font-display tracking-wide mb-3">
+            <div className="w-16 h-px bg-noir/10 mx-auto mb-8" />
+            <p className="text-noir/40 text-lg font-display tracking-wide mb-3">
               {t('comingSoon')}
             </p>
-            <p className="text-blanc/25 text-sm tracking-wide">
+            <p className="text-noir/25 text-sm tracking-wide">
               {t('stayTuned')}
             </p>
-            <div className="w-16 h-px bg-blanc/10 mx-auto mt-8" />
+            <div className="w-16 h-px bg-noir/10 mx-auto mt-8" />
           </div>
         </motion.div>
       </section>
 
       {/* Press Contact Section */}
-      <section className="section-blanc section-padding-lg">
+      <section className="bg-blanc section-padding-lg">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -63,13 +63,13 @@ export default function PressPage() {
           <div className="grid md:grid-cols-2 gap-20 items-center">
             {/* Contact Info */}
             <div>
-              <p className="text-noir/50 text-sm tracking-[0.2em] uppercase font-medium mb-4">
+              <p className="text-noir/40 text-sm tracking-[0.2em] uppercase font-medium mb-4">
                 {t('contact')}
               </p>
               <h2 className="font-display text-3xl md:text-4xl text-noir mb-6 tracking-wide">
                 Media Inquiries
               </h2>
-              <p className="text-noir/70 text-lg leading-relaxed mb-8">
+              <p className="text-noir/60 text-lg leading-relaxed mb-8">
                 For press inquiries, interview requests, and media collaborations,
                 please contact our press office. We respond within 24 hours.
               </p>
@@ -82,10 +82,10 @@ export default function PressPage() {
             </div>
 
             {/* Press Kit */}
-            <div className="bg-blanc border border-noir/10 p-10 md:p-12">
+            <div className="bg-blanc-muted border border-noir/10 p-10 md:p-12">
               <div className="w-16 h-16 mb-6 border border-noir/15 flex items-center justify-center">
                 <svg
-                  className="w-8 h-8 text-noir/40"
+                  className="w-8 h-8 text-noir/30"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -99,7 +99,7 @@ export default function PressPage() {
                 </svg>
               </div>
               <h3 className="font-display text-2xl text-noir mb-4">{t('kit')}</h3>
-              <p className="text-noir/60 text-base mb-8 leading-relaxed">
+              <p className="text-noir/50 text-base mb-8 leading-relaxed">
                 Download our press kit including high-resolution images,
                 gallery information, and artist biographies.
               </p>

@@ -80,7 +80,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Header */}
-      <section className="section-noir hero-offset">
+      <section className="bg-blanc hero-offset">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,14 +101,14 @@ export default function ContactPage() {
             </span>
           </motion.div>
 
-          <h1 className="title-section text-blanc mb-6">{t('title')}</h1>
-          <p className="text-blanc/60 text-lg tracking-wide">{t('subtitle')}</p>
+          <h1 className="title-section text-noir mb-6">{t('title')}</h1>
+          <p className="text-noir/50 text-lg tracking-wide">{t('subtitle')}</p>
           <div className="divider-gold mx-auto mt-10" />
         </motion.div>
       </section>
 
       {/* Main Content Section */}
-      <section className="section-blanc section-padding">
+      <section className="bg-blanc-muted section-padding">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             {/* Left Column - Image & Info */}
@@ -124,7 +124,6 @@ export default function ContactPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir/30 to-transparent" />
               </div>
 
               <div className="space-y-8">
@@ -138,21 +137,21 @@ export default function ContactPage() {
                   >
                     info@orusgallery.com
                   </a>
-                  <p className="text-noir/50 text-sm mt-1">{t('contactInfo.general')}</p>
+                  <p className="text-noir/40 text-sm mt-1">{t('contactInfo.general')}</p>
                   <a
                     href="mailto:press@orusgallery.com"
                     className="text-noir hover:text-or text-lg font-display transition-colors duration-300 block mt-2"
                   >
                     press@orusgallery.com
                   </a>
-                  <p className="text-noir/50 text-sm mt-1">{t('contactInfo.press')}</p>
+                  <p className="text-noir/40 text-sm mt-1">{t('contactInfo.press')}</p>
                 </div>
 
                 <div>
                   <p className="text-or text-xs tracking-[0.2em] uppercase font-medium mb-2">
                     {t('contactInfo.locations')}
                   </p>
-                  <p className="text-noir/70 text-base">
+                  <p className="text-noir/60 text-base">
                     {t('contactInfo.cities')}
                   </p>
                 </div>
@@ -161,7 +160,7 @@ export default function ContactPage() {
                   <p className="text-or text-xs tracking-[0.2em] uppercase font-medium mb-2">
                     {t('contactInfo.hours')}
                   </p>
-                  <p className="text-noir/70 text-base">
+                  <p className="text-noir/60 text-base">
                     {t('contactInfo.byAppointment')}
                   </p>
                 </div>
@@ -196,13 +195,13 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <p className="text-noir text-xl font-display mb-2">{t('form.success')}</p>
-                  <p className="text-noir/60 text-sm mb-6">{t('form.successSubtext')}</p>
+                  <p className="text-noir/50 text-sm mb-6">{t('form.successSubtext')}</p>
                   <Link href="/artists" className="btn-text">
                     {t('form.backToArtists')} →
                   </Link>
                 </motion.div>
               ) : (
-                <div className="bg-blanc-muted p-8 md:p-12">
+                <div className="bg-blanc p-8 md:p-12 border border-noir/10">
                   <h2 className="font-display text-2xl text-noir mb-8">{t('form.title')}</h2>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -331,7 +330,7 @@ export default function ContactPage() {
                           {...register('rgpd')}
                           className="mt-1 h-4 w-4 accent-[#C9A227] border-noir/15"
                         />
-                        <Label htmlFor="rgpd" className="text-noir/70 text-sm leading-relaxed cursor-pointer">
+                        <Label htmlFor="rgpd" className="text-noir/60 text-sm leading-relaxed cursor-pointer">
                           {t('form.rgpdText')}
                         </Label>
                       </div>
@@ -359,11 +358,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* Background */}
-      <div className="fixed inset-0 pointer-events-none -z-10">
-        <div className="absolute inset-0 bg-blanc" />
-      </div>
     </div>
   );
 }

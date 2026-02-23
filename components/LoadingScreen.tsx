@@ -9,7 +9,7 @@ interface LoadingScreenProps {
 
 export function LoadingScreen({ logoSrc }: LoadingScreenProps) {
   return (
-    <div className="fixed inset-0 z-[100] bg-noir flex items-center justify-center">
+    <div className="fixed inset-0 z-[100] bg-blanc flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -38,7 +38,7 @@ export function LoadingScreen({ logoSrc }: LoadingScreenProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-ivoire/50 text-sm tracking-[0.2em] uppercase"
+          className="text-noir/40 text-sm tracking-[0.2em] uppercase"
         >
           Gallery
         </motion.div>
