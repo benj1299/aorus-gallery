@@ -55,36 +55,40 @@
   },
   "home": {
     "hero": {
-      "positioning": "Taipei — Paris",
-      "response": "We respond within 24 hours"
+      "title": "ORUS Gallery",
+      "location": "Taipei",
+      "locationSeparator": "Paris",
+      "cta": "Request a viewing"
     },
-    "curatorial": {
-      "eyebrow": "Curatorial Direction",
-      "title": "Where Art Meets Identity",
-      "text1": "ORUS Gallery emerges from a profound conviction: art transcends borders, cultures, and time. Based in Taiwan with deep connections to Paris, we champion contemporary artists whose work explores memory, identity, and the human condition.",
-      "text2": "We believe in continuity over speed, depth over breadth. Each artist we represent carries a singular voice that resonates across cultures, creating bridges between the intimate and the universal."
+    "activity": {
+      "sectionLabel": "Activity",
+      "currentLabel": "Current",
+      "upcomingLabel": "Upcoming",
+      "currentTitle": "Private Selections",
+      "currentFormat": "By appointment",
+      "currentCta": "Inquire",
+      "upcomingTitle": "Private Exhibition",
+      "upcomingDate": "Spring 2026",
+      "upcomingCity": "Paris",
+      "upcomingFormat": "On request",
+      "upcomingCta": "Inquire"
     },
-    "value": {
-      "eyebrow": "Why ORUS",
-      "title": "Our Promise",
-      "pillar1": {
-        "title": "Exacting Curation",
-        "text": "Every artist in our roster is selected through rigorous evaluation. We represent only those whose vision and craft meet our exacting standards."
-      },
-      "pillar2": {
-        "title": "Bespoke Collector Support",
-        "text": "Personal advisory services tailored to your journey. From first acquisition to building a comprehensive collection, we guide you at every step."
-      },
-      "pillar3": {
-        "title": "International Network",
-        "text": "With presence in Taiwan and Paris, we connect Asian collectors with European artists and facilitate cross-cultural dialogue through art."
-      }
+    "roster": {
+      "sectionLabel": "Roster",
+      "basedIn": "based in",
+      "viewArtist": "View artist"
     },
-    "cta": {
-      "title": "Start a Conversation",
-      "subtitle": "We welcome inquiries from collectors and art enthusiasts. Our team responds within 24 hours.",
-      "contact": "Contact Us",
-      "artists": "View Artists"
+    "statement": {
+      "sectionLabel": "Statement",
+      "text": "ORUS is Origin + Us. We bridge international contemporary artists with Asian and global collectors who understand that a collection is built over a lifetime, not a season. Limited roster. Long-term careers over hype. Deep support: documentation, process, placement, discretion. We operate by appointment and respond within 24 hours."
+    },
+    "contact": {
+      "general": "General inquiries",
+      "generalEmail": "info@orusgallery.com",
+      "press": "Press",
+      "pressEmail": "press@orusgallery.com",
+      "appointment": "Appointments only",
+      "response": "Response within 24h"
     }
   },
   "artists": {
