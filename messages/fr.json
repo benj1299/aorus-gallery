@@ -15,42 +15,39 @@
     "contact": "Contact"
   },
   "about": {
-    "title": "À Propos d'ORUS Gallery",
-    "tagline": "Origin + Us",
+    "title": "À Propos",
     "mission": {
-      "eyebrow": "Notre Mission",
-      "title": "Relier les Cultures par l'Art",
-      "text": "ORUS Gallery existe pour connecter des artistes contemporains exceptionnels avec des collectionneurs avertis à travers l'Asie et au-delà. Nous croyons que l'art transcende les frontières, et que les collections les plus significatives se construisent à travers la confiance, l'expertise et la passion partagée."
+      "label": "Mission",
+      "text1": "Connecter des artistes contemporains internationaux avec des collectionneurs asiatiques et mondiaux.",
+      "text2": "Taiwan comme point d'entrée stratégique — un marché en croissance avec une infrastructure institutionnelle et de collectionneurs solide.",
+      "text3": "Diffusion structurée via expositions, ventes privées et foires ciblées."
+    },
+    "program": {
+      "label": "Programme",
+      "item1": "Expositions",
+      "item2": "Ventes Privées",
+      "item3": "Introductions Curatoriales",
+      "item4": "Conseil"
+    },
+    "method": {
+      "label": "Méthode",
+      "principle1": "Carrières à long terme plutôt que l'hype",
+      "principle2": "Roster limité, accompagnement profond",
+      "principle3": "Processus, documentation, discrétion"
+    },
+    "locations": {
+      "label": "Implantations",
+      "taipei": "Taipei",
+      "paris": "Paris",
+      "appointment": "Sur rendez-vous uniquement"
     },
     "team": {
-      "eyebrow": "Équipe Internationale",
-      "title": "France & Taiwan",
-      "paris": "Notre équipe parisienne apporte des décennies d'expérience des grandes maisons de ventes et galeries, maintenant des liens étroits avec les artistes contemporains européens.",
-      "taiwan": "Notre équipe taiwanaise sert de porte d'entrée vers les collectionneurs asiatiques, offrant une expertise locale et construisant des relations durables à travers la région."
+      "label": "Équipe",
+      "placeholder": "Les profils de l'équipe seront publiés prochainement."
     },
-    "curatorial": {
-      "eyebrow": "Direction Curatoriale",
-      "title": "Notre Philosophie",
-      "value1": {
-        "title": "La Continuité plutôt que la Vitesse",
-        "text": "Nous construisons des relations durables avec les artistes et les collectionneurs, nourrissant carrières et collections sur des décennies, pas des saisons."
-      },
-      "value2": {
-        "title": "La Profondeur plutôt que l'Étendue",
-        "text": "Nous représentons moins d'artistes avec un engagement plus profond, garantissant que chaque voix reçoive l'attention et le soin qu'elle mérite."
-      },
-      "quote": "L'art n'est pas une transaction. C'est une conversation qui traverse les générations."
-    },
-    "approach": {
-      "eyebrow": "Notre Approche",
-      "title": "Service Premium et Discret",
-      "text": "Nous offrons des services de conseil sur mesure aux collectionneurs, proposant des visites privées, des recommandations personnalisées et des transactions discrètes. Votre voyage avec l'art est personnel, et nous le traitons comme tel."
-    },
-    "cta": {
-      "title": "Commencez Votre Voyage",
-      "subtitle": "Découvrez nos artistes ou entamez une conversation",
-      "artists": "Rencontrer les Artistes",
-      "contact": "Nous Contacter"
+    "partnerships": {
+      "label": "Partenariats",
+      "description": "ORUS Gallery travaille avec des institutions, des collectionneurs corporate et des clients privés cherchant un accès structuré à l'art contemporain. Nous facilitons des relations à long terme fondées sur l'intégrité curatoriale et la connaissance du marché."
     }
   },
   "home": {
@@ -120,13 +117,25 @@
   "press": {
     "title": "Presse",
     "subtitle": "Demandes médias et ressources presse",
-    "contact": "Contact Presse",
-    "email": "presse@orusgallery.com",
-    "kit": "Kit Presse",
-    "downloadKit": "Télécharger le Kit Presse",
-    "articles": "Couverture Presse",
-    "comingSoon": "Matériel presse disponible prochainement",
-    "stayTuned": "Revenez bientôt pour les mises à jour"
+    "contact": {
+      "label": "Contact Presse",
+      "email": "press@orusgallery.com",
+      "response": "Nous répondons aux demandes presse sous 48 heures."
+    },
+    "kit": {
+      "label": "Kit Presse",
+      "status": "Kit presse en préparation — T1 2026",
+      "includes": "Logo SVG, photos de la galerie, portrait de la directrice, texte institutionnel, roster, images libres de droits.",
+      "request": "Disponible sur demande — press@orusgallery.com"
+    },
+    "releases": {
+      "label": "Communiqués de Presse",
+      "empty": "Premier communiqué de presse institutionnel en préparation — T1 2026"
+    },
+    "assets": {
+      "label": "Ressources Médias",
+      "description": "Disponibles sur demande — press@orusgallery.com"
+    }
   },
   "contact": {
     "title": "Contact",
