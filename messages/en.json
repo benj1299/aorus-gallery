@@ -89,12 +89,23 @@
   },
   "artists": {
     "title": "Artists",
-    "subtitle": "Gallery Roster",
+    "subtitle": "International roster / painting-forward / cross-cultural program",
     "viewBio": "Biography",
     "viewWorks": "Works",
     "viewCV": "CV",
     "comingSoon": "Artist announcements coming soon",
-    "stayTuned": "Be the first to discover our represented artists"
+    "stayTuned": "Be the first to discover our represented artists",
+    "filterMedium": "Medium",
+    "filterRegion": "Region",
+    "mediumPainting": "Painting",
+    "mediumMixedMedia": "Mixed Media",
+    "mediumResin": "Resin",
+    "regionEurope": "Europe",
+    "regionAfrica": "Africa",
+    "regionAmericas": "Americas",
+    "regionAsia": "Asia",
+    "viewProfile": "View profile",
+    "noResults": "No artists match the selected filters"
   },
   "artist": {
     "biography": "Biography",
