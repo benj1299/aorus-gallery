@@ -15,42 +15,39 @@
     "contact": "聯繫"
   },
   "about": {
-    "title": "關於 ORUS Gallery",
-    "tagline": "Origin + Us",
+    "title": "關於",
     "mission": {
-      "eyebrow": "我們的使命",
-      "title": "透過藝術連結文化",
-      "text": "ORUS Gallery 的存在是為了將傑出的當代藝術家與亞洲及其他地區有鑑賞力的藏家連結起來。我們相信藝術超越國界，最有意義的收藏是通過信任、專業和共同熱情建立的。"
+      "label": "使命",
+      "text1": "連結國際當代藝術家與亞洲及全球藏家。",
+      "text2": "以台灣作為戰略入口 — 一個擁有完善機構及藏家基礎設施的成長型市場。",
+      "text3": "透過展覽、私人銷售及目標性藝博會進行結構化推廣。"
+    },
+    "program": {
+      "label": "項目",
+      "item1": "展覽",
+      "item2": "私人銷售",
+      "item3": "策展引薦",
+      "item4": "諮詢顧問"
+    },
+    "method": {
+      "label": "方法",
+      "principle1": "長期職業發展，而非追逐熱點",
+      "principle2": "精選名單，深度支持",
+      "principle3": "流程、文件記錄、謹慎處理"
+    },
+    "locations": {
+      "label": "據點",
+      "taipei": "台北",
+      "paris": "巴黎",
+      "appointment": "僅限預約"
     },
     "team": {
-      "eyebrow": "國際團隊",
-      "title": "法國與台灣",
-      "paris": "我們的巴黎團隊擁有來自頂尖拍賣行和畫廊數十年的經驗，與歐洲當代藝術家保持緊密連結。",
-      "taiwan": "我們的台灣團隊是亞洲藏家的門戶，提供本地專業知識，在整個地區建立持久關係。"
+      "label": "團隊",
+      "placeholder": "團隊簡介即將發布。"
     },
-    "curatorial": {
-      "eyebrow": "策展方向",
-      "title": "我們的理念",
-      "value1": {
-        "title": "持續勝於速度",
-        "text": "我們與藝術家和藏家建立持久關係，以數十年而非季度來培養事業和收藏。"
-      },
-      "value2": {
-        "title": "深度勝於廣度",
-        "text": "我們代理更少的藝術家，投入更深的承諾，確保每個聲音都獲得應有的關注和照顧。"
-      },
-      "quote": "藝術不是交易。它是跨越世代的對話。"
-    },
-    "approach": {
-      "eyebrow": "我們的方式",
-      "title": "尊貴而謹慎的服務",
-      "text": "我們為藏家提供量身定制的諮詢服務，包括私人觀展、個人化推薦和謹慎的交易。您的藝術之旅是私人的，我們如此對待。"
-    },
-    "cta": {
-      "title": "開啟您的旅程",
-      "subtitle": "探索我們的藝術家或開始對話",
-      "artists": "認識藝術家",
-      "contact": "聯繫我們"
+    "partnerships": {
+      "label": "合作關係",
+      "description": "ORUS Gallery 與機構、企業藏家及尋求結構化當代藝術資源的私人客戶合作。我們建立以策展誠信和市場知識為基礎的長期關係。"
     }
   },
   "home": {
@@ -135,13 +132,25 @@
   "press": {
     "title": "媒體",
     "subtitle": "媒體查詢及新聞資源",
-    "contact": "媒體聯繫",
-    "email": "press@orusgallery.com",
-    "kit": "媒體資料包",
-    "downloadKit": "下載媒體資料包",
-    "articles": "媒體報導",
-    "comingSoon": "媒體資料即將提供",
-    "stayTuned": "敬請期待最新消息"
+    "contact": {
+      "label": "媒體聯絡",
+      "email": "press@orusgallery.com",
+      "response": "我們於48小時內回覆媒體查詢。"
+    },
+    "kit": {
+      "label": "媒體資料包",
+      "status": "媒體資料包準備中 — 2026年第一季",
+      "includes": "Logo SVG、畫廊照片、館長肖像、機構文稿、藝術家名單、版權清晰圖片。",
+      "request": "可應要求提供 — press@orusgallery.com"
+    },
+    "releases": {
+      "label": "新聞稿",
+      "empty": "首份機構新聞稿準備中 — 2026年第一季"
+    },
+    "assets": {
+      "label": "媒體素材",
+      "description": "可應要求提供 — press@orusgallery.com"
+    }
   },
   "contact": {
     "title": "聯繫",

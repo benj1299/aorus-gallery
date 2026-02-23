@@ -15,42 +15,39 @@
     "contact": "Contact"
   },
   "about": {
-    "title": "About ORUS Gallery",
-    "tagline": "Origin + Us",
+    "title": "About",
     "mission": {
-      "eyebrow": "Our Mission",
-      "title": "Bridging Cultures Through Art",
-      "text": "ORUS Gallery exists to connect exceptional contemporary artists with discerning collectors across Asia and beyond. We believe that art transcends borders, and that the most meaningful collections are built through trust, expertise, and shared passion."
+      "label": "Mission",
+      "text1": "Connecting international contemporary artists with Asian and global collectors.",
+      "text2": "Taiwan as strategic entry point — a growing market with deep institutional and collector infrastructure.",
+      "text3": "Structured diffusion through exhibitions, private sales, and targeted fairs."
+    },
+    "program": {
+      "label": "Program",
+      "item1": "Exhibitions",
+      "item2": "Private Sales",
+      "item3": "Curated Introductions",
+      "item4": "Advisory"
+    },
+    "method": {
+      "label": "Method",
+      "principle1": "Long-term careers over hype",
+      "principle2": "Limited roster, deep support",
+      "principle3": "Process, documentation, discretion"
+    },
+    "locations": {
+      "label": "Locations",
+      "taipei": "Taipei",
+      "paris": "Paris",
+      "appointment": "By appointment only"
     },
     "team": {
-      "eyebrow": "International Team",
-      "title": "France & Taiwan",
-      "paris": "Our Paris team brings decades of experience from leading auction houses and galleries, maintaining strong connections with European contemporary artists.",
-      "taiwan": "Our Taiwan team serves as the gateway to Asian collectors, offering local expertise and building lasting relationships across the region."
+      "label": "Team",
+      "placeholder": "Team profiles will be published shortly."
     },
-    "curatorial": {
-      "eyebrow": "Curatorial Direction",
-      "title": "Our Philosophy",
-      "value1": {
-        "title": "Continuity over Speed",
-        "text": "We build lasting relationships with artists and collectors, nurturing careers and collections over decades, not seasons."
-      },
-      "value2": {
-        "title": "Depth over Breadth",
-        "text": "We represent fewer artists with deeper commitment, ensuring each voice receives the attention and care it deserves."
-      },
-      "quote": "Art is not a transaction. It is a conversation that spans generations."
-    },
-    "approach": {
-      "eyebrow": "Our Approach",
-      "title": "Premium, Discrete Service",
-      "text": "We provide bespoke advisory services to collectors, offering private viewings, personalized recommendations, and discreet transactions. Your journey with art is personal, and we treat it as such."
-    },
-    "cta": {
-      "title": "Begin Your Journey",
-      "subtitle": "Discover our artists or start a conversation",
-      "artists": "Meet the Artists",
-      "contact": "Get in Touch"
+    "partnerships": {
+      "label": "Partnerships",
+      "description": "ORUS Gallery works with institutions, corporate collectors, and private clients seeking structured access to contemporary art. We facilitate long-term relationships grounded in curatorial integrity and market knowledge."
     }
   },
   "home": {
@@ -135,13 +132,25 @@
   "press": {
     "title": "Press",
     "subtitle": "Media inquiries and press resources",
-    "contact": "Press Contact",
-    "email": "press@orusgallery.com",
-    "kit": "Press Kit",
-    "downloadKit": "Download Press Kit",
-    "articles": "Press Coverage",
-    "comingSoon": "Press materials coming soon",
-    "stayTuned": "Check back soon for updates"
+    "contact": {
+      "label": "Press Contact",
+      "email": "press@orusgallery.com",
+      "response": "We respond to press inquiries within 48 hours."
+    },
+    "kit": {
+      "label": "Press Kit",
+      "status": "Press kit in preparation — Q1 2026",
+      "includes": "Logo SVG, gallery photos, director portrait, institutional text, roster, copyright-clear images.",
+      "request": "Available on request — contact press@orusgallery.com"
+    },
+    "releases": {
+      "label": "Press Releases",
+      "empty": "First institutional press release in preparation — Q1 2026"
+    },
+    "assets": {
+      "label": "Media Assets",
+      "description": "Available on request — contact press@orusgallery.com"
+    }
   },
   "contact": {
     "title": "Contact",
