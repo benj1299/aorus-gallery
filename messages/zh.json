@@ -156,13 +156,51 @@
     "title": "聯繫",
     "subtitle": "歡迎藏家和藝術愛好者垂詢",
     "response": "我們於24小時內回覆",
+    "contactInfo": {
+      "email": "電子郵件",
+      "general": "一般查詢",
+      "press": "媒體",
+      "locations": "地點",
+      "cities": "台北 / 巴黎",
+      "hours": "營業時間",
+      "byAppointment": "僅限預約"
+    },
     "form": {
+      "title": "傳送訊息",
+      "status": "我是",
+      "statusOptions": {
+        "collector": "收藏家",
+        "press": "媒體",
+        "institution": "機構",
+        "corporate": "企業",
+        "artist": "藝術家",
+        "other": "其他"
+      },
+      "name": "姓名",
+      "namePlaceholder": "您的全名",
       "email": "電子郵件",
       "message": "訊息",
-      "messagePlaceholder": "告訴我們您的興趣...",
+      "messagePlaceholder": "告訴我們您的興趣或想討論的藝術家...",
+      "interestedIn": "您對什麼感興趣?",
+      "interestedInOptions": {
+        "artist": "藝術家",
+        "work": "作品",
+        "advisory": "諮詢服務",
+        "event": "活動"
+      },
+      "preferredLanguage": "偏好的語言",
+      "languageOptions": {
+        "en": "English",
+        "fr": "Français",
+        "zh": "中文"
+      },
+      "selectOption": "選擇一個選項",
+      "rgpdText": "我同意根據隱私政策處理我的個人資料。",
       "submit": "發送訊息",
       "sending": "發送中...",
       "success": "感謝您的訊息。",
+      "successSubtext": "我們將審查您的查詢並在24小時內回覆。",
+      "backToArtists": "返回藝術家",
       "error": "發生錯誤，請重試。"
     }
   },
