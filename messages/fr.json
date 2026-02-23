@@ -132,13 +132,51 @@
     "title": "Contact",
     "subtitle": "Nous accueillons les demandes des collectionneurs et amateurs d'art",
     "response": "Nous répondons sous 24 heures",
+    "contactInfo": {
+      "email": "Email",
+      "general": "Demandes Générales",
+      "press": "Presse",
+      "locations": "Localités",
+      "cities": "Taipei / Paris",
+      "hours": "Heures",
+      "byAppointment": "Sur rendez-vous uniquement"
+    },
     "form": {
+      "title": "Envoyer un Message",
+      "status": "Je suis",
+      "statusOptions": {
+        "collector": "Collectionneur",
+        "press": "Presse",
+        "institution": "Institution",
+        "corporate": "Entreprise",
+        "artist": "Artiste",
+        "other": "Autre"
+      },
+      "name": "Nom",
+      "namePlaceholder": "Votre nom complet",
       "email": "Email",
       "message": "Message",
-      "messagePlaceholder": "Parlez-nous de votre intérêt...",
+      "messagePlaceholder": "Parlez-nous de votre intérêt ou des artistes dont vous aimeriez discuter...",
+      "interestedIn": "Que vous intéresse?",
+      "interestedInOptions": {
+        "artist": "Artiste",
+        "work": "Œuvre",
+        "advisory": "Services de Conseil",
+        "event": "Événement"
+      },
+      "preferredLanguage": "Langue préférée",
+      "languageOptions": {
+        "en": "English",
+        "fr": "Français",
+        "zh": "中文"
+      },
+      "selectOption": "Sélectionnez une option",
+      "rgpdText": "J'accepte le traitement de mes données personnelles conformément à la Politique de Confidentialité.",
       "submit": "Envoyer",
       "sending": "Envoi en cours...",
       "success": "Merci pour votre message.",
+      "successSubtext": "Nous examinerons votre demande et vous répondrons dans 24 heures.",
+      "backToArtists": "Retour aux Artistes",
       "error": "Une erreur s'est produite. Veuillez réessayer."
     }
   },
