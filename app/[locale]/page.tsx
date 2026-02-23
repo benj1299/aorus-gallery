@@ -1,348 +1,405 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
+import { useRef } from 'react';
+import { getArtists } from '@/lib/artists-data';
 
-// Featured artworks for the gallery preview
-const featuredWorks = [
-  {
-    id: 1,
-    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80',
-    title: 'Contemporary Abstract',
-  },
-  {
-    id: 2,
-    image: 'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=800&q=80',
-    title: 'Gallery Exhibition',
-  },
-  {
-    id: 3,
-    image: 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=800&q=80',
-    title: 'Modern Sculpture',
-  },
-  {
-    id: 4,
-    image: 'https://images.unsplash.com/photo-1549887534-1541e9326642?w=800&q=80',
-    title: 'Abstract Expression',
-  },
-];
+// ─── Animation helpers ────────────────────────────────────────────────────────
+
+function FadeInUp({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-80px' });
+
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      initial={{ opacity: 0, y: 28 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, delay, ease: [0.2, 0.8, 0.2, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// ─── Roster data (filtered at module level) ───────────────────────────────────
+
+const rosterArtists = getArtists()
+  .filter((a) => a.contentStatus !== 'coming-soon')
+  .slice(0, 6);
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function HomePage() {
   const t = useTranslations('home');
 
   return (
     <div className="flex flex-col">
-      {/* ===== HERO SECTION - Noir Background ===== */}
-      <section className="section-noir min-h-screen flex items-center justify-center relative">
-        {/* Background - Logo watermark */}
-        <div className="absolute inset-0 artwork-placeholder">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img
-              src="/logo.png"
-              alt=""
-              className="w-[50vw] max-w-[600px] opacity-[0.03]"
+
+      {/* ═══════════════════════════════════════════════════════════════════════
+          BLOC 1 — HERO
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section
+        id="hero"
+        className="relative min-h-screen overflow-hidden bg-ink"
+      >
+        {/* Full-bleed artwork image */}
+        <Image
+          src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1600&q=80"
+          alt="ORUS Gallery — artwork"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+
+        {/* Subtle vignette to make text legible */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to top, rgba(11,11,11,0.72) 0%, rgba(11,11,11,0.18) 50%, rgba(11,11,11,0.08) 100%)',
+          }}
+        />
+
+        {/* Bottom-left: H1 + location tagline */}
+        <div className="absolute bottom-0 left-0 px-edge pb-12 md:pb-16">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
+            className="text-paper font-display text-5xl md:text-[56px] leading-none tracking-[-0.02em] mb-4"
+          >
+            {t('hero.title')}
+          </motion.h1>
+
+          {/* Taipei — jade segment — Paris */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
+            className="flex items-center gap-3"
+          >
+            <span className="text-stone text-[18px] tracking-[0.06em]">
+              {t('hero.location')}
+            </span>
+            {/* Jade separator segment */}
+            <span
+              className="inline-block h-px w-6 bg-jade flex-shrink-0"
               aria-hidden="true"
             />
-          </div>
-        </div>
-
-        {/* Gradient overlay */}
-        <div className="hero-overlay" />
-
-        {/* Content */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-          className="hero-content"
-        >
-          {/* Logo - 2 lines */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="mb-12"
-          >
-            <div className="flex flex-col items-center">
-              <span
-                className="font-display text-5xl md:text-7xl lg:text-8xl tracking-[0.15em] uppercase leading-none"
-                style={{ color: '#C9A227' }}
-              >
-                ORUS
-              </span>
-              <span
-                className="font-display text-xl md:text-2xl lg:text-3xl tracking-[0.3em] uppercase text-blanc/60 mt-2"
-                style={{ fontWeight: 300 }}
-              >
-                gallery
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Gold Separator */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="divider-gold mx-auto mb-8"
-          />
-
-          {/* Positioning statement */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.9 }}
-            className="text-blanc/70 text-base md:text-lg tracking-[0.15em] uppercase mb-6"
-          >
-            {t('hero.positioning')}
-          </motion.p>
-
-          {/* 24h response promise - prominent */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.1 }}
-            className="inline-flex items-center gap-3 px-6 py-3 border border-or/30"
-          >
-            <span className="text-or text-sm tracking-[0.12em] uppercase font-medium">
-              {t('hero.response')}
+            <span className="text-stone text-[18px] tracking-[0.06em]">
+              {t('hero.locationSeparator')}
             </span>
           </motion.div>
-        </motion.div>
+        </div>
 
-        {/* Scroll indicator */}
+        {/* Bottom-right: CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
+          transition={{ duration: 1, delay: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
+          className="absolute bottom-0 right-0 px-edge pb-12 md:pb-16"
         >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 border border-paper text-paper px-6 py-3 text-sm tracking-[0.12em] uppercase transition-all duration-[140ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:bg-paper hover:text-ink"
           >
-            <div className="w-px h-16 bg-gradient-to-b from-or/60 to-transparent" />
-          </motion.div>
+            <span>{t('hero.cta')}</span>
+            {/* Jade arrow icon */}
+            <svg
+              width="18"
+              height="12"
+              viewBox="0 0 18 12"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M0 6H16M11 1L16 6L11 11"
+                stroke="#4BAF91"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
         </motion.div>
       </section>
 
-      {/* ===== GALLERY PREVIEW - Blanc Background ===== */}
-      <section className="section-blanc section-padding">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 1 }}
-          className="container-wide"
-        >
-          {/* Grid of featured works */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
-            {featuredWorks.map((work, index) => (
-              <motion.div
-                key={work.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="aspect-square relative overflow-hidden group"
-              >
-                <Image
-                  src={work.image}
-                  alt={work.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/30 transition-colors duration-500" />
-              </motion.div>
+      {/* ═══════════════════════════════════════════════════════════════════════
+          BLOC 2 — NOW / UPCOMING
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section
+        id="activity"
+        className="section-paper border-b border-hairline"
+      >
+        <div className="container-wide px-edge py-16 md:py-20">
+
+          {/* Section micro-label */}
+          <FadeInUp>
+            <span className="text-micro block mb-10">{t('activity.sectionLabel')}</span>
+          </FadeInUp>
+
+          <div className="grid md:grid-cols-2 gap-0 md:gap-px">
+
+            {/* Column A — Current */}
+            <FadeInUp delay={0.05}>
+              <div className="py-8 md:py-10 md:pr-12 border-b border-hairline md:border-b-0 md:border-r">
+                <span className="text-micro block mb-6">{t('activity.currentLabel')}</span>
+                <p className="text-stone text-sm tracking-[0.04em] uppercase mb-2">
+                  {t('activity.currentFormat')}
+                </p>
+                <h3 className="font-display text-2xl md:text-3xl text-ink mb-6 tracking-[0.02em]">
+                  {t('activity.currentTitle')}
+                </h3>
+                <Link
+                  href="/contact"
+                  className="btn-text"
+                >
+                  {t('activity.currentCta')}
+                  <svg
+                    width="16"
+                    height="10"
+                    viewBox="0 0 16 10"
+                    fill="none"
+                    aria-hidden="true"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    <path
+                      d="M0 5H14M9.5 1L14 5L9.5 9"
+                      stroke="currentColor"
+                      strokeWidth="1.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </FadeInUp>
+
+            {/* Column B — Upcoming */}
+            <FadeInUp delay={0.1}>
+              <div className="py-8 md:py-10 md:pl-12">
+                <span className="text-micro block mb-6">{t('activity.upcomingLabel')}</span>
+                <p className="text-stone text-sm tracking-[0.04em] uppercase mb-2">
+                  {t('activity.upcomingDate')} — {t('activity.upcomingCity')}
+                </p>
+                <h3 className="font-display text-2xl md:text-3xl text-ink mb-1 tracking-[0.02em]">
+                  {t('activity.upcomingTitle')}
+                </h3>
+                <p className="text-stone text-sm mb-6">{t('activity.upcomingFormat')}</p>
+                <Link
+                  href="/contact"
+                  className="btn-text"
+                >
+                  {t('activity.upcomingCta')}
+                  <svg
+                    width="16"
+                    height="10"
+                    viewBox="0 0 16 10"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M0 5H14M9.5 1L14 5L9.5 9"
+                      stroke="currentColor"
+                      strokeWidth="1.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </FadeInUp>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════════
+          BLOC 3 — ROSTER PREVIEW
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section id="roster" className="section-paper border-b border-hairline">
+        <div className="container-wide px-edge py-16 md:py-20">
+
+          <FadeInUp>
+            <span className="text-micro block mb-10">{t('roster.sectionLabel')}</span>
+          </FadeInUp>
+
+          {/* Artist grid — monochrome cards, 4:5 ratio */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1">
+            {rosterArtists.map((artist, index) => (
+              <FadeInUp key={artist.id} delay={index * 0.06}>
+                <Link href={`/artists/${artist.slug}`} className="block group">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-paper-muted">
+                    {/* Artist photo — grayscale by default */}
+                    <Image
+                      src={artist.image}
+                      alt={artist.name}
+                      fill
+                      className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                      onError={(e) => {
+                        // fallback handled by placeholder div below
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+
+                    {/* Placeholder for missing images */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-paper-muted -z-10">
+                      <span className="font-display text-3xl text-ink/10 tracking-[0.2em]">
+                        {artist.name
+                          .split(' ')
+                          .map((w) => w[0])
+                          .join('')}
+                      </span>
+                    </div>
+
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/60 transition-colors duration-500 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100">
+                      <p className="text-stone text-xs tracking-[0.08em] mb-1">
+                        {t('roster.basedIn')} {artist.location.replace(/^Lives and works in\s*/i, '').replace(/^Lives and works between\s*/i, '')}
+                      </p>
+                      <span className="text-paper text-xs tracking-[0.1em] uppercase underline underline-offset-4 decoration-jade decoration-[1px]">
+                        {t('roster.viewArtist')}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Artist name below card */}
+                  <p className="mt-2 text-ink text-sm tracking-[0.04em]">
+                    {artist.name}
+                  </p>
+                  <p className="text-stone text-xs tracking-[0.02em]">
+                    {artist.medium}
+                  </p>
+                </Link>
+              </FadeInUp>
             ))}
           </div>
 
-          {/* View Artists Link */}
-          <div className="text-center mt-12">
-            <Link
-              href="/artists"
-              className="btn-text group inline-flex items-center gap-3"
-            >
-              <span>View All Artists</span>
-              <svg
-                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        </motion.div>
-      </section>
+          {/* View all artists link */}
+          <FadeInUp delay={0.15}>
+            <div className="mt-10">
+              <Link href="/artists" className="btn-text group inline-flex items-center gap-3">
+                <span>View all artists</span>
+                <svg
+                  width="18"
+                  height="12"
+                  viewBox="0 0 18 12"
+                  fill="none"
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  <path
+                    d="M0 6H16M11 1L16 6L11 11"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </FadeInUp>
 
-      {/* ===== DIRECTION CURATORIALE - Noir Background ===== */}
-      <section className="section-noir section-padding-lg">
-        <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 1 }}
-              className="aspect-[4/5] relative overflow-hidden"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1577720643272-265f09367456?w=800&q=80"
-                alt="Gallery space"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-noir/40 to-transparent" />
-            </motion.div>
-
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="text-center lg:text-left"
-            >
-              <p className="text-or text-sm tracking-[0.2em] uppercase font-medium mb-6">
-                {t('curatorial.eyebrow')}
-              </p>
-
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-blanc mb-10 tracking-[0.04em]">
-                {t('curatorial.title')}
-              </h2>
-
-              <div className="w-20 h-px bg-gradient-to-r from-transparent via-or to-transparent mx-auto lg:mx-0 mb-10" />
-
-              <p className="text-blanc/80 text-lg leading-relaxed mb-6">
-                {t('curatorial.text1')}
-              </p>
-
-              <p className="text-blanc/60 text-base leading-relaxed">
-                {t('curatorial.text2')}
-              </p>
-            </motion.div>
-          </div>
         </div>
       </section>
 
-      {/* ===== PROPOSITION DE VALEUR - Blanc Background ===== */}
-      <section className="section-blanc section-padding-lg">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 1 }}
-          className="container-wide"
-        >
-          <div className="text-center mb-16">
-            <p className="text-or text-sm tracking-[0.2em] uppercase font-medium mb-4">{t('value.eyebrow')}</p>
-            <h2 className="title-section text-noir">{t('value.title')}</h2>
-          </div>
+      {/* ═══════════════════════════════════════════════════════════════════════
+          BLOC 4 — STATEMENT
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section id="statement" className="section-paper border-b border-hairline">
+        <div className="container-wide px-edge py-16 md:py-20">
 
-          {/* 3 Value Pillars */}
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {/* Pillar 1 - Exacting Curation */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-center p-8 border border-noir/10"
-            >
-              <div className="w-16 h-16 mx-auto mb-6 border border-or flex items-center justify-center">
-                <span className="text-or text-2xl font-display">01</span>
-              </div>
-              <h3 className="font-display text-xl text-noir mb-4 tracking-wide">
-                {t('value.pillar1.title')}
-              </h3>
-              <p className="text-noir/60 text-sm leading-relaxed">
-                {t('value.pillar1.text')}
-              </p>
-            </motion.div>
+          <FadeInUp>
+            <span className="text-micro block mb-10">{t('statement.sectionLabel')}</span>
+          </FadeInUp>
 
-            {/* Pillar 2 - Bespoke Support */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-center p-8 border border-noir/10"
-            >
-              <div className="w-16 h-16 mx-auto mb-6 border border-or flex items-center justify-center">
-                <span className="text-or text-2xl font-display">02</span>
-              </div>
-              <h3 className="font-display text-xl text-noir mb-4 tracking-wide">
-                {t('value.pillar2.title')}
-              </h3>
-              <p className="text-noir/60 text-sm leading-relaxed">
-                {t('value.pillar2.text')}
+          <FadeInUp delay={0.08}>
+            <div className="max-w-[680px]">
+              <div className="divider-jade mb-8" aria-hidden="true" />
+              <p className="text-ink text-lg md:text-xl leading-[1.65] tracking-[0.01em]">
+                {t('statement.text')}
               </p>
-            </motion.div>
+            </div>
+          </FadeInUp>
 
-            {/* Pillar 3 - International Network */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-center p-8 border border-noir/10"
-            >
-              <div className="w-16 h-16 mx-auto mb-6 border border-or flex items-center justify-center">
-                <span className="text-or text-2xl font-display">03</span>
-              </div>
-              <h3 className="font-display text-xl text-noir mb-4 tracking-wide">
-                {t('value.pillar3.title')}
-              </h3>
-              <p className="text-noir/60 text-sm leading-relaxed">
-                {t('value.pillar3.text')}
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* ===== CONTACT CTA - Noir Background ===== */}
-      <section className="section-noir section-padding-lg">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="container-narrow text-center"
-        >
-          <h2 className="font-display text-3xl md:text-4xl text-blanc mb-6 tracking-wide">
-            {t('cta.title')}
-          </h2>
-          <p className="text-blanc/60 text-lg mb-12 max-w-xl mx-auto">
-            {t('cta.subtitle')}
-          </p>
+      {/* ═══════════════════════════════════════════════════════════════════════
+          BLOC 5 — CONTACT STRIP
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <section id="contact-strip" className="section-paper">
+        <div className="container-wide px-edge py-10">
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link
-              href="/contact"
-              className="btn-primary"
-            >
-              {t('cta.contact')}
-            </Link>
-            <Link
-              href="/artists"
-              className="btn-secondary-light"
-            >
-              {t('cta.artists')}
-            </Link>
-          </div>
+          <FadeInUp>
+            <div className="flex flex-wrap items-center gap-y-3 gap-x-0 text-sm tracking-[0.04em]">
 
-          {/* Location tag */}
-          <p className="text-blanc/40 text-sm tracking-[0.15em] uppercase mt-16">
-            Taipei — Paris
-          </p>
-        </motion.div>
+              {/* General inquiries */}
+              <span className="text-stone">{t('contact.general')}:&nbsp;</span>
+              <a
+                href={`mailto:${t('contact.generalEmail')}`}
+                className="text-ink hover:text-jade transition-colors duration-[140ms]"
+              >
+                {t('contact.generalEmail')}
+              </a>
+
+              {/* Jade vertical separator */}
+              <span
+                className="hidden md:block mx-6 w-px h-4 bg-jade flex-shrink-0"
+                aria-hidden="true"
+              />
+
+              {/* Press */}
+              <span className="text-stone md:hidden w-full" aria-hidden="true" />
+              <span className="text-stone">{t('contact.press')}:&nbsp;</span>
+              <a
+                href={`mailto:${t('contact.pressEmail')}`}
+                className="text-ink hover:text-jade transition-colors duration-[140ms]"
+              >
+                {t('contact.pressEmail')}
+              </a>
+
+              {/* Jade vertical separator */}
+              <span
+                className="hidden md:block mx-6 w-px h-4 bg-jade flex-shrink-0"
+                aria-hidden="true"
+              />
+
+              {/* Appointment notice */}
+              <span className="text-stone md:hidden w-full" aria-hidden="true" />
+              <span className="text-stone">{t('contact.appointment')}</span>
+
+              {/* Jade vertical separator */}
+              <span
+                className="hidden md:block mx-6 w-px h-4 bg-jade flex-shrink-0"
+                aria-hidden="true"
+              />
+
+              {/* Response time */}
+              <span className="text-stone md:hidden w-full" aria-hidden="true" />
+              <span className="text-stone">{t('contact.response')}</span>
+
+            </div>
+          </FadeInUp>
+
+        </div>
       </section>
+
     </div>
   );
 }

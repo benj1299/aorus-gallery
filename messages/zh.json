@@ -55,36 +55,40 @@
   },
   "home": {
     "hero": {
-      "positioning": "台北 — 巴黎",
-      "response": "我們於24小時內回覆"
+      "title": "ORUS Gallery",
+      "location": "台北",
+      "locationSeparator": "巴黎",
+      "cta": "預約觀展"
     },
-    "curatorial": {
-      "eyebrow": "策展方向",
-      "title": "藝術與身份的交匯",
-      "text1": "ORUS Gallery 源於一個深刻的信念：藝術超越國界、文化和時間。以台灣為基地，與巴黎有著深厚的連結，我們推廣探索記憶、身份和人類處境的當代藝術家。",
-      "text2": "我們相信持續勝於速度，深度勝於廣度。我們代理的每位藝術家都擁有獨特的聲音，跨越文化共鳴。"
+    "activity": {
+      "sectionLabel": "近況",
+      "currentLabel": "當前",
+      "upcomingLabel": "即將舉行",
+      "currentTitle": "私人選件",
+      "currentFormat": "僅限預約",
+      "currentCta": "垂詢",
+      "upcomingTitle": "私人展覽",
+      "upcomingDate": "2026年春",
+      "upcomingCity": "巴黎",
+      "upcomingFormat": "應要求提供",
+      "upcomingCta": "垂詢"
     },
-    "value": {
-      "eyebrow": "為何選擇ORUS",
-      "title": "我們的承諾",
-      "pillar1": {
-        "title": "嚴謹策展",
-        "text": "我們陣容中的每位藝術家都經過嚴格評估。我們只代理那些願景和技藝符合我們嚴格標準的藝術家。"
-      },
-      "pillar2": {
-        "title": "量身定制的收藏支持",
-        "text": "根據您的旅程量身定制的個人諮詢服務。從首次收購到建立全面的收藏，我們在每一步都為您提供指導。"
-      },
-      "pillar3": {
-        "title": "國際網絡",
-        "text": "在台灣和巴黎都有據點，我們將亞洲藏家與歐洲藝術家連結起來，促進跨文化對話。"
-      }
+    "roster": {
+      "sectionLabel": "藝術家",
+      "basedIn": "駐紮於",
+      "viewArtist": "查看藝術家"
     },
-    "cta": {
-      "title": "開始對話",
-      "subtitle": "歡迎藏家和藝術愛好者垂詢。我們的團隊於24小時內回覆。",
-      "contact": "聯繫我們",
-      "artists": "查看藝術家"
+    "statement": {
+      "sectionLabel": "身份",
+      "text": "ORUS，即 Origin + Us。我們將國際當代藝術家與亞洲及全球藏家連結，這些藏家深知一個收藏是用一生來建立的，而非一個季度。限定陣容。長期職業發展，而非炒作。深度支持：文獻、過程、配置、謹慎。我們按預約運營，24小時內回覆。"
+    },
+    "contact": {
+      "general": "一般查詢",
+      "generalEmail": "info@orusgallery.com",
+      "press": "媒體",
+      "pressEmail": "press@orusgallery.com",
+      "appointment": "僅限預約",
+      "response": "24小時內回覆"
     }
   },
   "artists": {
