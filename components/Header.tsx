@@ -2,17 +2,29 @@
 
 import { Link, usePathname } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
+import { useRouter } from '@/i18n/navigation';
+import { routing, type Locale } from '@/i18n/routing';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { LanguageSwitcher } from './LanguageSwitcher';
+
+const localeLabels: Record<Locale, string> = {
+  en: 'EN',
+  zh: '中文',
+  fr: 'FR',
+};
 
 export function Header() {
   const t = useTranslations('nav');
+  const tHeader = useTranslations('header');
   const pathname = usePathname();
+  const locale = useLocale() as Locale;
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
+    { href: '/', label: tHeader('home') },
     { href: '/artists', label: t('artists') },
     { href: '/press', label: t('press') },
     { href: '/about', label: t('about') },
@@ -21,10 +33,14 @@ export function Header() {
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
-  // Handle scroll effect
+  const handleLocaleChange = (newLocale: Locale) => {
+    router.replace(pathname, { locale: newLocale });
+  };
+
+  // Sticky after 16px scroll
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 16);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -44,176 +60,208 @@ export function Header() {
 
   return (
     <>
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      {/* Desktop/Mobile Header Bar */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 border-b border-hairline transition-all duration-300 ${
           isScrolled
-            ? 'bg-noir/95 backdrop-blur-sm py-4 md:py-5'
-            : 'bg-transparent py-6 md:py-8'
+            ? 'bg-paper/95 backdrop-blur-sm'
+            : 'bg-paper'
         }`}
+        style={{ height: 'var(--header-height, 60px)' }}
       >
-        {/* Gradient overlay - only show when not scrolled */}
-        <div
-          className={`absolute inset-0 bg-gradient-to-b from-noir/80 to-transparent pointer-events-none transition-opacity duration-500 ${
-            isScrolled ? 'opacity-0' : 'opacity-100'
-          }`}
-        />
-
-        <nav className="relative container-wide px-edge flex items-center justify-between">
-          {/* Logo - 2 lines: ORUS on top, gallery below */}
+        <style>{`
+          :root { --header-height: 60px; }
+          @media (min-width: 768px) { :root { --header-height: 72px; } }
+        `}</style>
+        <div className="container-wide px-edge h-full flex items-center justify-between">
+          {/* Logo: ORUS serif + Gallery sans */}
           <Link
             href="/"
-            className="flex flex-col items-start hover:opacity-80 transition-opacity duration-300"
+            className="flex items-baseline gap-2 hover:opacity-70 transition-opacity duration-200"
+            aria-label="ORUS Gallery — Home"
           >
-            <span
-              className="font-display text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] uppercase leading-none"
-              style={{ color: '#C9A227' }}
-            >
+            <span className="font-display text-2xl tracking-[0.08em] text-ink leading-none">
               ORUS
             </span>
-            <span
-              className="font-display text-sm md:text-base tracking-[0.25em] uppercase text-blanc/70"
-              style={{ fontWeight: 300 }}
-            >
-              gallery
+            <span className="font-sans text-xs tracking-[0.18em] uppercase text-stone leading-none">
+              Gallery
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-12">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm tracking-[0.12em] uppercase transition-colors duration-300 ${
-                  pathname === item.href
-                    ? 'text-or'
-                    : 'text-blanc/60 hover:text-blanc'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+          {/* Desktop Navigation — centered */}
+          <nav className="hidden md:flex items-center gap-8 lg:gap-10 absolute left-1/2 -translate-x-1/2">
+            {navItems.map((item) => {
+              const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`relative text-sm tracking-[0.12em] uppercase transition-colors duration-200 pb-0.5 ${
+                    isActive
+                      ? 'text-ink'
+                      : 'text-stone hover:text-ink'
+                  }`}
+                >
+                  {item.label}
+                  {/* Jade underline for active state */}
+                  {isActive && (
+                    <span
+                      className="absolute bottom-0 left-0 right-0 h-px bg-jade"
+                      style={{ height: '1px' }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
 
-            {/* Separator */}
-            <div className="w-px h-4 bg-blanc/20" />
+          {/* Right side: CTA + Lang switcher */}
+          <div className="hidden md:flex items-center gap-6">
+            {/* CTA */}
+            <Link
+              href="/contact"
+              className="text-sm tracking-[0.12em] uppercase text-ink border border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-all duration-200"
+            >
+              {tHeader('cta')}
+            </Link>
 
-            {/* Language Switcher */}
-            <LanguageSwitcher />
+            {/* Lang switcher */}
+            <div className="flex items-center gap-2">
+              {routing.locales.map((loc, index) => (
+                <span key={loc} className="flex items-center gap-2">
+                  <button
+                    onClick={() => handleLocaleChange(loc)}
+                    className={`text-[12px] tracking-[0.12em] uppercase transition-colors duration-200 ${
+                      locale === loc
+                        ? 'text-ink'
+                        : 'text-stone hover:text-ink'
+                    }`}
+                  >
+                    {localeLabels[loc]}
+                  </button>
+                  {index < routing.locales.length - 1 && (
+                    <span className="text-hairline text-[10px]">|</span>
+                  )}
+                </span>
+              ))}
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile: Burger button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden relative w-10 h-10 flex items-center justify-center"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
-            <div className="relative w-6 h-4">
+            <div className="relative w-5 h-3.5">
               <motion.span
                 animate={{
                   rotate: isMobileMenuOpen ? 45 : 0,
-                  y: isMobileMenuOpen ? 6 : 0,
+                  y: isMobileMenuOpen ? 7 : 0,
                 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="absolute top-0 left-0 w-full h-px bg-blanc"
+                transition={{ duration: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
+                className="absolute top-0 left-0 w-full h-px bg-ink"
               />
               <motion.span
                 animate={{
                   opacity: isMobileMenuOpen ? 0 : 1,
-                  x: isMobileMenuOpen ? 10 : 0,
+                  x: isMobileMenuOpen ? 8 : 0,
                 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-1/2 left-0 w-full h-px bg-blanc"
+                className="absolute top-1/2 left-0 w-full h-px bg-ink"
               />
               <motion.span
                 animate={{
                   rotate: isMobileMenuOpen ? -45 : 0,
-                  y: isMobileMenuOpen ? -6 : 0,
+                  y: isMobileMenuOpen ? -7 : 0,
                 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="absolute bottom-0 left-0 w-full h-px bg-blanc"
+                transition={{ duration: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
+                className="absolute bottom-0 left-0 w-full h-px bg-ink"
               />
             </div>
           </button>
-        </nav>
-      </motion.header>
+        </div>
+      </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay — full-screen, paper background */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 md:hidden"
+            transition={{ duration: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
+            className="fixed inset-0 z-40 md:hidden bg-paper"
           >
-            {/* Backdrop */}
-            <div
-              className="absolute inset-0 bg-noir/95 backdrop-blur-md"
-              onClick={closeMobileMenu}
-            />
-
-            {/* Menu Content */}
             <motion.nav
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="relative flex flex-col items-center justify-center min-h-screen px-edge py-24"
+              exit={{ opacity: 0, y: 16 }}
+              transition={{ duration: 0.35, delay: 0.05, ease: [0.2, 0.8, 0.2, 1] }}
+              className="flex flex-col items-center justify-center min-h-screen px-edge gap-8"
             >
-              {/* Navigation Links */}
-              <div className="flex flex-col items-center gap-8">
-                {navItems.map((item, index) => (
+              {navItems.map((item, index) => {
+                const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+                return (
                   <motion.div
                     key={item.href}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.15 + index * 0.05 }}
+                    transition={{ duration: 0.3, delay: 0.1 + index * 0.05, ease: [0.2, 0.8, 0.2, 1] }}
                   >
                     <Link
                       href={item.href}
                       onClick={closeMobileMenu}
-                      className={`font-display text-2xl tracking-[0.15em] uppercase transition-colors duration-300 ${
-                        pathname === item.href
-                          ? 'text-or'
-                          : 'text-blanc hover:text-or'
+                      className={`relative font-display text-[28px] tracking-[0.08em] text-ink transition-opacity duration-200 hover:opacity-60 pb-1 ${
+                        isActive ? 'text-ink' : 'text-ink'
                       }`}
                     >
                       {item.label}
+                      {/* Active micro-trait jade underline */}
+                      {isActive && (
+                        <span
+                          className="absolute bottom-0 left-0 right-0 bg-jade"
+                          style={{ height: '1px' }}
+                        />
+                      )}
                     </Link>
                   </motion.div>
-                ))}
-              </div>
+                );
+              })}
 
               {/* Divider */}
               <motion.div
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="w-16 h-px bg-or/40 my-10"
+                transition={{ duration: 0.4, delay: 0.35, ease: [0.2, 0.8, 0.2, 1] }}
+                className="w-12 h-px bg-hairline"
               />
 
-              {/* Language Switcher */}
+              {/* Language switcher */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: 0.5 }}
+                transition={{ duration: 0.3, delay: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
+                className="flex items-center gap-3"
               >
-                <LanguageSwitcher />
+                {routing.locales.map((loc, index) => (
+                  <span key={loc} className="flex items-center gap-3">
+                    <button
+                      onClick={() => { handleLocaleChange(loc); closeMobileMenu(); }}
+                      className={`text-[12px] tracking-[0.12em] uppercase transition-colors duration-200 ${
+                        locale === loc
+                          ? 'text-ink'
+                          : 'text-stone hover:text-ink'
+                      }`}
+                    >
+                      {localeLabels[loc]}
+                    </button>
+                    {index < routing.locales.length - 1 && (
+                      <span className="text-hairline text-[10px]">|</span>
+                    )}
+                  </span>
+                ))}
               </motion.div>
-
-              {/* Location Tag */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: 0.6 }}
-                className="text-blanc/50 text-sm tracking-[0.2em] uppercase mt-10"
-              >
-                Taiwan — Paris
-              </motion.p>
             </motion.nav>
           </motion.div>
         )}

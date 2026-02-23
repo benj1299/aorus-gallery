@@ -3,6 +3,10 @@
     "title": "ORUS Gallery | 當代藝術 | 台灣",
     "description": "ORUS Gallery 代理國際當代藝術家，為亞洲及全球藏家呈獻。Origin + Us：藝術與身份的交匯。"
   },
+  "header": {
+    "home": "首頁",
+    "cta": "聯繫我們"
+  },
   "nav": {
     "about": "關於",
     "artists": "藝術家",
@@ -142,8 +146,11 @@
     "tagline": "Origin + Us — 藝術與身份的交匯",
     "navigation": "導航",
     "contactTitle": "聯繫方式",
-    "copyright": "© 2025 ORUS Gallery",
+    "copyright": "© 2026 ORUS Gallery",
     "privacy": "隱私政策",
+    "terms": "使用條款",
+    "appointment": "僅限預約",
+    "cities": "台北 / 巴黎",
     "rights": "版權所有"
   }
 }
