@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, DM_Sans, Noto_Serif_TC } from 'next/font/google';
+import { Cormorant_Garamond, Inter, Noto_Serif_TC } from 'next/font/google';
 import './globals.css';
 
 // Display font - Elegant serif for headings (Cormorant as Canela alternative)
@@ -11,10 +11,10 @@ const cormorant = Cormorant_Garamond({
 });
 
 // Body font - Clean, modern sans-serif
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600'],
-  variable: '--font-dm-sans',
+  variable: '--font-inter',
   display: 'swap',
 });
 
@@ -63,7 +63,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <body
-        className={`${cormorant.variable} ${dmSans.variable} ${notoSerifTC.variable} font-sans antialiased`}
+        className={`${cormorant.variable} ${inter.variable} ${notoSerifTC.variable} font-sans antialiased`}
       >
         {children}
       </body>
