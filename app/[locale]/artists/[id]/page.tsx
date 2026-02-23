@@ -200,7 +200,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
               <ul className="space-y-3">
                 {artist.cv.exhibitions.map((exhibition, index) => (
                   <li key={index} className="text-blanc/70 text-sm leading-relaxed">
-                    {exhibition}
+                    {exhibition.title}{exhibition.venue ? `, ${exhibition.venue}` : ''}{exhibition.city ? `, ${exhibition.city}` : ''}{exhibition.year ? ` (${exhibition.year})` : ''}
                   </li>
                 ))}
               </ul>
