@@ -155,7 +155,7 @@ export default function AboutPage() {
               </h2>
 
               <div className="space-y-8 mb-12">
-                <div className="border-l-2 border-or pl-6">
+                <div className="border-l-2 border-noir pl-6">
                   <h3 className="font-display text-xl text-noir mb-2">
                     {t('curatorial.value1.title')}
                   </h3>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                     {t('curatorial.value1.text')}
                   </p>
                 </div>
-                <div className="border-l-2 border-or pl-6">
+                <div className="border-l-2 border-noir pl-6">
                   <h3 className="font-display text-xl text-noir mb-2">
                     {t('curatorial.value2.title')}
                   </h3>

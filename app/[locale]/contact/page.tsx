@@ -91,7 +91,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-flex items-center gap-3 px-8 py-4 border border-or mb-10"
+            className="inline-flex items-center gap-3 px-8 py-4 border border-noir mb-10"
           >
             <svg className="w-5 h-5 text-or" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -133,14 +133,14 @@ export default function ContactPage() {
                   </p>
                   <a
                     href="mailto:info@orusgallery.com"
-                    className="text-noir hover:text-or text-lg font-display transition-colors duration-300"
+                    className="text-noir hover:text-noir text-lg font-display transition-colors duration-300"
                   >
                     info@orusgallery.com
                   </a>
                   <p className="text-noir/40 text-sm mt-1">{t('contactInfo.general')}</p>
                   <a
                     href="mailto:press@orusgallery.com"
-                    className="text-noir hover:text-or text-lg font-display transition-colors duration-300 block mt-2"
+                    className="text-noir hover:text-noir text-lg font-display transition-colors duration-300 block mt-2"
                   >
                     press@orusgallery.com
                   </a>
@@ -179,7 +179,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="bg-blanc border border-noir/10 p-16 text-center"
                 >
-                  <div className="w-20 h-20 mx-auto mb-8 border-2 border-or flex items-center justify-center">
+                  <div className="w-20 h-20 mx-auto mb-8 border-2 border-noir flex items-center justify-center">
                     <svg
                       className="w-8 h-8 text-or"
                       fill="none"
@@ -220,7 +220,7 @@ export default function ContactPage() {
                             <RadioGroupItem
                               value={option.value}
                               id={`status-${option.value}`}
-                              className="border-noir/30 text-[#C9A227] data-[state=checked]:border-[#C9A227]"
+                              className="border-noir/30 text-[#0A0A0A] data-[state=checked]:border-[#0A0A0A]"
                             />
                             <Label
                               htmlFor={`status-${option.value}`}
@@ -245,7 +245,7 @@ export default function ContactPage() {
                         id="name"
                         type="text"
                         {...register('name')}
-                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-or focus:ring-1 focus:ring-or/20 focus:outline-none tracking-wide transition-colors"
+                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-noir focus:ring-1 focus:ring-noir/20 focus:outline-none tracking-wide transition-colors"
                         placeholder={t('form.namePlaceholder')}
                         autoComplete="name"
                       />
@@ -263,7 +263,7 @@ export default function ContactPage() {
                         id="email"
                         type="email"
                         {...register('email')}
-                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-or focus:ring-1 focus:ring-or/20 focus:outline-none tracking-wide transition-colors"
+                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-noir focus:ring-1 focus:ring-noir/20 focus:outline-none tracking-wide transition-colors"
                         placeholder="your@email.com"
                         autoComplete="email"
                       />
@@ -281,7 +281,7 @@ export default function ContactPage() {
                         id="message"
                         {...register('message')}
                         rows={5}
-                        className="bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-or focus:ring-1 focus:ring-or/20 resize-none tracking-wide px-4 py-4"
+                        className="bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-noir focus:ring-1 focus:ring-noir/20 resize-none tracking-wide px-4 py-4"
                         placeholder={t('form.messagePlaceholder')}
                       />
                       {errors.message && (
@@ -297,7 +297,7 @@ export default function ContactPage() {
                       <select
                         id="interestedIn"
                         {...register('interestedIn')}
-                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir focus:border-or focus:ring-1 focus:ring-or/20 focus:outline-none tracking-wide transition-colors appearance-none"
+                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir focus:border-noir focus:ring-1 focus:ring-noir/20 focus:outline-none tracking-wide transition-colors appearance-none"
                       >
                         {interestedInOptions.map((opt) => (
                           <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -313,7 +313,7 @@ export default function ContactPage() {
                       <select
                         id="preferredLanguage"
                         {...register('preferredLanguage')}
-                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir focus:border-or focus:ring-1 focus:ring-or/20 focus:outline-none tracking-wide transition-colors appearance-none"
+                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir focus:border-noir focus:ring-1 focus:ring-noir/20 focus:outline-none tracking-wide transition-colors appearance-none"
                       >
                         {languageOptions.map((opt) => (
                           <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -328,7 +328,7 @@ export default function ContactPage() {
                           type="checkbox"
                           id="rgpd"
                           {...register('rgpd')}
-                          className="mt-1 h-4 w-4 accent-[#C9A227] border-noir/15"
+                          className="mt-1 h-4 w-4 accent-[#0A0A0A] border-noir/15"
                         />
                         <Label htmlFor="rgpd" className="text-noir/60 text-sm leading-relaxed cursor-pointer">
                           {t('form.rgpdText')}

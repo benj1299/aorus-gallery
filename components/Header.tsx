@@ -63,7 +63,7 @@ export function Header() {
           >
             <span
               className="font-display text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] uppercase leading-none"
-              style={{ color: '#C9A227' }}
+              style={{ color: '#0A0A0A' }}
             >
               ORUS
             </span>
@@ -173,7 +173,7 @@ export function Header() {
                       className={`font-display text-2xl tracking-[0.15em] uppercase transition-colors duration-300 ${
                         pathname === item.href
                           ? 'text-or'
-                          : 'text-noir hover:text-or'
+                          : 'text-noir hover:text-noir'
                       }`}
                     >
                       {item.label}

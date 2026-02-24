@@ -75,7 +75,7 @@ export default function PressPage() {
               </p>
               <a
                 href="mailto:press@orusgallery.com"
-                className="text-noir hover:text-or text-xl font-display transition-colors duration-300"
+                className="text-noir hover:text-noir text-xl font-display transition-colors duration-300"
               >
                 press@orusgallery.com
               </a>

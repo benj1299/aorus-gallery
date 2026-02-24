@@ -65,7 +65,7 @@ export default function HomePage() {
             <div className="flex flex-col items-center">
               <span
                 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-[0.15em] uppercase leading-none"
-                style={{ color: '#C9A227' }}
+                style={{ color: '#0A0A0A' }}
               >
                 ORUS
               </span>
@@ -101,7 +101,7 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.1 }}
-            className="inline-flex items-center gap-3 px-6 py-3 border border-or/30"
+            className="inline-flex items-center gap-3 px-6 py-3 border border-noir/30"
           >
             <span className="text-or text-sm tracking-[0.12em] uppercase font-medium">
               {t('hero.response')}
@@ -255,7 +255,7 @@ export default function HomePage() {
                 transition={{ duration: 0.8, delay: 0.1 * (index + 1) }}
                 className="text-center p-8 bg-blanc border border-noir/10"
               >
-                <div className="w-16 h-16 mx-auto mb-6 border border-or flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-6 border border-noir flex items-center justify-center">
                   <span className="text-or text-2xl font-display">{pillar.num}</span>
                 </div>
                 <h3 className="font-display text-xl text-noir mb-4 tracking-wide">

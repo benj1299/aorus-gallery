@@ -14,15 +14,15 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
             <a
               href="mailto:info@orusgallery.com"
-              className="text-noir hover:text-or text-sm tracking-[0.08em] transition-colors duration-300"
+              className="text-noir hover:text-noir text-sm tracking-[0.08em] transition-colors duration-300"
             >
               info@orusgallery.com
             </a>
-            <div className="hidden md:block w-px h-4 bg-or" />
+            <div className="hidden md:block w-px h-4 bg-noir" />
             <span className="text-noir/50 text-sm tracking-[0.08em]">
               {t('appointment')}
             </span>
-            <div className="hidden md:block w-px h-4 bg-or" />
+            <div className="hidden md:block w-px h-4 bg-noir" />
             <span className="text-noir/50 text-sm tracking-[0.08em]">
               {t('cities')}
             </span>
@@ -35,11 +35,11 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-noir/40 text-xs tracking-wider">
             <span>{t('copyright')}</span>
             <span className="hidden md:inline">&middot;</span>
-            <Link href="/privacy" className="hover:text-or transition-colors duration-300">
+            <Link href="/privacy" className="hover:text-noir transition-colors duration-300">
               {t('privacy')}
             </Link>
             <span className="hidden md:inline">&middot;</span>
-            <Link href="/terms" className="hover:text-or transition-colors duration-300">
+            <Link href="/terms" className="hover:text-noir transition-colors duration-300">
               {t('terms')}
             </Link>
           </div>
