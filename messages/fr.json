@@ -8,7 +8,8 @@
     "about": "À Propos",
     "artists": "Artistes",
     "press": "Presse",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cities": "Taipei — Paris"
   },
   "home": {
     "hero": {
@@ -101,7 +102,7 @@
   },
   "artists": {
     "title": "Artistes",
-    "subtitle": "A curated selection of emerging and established voices",
+    "subtitle": "Une sélection d'artistes émergents et établis",
     "viewBio": "Biographie",
     "viewWorks": "Œuvres",
     "viewCV": "CV",

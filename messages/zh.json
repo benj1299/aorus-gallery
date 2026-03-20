@@ -8,7 +8,8 @@
     "about": "關於",
     "artists": "藝術家",
     "press": "媒體",
-    "contact": "聯繫"
+    "contact": "聯繫",
+    "cities": "台灣 — 巴黎"
   },
   "home": {
     "hero": {
@@ -146,7 +147,7 @@
       "title": "新聞查詢",
       "text": "包含畫廊介紹、藝術家簡歷和視覺資料的新聞資料包可應要求提供。",
       "instruction": "如有新聞查詢，請聯繫：",
-      "email": "press@orusgallery.com"
+      "email": "contact@orusgallery.com"
     }
   },
   "contact": {

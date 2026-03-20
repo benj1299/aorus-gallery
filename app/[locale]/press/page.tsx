@@ -69,10 +69,10 @@ export default function PressPage() {
           </p>
 
           <a
-            href="mailto:contact@orusgallery.com"
+            href={`mailto:${t('contact.email')}`}
             className="text-noir hover:text-noir/70 text-xl font-display transition-colors duration-300"
           >
-            contact@orusgallery.com
+            {t('contact.email')}
           </a>
 
           <div className="w-16 h-px bg-noir/10 mx-auto my-10" />

@@ -220,7 +220,7 @@ export function Header() {
                 className="text-sm tracking-[0.2em] uppercase mt-10"
                 style={{ color: 'rgba(11, 11, 11, 0.4)' }}
               >
-                Taiwan — Paris
+                {t('cities')}
               </motion.p>
             </motion.nav>
           </motion.div>
