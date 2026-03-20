@@ -34,10 +34,8 @@ export function Footer() {
 
           {/* Line 2 — Legal */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-xs tracking-wider" style={{ color: 'rgba(11, 11, 11, 0.4)' }}>
-            <span>{t('copyright')}</span>
-            <span className="hidden md:inline">&middot;</span>
             <a href="https://masterbrain.fr" target="_blank" rel="noopener noreferrer" className="hover:text-noir transition-colors duration-300">
-              Master Brain
+              © 2026 Master Brain
             </a>
             <span className="hidden md:inline">&middot;</span>
             <Link href="/privacy" className="hover:text-noir transition-colors duration-300">
