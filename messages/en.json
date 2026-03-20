@@ -7,86 +7,101 @@
     "home": "Home",
     "about": "About",
     "artists": "Artists",
-    "events": "Events",
     "press": "Press",
     "contact": "Contact"
   },
-  "about": {
-    "title": "About ORUS Gallery",
-    "tagline": "Origin + Us",
-    "mission": {
-      "eyebrow": "Our Mission",
-      "title": "Bridging Cultures Through Art",
-      "text": "ORUS Gallery exists to connect exceptional contemporary artists with discerning collectors across Asia and beyond. We believe that art transcends borders, and that the most meaningful collections are built through trust, expertise, and shared passion."
-    },
-    "team": {
-      "eyebrow": "International Team",
-      "title": "France & Taiwan",
-      "paris": "Our Paris team brings decades of experience from leading auction houses and galleries, maintaining strong connections with European contemporary artists.",
-      "taiwan": "Our Taiwan team serves as the gateway to Asian collectors, offering local expertise and building lasting relationships across the region."
-    },
-    "curatorial": {
-      "eyebrow": "Curatorial Direction",
-      "title": "Our Philosophy",
-      "value1": {
-        "title": "Continuity over Speed",
-        "text": "We build lasting relationships with artists and collectors, nurturing careers and collections over decades, not seasons."
-      },
-      "value2": {
-        "title": "Depth over Breadth",
-        "text": "We represent fewer artists with deeper commitment, ensuring each voice receives the attention and care it deserves."
-      },
-      "quote": "Art is not a transaction. It is a conversation that spans generations."
-    },
-    "approach": {
-      "eyebrow": "Our Approach",
-      "title": "Premium, Discrete Service",
-      "text": "We provide bespoke advisory services to collectors, offering private viewings, personalized recommendations, and discreet transactions. Your journey with art is personal, and we treat it as such."
-    },
-    "cta": {
-      "title": "Begin Your Journey",
-      "subtitle": "Discover our artists or start a conversation",
-      "artists": "Meet the Artists",
-      "contact": "Get in Touch"
-    }
-  },
   "home": {
     "hero": {
-      "positioning": "Taipei — Paris",
-      "response": "We respond within 24 hours"
+      "title": "ORUS GALLERY",
+      "subtitle": "TAIPEI — PARIS",
+      "tagline": "International Art Gallery"
+    },
+    "gallery": {
+      "eyebrow": "Discover",
+      "title": "Selected Works",
+      "cta": "View All Artists"
+    },
+    "curatorial": {
+      "eyebrow": "Our Approach",
+      "title": "Curatorial Direction",
+      "text1": "Intimacy as a bridge between cultures\nFounded between Paris and Taiwan, ORUS Gallery champions an international roster of artists whose works explore intimacy in all its forms: the body, memory, human relationships, and the personal narratives that shape our identities.",
+      "text2": "The gallery sees intimacy as a universal language — a space where individual experiences become capable of crossing cultural boundaries. Through these sensitive narratives, the works reveal what connects cultures as much as what distinguishes them.",
+      "text3": "By creating dialogues between different art scenes, ORUS builds a program where intimacy becomes a meeting point: a common ground from which works can circulate, respond to one another, and resonate on a global scale."
+    },
+    "values": {
+      "eyebrow": "Our Commitment",
+      "title": "Why ORUS",
+      "items": [
+        {
+          "title": "Radical Selection",
+          "description": "ORUS works with a deliberately small number of artists.\nEach work presented is part of a strong, coherent practice capable of engaging with different cultural contexts."
+        },
+        {
+          "title": "Relationship Over Time",
+          "description": "We don't sell artworks, we build collections. Each recommendation is part of a long-term vision, respectful of both the collector's journey and the artist's trajectory."
+        },
+        {
+          "title": "Dialogue Between Scenes",
+          "description": "Based between Paris and Taiwan, ORUS fosters exchanges between different international art scenes.\nThe gallery acts as a meeting space where works circulate, confront each other, and find new resonances."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Get in Touch",
+      "text": "Want to learn more about an artist or a work? Our team is at your disposal to guide you.",
+      "contact": "Contact",
+      "artists": "View Artists",
+      "location": "TAIPEI — PARIS"
+    }
+  },
+  "about": {
+    "title": "About ORUS Gallery",
+    "hero": {
+      "eyebrow": "About",
+      "title": "About ORUS Gallery",
+      "subtitle": "ORIGIN + US"
+    },
+    "foundation": {
+      "text": "Founded between Paris and Taiwan, ORUS Gallery develops an international program dedicated to contemporary artists whose practices question memory, identity, and the intimate experiences that cross cultures.\nIts name, born from the encounter between Origin and Us, reflects a simple intention: to create a space where artistic voices from different horizons can engage in dialogue and find common resonance."
+    },
+    "vision": {
+      "eyebrow": "Our Vision",
+      "title": "A Vision",
+      "subtitle": "Intimacy as a Universal Language",
+      "text1": "ORUS is interested in the forms of intimacy that structure human experience: the body, relationships, memory, and personal narratives.",
+      "text2": "Through these sensitive dimensions, works become capable of crossing cultural boundaries. Intimacy acts as a meeting point, a shared territory from which works can connect individual stories to collective realities.",
+      "text3": "The gallery thus develops a program where different art scenes enter into dialogue, revealing what connects cultures as much as what distinguishes them."
+    },
+    "international": {
+      "eyebrow": "Our Presence",
+      "title": "An International Presence",
+      "subtitle": "Paris — Taipei",
+      "text1": "ORUS is engaged in an active dialogue between Europe and Asia.\nFrom Paris, the gallery maintains close relationships with artists, institutions, and key players in the European contemporary scene.",
+      "text2": "In Taiwan, it develops roots within a dynamic artistic ecosystem, characterized by attentive collectors, engaged institutions, and a cultural scene open to international dialogues.",
+      "text3": "This dual presence allows ORUS to circulate works, ideas, and practices between different cultural contexts."
     },
     "curatorial": {
       "eyebrow": "Curatorial Direction",
-      "title": "Where Art Meets Identity",
-      "text1": "ORUS Gallery emerges from a profound conviction: art transcends borders, cultures, and time. Based in Taiwan with deep connections to Paris, we champion contemporary artists whose work explores memory, identity, and the human condition.",
-      "text2": "We believe in continuity over speed, depth over breadth. Each artist we represent carries a singular voice that resonates across cultures, creating bridges between the intimate and the universal."
+      "title": "Curatorial Direction",
+      "subtitle": "A Long-Term Vision",
+      "text1": "ORUS is committed to a long-term vision, favoring sustained development over immediate visibility.\nThe gallery supports a deliberately small group of artists, nurturing the evolution of their practices with rigor and continuity.",
+      "text2": "Works are placed within an expanded curatorial framework, in dialogue with critical and institutional contexts that unfold over time.\nExhibitions are conceived as precise environments for encounter, where singular artistic voices articulate and resonate across geographies."
     },
-    "value": {
-      "eyebrow": "Why ORUS",
-      "title": "Our Promise",
-      "pillar1": {
-        "title": "Exacting Curation",
-        "text": "Every artist in our roster is selected through rigorous evaluation. We represent only those whose vision and craft meet our exacting standards."
-      },
-      "pillar2": {
-        "title": "Bespoke Collector Support",
-        "text": "Personal advisory services tailored to your journey. From first acquisition to building a comprehensive collection, we guide you at every step."
-      },
-      "pillar3": {
-        "title": "International Network",
-        "text": "With presence in Taiwan and Paris, we connect Asian collectors with European artists and facilitate cross-cultural dialogue through art."
-      }
+    "collectors": {
+      "eyebrow": "For Collectors",
+      "title": "Collectors & Institutions",
+      "text": "ORUS develops lasting relationships with an international community of collectors, curators, and institutions.\nThe gallery favors an approach based on understanding the works and the progressive building of collections, in an attentive dialogue between artists and collectors."
     },
     "cta": {
-      "title": "Start a Conversation",
-      "subtitle": "We welcome inquiries from collectors and art enthusiasts. Our team responds within 24 hours.",
-      "contact": "Contact Us",
-      "artists": "View Artists"
+      "title": "Discover",
+      "artists": "View Artists",
+      "contact": "Contact",
+      "location": "PARIS — TAIPEI"
     }
   },
   "artists": {
     "title": "Artists",
-    "subtitle": "Gallery Roster",
+    "subtitle": "A curated selection of emerging and established voices",
     "viewBio": "Biography",
     "viewWorks": "Works",
     "viewCV": "CV",
@@ -101,34 +116,42 @@
     "collections": "Collections",
     "backToArtists": "Back to Artists",
     "inquire": "Inquire About This Artist",
+    "statement": "Artist Statement",
+    "selectedWorks": "Selected Works",
+    "inquireButton": "Inquire",
+    "untitled": "Untitled",
+    "medium": "Medium on canvas",
+    "career": "Career",
+    "contactUs": "Contact Us",
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundText": "This page is being prepared. Please check back soon or explore our roster.",
     "placeholder": {
       "bio": "Biography coming soon. This artist is part of ORUS Gallery's represented roster, showcasing works that explore themes of memory, identity, and the human condition.",
       "cv": "Full curriculum vitae available upon request."
     }
   },
-  "events": {
-    "title": "Events",
-    "subtitle": "Exhibitions, fairs and special events",
-    "upcoming": "Upcoming",
-    "past": "Past",
-    "comingSoon": "Upcoming events will be announced soon",
-    "stayTuned": "Check back soon for updates"
-  },
   "press": {
-    "title": "Press",
-    "subtitle": "Media inquiries and press resources",
-    "contact": "Press Contact",
-    "email": "press@orusgallery.com",
-    "kit": "Press Kit",
-    "downloadKit": "Download Press Kit",
-    "articles": "Press Coverage",
-    "comingSoon": "Press coverage coming soon",
-    "stayTuned": "Check back soon for updates"
+    "hero": {
+      "eyebrow": "Media",
+      "title": "Press",
+      "subtitle": "Media coverage and press resources"
+    },
+    "coverage": {
+      "eyebrow": "Press Coverage",
+      "title": "Articles & Mentions",
+      "placeholder": "Article coming soon"
+    },
+    "contact": {
+      "eyebrow": "Press Contact",
+      "title": "Press Inquiries",
+      "text": "A press kit including a gallery presentation, artist biographies, and visuals is available upon request.",
+      "instruction": "For all press inquiries, please contact:",
+      "email": "contact@orusgallery.com"
+    }
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "We welcome inquiries from collectors and art enthusiasts",
-    "response": "We respond within 24 hours",
+    "subtitle": "For any information regarding artworks, artists, or the gallery program, we invite you to get in touch with our team.",
     "contactInfo": {
       "email": "Email",
       "general": "General inquiries",
@@ -172,7 +195,7 @@
       "submit": "Send Message",
       "sending": "Sending...",
       "success": "Thank you for your message.",
-      "successSubtext": "We will respond within 24 hours.",
+      "successSubtext": "We will get back to you shortly.",
       "backToArtists": "Discover our artists",
       "error": "An error occurred. Please try again."
     }

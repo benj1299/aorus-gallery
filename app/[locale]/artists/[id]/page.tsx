@@ -43,10 +43,10 @@ export default function ArtistPage({ params }: ArtistPageProps) {
             </div>
 
             <h1 className="font-display text-3xl text-noir mb-4">
-              Page Not Found
+              {t('pageNotFound')}
             </h1>
             <p className="text-noir/50 text-base mb-10 max-w-md mx-auto">
-              This page is being prepared. Please check back soon or explore our roster.
+              {t('pageNotFoundText')}
             </p>
 
             <Link
@@ -116,6 +116,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
                   src={artist.image}
                   alt={artist.name}
                   fill
+                  priority
                   className="object-cover"
                 />
               </div>
@@ -138,8 +139,8 @@ export default function ArtistPage({ params }: ArtistPageProps) {
         </div>
       </section>
 
-      {/* Works Section */}
-      <section className="bg-blanc-muted section-padding-lg">
+      {/* Selected Works Section */}
+      <section className="bg-blanc-muted section-padding">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -152,24 +153,43 @@ export default function ArtistPage({ params }: ArtistPageProps) {
               {t('works')}
             </p>
             <h2 className="font-display text-3xl md:text-4xl text-noir tracking-wide">
-              Portfolio
+              {t('selectedWorks')}
             </h2>
           </div>
 
           {/* Works Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((index) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="aspect-square bg-blanc border border-noir/10 flex items-center justify-center"
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+                className="group"
               >
-                <span className="text-noir/20 text-sm tracking-[0.1em] uppercase">
-                  Work {index}
-                </span>
+                <div className="aspect-square bg-blanc border border-noir/10 flex items-center justify-center relative overflow-hidden">
+                  <span className="text-noir/20 text-sm tracking-[0.1em] uppercase">
+                    {t('untitled')} {index}
+                  </span>
+                  {/* Hover overlay with Inquire button */}
+                  <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/40 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <Link
+                      href="/contact"
+                      className="bg-blanc text-noir text-xs tracking-[0.15em] uppercase px-6 py-3 hover:bg-or hover:text-blanc transition-colors duration-300"
+                    >
+                      {t('inquireButton')}
+                    </Link>
+                  </div>
+                </div>
+                <div className="p-3 bg-blanc border-x border-b border-noir/10">
+                  <p className="text-noir/50 text-xs tracking-[0.1em] uppercase">
+                    {t('untitled')} {index}
+                  </p>
+                  <p className="text-noir/30 text-xs mt-1">
+                    {t('medium')}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -177,7 +197,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
       </section>
 
       {/* CV Section */}
-      <section className="bg-blanc section-padding-lg">
+      <section className="bg-blanc section-padding">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -187,7 +207,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
         >
           <div className="text-center mb-16">
             <p className="text-or text-sm tracking-[0.2em] uppercase font-medium mb-4">{t('cv')}</p>
-            <h2 className="title-section text-noir">Career</h2>
+            <h2 className="title-section text-noir">{t('career')}</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -197,8 +217,8 @@ export default function ArtistPage({ params }: ArtistPageProps) {
                 {t('exhibitions')}
               </h3>
               <ul className="space-y-3">
-                {artist.cv.exhibitions.map((exhibition, index) => (
-                  <li key={index} className="text-noir/60 text-sm leading-relaxed">
+                {artist.cv.exhibitions.map((exhibition) => (
+                  <li key={exhibition} className="text-noir/60 text-sm leading-relaxed">
                     {exhibition}
                   </li>
                 ))}
@@ -211,8 +231,8 @@ export default function ArtistPage({ params }: ArtistPageProps) {
                 {t('collections')}
               </h3>
               <ul className="space-y-3">
-                {artist.cv.collections.map((collection, index) => (
-                  <li key={index} className="text-noir/60 text-sm leading-relaxed">
+                {artist.cv.collections.map((collection) => (
+                  <li key={collection} className="text-noir/60 text-sm leading-relaxed">
                     {collection}
                   </li>
                 ))}
@@ -239,7 +259,7 @@ export default function ArtistPage({ params }: ArtistPageProps) {
             {t('inquire')}
           </h2>
           <Link href="/contact" className="btn-primary">
-            Contact Us
+            {t('contactUs')}
           </Link>
         </motion.div>
       </section>

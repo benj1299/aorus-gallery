@@ -25,13 +25,19 @@ export function LanguageSwitcher() {
         <span key={loc} className="flex items-center gap-3">
           <button
             onClick={() => handleLocaleChange(loc)}
-            className={`text-sm tracking-wider transition-colors duration-300 ${
+            className={`text-sm tracking-wider transition-all duration-300 relative pb-0.5 ${
               locale === loc
-                ? 'text-or'
+                ? 'text-noir'
                 : 'text-noir/40 hover:text-noir/70'
             }`}
           >
             {localeNames[loc]}
+            {locale === loc && (
+              <span
+                className="absolute left-0 right-0 -bottom-px h-px"
+                style={{ backgroundColor: '#4BAF91' }}
+              />
+            )}
           </button>
           {index < routing.locales.length - 1 && (
             <span className="text-noir/20">|</span>

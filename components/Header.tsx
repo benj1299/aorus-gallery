@@ -43,6 +43,8 @@ export function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  const isActive = (href: string) => pathname === href;
+
   return (
     <>
       <motion.header
@@ -51,11 +53,18 @@ export function Header() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-blanc/95 backdrop-blur-sm py-4 md:py-5 shadow-[0_1px_0_rgba(0,0,0,0.06)]'
-            : 'bg-transparent py-6 md:py-8'
+            ? 'bg-[#FAFAFA]/95 backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)]'
+            : 'bg-transparent'
         }`}
+        style={{ height: isScrolled ? undefined : undefined }}
       >
-        <nav className="relative container-wide px-edge flex items-center justify-between">
+        <nav
+          className={`relative container-wide px-edge flex items-center justify-between ${
+            isScrolled
+              ? 'h-[72px] md:h-[72px]'
+              : 'h-[60px] md:h-[72px]'
+          }`}
+        >
           {/* Logo */}
           <Link
             href="/"
@@ -63,15 +72,15 @@ export function Header() {
           >
             <span
               className="font-display text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] uppercase leading-none"
-              style={{ color: '#0A0A0A' }}
+              style={{ color: '#0B0B0B' }}
             >
               ORUS
             </span>
             <span
-              className="font-display text-sm md:text-base tracking-[0.25em] uppercase text-noir/50"
-              style={{ fontWeight: 300 }}
+              className="text-xs md:text-sm tracking-[0.25em] uppercase"
+              style={{ color: '#0B0B0B', fontFamily: 'var(--font-dm-sans), system-ui, sans-serif', fontWeight: 400, opacity: 0.5 }}
             >
-              gallery
+              GALLERY
             </span>
           </Link>
 
@@ -81,11 +90,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm tracking-[0.12em] uppercase transition-colors duration-300 ${
-                  pathname === item.href
-                    ? 'text-or'
-                    : 'text-noir/50 hover:text-noir'
-                }`}
+                className={`nav-link ${isActive(item.href) ? 'nav-link-active' : ''}`}
               >
                 {item.label}
               </Link>
@@ -146,7 +151,8 @@ export function Header() {
           >
             {/* Backdrop */}
             <div
-              className="absolute inset-0 bg-blanc/95 backdrop-blur-md"
+              className="absolute inset-0 backdrop-blur-md"
+              style={{ backgroundColor: 'rgba(250, 250, 250, 0.95)' }}
               onClick={closeMobileMenu}
             />
 
@@ -170,13 +176,19 @@ export function Header() {
                     <Link
                       href={item.href}
                       onClick={closeMobileMenu}
-                      className={`font-display text-2xl tracking-[0.15em] uppercase transition-colors duration-300 ${
-                        pathname === item.href
-                          ? 'text-or'
-                          : 'text-noir hover:text-noir'
-                      }`}
+                      className="font-display tracking-[0.15em] uppercase transition-colors duration-300 relative inline-block"
+                      style={{
+                        fontSize: '28px',
+                        color: '#0B0B0B',
+                      }}
                     >
                       {item.label}
+                      {isActive(item.href) && (
+                        <span
+                          className="absolute left-0 right-0 -bottom-1 h-px"
+                          style={{ backgroundColor: '#4BAF91' }}
+                        />
+                      )}
                     </Link>
                   </motion.div>
                 ))}
@@ -187,7 +199,8 @@ export function Header() {
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="w-16 h-px bg-or/40 my-10"
+                className="h-px my-10"
+                style={{ backgroundColor: 'rgba(75, 175, 145, 0.4)', width: '64px' }}
               />
 
               {/* Language Switcher */}
@@ -204,7 +217,8 @@ export function Header() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, delay: 0.6 }}
-                className="text-noir/40 text-sm tracking-[0.2em] uppercase mt-10"
+                className="text-sm tracking-[0.2em] uppercase mt-10"
+                style={{ color: 'rgba(11, 11, 11, 0.4)' }}
               >
                 Taiwan — Paris
               </motion.p>

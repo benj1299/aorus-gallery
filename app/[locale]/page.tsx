@@ -5,44 +5,24 @@ import { motion } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 
-// Featured artworks for the gallery preview
-const featuredWorks = [
-  {
-    id: 1,
-    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80',
-    title: 'Contemporary Abstract',
-  },
-  {
-    id: 2,
-    image: 'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=800&q=80',
-    title: 'Gallery Exhibition',
-  },
-  {
-    id: 3,
-    image: 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=800&q=80',
-    title: 'Modern Sculpture',
-  },
-  {
-    id: 4,
-    image: 'https://images.unsplash.com/photo-1549887534-1541e9326642?w=800&q=80',
-    title: 'Abstract Expression',
-  },
-];
+import { artists as allArtists } from '@/lib/artists-data';
+
+const featuredArtists = allArtists.slice(0, 4);
 
 export default function HomePage() {
   const t = useTranslations('home');
 
   return (
     <div className="flex flex-col">
-      {/* ===== HERO SECTION ===== */}
+      {/* ===== BLOCK 1 — HERO ===== */}
       <section className="bg-blanc min-h-screen flex items-center justify-center relative">
         {/* Background - Logo watermark */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 flex items-center justify-center">
             <img
-              src="/logo.png"
+              src="/images/gallery/logo.jpeg"
               alt=""
-              className="w-[50vw] max-w-[600px] opacity-[0.04]"
+              className="w-[60vw] max-w-[700px] opacity-[0.05]"
               aria-hidden="true"
             />
           </div>
@@ -55,58 +35,43 @@ export default function HomePage() {
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 text-center px-6"
         >
-          {/* Logo */}
+          {/* Title */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
             className="mb-12"
           >
-            <div className="flex flex-col items-center">
-              <span
-                className="font-display text-5xl md:text-7xl lg:text-8xl tracking-[0.15em] uppercase leading-none"
-                style={{ color: '#0A0A0A' }}
-              >
-                ORUS
-              </span>
-              <span
-                className="font-display text-xl md:text-2xl lg:text-3xl tracking-[0.3em] uppercase text-noir/40 mt-2"
-                style={{ fontWeight: 300 }}
-              >
-                gallery
-              </span>
-            </div>
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-[0.15em] uppercase leading-none text-noir text-center">
+              ORUS<br />GALLERY
+            </h1>
           </motion.div>
 
-          {/* Gold Separator */}
+          {/* TAIPEI — PARIS with jade line */}
           <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="divider-gold mx-auto mb-8"
-          />
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="flex items-center justify-center gap-6 mb-10"
+          >
+            <span className="font-display text-base md:text-lg tracking-[0.3em] uppercase text-noir">
+              TAIPEI
+            </span>
+            <div className="w-12 h-px bg-or" />
+            <span className="font-display text-base md:text-lg tracking-[0.3em] uppercase text-noir">
+              PARIS
+            </span>
+          </motion.div>
 
-          {/* Positioning statement */}
+          {/* International Art Gallery */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.9 }}
-            className="text-noir/50 text-base md:text-lg tracking-[0.15em] uppercase mb-6"
+            className="text-noir/50 text-base md:text-lg tracking-[0.15em] uppercase"
           >
-            {t('hero.positioning')}
+            {t('hero.tagline')}
           </motion.p>
-
-          {/* 24h response promise */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.1 }}
-            className="inline-flex items-center gap-3 px-6 py-3 border border-noir/30"
-          >
-            <span className="text-or text-sm tracking-[0.12em] uppercase font-medium">
-              {t('hero.response')}
-            </span>
-          </motion.div>
         </motion.div>
 
         {/* Scroll indicator */}
@@ -125,8 +90,8 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ===== GALLERY PREVIEW ===== */}
-      <section className="bg-blanc-muted section-padding">
+      {/* ===== BLOCK 2 — SELECTION D'OEUVRES ===== */}
+      <section className="bg-blanc section-padding-lg">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -134,50 +99,47 @@ export default function HomePage() {
           transition={{ duration: 1 }}
           className="container-wide"
         >
-          {/* Grid of featured works */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
-            {featuredWorks.map((work, index) => (
-              <motion.div
-                key={work.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="aspect-square relative overflow-hidden group"
-              >
-                <Image
-                  src={work.image}
-                  alt={work.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/20 transition-colors duration-500" />
-              </motion.div>
-            ))}
+          <div className="text-center mb-16">
+            <h2 className="title-section text-noir">
+              {t('gallery.title')}
+            </h2>
           </div>
 
-          {/* View Artists Link */}
-          <div className="text-center mt-12">
-            <Link
-              href="/artists"
-              className="btn-text group inline-flex items-center gap-3"
-            >
-              <span>View All Artists</span>
-              <svg
-                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+          {/* Grid: 2 columns desktop, 1 mobile — 4 featured artists */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            {featuredArtists.map((artist, index) => (
+              <motion.div
+                key={artist.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="group"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+                <Link href={`/artists/${artist.id}`}>
+                  <div className="aspect-[4/3] relative overflow-hidden mb-6">
+                    <Image
+                      src={artist.image}
+                      alt={artist.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="font-display text-lg text-noir tracking-wide">
+                    {artist.name}
+                  </p>
+                  <p className="text-noir/50 text-sm tracking-wide mt-1">
+                    {artist.nationality}
+                  </p>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </section>
 
-      {/* ===== DIRECTION CURATORIALE ===== */}
-      <section className="bg-blanc section-padding-lg">
+      {/* ===== BLOCK 3 — DIRECTION CURATORIALE ===== */}
+      <section className="bg-blanc-muted section-padding-lg">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Image */}
@@ -189,8 +151,8 @@ export default function HomePage() {
               className="aspect-[4/5] relative overflow-hidden"
             >
               <Image
-                src="https://images.unsplash.com/photo-1577720643272-265f09367456?w=800&q=80"
-                alt="Gallery space"
+                src="/images/gallery/Galerie 1.png"
+                alt="ORUS Gallery facade"
                 fill
                 className="object-cover"
               />
@@ -204,10 +166,6 @@ export default function HomePage() {
               transition={{ duration: 1, delay: 0.2 }}
               className="text-center lg:text-left"
             >
-              <p className="text-or text-sm tracking-[0.2em] uppercase font-medium mb-6">
-                {t('curatorial.eyebrow')}
-              </p>
-
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-noir mb-10 tracking-[0.04em]">
                 {t('curatorial.title')}
               </h2>
@@ -218,16 +176,20 @@ export default function HomePage() {
                 {t('curatorial.text1')}
               </p>
 
-              <p className="text-noir/50 text-base leading-relaxed">
+              <p className="text-noir/60 text-base leading-relaxed mb-6">
                 {t('curatorial.text2')}
+              </p>
+
+              <p className="text-noir/50 text-base leading-relaxed">
+                {t('curatorial.text3')}
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ===== PROPOSITION DE VALEUR ===== */}
-      <section className="bg-blanc-muted section-padding-lg">
+      {/* ===== BLOCK 4 — POURQUOI ORUS ===== */}
+      <section className="bg-blanc section-padding-lg">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -235,34 +197,35 @@ export default function HomePage() {
           transition={{ duration: 1 }}
           className="container-wide"
         >
-          <div className="text-center mb-16">
-            <p className="text-or text-sm tracking-[0.2em] uppercase font-medium mb-4">{t('value.eyebrow')}</p>
-            <h2 className="title-section text-noir">{t('value.title')}</h2>
-          </div>
-
-          {/* 3 Value Pillars */}
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {[
-              { key: 'pillar1', num: '01' },
-              { key: 'pillar2', num: '02' },
-              { key: 'pillar3', num: '03' },
-            ].map((pillar, index) => (
+            {[0, 1, 2].map((index) => (
               <motion.div
-                key={pillar.key}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.1 * (index + 1) }}
-                className="text-center p-8 bg-blanc border border-noir/10"
+                className="text-center p-8 bg-blanc-muted border border-noir/10"
               >
-                <div className="w-16 h-16 mx-auto mb-6 border border-noir flex items-center justify-center">
-                  <span className="text-or text-2xl font-display">{pillar.num}</span>
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                  <img
+                    src="/images/gallery/logo.jpeg"
+                    alt="ORUS"
+                    className="w-12 h-12 object-contain"
+                    style={{
+                      filter: index === 0
+                        ? 'sepia(1) saturate(3) brightness(0.8) hue-rotate(10deg)'
+                        : index === 1
+                          ? 'sepia(1) saturate(2) brightness(0.9) hue-rotate(100deg)'
+                          : 'brightness(0) saturate(100%)',
+                    }}
+                  />
                 </div>
                 <h3 className="font-display text-xl text-noir mb-4 tracking-wide">
-                  {t(`value.${pillar.key}.title`)}
+                  {t(`values.items.${index}.title`)}
                 </h3>
                 <p className="text-noir/60 text-sm leading-relaxed">
-                  {t(`value.${pillar.key}.text`)}
+                  {t(`values.items.${index}.description`)}
                 </p>
               </motion.div>
             ))}
@@ -270,8 +233,8 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ===== CONTACT CTA ===== */}
-      <section className="bg-blanc section-padding-lg">
+      {/* ===== BLOCK 5 — CONTACT STRIP ===== */}
+      <section className="bg-blanc-muted section-padding-lg">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -279,11 +242,8 @@ export default function HomePage() {
           transition={{ duration: 0.8 }}
           className="container-narrow text-center"
         >
-          <h2 className="font-display text-3xl md:text-4xl text-noir mb-6 tracking-wide">
-            {t('cta.title')}
-          </h2>
-          <p className="text-noir/50 text-lg mb-12 max-w-xl mx-auto">
-            {t('cta.subtitle')}
+          <p className="text-noir/60 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+            {t('cta.text')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -303,7 +263,7 @@ export default function HomePage() {
 
           {/* Location tag */}
           <p className="text-noir/30 text-sm tracking-[0.15em] uppercase mt-16">
-            Taipei — Paris
+            {t('cta.location')}
           </p>
         </motion.div>
       </section>

@@ -87,22 +87,10 @@ export default function ContactPage() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="container-narrow text-center"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-flex items-center gap-3 px-8 py-4 border border-noir mb-10"
-          >
-            <svg className="w-5 h-5 text-or" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span className="text-or text-sm md:text-base tracking-[0.12em] uppercase font-medium">
-              {t('response')}
-            </span>
-          </motion.div>
-
           <h1 className="title-section text-noir mb-6">{t('title')}</h1>
-          <p className="text-noir/50 text-lg tracking-wide">{t('subtitle')}</p>
+          <p className="text-noir/60 text-lg leading-relaxed max-w-2xl mx-auto">
+            {t('subtitle')}
+          </p>
           <div className="divider-gold mx-auto mt-10" />
         </motion.div>
       </section>
@@ -119,8 +107,8 @@ export default function ContactPage() {
             >
               <div className="aspect-[4/3] relative overflow-hidden mb-10">
                 <Image
-                  src="https://images.unsplash.com/photo-1577720643272-265f09367456?w=800&q=80"
-                  alt="Gallery interior"
+                  src="/images/gallery/Image Contact .png"
+                  alt="ORUS Gallery"
                   fill
                   className="object-cover"
                 />
@@ -132,19 +120,12 @@ export default function ContactPage() {
                     {t('contactInfo.email')}
                   </p>
                   <a
-                    href="mailto:info@orusgallery.com"
+                    href="mailto:contact@orusgallery.com"
                     className="text-noir hover:text-noir text-lg font-display transition-colors duration-300"
                   >
-                    info@orusgallery.com
+                    contact@orusgallery.com
                   </a>
                   <p className="text-noir/40 text-sm mt-1">{t('contactInfo.general')}</p>
-                  <a
-                    href="mailto:press@orusgallery.com"
-                    className="text-noir hover:text-noir text-lg font-display transition-colors duration-300 block mt-2"
-                  >
-                    press@orusgallery.com
-                  </a>
-                  <p className="text-noir/40 text-sm mt-1">{t('contactInfo.press')}</p>
                 </div>
 
                 <div>

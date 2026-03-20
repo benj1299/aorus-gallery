@@ -16,13 +16,12 @@ export default function PressPage() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="container-narrow text-center"
         >
-          <h1 className="title-section text-noir mb-6">{t('title')}</h1>
-          <p className="text-noir/50 text-lg tracking-wide">{t('subtitle')}</p>
+          <h1 className="title-section text-noir mb-6">{t('hero.title')}</h1>
           <div className="divider-gold mx-auto mt-10" />
         </motion.div>
       </section>
 
-      {/* Selected Coverage — Empty State */}
+      {/* Press Articles — Placeholder Cards */}
       <section className="bg-blanc-muted section-padding-lg">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -31,23 +30,24 @@ export default function PressPage() {
           transition={{ duration: 1 }}
           className="container-wide"
         >
-          <div className="text-center mb-20">
-            <p className="text-noir/40 text-sm tracking-[0.2em] uppercase font-medium mb-4">
-              {t('articles')}
-            </p>
-            <h2 className="title-section text-noir">Selected Coverage</h2>
-          </div>
-
-          {/* Empty state */}
-          <div className="text-center py-16">
-            <div className="w-16 h-px bg-noir/10 mx-auto mb-8" />
-            <p className="text-noir/40 text-lg font-display tracking-wide mb-3">
-              {t('comingSoon')}
-            </p>
-            <p className="text-noir/25 text-sm tracking-wide">
-              {t('stayTuned')}
-            </p>
-            <div className="w-16 h-px bg-noir/10 mx-auto mt-8" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((item, index) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1 * (index + 1) }}
+                className="bg-blanc border border-noir/10 p-10"
+              >
+                <div className="w-full h-48 bg-noir/5 mb-6 flex items-center justify-center">
+                  <div className="w-12 h-px bg-noir/15" />
+                </div>
+                <p className="text-noir/30 text-sm tracking-[0.1em] uppercase font-display">
+                  {t('coverage.placeholder')}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </section>
@@ -58,56 +58,28 @@ export default function PressPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="container-wide"
+          className="container-narrow text-center"
         >
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            {/* Contact Info */}
-            <div>
-              <p className="text-noir/40 text-sm tracking-[0.2em] uppercase font-medium mb-4">
-                {t('contact')}
-              </p>
-              <h2 className="font-display text-3xl md:text-4xl text-noir mb-6 tracking-wide">
-                Media Inquiries
-              </h2>
-              <p className="text-noir/60 text-lg leading-relaxed mb-8">
-                For press inquiries, interview requests, and media collaborations,
-                please contact our press office. We respond within 24 hours.
-              </p>
-              <a
-                href="mailto:press@orusgallery.com"
-                className="text-noir hover:text-noir text-xl font-display transition-colors duration-300"
-              >
-                press@orusgallery.com
-              </a>
-            </div>
+          <h2 className="font-display text-3xl md:text-4xl text-noir mb-8 tracking-wide">
+            {t('contact.title')}
+          </h2>
 
-            {/* Press Kit */}
-            <div className="bg-blanc-muted border border-noir/10 p-10 md:p-12">
-              <div className="w-16 h-16 mb-6 border border-noir/15 flex items-center justify-center">
-                <svg
-                  className="w-8 h-8 text-noir/30"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-display text-2xl text-noir mb-4">{t('kit')}</h3>
-              <p className="text-noir/50 text-base mb-8 leading-relaxed">
-                Download our press kit including high-resolution images,
-                gallery information, and artist biographies.
-              </p>
-              <button className="btn-secondary-dark opacity-50 cursor-not-allowed">
-                Coming Soon
-              </button>
-            </div>
-          </div>
+          <p className="text-noir/60 text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+            {t('contact.instruction')}
+          </p>
+
+          <a
+            href="mailto:contact@orusgallery.com"
+            className="text-noir hover:text-noir/70 text-xl font-display transition-colors duration-300"
+          >
+            contact@orusgallery.com
+          </a>
+
+          <div className="w-16 h-px bg-noir/10 mx-auto my-10" />
+
+          <p className="text-noir/50 text-base leading-relaxed max-w-2xl mx-auto">
+            {t('contact.text')}
+          </p>
         </motion.div>
       </section>
     </div>
