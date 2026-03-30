@@ -9,7 +9,8 @@
     "artists": "Artists",
     "press": "Press",
     "contact": "Contact",
-    "cities": "Taiwan — Paris"
+    "cities": "Taiwan — Paris",
+    "exhibitions": "Exhibitions"
   },
   "home": {
     "hero": {
@@ -20,6 +21,7 @@
     "gallery": {
       "eyebrow": "Discover",
       "title": "Selected Works",
+      "subtitle": "Works capable of shifting context without losing their essence",
       "cta": "View All Artists"
     },
     "curatorial": {
@@ -34,7 +36,7 @@
       "title": "Why ORUS",
       "items": [
         {
-          "title": "Radical Selection",
+          "title": "A selection, not a programme",
           "description": "ORUS works with a deliberately small number of artists.\nEach work presented is part of a strong, coherent practice capable of engaging with different cultural contexts."
         },
         {
@@ -63,15 +65,15 @@
       "subtitle": "ORIGIN + US"
     },
     "foundation": {
-      "text": "Founded between Paris and Taiwan, ORUS Gallery develops an international program dedicated to contemporary artists whose practices question memory, identity, and the intimate experiences that cross cultures.\nIts name, born from the encounter between Origin and Us, reflects a simple intention: to create a space where artistic voices from different horizons can engage in dialogue and find common resonance."
+      "text": "Founded between Paris and Taiwan, ORUS Gallery develops an international selection of contemporary artists.\nIts name, born from the encounter between Origin and Us, expresses a simple intention:\nto bring forth works capable of resonating beyond their original context."
     },
     "vision": {
       "eyebrow": "Our Vision",
       "title": "A Vision",
-      "subtitle": "Intimacy as a Universal Language",
-      "text1": "ORUS is interested in the forms of intimacy that structure human experience: the body, relationships, memory, and personal narratives.",
-      "text2": "Through these sensitive dimensions, works become capable of crossing cultural boundaries. Intimacy acts as a meeting point, a shared territory from which works can connect individual stories to collective realities.",
-      "text3": "The gallery thus develops a program where different art scenes enter into dialogue, revealing what connects cultures as much as what distinguishes them."
+      "subtitle": "Intimacy as a space of relation",
+      "text1": "ORUS attends to what does not reveal itself immediately:\nthe body, memory, bonds, inner narratives.\nIntimacy here is not a withdrawal.\nIt is a space of relation.",
+      "text2": "A silent point of passage,\nwhere works can circulate from one context to another,\nwithout losing their rightness.",
+      "text3": ""
     },
     "international": {
       "eyebrow": "Our Presence",
@@ -84,9 +86,9 @@
     "curatorial": {
       "eyebrow": "Curatorial Direction",
       "title": "Curatorial Direction",
-      "subtitle": "A Long-Term Vision",
-      "text1": "ORUS is committed to a long-term vision, favoring sustained development over immediate visibility.\nThe gallery supports a deliberately small group of artists, nurturing the evolution of their practices with rigor and continuity.",
-      "text2": "Works are placed within an expanded curatorial framework, in dialogue with critical and institutional contexts that unfold over time.\nExhibitions are conceived as precise environments for encounter, where singular artistic voices articulate and resonate across geographies."
+      "subtitle": "A held line",
+      "text1": "ORUS does not operate by accumulation.\nThe gallery builds a line.\nEach exhibition is part of a precise continuity, where works enter into relation with one another, with their context, and with those that came before.",
+      "text2": "Coherence is not displayed.\nIt is built."
     },
     "collectors": {
       "eyebrow": "For Collectors",
@@ -122,8 +124,14 @@
     "inquireButton": "Inquire",
     "untitled": "Untitled",
     "medium": "Medium on canvas",
+    "soloShows": "Solo Shows",
+    "groupShows": "Group Shows",
+    "artFairs": "Art Fairs",
+    "residencies": "Residencies",
+    "awards": "Awards",
     "career": "Career",
     "contactUs": "Contact Us",
+    "priceOnRequest": "Price on request",
     "pageNotFound": "Page Not Found",
     "pageNotFoundText": "This page is being prepared. Please check back soon or explore our roster.",
     "placeholder": {
@@ -147,7 +155,7 @@
       "title": "Press Inquiries",
       "text": "A press kit including a gallery presentation, artist biographies, and visuals is available upon request.",
       "instruction": "For all press inquiries, please contact:",
-      "email": "contact@orusgallery.com"
+      "email": "press@orusgallery.com"
     }
   },
   "contact": {
@@ -200,6 +208,20 @@
       "backToArtists": "Discover our artists",
       "error": "An error occurred. Please try again."
     }
+  },
+  "exhibitions": {
+    "title": "Exhibitions",
+    "types": {
+      "exhibition": "Exhibitions",
+      "art_fair": "Art Fairs",
+      "offsite": "Off-site"
+    },
+    "status": {
+      "current": "Current",
+      "upcoming": "Upcoming",
+      "past": "Past"
+    },
+    "noExhibitions": "No exhibitions to display"
   },
   "footer": {
     "tagline": "Origin + Us — Where art meets identity",

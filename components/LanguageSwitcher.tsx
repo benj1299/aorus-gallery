@@ -28,7 +28,7 @@ export function LanguageSwitcher() {
             className={`text-sm tracking-wider transition-all duration-300 relative pb-0.5 ${
               locale === loc
                 ? 'text-noir'
-                : 'text-noir/40 hover:text-noir/70'
+                : 'text-noir/60 hover:text-noir/80'
             }`}
           >
             {localeNames[loc]}

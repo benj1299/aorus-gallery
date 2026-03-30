@@ -29,8 +29,11 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <div className="min-h-screen flex flex-col bg-blanc">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-noir focus:text-blanc focus:text-sm">
+          Skip to content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </div>
     </NextIntlClientProvider>

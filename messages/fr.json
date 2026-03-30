@@ -9,7 +9,8 @@
     "artists": "Artistes",
     "press": "Presse",
     "contact": "Contact",
-    "cities": "Taipei — Paris"
+    "cities": "Taipei — Paris",
+    "exhibitions": "Expositions"
   },
   "home": {
     "hero": {
@@ -20,6 +21,7 @@
     "gallery": {
       "eyebrow": "Découvrir",
       "title": "Sélection d'œuvres",
+      "subtitle": "Des œuvres capables de changer de contexte sans changer de nature",
       "cta": "Voir tous les artistes"
     },
     "curatorial": {
@@ -34,7 +36,7 @@
       "title": "Pourquoi ORUS",
       "items": [
         {
-          "title": "Sélection radicale",
+          "title": "Une sélection, pas un programme",
           "description": "ORUS travaille avec un nombre volontairement restreint d'artistes.\nChaque œuvre présentée s'inscrit dans une pratique forte, cohérente et capable de dialoguer avec des contextes culturels différents."
         },
         {
@@ -63,15 +65,15 @@
       "subtitle": "ORIGIN + US"
     },
     "foundation": {
-      "text": "Fondée entre Paris et Taïwan, ORUS Gallery développe un programme international consacré à des artistes contemporains dont les pratiques interrogent la mémoire, l'identité et les expériences intimes qui traversent les cultures.\nSon nom, issu de la rencontre entre Origin et Us, reflète une intention simple : créer un espace où des voix artistiques venues de différents horizons peuvent dialoguer et trouver une résonance commune."
+      "text": "Fondée entre Paris et Taïwan, ORUS Gallery développe une sélection internationale d'artistes contemporains.\nSon nom, issu de la rencontre entre Origin et Us, exprime une intention simple :\nfaire émerger des œuvres capables de résonner au-delà de leur contexte d'origine."
     },
     "vision": {
       "eyebrow": "Notre vision",
       "title": "Une vision",
-      "subtitle": "L'intime comme langage universel",
-      "text1": "ORUS s'intéresse aux formes d'intimité qui structurent l'expérience humaine : le corps, les relations, la mémoire et les récits personnels.",
-      "text2": "À travers ces dimensions sensibles, les œuvres deviennent capables de traverser les frontières culturelles. L'intime y agit comme un point de rencontre, un territoire partagé à partir duquel les œuvres peuvent relier des histoires individuelles à des réalités collectives.",
-      "text3": "La galerie développe ainsi une programmation où différentes scènes artistiques entrent en dialogue, révélant ce qui relie les cultures autant que ce qui les distingue."
+      "subtitle": "L'intime comme espace de relation",
+      "text1": "ORUS s'attache à ce qui ne se montre pas immédiatement :\nle corps, la mémoire, les liens, les récits intérieurs.\nL'intime n'est pas ici un retrait.\nIl est un espace de relation.",
+      "text2": "Un point de passage silencieux,\noù les œuvres peuvent circuler d'un contexte à l'autre,\nsans perdre leur justesse.",
+      "text3": ""
     },
     "international": {
       "eyebrow": "Notre présence",
@@ -84,9 +86,9 @@
     "curatorial": {
       "eyebrow": "Direction curatoriale",
       "title": "Direction curatoriale",
-      "subtitle": "Une vision à long terme",
-      "text1": "ORUS s'inscrit dans une vision à long terme, privilégiant le développement dans la durée plutôt que la visibilité immédiate.\nLa galerie accompagne un groupe volontairement resserré d'artistes, en soutenant l'évolution de leurs pratiques avec exigence et continuité.",
-      "text2": "Les œuvres sont inscrites dans un cadre curatorial élargi, en dialogue avec des contextes critiques et institutionnels appelés à se déployer dans le temps.\nLes expositions sont conçues comme des environnements précis de rencontre, où des voix artistiques singulières s'articulent et entrent en résonance à travers les géographies."
+      "subtitle": "Une ligne tenue",
+      "text1": "ORUS ne fonctionne pas par accumulation.\nLa galerie construit une ligne.\nChaque exposition s'inscrit dans une continuité précise, où les œuvres entrent en relation entre elles, avec leur contexte et avec celles qui les précèdent.",
+      "text2": "La cohérence ne s'affiche pas.\nElle se construit."
     },
     "collectors": {
       "eyebrow": "Pour les collectionneurs",
@@ -122,8 +124,14 @@
     "inquireButton": "Se renseigner",
     "untitled": "Sans titre",
     "medium": "Technique mixte sur toile",
+    "soloShows": "Expositions personnelles",
+    "groupShows": "Expositions collectives",
+    "artFairs": "Foires d'art",
+    "residencies": "Résidences",
+    "awards": "Prix et distinctions",
     "career": "Carrière",
     "contactUs": "Nous contacter",
+    "priceOnRequest": "Prix sur demande",
     "pageNotFound": "Page non trouvée",
     "pageNotFoundText": "Cette page est en préparation. Veuillez revenir bientôt ou découvrir notre sélection.",
     "placeholder": {
@@ -147,7 +155,7 @@
       "title": "Demandes presse",
       "text": "Un dossier de presse incluant une présentation de la galerie, des biographies d'artistes et des visuels est disponible sur demande.",
       "instruction": "Pour toute demande presse, merci de contacter :",
-      "email": "contact@orusgallery.com"
+      "email": "press@orusgallery.com"
     }
   },
   "contact": {
@@ -200,6 +208,20 @@
       "backToArtists": "Découvrir nos artistes",
       "error": "Une erreur s'est produite. Veuillez réessayer."
     }
+  },
+  "exhibitions": {
+    "title": "Expositions",
+    "types": {
+      "exhibition": "Expositions",
+      "art_fair": "Foires d'art",
+      "offsite": "Hors les murs"
+    },
+    "status": {
+      "current": "En cours",
+      "upcoming": "A venir",
+      "past": "Passées"
+    },
+    "noExhibitions": "Aucune exposition à afficher"
   },
   "footer": {
     "tagline": "Origin + Us — Là où l'art rencontre l'identité",

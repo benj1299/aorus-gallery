@@ -1,0 +1,67 @@
+{
+  "runs": [
+    {
+      "timestamp": "2026-03-24T00:10:00Z",
+      "round": 1,
+      "tests": { "total": 16, "passed": 1, "failed": 1, "skipped": 14 },
+      "issues": ["ERR_TOO_MANY_REDIRECTS on /admin/login - admin layout auth guard wraps login page"],
+      "fixes": ["Restructured admin to use (dashboard) route group - login outside auth guard"],
+      "status": "partial"
+    },
+    {
+      "timestamp": "2026-03-24T00:15:00Z",
+      "round": 2,
+      "tests": { "total": 16, "passed": 1, "failed": 1, "skipped": 14 },
+      "issues": ["getByText('Artists') strict mode - matches sidebar + heading"],
+      "fixes": ["Changed to getByRole('heading', { name: 'Artists' })"],
+      "status": "partial"
+    },
+    {
+      "timestamp": "2026-03-24T00:20:00Z",
+      "round": 3,
+      "tests": { "total": 16, "passed": 12, "failed": 4, "skipped": 0 },
+      "issues": [
+        "Delete actions use redirect() in server action called from onClick - causes stale page",
+        "getByText('Artworks') same strict mode issue"
+      ],
+      "fixes": [
+        "Removed redirect() from all delete server actions",
+        "Added router.refresh() to DeleteButton after action completes",
+        "Fixed artworks list test to use getByRole('heading')",
+        "Delete tests now wait + reload page"
+      ],
+      "status": "partial"
+    },
+    {
+      "timestamp": "2026-03-24T00:25:00Z",
+      "round": 4,
+      "tests": { "total": 16, "passed": 0, "failed": 1, "skipped": 15 },
+      "issues": ["Dev server crashed between rounds"],
+      "fixes": ["Restarted dev server"],
+      "status": "partial"
+    },
+    {
+      "timestamp": "2026-03-24T00:30:00Z",
+      "round": 5,
+      "tests": { "total": 16, "passed": 16, "failed": 0, "skipped": 0 },
+      "issues": [],
+      "fixes": [],
+      "status": "all_pass"
+    }
+  ],
+  "typescript_check": { "errors": 0, "status": "pass" },
+  "cleanup": [
+    "Removed unused components/admin/delete-dialog.tsx",
+    "Fixed @types/pg version conflict with type cast"
+  ],
+  "final_status": "green",
+  "credentials": {
+    "email": "admin@orusgallery.com",
+    "password": "admin-orus-2025"
+  },
+  "database": {
+    "provider": "Neon PostgreSQL",
+    "project_id": "tiny-darkness-85140567",
+    "database": "neondb"
+  }
+}

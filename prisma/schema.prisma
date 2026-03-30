@@ -1,0 +1,252 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ========================
+// better_auth tables
+// ========================
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  image         String?
+  role          String    @default("admin")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sessions Session[]
+  accounts Account[]
+
+  @@map("user")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id @default(cuid())
+  userId                String
+  accountId             String
+  providerId            String
+  accessToken           String?
+  refreshToken          String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  idToken               String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("verification")
+}
+
+// ========================
+// Enums
+// ========================
+
+enum CVEntryType {
+  SOLO_SHOW
+  GROUP_SHOW
+  ART_FAIR
+  RESIDENCY
+  AWARD
+}
+
+enum GalleryExhibitionType {
+  EXHIBITION
+  ART_FAIR
+  OFFSITE
+}
+
+enum GalleryExhibitionStatus {
+  CURRENT
+  UPCOMING
+  PAST
+}
+
+// ========================
+// Domain models
+// ========================
+
+model Artist {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  nationality Json
+  bio         Json
+  imageUrl    String
+  sortOrder   Int      @default(0)
+  visible     Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  exhibitions        Exhibition[]
+  collections        Collection[]
+  artworks           Artwork[]
+  galleryExhibitions GalleryExhibitionArtist[]
+
+  @@map("artist")
+}
+
+model Exhibition {
+  id        String      @id @default(cuid())
+  artistId  String
+  title     Json
+  year      Int?
+  type      CVEntryType @default(SOLO_SHOW)
+  sortOrder Int         @default(0)
+  createdAt DateTime    @default(now())
+
+  artist Artist @relation(fields: [artistId], references: [id], onDelete: Cascade)
+
+  @@map("exhibition")
+}
+
+model Collection {
+  id        String   @id @default(cuid())
+  artistId  String
+  title     Json
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  artist Artist @relation(fields: [artistId], references: [id], onDelete: Cascade)
+
+  @@map("collection")
+}
+
+model Artwork {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  artistId     String
+  title        Json
+  medium       Json?
+  dimensions   String?
+  year         Int?
+  price        Decimal? @db.Decimal(10, 2)
+  currency     String   @default("EUR")
+  imageUrl     String
+  images       String[]
+  visible      Boolean  @default(true)
+  featuredHome Boolean  @default(false)
+  showPrice    Boolean  @default(false)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  artist             Artist                    @relation(fields: [artistId], references: [id], onDelete: Cascade)
+  galleryExhibitions GalleryExhibitionArtwork[]
+
+  @@map("artwork")
+}
+
+model PressArticle {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       Json
+  publication String
+  publishedAt DateTime
+  url         String?
+  imageUrl    String?
+  excerpt     Json?
+  visible     Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("press_article")
+}
+
+// ========================
+// Homepage Banner
+// ========================
+
+model HomeBanner {
+  id        String   @id @default(cuid())
+  title     Json
+  subtitle  Json?
+  imageUrl  String
+  linkUrl   String?
+  visible   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("home_banner")
+}
+
+// ========================
+// Gallery Exhibitions
+// ========================
+
+model GalleryExhibition {
+  id          String                  @id @default(cuid())
+  slug        String                  @unique
+  title       Json
+  description Json?
+  type        GalleryExhibitionType
+  status      GalleryExhibitionStatus
+  startDate   DateTime?
+  endDate     DateTime?
+  location    String?
+  imageUrl    String?
+  visible     Boolean                 @default(true)
+  sortOrder   Int                     @default(0)
+  createdAt   DateTime                @default(now())
+  updatedAt   DateTime                @updatedAt
+
+  artists  GalleryExhibitionArtist[]
+  artworks GalleryExhibitionArtwork[]
+
+  @@map("gallery_exhibition")
+}
+
+model GalleryExhibitionArtist {
+  exhibitionId String
+  artistId     String
+  exhibition   GalleryExhibition @relation(fields: [exhibitionId], references: [id], onDelete: Cascade)
+  artist       Artist            @relation(fields: [artistId], references: [id], onDelete: Cascade)
+
+  @@id([exhibitionId, artistId])
+  @@map("gallery_exhibition_artist")
+}
+
+model GalleryExhibitionArtwork {
+  exhibitionId String
+  artworkId    String
+  exhibition   GalleryExhibition @relation(fields: [exhibitionId], references: [id], onDelete: Cascade)
+  artwork      Artwork           @relation(fields: [artworkId], references: [id], onDelete: Cascade)
+
+  @@id([exhibitionId, artworkId])
+  @@map("gallery_exhibition_artwork")
+}

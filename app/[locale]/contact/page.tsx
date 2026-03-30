@@ -12,6 +12,8 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
+import { PageHero } from '@/components/PageHero';
+import { FormField } from '@/components/FormField';
 
 const contactSchema = z.object({
   status: z.enum(['collector', 'press', 'institution', 'corporate', 'artist', 'other']),
@@ -24,6 +26,9 @@ const contactSchema = z.object({
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
+
+const inputClassName = 'w-full h-14 px-4 bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-noir focus:ring-1 focus:ring-noir/20 focus:outline-none tracking-wide transition-colors';
+const selectClassName = `${inputClassName} appearance-none`;
 
 export default function ContactPage() {
   const t = useTranslations('contact');
@@ -79,23 +84,13 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Header */}
-      <section className="bg-blanc hero-offset">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="container-narrow text-center"
-        >
-          <h1 className="title-section text-noir mb-6">{t('title')}</h1>
-          <p className="text-noir/60 text-lg leading-relaxed max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-          <div className="divider-gold mx-auto mt-10" />
-        </motion.div>
-      </section>
+      <PageHero
+        title={t('title')}
+        subtitle={t('subtitle')}
+        subtitleClassName="text-noir/60 text-lg leading-relaxed max-w-2xl mx-auto"
+        dividerClassName="mt-10"
+      />
 
-      {/* Main Content Section */}
       <section className="bg-blanc-muted section-padding">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -113,7 +108,6 @@ export default function ContactPage() {
                   className="object-cover"
                 />
               </div>
-
               <div className="space-y-8">
                 <div>
                   <p className="text-or text-xs tracking-[0.2em] uppercase font-medium mb-2">
@@ -125,25 +119,19 @@ export default function ContactPage() {
                   >
                     contact@orusgallery.com
                   </a>
-                  <p className="text-noir/40 text-sm mt-1">{t('contactInfo.general')}</p>
+                  <p className="text-noir/60 text-sm mt-1">{t('contactInfo.general')}</p>
                 </div>
-
                 <div>
                   <p className="text-or text-xs tracking-[0.2em] uppercase font-medium mb-2">
                     {t('contactInfo.locations')}
                   </p>
-                  <p className="text-noir/60 text-base">
-                    {t('contactInfo.cities')}
-                  </p>
+                  <p className="text-noir/60 text-base">{t('contactInfo.cities')}</p>
                 </div>
-
                 <div>
                   <p className="text-or text-xs tracking-[0.2em] uppercase font-medium mb-2">
                     {t('contactInfo.hours')}
                   </p>
-                  <p className="text-noir/60 text-base">
-                    {t('contactInfo.byAppointment')}
-                  </p>
+                  <p className="text-noir/60 text-base">{t('contactInfo.byAppointment')}</p>
                 </div>
               </div>
             </motion.div>
@@ -161,18 +149,8 @@ export default function ContactPage() {
                   className="bg-blanc border border-noir/10 p-16 text-center"
                 >
                   <div className="w-20 h-20 mx-auto mb-8 border-2 border-noir flex items-center justify-center">
-                    <svg
-                      className="w-8 h-8 text-or"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
+                    <svg className="w-8 h-8 text-or" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <p className="text-noir text-xl font-display mb-2">{t('form.success')}</p>
@@ -184,7 +162,6 @@ export default function ContactPage() {
               ) : (
                 <div className="bg-blanc p-8 md:p-12 border border-noir/10">
                   <h2 className="font-display text-2xl text-noir mb-8">{t('form.title')}</h2>
-
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     {/* Status (RadioGroup) */}
                     <div className="space-y-3">
@@ -203,61 +180,38 @@ export default function ContactPage() {
                               id={`status-${option.value}`}
                               className="border-noir/30 text-[#0A0A0A] data-[state=checked]:border-[#0A0A0A]"
                             />
-                            <Label
-                              htmlFor={`status-${option.value}`}
-                              className="text-noir text-sm cursor-pointer"
-                            >
+                            <Label htmlFor={`status-${option.value}`} className="text-noir text-sm cursor-pointer">
                               {option.label}
                             </Label>
                           </div>
                         ))}
                       </RadioGroup>
-                      {errors.status && (
-                        <p className="text-red-600 text-xs">{errors.status.message}</p>
-                      )}
+                      {errors.status && <p className="text-red-600 text-xs">{errors.status.message}</p>}
                     </div>
 
-                    {/* Name */}
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-or text-xs tracking-[0.2em] uppercase font-medium">
-                        {t('form.name')} *
-                      </Label>
+                    <FormField label={t('form.name')} id="name" required error={errors.name?.message}>
                       <input
                         id="name"
                         type="text"
                         {...register('name')}
-                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-noir focus:ring-1 focus:ring-noir/20 focus:outline-none tracking-wide transition-colors"
+                        className={inputClassName}
                         placeholder={t('form.namePlaceholder')}
                         autoComplete="name"
                       />
-                      {errors.name && (
-                        <p className="text-red-600 text-xs">{errors.name.message}</p>
-                      )}
-                    </div>
+                    </FormField>
 
-                    {/* Email */}
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-or text-xs tracking-[0.2em] uppercase font-medium">
-                        {t('form.email')} *
-                      </Label>
+                    <FormField label={t('form.email')} id="email" required error={errors.email?.message}>
                       <input
                         id="email"
                         type="email"
                         {...register('email')}
-                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-noir focus:ring-1 focus:ring-noir/20 focus:outline-none tracking-wide transition-colors"
+                        className={inputClassName}
                         placeholder="your@email.com"
                         autoComplete="email"
                       />
-                      {errors.email && (
-                        <p className="text-red-600 text-xs">{errors.email.message}</p>
-                      )}
-                    </div>
+                    </FormField>
 
-                    {/* Message */}
-                    <div className="space-y-2">
-                      <Label htmlFor="message" className="text-or text-xs tracking-[0.2em] uppercase font-medium">
-                        {t('form.message')} *
-                      </Label>
+                    <FormField label={t('form.message')} id="message" required error={errors.message?.message}>
                       <Textarea
                         id="message"
                         {...register('message')}
@@ -265,42 +219,23 @@ export default function ContactPage() {
                         className="bg-blanc border border-noir/15 text-noir placeholder:text-noir/40 focus:border-noir focus:ring-1 focus:ring-noir/20 resize-none tracking-wide px-4 py-4"
                         placeholder={t('form.messagePlaceholder')}
                       />
-                      {errors.message && (
-                        <p className="text-red-600 text-xs">{errors.message.message}</p>
-                      )}
-                    </div>
+                    </FormField>
 
-                    {/* Interested In (optional select) */}
-                    <div className="space-y-2">
-                      <Label htmlFor="interestedIn" className="text-or text-xs tracking-[0.2em] uppercase font-medium">
-                        {t('form.interestedIn')}
-                      </Label>
-                      <select
-                        id="interestedIn"
-                        {...register('interestedIn')}
-                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir focus:border-noir focus:ring-1 focus:ring-noir/20 focus:outline-none tracking-wide transition-colors appearance-none"
-                      >
+                    <FormField label={t('form.interestedIn')} id="interestedIn">
+                      <select id="interestedIn" {...register('interestedIn')} className={selectClassName}>
                         {interestedInOptions.map((opt) => (
                           <option key={opt.value} value={opt.value}>{opt.label}</option>
                         ))}
                       </select>
-                    </div>
+                    </FormField>
 
-                    {/* Preferred Language (optional select) */}
-                    <div className="space-y-2">
-                      <Label htmlFor="preferredLanguage" className="text-or text-xs tracking-[0.2em] uppercase font-medium">
-                        {t('form.preferredLanguage')}
-                      </Label>
-                      <select
-                        id="preferredLanguage"
-                        {...register('preferredLanguage')}
-                        className="w-full h-14 px-4 bg-blanc border border-noir/15 text-noir focus:border-noir focus:ring-1 focus:ring-noir/20 focus:outline-none tracking-wide transition-colors appearance-none"
-                      >
+                    <FormField label={t('form.preferredLanguage')} id="preferredLanguage">
+                      <select id="preferredLanguage" {...register('preferredLanguage')} className={selectClassName}>
                         {languageOptions.map((opt) => (
                           <option key={opt.value} value={opt.value}>{opt.label}</option>
                         ))}
                       </select>
-                    </div>
+                    </FormField>
 
                     {/* RGPD Checkbox */}
                     <div className="space-y-2">
@@ -315,17 +250,10 @@ export default function ContactPage() {
                           {t('form.rgpdText')}
                         </Label>
                       </div>
-                      {errors.rgpd && (
-                        <p className="text-red-600 text-xs">{errors.rgpd.message}</p>
-                      )}
+                      {errors.rgpd && <p className="text-red-600 text-xs">{errors.rgpd.message}</p>}
                     </div>
 
-                    {/* Submit */}
-                    <Button
-                      type="submit"
-                      disabled={formStatus === 'sending'}
-                      className="w-full h-14 btn-primary mt-4"
-                    >
+                    <Button type="submit" disabled={formStatus === 'sending'} className="w-full h-14 btn-primary mt-4">
                       {formStatus === 'sending' ? t('form.sending') : t('form.submit')}
                     </Button>
 

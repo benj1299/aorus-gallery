@@ -12,13 +12,16 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
+  const navItems: { href: string; label: string; hidden?: boolean }[] = [
     { href: '/', label: t('home') },
     { href: '/artists', label: t('artists') },
+    { href: '/exhibitions', label: t('exhibitions'), hidden: true },
     { href: '/press', label: t('press') },
     { href: '/about', label: t('about') },
     { href: '/contact', label: t('contact') },
   ];
+
+  const visibleNavItems = navItems.filter((item) => !item.hidden);
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
@@ -68,25 +71,16 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex flex-col items-start hover:opacity-80 transition-opacity duration-300"
+            className="flex flex-col hover:opacity-80 transition-opacity duration-300"
+            style={{ width: '105px' }}
           >
-            <span
-              className="font-display text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] uppercase leading-none"
-              style={{ color: '#0B0B0B' }}
-            >
-              ORUS
-            </span>
-            <span
-              className="text-xs md:text-sm tracking-[0.25em] uppercase"
-              style={{ color: '#0B0B0B', fontFamily: 'var(--font-dm-sans), system-ui, sans-serif', fontWeight: 400, opacity: 0.5 }}
-            >
-              GALLERY
-            </span>
+            <span className="font-display text-[22px] md:text-[28px] lg:text-[34px] tracking-[0.18em] uppercase leading-none text-noir block w-full">ORUS</span>
+            <span className="font-display text-[10.5px] md:text-[13px] lg:text-[16px] tracking-[0.42em] uppercase leading-none text-noir block w-full" style={{ marginTop: '3px' }}>GALLERY</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8 lg:gap-12">
-            {navItems.map((item) => (
+            {visibleNavItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -166,7 +160,7 @@ export function Header() {
             >
               {/* Navigation Links */}
               <div className="flex flex-col items-center gap-8">
-                {navItems.map((item, index) => (
+                {visibleNavItems.map((item, index) => (
                   <motion.div
                     key={item.href}
                     initial={{ opacity: 0, y: 20 }}
