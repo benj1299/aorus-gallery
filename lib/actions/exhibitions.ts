@@ -8,17 +8,17 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
+import { slugify } from '@/lib/slugify';
 
 const exhibitionSchema = z.object({
   title: translatableSchema,
   description: optionalTranslatableSchema,
-  slug: z.string().min(1).regex(/^[a-z0-9-]+$/),
   type: z.enum(['EXHIBITION', 'ART_FAIR', 'OFFSITE']),
   status: z.enum(['CURRENT', 'UPCOMING', 'PAST']),
   startDate: z.coerce.date().optional().nullable(),
   endDate: z.coerce.date().optional().nullable(),
   location: z.string().optional().default(''),
-  imageUrl: z.string().url().optional().or(z.literal('')),
+  imageUrl: z.string().url().refine((url) => url.startsWith('https://'), { message: 'URL must use HTTPS' }).optional().or(z.literal('')),
   visible: z.coerce.boolean().default(true),
   sortOrder: z.coerce.number().int().default(0),
 });
@@ -63,7 +63,6 @@ export async function createExhibition(formData: FormData) {
   const raw = {
     title: extractTranslatable(formData, 'title'),
     description: extractTranslatable(formData, 'description'),
-    slug: formData.get('slug')?.toString() ?? '',
     type: formData.get('type')?.toString() ?? 'EXHIBITION',
     status: formData.get('status')?.toString() ?? 'UPCOMING',
     startDate: startDateStr || null,
@@ -74,6 +73,7 @@ export async function createExhibition(formData: FormData) {
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
   };
   const data = exhibitionSchema.parse(raw);
+  const slug = slugify(data.title.en);
 
   const descriptionVal = data.description && (data.description.en || data.description.fr || data.description.zh)
     ? data.description
@@ -86,7 +86,7 @@ export async function createExhibition(formData: FormData) {
     data: {
       title: data.title,
       description: descriptionVal,
-      slug: data.slug,
+      slug,
       type: data.type,
       status: data.status,
       startDate: data.startDate ?? null,
@@ -113,7 +113,6 @@ export async function updateExhibition(id: string, formData: FormData) {
   const raw = {
     title: extractTranslatable(formData, 'title'),
     description: extractTranslatable(formData, 'description'),
-    slug: formData.get('slug')?.toString() ?? '',
     type: formData.get('type')?.toString() ?? 'EXHIBITION',
     status: formData.get('status')?.toString() ?? 'UPCOMING',
     startDate: startDateStr || null,
@@ -140,7 +139,6 @@ export async function updateExhibition(id: string, formData: FormData) {
       data: {
         title: data.title,
         description: descriptionVal,
-        slug: data.slug,
         type: data.type,
         status: data.status,
         startDate: data.startDate ?? null,

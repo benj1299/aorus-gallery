@@ -29,7 +29,6 @@ export default async function EditPressPage({ params }: Props) {
         action={updateWithId}
         defaultValues={{
           title: article.title as TranslatableField,
-          slug: article.slug,
           publication: article.publication,
           publishedAt: article.publishedAt.toISOString().split('T')[0],
           url: article.url ?? '',

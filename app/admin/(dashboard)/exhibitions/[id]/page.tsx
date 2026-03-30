@@ -53,7 +53,6 @@ export default async function EditExhibitionPage({ params }: Props) {
         defaultValues={{
           title: exhibition.title as TranslatableField,
           description: (exhibition.description as TranslatableField | null) ?? undefined,
-          slug: exhibition.slug,
           type: exhibition.type,
           status: exhibition.status,
           startDate: exhibition.startDate ? exhibition.startDate.toISOString().split('T')[0] : undefined,

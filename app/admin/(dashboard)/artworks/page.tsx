@@ -3,6 +3,10 @@ import { getAllArtworksAdmin } from '@/lib/queries/artworks';
 import { deleteArtwork } from '@/lib/actions/artworks';
 import { DeleteButton } from '@/components/admin/delete-button';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Plus } from 'lucide-react';
 
 export default async function AdminArtworksPage() {
   const artworks = await getAllArtworksAdmin();
@@ -10,73 +14,75 @@ export default async function AdminArtworksPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold">Artworks</h1>
-        <Link
-          href="/admin/artworks/new"
-          className="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800"
-        >
-          + New Artwork
-        </Link>
+        <h1 className="text-2xl font-bold tracking-tight">Artworks</h1>
+        <Button asChild>
+          <Link href="/admin/artworks/new">
+            <Plus className="w-4 h-4 mr-1" />
+            New Artwork
+          </Link>
+        </Button>
       </div>
 
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <table className="w-full">
-          <thead className="bg-gray-50 border-b border-gray-200">
-            <tr>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Artwork</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Artist</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Medium</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Visible</th>
-              <th className="text-right px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
+      <div className="rounded-lg border bg-card">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Artwork</TableHead>
+              <TableHead>Artist</TableHead>
+              <TableHead>Medium</TableHead>
+              <TableHead>Price</TableHead>
+              <TableHead>Visible</TableHead>
+              <TableHead className="text-right">Actions</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
             {artworks.map((artwork) => (
-              <tr key={artwork.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4">
+              <TableRow key={artwork.id}>
+                <TableCell>
                   <div className="flex items-center gap-3">
                     {artwork.imageUrl && (
                       <img src={artwork.imageUrl} alt="" className="w-12 h-12 rounded object-cover" />
                     )}
                     <div>
                       <p className="font-medium text-sm">{resolveTranslation(artwork.title as TranslatableField, 'en')}</p>
-                      <p className="text-gray-400 text-xs">{artwork.dimensions}</p>
+                      <p className="text-muted-foreground text-xs">{artwork.dimensions}</p>
                     </div>
                   </div>
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-600">{artwork.artist.name}</td>
-                <td className="px-6 py-4 text-sm text-gray-600">{artwork.medium ? resolveTranslation(artwork.medium as TranslatableField, 'en') : '—'}</td>
-                <td className="px-6 py-4 text-sm text-gray-600">
-                  {artwork.price ? `${artwork.price} ${artwork.currency}` : '—'}
-                </td>
-                <td className="px-6 py-4">
-                  <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${artwork.visible ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
-                    {artwork.visible ? 'Yes' : 'Hidden'}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-right">
+                </TableCell>
+                <TableCell className="text-sm">{artwork.artist.name}</TableCell>
+                <TableCell className="text-sm">{artwork.medium ? resolveTranslation(artwork.medium as TranslatableField, 'en') : '\u2014'}</TableCell>
+                <TableCell className="text-sm">
+                  {artwork.price ? `${artwork.price} ${artwork.currency}` : '\u2014'}
+                </TableCell>
+                <TableCell>
+                  <div className="flex gap-1">
+                    <Badge variant={artwork.visible ? 'default' : 'secondary'}>
+                      {artwork.visible ? 'Visible' : 'Hidden'}
+                    </Badge>
+                    {artwork.featuredHome && (
+                      <Badge variant="outline">Featured</Badge>
+                    )}
+                  </div>
+                </TableCell>
+                <TableCell className="text-right">
                   <div className="flex items-center justify-end gap-2">
-                    <Link
-                      href={`/admin/artworks/${artwork.id}`}
-                      className="px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-100 rounded hover:bg-gray-200"
-                    >
-                      Edit
-                    </Link>
+                    <Button variant="outline" size="sm" asChild>
+                      <Link href={`/admin/artworks/${artwork.id}`}>Edit</Link>
+                    </Button>
                     <DeleteButton id={artwork.id} action={deleteArtwork} label="artwork" />
                   </div>
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ))}
             {artworks.length === 0 && (
-              <tr>
-                <td colSpan={6} className="px-6 py-12 text-center text-gray-400">
+              <TableRow>
+                <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
                   No artworks yet. Create your first one.
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             )}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
     </div>
   );

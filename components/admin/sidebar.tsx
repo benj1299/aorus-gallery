@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
 import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { Users, Image, Newspaper, Megaphone, Calendar, Mail, LogOut } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
 const navItems = [
   { label: 'Artists', href: '/admin/artists', icon: Users },
@@ -26,40 +27,42 @@ export function AdminSidebar() {
   };
 
   return (
-    <aside className="w-64 min-h-screen border-r border-gray-200 bg-white flex flex-col">
-      <div className="p-6 border-b border-gray-200">
-        <Link href="/admin" className="text-xl font-bold tracking-wide">
+    <aside className="w-64 min-h-screen border-r border-border bg-card flex flex-col">
+      <div className="p-6">
+        <Link href="/admin" className="text-xl font-bold tracking-wide text-foreground">
           ORUS Admin
         </Link>
       </div>
-      <nav className="flex-1 p-4 space-y-1">
+      <Separator />
+      <nav className="flex-1 p-3 space-y-1">
         {navItems.map((item) => {
           const Icon = item.icon;
+          const isActive = pathname.startsWith(item.href);
           return (
-            <Link
+            <Button
               key={item.href}
-              href={item.href}
-              className={cn(
-                'flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors',
-                pathname.startsWith(item.href)
-                  ? 'bg-gray-100 text-gray-900'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-              )}
+              variant={isActive ? 'secondary' : 'ghost'}
+              className="w-full justify-start gap-3 h-10"
+              asChild
             >
-              <Icon className="w-4 h-4" />
-              {item.label}
-            </Link>
+              <Link href={item.href}>
+                <Icon className="w-4 h-4" />
+                {item.label}
+              </Link>
+            </Button>
           );
         })}
       </nav>
-      <div className="p-4 border-t border-gray-200">
-        <button
+      <Separator />
+      <div className="p-3">
+        <Button
+          variant="ghost"
+          className="w-full justify-start gap-3 h-10 text-muted-foreground"
           onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
         >
           <LogOut className="w-4 h-4" />
           Logout
-        </button>
+        </Button>
       </div>
     </aside>
   );

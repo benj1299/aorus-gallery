@@ -1,4 +1,6 @@
 import { prisma } from '@/lib/db';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
 
 async function getContactSubmissions() {
   return prisma.contactSubmission.findMany({
@@ -12,35 +14,35 @@ export default async function AdminMessagesPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold">Contact Messages</h1>
-        <span className="text-sm text-gray-500">{submissions.length} message{submissions.length !== 1 ? 's' : ''}</span>
+        <h1 className="text-2xl font-bold tracking-tight">Contact Messages</h1>
+        <span className="text-sm text-muted-foreground">{submissions.length} message{submissions.length !== 1 ? 's' : ''}</span>
       </div>
 
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <table className="w-full">
-          <thead className="bg-gray-50 border-b border-gray-200">
-            <tr>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
+      <div className="rounded-lg border bg-card">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Status</TableHead>
+              <TableHead>Name</TableHead>
+              <TableHead>Email</TableHead>
+              <TableHead>Message</TableHead>
+              <TableHead>Date</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
             {submissions.map((sub) => (
-              <tr key={sub.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4">
-                  <span className="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-blue-50 text-blue-700 capitalize">
+              <TableRow key={sub.id}>
+                <TableCell>
+                  <Badge variant="outline" className="capitalize">
                     {sub.status}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">{sub.name}</td>
-                <td className="px-6 py-4 text-sm text-gray-600">
-                  <a href={`mailto:${sub.email}`} className="hover:underline">{sub.email}</a>
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-600 max-w-xs truncate">{sub.message}</td>
-                <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                  </Badge>
+                </TableCell>
+                <TableCell className="font-medium text-sm">{sub.name}</TableCell>
+                <TableCell className="text-sm">
+                  <a href={`mailto:${sub.email}`} className="hover:underline text-foreground">{sub.email}</a>
+                </TableCell>
+                <TableCell className="text-sm max-w-xs truncate">{sub.message}</TableCell>
+                <TableCell className="text-sm text-muted-foreground whitespace-nowrap">
                   {sub.createdAt.toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'short',
@@ -48,18 +50,18 @@ export default async function AdminMessagesPage() {
                     hour: '2-digit',
                     minute: '2-digit',
                   })}
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ))}
             {submissions.length === 0 && (
-              <tr>
-                <td colSpan={5} className="px-6 py-12 text-center text-gray-400">
+              <TableRow>
+                <TableCell colSpan={5} className="h-24 text-center text-muted-foreground">
                   No contact messages yet.
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             )}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
 
 interface DeleteButtonProps {
   id: string;
@@ -25,28 +26,19 @@ export function DeleteButton({ id, action, label }: DeleteButtonProps) {
   if (confirming) {
     return (
       <div className="flex items-center gap-1">
-        <button
-          onClick={handleDelete}
-          className="px-3 py-1.5 text-xs font-medium text-white bg-red-600 rounded hover:bg-red-700"
-        >
+        <Button variant="destructive" size="sm" onClick={handleDelete}>
           Confirm
-        </button>
-        <button
-          onClick={() => setConfirming(false)}
-          className="px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-100 rounded hover:bg-gray-200"
-        >
+        </Button>
+        <Button variant="outline" size="sm" onClick={() => setConfirming(false)}>
           Cancel
-        </button>
+        </Button>
       </div>
     );
   }
 
   return (
-    <button
-      onClick={() => setConfirming(true)}
-      className="px-3 py-1.5 text-xs font-medium text-red-600 bg-red-50 rounded hover:bg-red-100"
-    >
+    <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive" onClick={() => setConfirming(true)}>
       Delete
-    </button>
+    </Button>
   );
 }

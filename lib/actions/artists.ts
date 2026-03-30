@@ -7,13 +7,13 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, extractTranslatable, extractTranslatableArray, type TranslatableField } from '@/lib/i18n-content';
+import { slugify } from '@/lib/slugify';
 
 const artistSchema = z.object({
   name: z.string().min(1),
-  slug: z.string().min(1).regex(/^[a-z0-9-]+$/),
   nationality: translatableSchema,
   bio: translatableSchema,
-  imageUrl: z.string().url(),
+  imageUrl: z.string().url().refine((url) => url.startsWith('https://'), { message: 'URL must use HTTPS' }),
   sortOrder: z.coerce.number().int().default(0),
   visible: z.coerce.boolean().default(true),
 });
@@ -48,7 +48,6 @@ export async function createArtist(formData: FormData) {
 
   const raw = {
     name: formData.get('name')?.toString() ?? '',
-    slug: formData.get('slug')?.toString() ?? '',
     nationality: extractTranslatable(formData, 'nationality'),
     bio: extractTranslatable(formData, 'bio'),
     imageUrl: formData.get('imageUrl')?.toString() ?? '',
@@ -56,6 +55,7 @@ export async function createArtist(formData: FormData) {
     visible: formData.get('visible')?.toString() ?? 'false',
   };
   const data = artistSchema.parse(raw);
+  const slug = slugify(data.name);
 
   const cvEntries = extractCVEntries(formData);
   const collections = extractTranslatableArray(formData, 'collections');
@@ -63,6 +63,7 @@ export async function createArtist(formData: FormData) {
   await prisma.artist.create({
     data: {
       ...data,
+      slug,
       exhibitions: {
         create: cvEntries.map((entry) => ({
           title: entry.title,
@@ -85,7 +86,6 @@ export async function updateArtist(id: string, formData: FormData) {
 
   const raw = {
     name: formData.get('name')?.toString() ?? '',
-    slug: formData.get('slug')?.toString() ?? '',
     nationality: extractTranslatable(formData, 'nationality'),
     bio: extractTranslatable(formData, 'bio'),
     imageUrl: formData.get('imageUrl')?.toString() ?? '',

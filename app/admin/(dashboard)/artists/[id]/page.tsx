@@ -36,7 +36,6 @@ export default async function EditArtistPage({ params }: Props) {
         action={updateWithId}
         defaultValues={{
           name: artist.name,
-          slug: artist.slug,
           nationality: artist.nationality as TranslatableField,
           bio: artist.bio as TranslatableField,
           imageUrl: artist.imageUrl,

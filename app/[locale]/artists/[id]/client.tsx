@@ -142,6 +142,12 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
                   ) : (
                     <p className="text-noir/40 text-xs italic mt-1">{t('priceOnRequest')}</p>
                   )}
+                  <Link
+                    href="/contact"
+                    className="text-jade text-xs tracking-[0.1em] uppercase mt-2 inline-block hover:underline"
+                  >
+                    {t('inquireButton')}
+                  </Link>
                 </div>
               </motion.div>
             ))
@@ -176,7 +182,7 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
             .filter((s) => s.items.length > 0)
             .map((section) => (
               <div key={section.key}>
-                <h3 className="font-display text-xl mb-6 tracking-wide" style={{ color: '#4BAF91' }}>
+                <h3 className="font-display text-xl mb-6 tracking-wide text-jade">
                   {section.label}
                 </h3>
                 <ul className="space-y-3">

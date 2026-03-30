@@ -244,5 +244,30 @@
     "appointment": "僅限預約",
     "cities": "台北 / 巴黎",
     "terms": "條款與細則"
+  },
+  "legal": {
+    "privacyTitle": "隱私政策",
+    "privacyIntro": "ORUS Gallery 致力於保護您的個人資料。本政策說明當您訪問我們的網站或使用我們的服務時，我們如何收集、使用和保護您的資訊。",
+    "dataCollection": "資料收集",
+    "dataCollectionText": "我們收集您通過聯繫表單自願提供的個人資料，包括您的姓名、電子郵件地址、訊息內容和通訊偏好。我們還通過 Cookie 和分析工具收集匿名使用資料，以改善我們的網站。",
+    "dataUse": "資料使用",
+    "dataUseText": "您的個人資料僅用於回覆您的查詢、根據您的請求向您發送有關展覽和藝術家的相關資訊，以及改善我們的服務。未經您的同意，我們不會向第三方出售、交換或分享您的個人資料，除非法律要求。",
+    "dataRetention": "資料保留",
+    "dataRetentionText": "我們僅在實現收集目的所需的時間內保留您的個人資料，或按照適用法律的要求保留。您可以隨時要求刪除您的資料。",
+    "yourRights": "您的權利",
+    "yourRightsText": "根據適用的資料保護法規（包括 GDPR），您有權訪問、更正、刪除或傳輸您的個人資料。您也可以反對或限制資料處理。如需行使這些權利，請透過 contact@orusgallery.com 與我們聯繫。",
+    "contact": "聯繫方式",
+    "contactText": "如果您對本隱私政策或個人資料處理有任何疑問，請透過 contact@orusgallery.com 與我們聯繫。",
+    "termsTitle": "條款與細則",
+    "termsIntro": "存取和使用 ORUS Gallery 網站即表示您同意受這些條款與細則的約束。請在使用我們的網站之前仔細閱讀。",
+    "intellectualProperty": "智慧財產權",
+    "intellectualPropertyText": "本網站上的所有內容，包括圖片、文字、標誌和設計，均為 ORUS Gallery 或其代理藝術家的財產，並受智慧財產權法的保護。未經事先書面授權，不得複製、分發或使用本內容。",
+    "siteUse": "網站使用",
+    "siteUseText": "本網站僅供參考。您可以瀏覽網站並使用聯繫表單進行合理查詢。任何未經授權的使用，包括資料擷取、自動存取或試圖破壞網站安全，均嚴格禁止。",
+    "liability": "責任限制",
+    "liabilityText": "ORUS Gallery 盡力確保本網站資訊的準確性，但不能保證其完整性或時效性。畫廊不對因使用本網站而產生的任何直接或間接損害承擔責任。",
+    "governingLaw": "適用法律",
+    "governingLawText": "這些條款與細則受法國法律管轄並據此解釋。因使用本網站而產生的任何爭議應由法國巴黎法院專屬管轄。",
+    "lastUpdated": "最後更新：2026年3月"
   }
 }

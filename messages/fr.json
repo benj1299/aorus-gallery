@@ -244,5 +244,30 @@
     "appointment": "Sur rendez-vous uniquement",
     "cities": "Taipei / Paris",
     "terms": "Conditions générales"
+  },
+  "legal": {
+    "privacyTitle": "Politique de confidentialité",
+    "privacyIntro": "ORUS Gallery s'engage à protéger vos données personnelles. Cette politique explique comment nous collectons, utilisons et protégeons vos informations lorsque vous visitez notre site web ou interagissez avec nos services.",
+    "dataCollection": "Collecte de données",
+    "dataCollectionText": "Nous collectons les données personnelles que vous fournissez volontairement via notre formulaire de contact, notamment votre nom, adresse e-mail, contenu du message et préférences de communication. Nous collectons également des données d'utilisation anonymes via des cookies et des outils d'analyse pour améliorer notre site web.",
+    "dataUse": "Utilisation des données",
+    "dataUseText": "Vos données personnelles sont utilisées uniquement pour répondre à vos demandes, vous envoyer des informations pertinentes sur les expositions et les artistes sur demande, et améliorer nos services. Nous ne vendons, n'échangeons ni ne partageons vos données personnelles avec des tiers sans votre consentement, sauf si la loi l'exige.",
+    "dataRetention": "Conservation des données",
+    "dataRetentionText": "Nous conservons vos données personnelles uniquement pendant la durée nécessaire aux fins pour lesquelles elles ont été collectées, ou selon les exigences de la loi applicable. Vous pouvez demander la suppression de vos données à tout moment.",
+    "yourRights": "Vos droits",
+    "yourRightsText": "Conformément aux réglementations applicables en matière de protection des données (notamment le RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données personnelles. Vous pouvez également vous opposer au traitement ou en demander la limitation. Pour exercer ces droits, contactez-nous à contact@orusgallery.com.",
+    "contact": "Contact",
+    "contactText": "Pour toute question concernant cette politique de confidentialité ou le traitement de vos données personnelles, veuillez nous contacter à contact@orusgallery.com.",
+    "termsTitle": "Conditions générales",
+    "termsIntro": "En accédant et en utilisant le site web d'ORUS Gallery, vous acceptez d'être lié par les présentes conditions générales. Veuillez les lire attentivement avant d'utiliser notre site.",
+    "intellectualProperty": "Propriété intellectuelle",
+    "intellectualPropertyText": "Tout le contenu de ce site web, y compris les images, textes, logos et design, est la propriété d'ORUS Gallery ou de ses artistes représentés et est protégé par les lois sur la propriété intellectuelle. Aucune reproduction, distribution ou utilisation de ce contenu n'est autorisée sans autorisation écrite préalable.",
+    "siteUse": "Utilisation du site",
+    "siteUseText": "Ce site web est fourni à titre informatif. Vous pouvez naviguer sur le site et utiliser le formulaire de contact pour des demandes légitimes. Toute utilisation non autorisée, y compris l'extraction de données, l'accès automatisé ou les tentatives de compromettre la sécurité du site, est strictement interdite.",
+    "liability": "Limitation de responsabilité",
+    "liabilityText": "ORUS Gallery s'efforce d'assurer l'exactitude des informations sur ce site web mais ne peut garantir qu'elles sont complètes ou à jour. La galerie ne saurait être tenue responsable de tout dommage direct ou indirect résultant de l'utilisation de ce site web.",
+    "governingLaw": "Loi applicable",
+    "governingLawText": "Les présentes conditions générales sont régies par et interprétées conformément au droit français. Tout litige découlant de l'utilisation de ce site web relèvera de la compétence exclusive des tribunaux de Paris, France.",
+    "lastUpdated": "Dernière mise à jour : mars 2026"
   }
 }

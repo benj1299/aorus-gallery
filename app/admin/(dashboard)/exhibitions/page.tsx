@@ -3,6 +3,18 @@ import { getAllExhibitionsAdmin } from '@/lib/queries/exhibitions';
 import { deleteExhibition } from '@/lib/actions/exhibitions';
 import { DeleteButton } from '@/components/admin/delete-button';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Plus } from 'lucide-react';
+
+function statusVariant(status: string) {
+  switch (status) {
+    case 'CURRENT': return 'default' as const;
+    case 'UPCOMING': return 'outline' as const;
+    default: return 'secondary' as const;
+  }
+}
 
 export default async function AdminExhibitionsPage() {
   const exhibitions = await getAllExhibitionsAdmin();
@@ -10,76 +22,71 @@ export default async function AdminExhibitionsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold">Exhibitions</h1>
-        <Link
-          href="/admin/exhibitions/new"
-          className="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800"
-        >
-          + New Exhibition
-        </Link>
+        <h1 className="text-2xl font-bold tracking-tight">Exhibitions</h1>
+        <Button asChild>
+          <Link href="/admin/exhibitions/new">
+            <Plus className="w-4 h-4 mr-1" />
+            New Exhibition
+          </Link>
+        </Button>
       </div>
 
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <table className="w-full">
-          <thead className="bg-gray-50 border-b border-gray-200">
-            <tr>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Artists</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Artworks</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Visible</th>
-              <th className="text-right px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
+      <div className="rounded-lg border bg-card">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Title</TableHead>
+              <TableHead>Type</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Artists</TableHead>
+              <TableHead>Artworks</TableHead>
+              <TableHead>Visible</TableHead>
+              <TableHead className="text-right">Actions</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
             {exhibitions.map((exhibition) => (
-              <tr key={exhibition.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4">
+              <TableRow key={exhibition.id}>
+                <TableCell>
                   <p className="font-medium text-sm">{resolveTranslation(exhibition.title as TranslatableField, 'en')}</p>
-                  <p className="text-gray-400 text-xs">{exhibition.slug}</p>
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-600">{exhibition.type.replace('_', ' ')}</td>
-                <td className="px-6 py-4">
-                  <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
-                    exhibition.status === 'CURRENT' ? 'bg-green-50 text-green-700' :
-                    exhibition.status === 'UPCOMING' ? 'bg-blue-50 text-blue-700' :
-                    'bg-gray-100 text-gray-500'
-                  }`}>
+                  <p className="text-muted-foreground text-xs">{exhibition.slug}</p>
+                </TableCell>
+                <TableCell>
+                  <Badge variant="outline">{exhibition.type.replace('_', ' ')}</Badge>
+                </TableCell>
+                <TableCell>
+                  <Badge variant={statusVariant(exhibition.status)}>
                     {exhibition.status}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-600">
-                  {exhibition.artists.map((a) => a.artist.name).join(', ') || '—'}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-600">{exhibition._count.artworks}</td>
-                <td className="px-6 py-4">
-                  <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${exhibition.visible ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
-                    {exhibition.visible ? 'Yes' : 'Hidden'}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-right">
+                  </Badge>
+                </TableCell>
+                <TableCell className="text-sm">
+                  {exhibition.artists.map((a) => a.artist.name).join(', ') || '\u2014'}
+                </TableCell>
+                <TableCell className="text-sm">{exhibition._count.artworks}</TableCell>
+                <TableCell>
+                  <Badge variant={exhibition.visible ? 'default' : 'secondary'}>
+                    {exhibition.visible ? 'Visible' : 'Hidden'}
+                  </Badge>
+                </TableCell>
+                <TableCell className="text-right">
                   <div className="flex items-center justify-end gap-2">
-                    <Link
-                      href={`/admin/exhibitions/${exhibition.id}`}
-                      className="px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-100 rounded hover:bg-gray-200"
-                    >
-                      Edit
-                    </Link>
+                    <Button variant="outline" size="sm" asChild>
+                      <Link href={`/admin/exhibitions/${exhibition.id}`}>Edit</Link>
+                    </Button>
                     <DeleteButton id={exhibition.id} action={deleteExhibition} label="exhibition" />
                   </div>
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ))}
             {exhibitions.length === 0 && (
-              <tr>
-                <td colSpan={7} className="px-6 py-12 text-center text-gray-400">
+              <TableRow>
+                <TableCell colSpan={7} className="h-24 text-center text-muted-foreground">
                   No exhibitions yet. Create your first one.
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             )}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
     </div>
   );

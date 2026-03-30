@@ -1,14 +1,20 @@
 'use client';
 
 import { TranslatableInput } from './translatable-input';
+import { FormSwitch } from './form-switch';
+import { FormSelect } from './form-select';
 import type { TranslatableField } from '@/lib/i18n-content';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
 interface ArtworkFormProps {
   action: (formData: FormData) => void;
   artists: { id: string; name: string }[];
   defaultValues?: {
     title?: TranslatableField;
-    slug?: string;
     artistId?: string;
     medium?: TranslatableField;
     dimensions?: string;
@@ -23,92 +29,100 @@ interface ArtworkFormProps {
   };
 }
 
-const inputClass = 'w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent';
-
 export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkFormProps) {
+  const artistOptions = artists.map((a) => ({ value: a.id, label: a.name }));
+
   return (
     <form action={action} className="max-w-2xl space-y-6">
-      <div className="grid grid-cols-2 gap-4">
-        <TranslatableInput
-          name="title"
-          label="Title"
-          defaultValue={defaultValues.title}
-          required
-        />
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Slug *</label>
-          <input name="slug" defaultValue={defaultValues.slug} required pattern="[a-z0-9-]+" className={inputClass} />
-        </div>
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Artwork Details</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <TranslatableInput
+            name="title"
+            label="Title"
+            defaultValue={defaultValues.title}
+            required
+          />
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Artist *</label>
-        <select name="artistId" defaultValue={defaultValues.artistId} required className={inputClass}>
-          <option value="">Select artist...</option>
-          {artists.map((a) => (
-            <option key={a.id} value={a.id}>{a.name}</option>
-          ))}
-        </select>
-      </div>
+          <FormSelect
+            name="artistId"
+            label="Artist"
+            options={artistOptions}
+            defaultValue={defaultValues.artistId}
+            required
+            placeholder="Select artist..."
+          />
 
-      <div className="grid grid-cols-2 gap-4">
-        <TranslatableInput
-          name="medium"
-          label="Medium"
-          defaultValue={defaultValues.medium}
-          placeholder="Oil on canvas"
-        />
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Dimensions</label>
-          <input name="dimensions" defaultValue={defaultValues.dimensions ?? ''} className={inputClass} placeholder="120 x 90 cm" />
-        </div>
-      </div>
+          <div className="grid grid-cols-2 gap-4">
+            <TranslatableInput
+              name="medium"
+              label="Medium"
+              defaultValue={defaultValues.medium}
+              placeholder="Oil on canvas"
+            />
+            <div>
+              <Label htmlFor="dimensions" className="mb-1.5">Dimensions</Label>
+              <Input id="dimensions" name="dimensions" defaultValue={defaultValues.dimensions ?? ''} placeholder="120 x 90 cm" />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-      <div className="grid grid-cols-3 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Year</label>
-          <input name="year" type="number" defaultValue={defaultValues.year ?? ''} className={inputClass} />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Price</label>
-          <input name="price" type="number" step="0.01" defaultValue={defaultValues.price ?? ''} className={inputClass} />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Currency</label>
-          <input name="currency" defaultValue={defaultValues.currency ?? 'EUR'} className={inputClass} />
-        </div>
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Pricing</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <Label htmlFor="year" className="mb-1.5">Year</Label>
+              <Input id="year" name="year" type="number" defaultValue={defaultValues.year ?? ''} />
+            </div>
+            <div>
+              <Label htmlFor="price" className="mb-1.5">Price</Label>
+              <Input id="price" name="price" type="number" step="0.01" defaultValue={defaultValues.price ?? ''} />
+            </div>
+            <div>
+              <Label htmlFor="currency" className="mb-1.5">Currency</Label>
+              <Input id="currency" name="currency" defaultValue={defaultValues.currency ?? 'EUR'} />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Image URL *</label>
-        <input name="imageUrl" defaultValue={defaultValues.imageUrl} required type="url" className={inputClass} />
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Media & Display</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <Label htmlFor="imageUrl" className="mb-1.5">Image URL *</Label>
+            <Input id="imageUrl" name="imageUrl" defaultValue={defaultValues.imageUrl} required type="url" />
+          </div>
 
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Sort Order</label>
-          <input name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} className={inputClass} />
-        </div>
-        <div className="flex items-end pb-1 gap-6">
-          <label className="flex items-center gap-2 text-sm">
-            <input name="visible" type="checkbox" defaultChecked={defaultValues.visible ?? true} value="true" className="rounded" />
-            Visible
-          </label>
-          <label className="flex items-center gap-2 text-sm">
-            <input name="featuredHome" type="checkbox" defaultChecked={defaultValues.featuredHome} value="true" className="rounded" />
-            Featured on homepage
-          </label>
-          <label className="flex items-center gap-2 text-sm">
-            <input name="showPrice" type="checkbox" defaultChecked={defaultValues.showPrice} value="true" className="rounded" />
-            Show price
-          </label>
-        </div>
-      </div>
+          <Separator />
 
-      <div className="pt-4">
-        <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800">
+          <div>
+            <Label htmlFor="sortOrder" className="mb-1.5">Sort Order</Label>
+            <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} className="max-w-32" />
+          </div>
+
+          <Separator />
+
+          <div className="flex flex-wrap gap-6">
+            <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
+            <FormSwitch name="featuredHome" label="Featured on homepage" defaultChecked={defaultValues.featuredHome ?? false} />
+            <FormSwitch name="showPrice" label="Show price" defaultChecked={defaultValues.showPrice ?? false} />
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="flex justify-end">
+        <Button type="submit" size="lg">
           Save Artwork
-        </button>
+        </Button>
       </div>
     </form>
   );

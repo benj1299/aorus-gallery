@@ -4,8 +4,11 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
+import { Target, Clock, Globe } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { CTAStrip } from '@/components/CTAStrip';
+
+const valueIcons = [Target, Clock, Globe];
 
 interface FeaturedArtwork {
   id: string;
@@ -155,6 +158,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
                       src={featuredArtworks[0].imageUrl}
                       alt={featuredArtworks[0].title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 66vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/40 transition-colors duration-500 flex items-end p-8 opacity-0 group-hover:opacity-100">
@@ -183,6 +187,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
                             src={artwork.imageUrl}
                             alt={artwork.title}
                             fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                           />
                           <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/40 transition-colors duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
@@ -321,7 +326,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
               transition={{ duration: 0.8, delay: 0.1 * (index + 1) }}
               className="text-center px-6 py-10"
             >
-              <div className="w-12 h-px mx-auto mb-8 bg-jade" />
+              {(() => { const Icon = valueIcons[index]; return <Icon className="w-8 h-8 mx-auto mb-6 stroke-[1.5]" style={{ color: '#2D7A5E' }} />; })()}
               <h3 className="font-display text-xl text-noir mb-4 tracking-wide">
                 {t(`values.items.${index}.title`)}
               </h3>

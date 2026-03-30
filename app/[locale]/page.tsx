@@ -43,5 +43,25 @@ export default async function HomePage({ params }: Props) {
   const featuredArtists = allArtists.slice(0, 4);
   const banner = await getActiveBanner(locale as Locale);
 
-  return <HomePageClient featuredArtworks={featuredArtworks} featuredArtists={featuredArtists} banner={banner} />;
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ArtGallery',
+    name: 'ORUS Gallery',
+    url: 'https://aorus-gallery.vercel.app',
+    description: 'Contemporary art gallery between Paris and Taipei',
+    address: [
+      { '@type': 'PostalAddress', addressLocality: 'Paris', addressCountry: 'FR' },
+      { '@type': 'PostalAddress', addressLocality: 'Taipei', addressCountry: 'TW' },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <HomePageClient featuredArtworks={featuredArtworks} featuredArtists={featuredArtists} banner={banner} />
+    </>
+  );
 }

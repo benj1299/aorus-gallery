@@ -12,7 +12,7 @@ import { translatableSchema, optionalTranslatableSchema, extractTranslatable } f
 const bannerSchema = z.object({
   title: translatableSchema,
   subtitle: optionalTranslatableSchema,
-  imageUrl: z.string().url(),
+  imageUrl: z.string().url().refine((url) => url.startsWith('https://'), { message: 'URL must use HTTPS' }),
   linkUrl: z.string().optional().default(''),
   visible: z.coerce.boolean().default(false),
 });

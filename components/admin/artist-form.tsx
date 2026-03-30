@@ -2,8 +2,15 @@
 
 import { useState } from 'react';
 import { TranslatableInput } from './translatable-input';
+import { FormSwitch } from './form-switch';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { LOCALES } from '@/lib/i18n-content';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { Plus, X } from 'lucide-react';
 
 interface CVEntry {
   type: string;
@@ -14,7 +21,6 @@ interface ArtistFormProps {
   action: (formData: FormData) => void;
   defaultValues?: {
     name?: string;
-    slug?: string;
     nationality?: TranslatableField;
     bio?: TranslatableField;
     imageUrl?: string;
@@ -24,8 +30,6 @@ interface ArtistFormProps {
     collections?: TranslatableField[];
   };
 }
-
-const inputClass = 'w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent';
 
 const emptyT = (): TranslatableField => ({ en: '', fr: '', zh: '' });
 
@@ -82,127 +86,152 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
 
   return (
     <form action={action} className="max-w-2xl space-y-6">
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
-          <input name="name" defaultValue={defaultValues.name} required className={inputClass} />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Slug *</label>
-          <input name="slug" defaultValue={defaultValues.slug} required pattern="[a-z0-9-]+" className={inputClass} placeholder="e.g. john-doe" />
-        </div>
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Basic Information</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <Label htmlFor="name" className="mb-1.5">Name *</Label>
+            <Input id="name" name="name" defaultValue={defaultValues.name} required />
+          </div>
 
-      <TranslatableInput
-        name="nationality"
-        label="Nationality"
-        defaultValue={defaultValues.nationality}
-        required
-      />
+          <TranslatableInput
+            name="nationality"
+            label="Nationality"
+            defaultValue={defaultValues.nationality}
+            required
+          />
 
-      <TranslatableInput
-        name="bio"
-        label="Bio"
-        defaultValue={defaultValues.bio}
-        required
-        type="textarea"
-        rows={5}
-      />
+          <TranslatableInput
+            name="bio"
+            label="Bio"
+            defaultValue={defaultValues.bio}
+            required
+            type="textarea"
+            rows={5}
+          />
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Image URL *</label>
-        <input name="imageUrl" defaultValue={defaultValues.imageUrl} required type="url" className={inputClass} />
-      </div>
+          <div>
+            <Label htmlFor="imageUrl" className="mb-1.5">Image URL *</Label>
+            <Input id="imageUrl" name="imageUrl" defaultValue={defaultValues.imageUrl} required type="url" />
+          </div>
+        </CardContent>
+      </Card>
 
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Sort Order</label>
-          <input name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} className={inputClass} />
-        </div>
-        <div className="flex items-end pb-1">
-          <label className="flex items-center gap-2 text-sm">
-            <input name="visible" type="checkbox" defaultChecked={defaultValues.visible ?? true} value="true" className="rounded" />
-            Visible
-          </label>
-        </div>
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Display Settings</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="sortOrder" className="mb-1.5">Sort Order</Label>
+              <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
+            </div>
+            <div className="flex items-end pb-2">
+              <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-      {cvSections.map((section) => (
-        <div key={section.key}>
-          <label className="block text-sm font-medium text-gray-700 mb-2">{section.label}</label>
-          {section.items.map((entry, i) => (
-            <div key={i} className="flex gap-2 mb-3">
-              <div className="flex-1">
-                {LOCALES.map((loc) => (
-                  <input
-                    key={loc}
-                    name={`cv.${section.key}.${i}.${loc}`}
-                    defaultValue={entry[loc] ?? ''}
-                    className={`${inputClass} mb-1`}
-                    placeholder={`${section.label} (${loc.toUpperCase()})`}
-                  />
+      <Card>
+        <CardHeader>
+          <CardTitle>CV / Exhibition History</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {cvSections.map((section, sectionIdx) => (
+            <div key={section.key}>
+              {sectionIdx > 0 && <Separator className="mb-4" />}
+              <Label className="mb-2">{section.label}</Label>
+              <div className="space-y-3">
+                {section.items.map((entry, i) => (
+                  <div key={i} className="flex gap-2">
+                    <div className="flex-1 space-y-1">
+                      {LOCALES.map((loc) => (
+                        <Input
+                          key={loc}
+                          name={`cv.${section.key}.${i}.${loc}`}
+                          defaultValue={entry[loc] ?? ''}
+                          placeholder={`${section.label} (${loc.toUpperCase()})`}
+                        />
+                      ))}
+                    </div>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="icon"
+                      className="self-start mt-1 text-destructive hover:text-destructive"
+                      onClick={() => section.setItems(section.items.filter((_, j) => j !== i))}
+                    >
+                      <X className="w-4 h-4" />
+                    </Button>
+                  </div>
                 ))}
               </div>
-              <button
+              <Button
                 type="button"
-                onClick={() => section.setItems(section.items.filter((_, j) => j !== i))}
-                className="px-3 text-red-500 hover:text-red-700 text-sm self-start mt-2"
+                variant="ghost"
+                size="sm"
+                className="mt-2 text-muted-foreground"
+                onClick={() => section.setItems([...section.items, emptyT()])}
               >
-                x
-              </button>
+                <Plus className="w-3 h-3 mr-1" />
+                Add {section.label.toLowerCase()}
+              </Button>
             </div>
           ))}
-          <button
-            type="button"
-            onClick={() => section.setItems([...section.items, emptyT()])}
-            className="text-sm text-gray-500 hover:text-gray-700"
-          >
-            + Add {section.label.toLowerCase()}
-          </button>
-        </div>
-      ))}
+        </CardContent>
+      </Card>
 
-      {/* Collections */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">Collections</label>
-        {collections.map((col, i) => (
-          <div key={i} className="flex gap-2 mb-3">
-            <div className="flex-1">
-              {LOCALES.map((loc) => (
-                <input
-                  key={loc}
-                  name={`collections.${i}.${loc}`}
-                  defaultValue={col[loc] ?? ''}
-                  className={`${inputClass} mb-1`}
-                  placeholder={`Collection (${loc.toUpperCase()})`}
-                />
-              ))}
-            </div>
-            <button
-              type="button"
-              onClick={() => setCollections(collections.filter((_, j) => j !== i))}
-              className="px-3 text-red-500 hover:text-red-700 text-sm self-start mt-2"
-            >
-              x
-            </button>
+      <Card>
+        <CardHeader>
+          <CardTitle>Collections</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-3">
+            {collections.map((col, i) => (
+              <div key={i} className="flex gap-2">
+                <div className="flex-1 space-y-1">
+                  {LOCALES.map((loc) => (
+                    <Input
+                      key={loc}
+                      name={`collections.${i}.${loc}`}
+                      defaultValue={col[loc] ?? ''}
+                      placeholder={`Collection (${loc.toUpperCase()})`}
+                    />
+                  ))}
+                </div>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="self-start mt-1 text-destructive hover:text-destructive"
+                  onClick={() => setCollections(collections.filter((_, j) => j !== i))}
+                >
+                  <X className="w-4 h-4" />
+                </Button>
+              </div>
+            ))}
           </div>
-        ))}
-        <button
-          type="button"
-          onClick={() => setCollections([...collections, emptyT()])}
-          className="text-sm text-gray-500 hover:text-gray-700"
-        >
-          + Add collection
-        </button>
-      </div>
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="mt-2 text-muted-foreground"
+            onClick={() => setCollections([...collections, emptyT()])}
+          >
+            <Plus className="w-3 h-3 mr-1" />
+            Add collection
+          </Button>
+        </CardContent>
+      </Card>
 
-      <div className="pt-4">
-        <button
-          type="submit"
-          className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800"
-        >
+      <div className="flex justify-end">
+        <Button type="submit" size="lg">
           Save Artist
-        </button>
+        </Button>
       </div>
     </form>
   );

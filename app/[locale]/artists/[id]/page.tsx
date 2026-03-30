@@ -41,5 +41,23 @@ export default async function ArtistPage({ params }: Props) {
 
   if (!artist) notFound();
 
-  return <ArtistDetailClient artist={artist} />;
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: artist.name,
+    nationality: artist.nationality,
+    description: artist.bio,
+    image: artist.image,
+    url: `https://aorus-gallery.vercel.app/${locale}/artists/${id}`,
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ArtistDetailClient artist={artist} />
+    </>
+  );
 }

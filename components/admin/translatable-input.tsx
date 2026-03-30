@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { LOCALES, type TranslatableField } from '@/lib/i18n-content';
-
-const LOCALE_LABELS: Record<string, string> = { en: 'EN', fr: 'FR', zh: 'ZH' };
-
-const inputClass = 'w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 
 interface TranslatableInputProps {
   name: string;
@@ -30,47 +30,36 @@ export function TranslatableInput({
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-1">
-        <label className="block text-sm font-medium text-gray-700">{label}{required ? ' *' : ''}</label>
-        <div className="flex gap-0.5">
+      <Label className="mb-1.5">{label}{required ? ' *' : ''}</Label>
+      <Tabs value={active} onValueChange={setActive}>
+        <TabsList className="h-7 mb-1.5">
           {LOCALES.map((loc) => (
-            <button
-              key={loc}
-              type="button"
-              onClick={() => setActive(loc)}
-              className={`px-2 py-0.5 text-xs font-medium rounded ${
-                active === loc
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-gray-100 text-gray-400 hover:text-gray-600'
-              }`}
-            >
-              {LOCALE_LABELS[loc]}
-            </button>
+            <TabsTrigger key={loc} value={loc} className="text-xs px-2.5 py-0.5 h-5">
+              {loc.toUpperCase()}
+            </TabsTrigger>
           ))}
-        </div>
-      </div>
-      {LOCALES.map((loc) => (
-        <div key={loc} className={active === loc ? '' : 'hidden'}>
-          {type === 'textarea' ? (
-            <textarea
-              name={`${name}.${loc}`}
-              defaultValue={defaultValue[loc] ?? ''}
-              required={required && loc === 'en'}
-              rows={rows}
-              className={inputClass}
-              placeholder={placeholder}
-            />
-          ) : (
-            <input
-              name={`${name}.${loc}`}
-              defaultValue={defaultValue[loc] ?? ''}
-              required={required && loc === 'en'}
-              className={inputClass}
-              placeholder={placeholder}
-            />
-          )}
-        </div>
-      ))}
+        </TabsList>
+        {LOCALES.map((loc) => (
+          <TabsContent key={loc} value={loc} className="mt-0">
+            {type === 'textarea' ? (
+              <Textarea
+                name={`${name}.${loc}`}
+                defaultValue={defaultValue[loc] ?? ''}
+                required={required && loc === 'en'}
+                rows={rows}
+                placeholder={placeholder}
+              />
+            ) : (
+              <Input
+                name={`${name}.${loc}`}
+                defaultValue={defaultValue[loc] ?? ''}
+                required={required && loc === 'en'}
+                placeholder={placeholder}
+              />
+            )}
+          </TabsContent>
+        ))}
+      </Tabs>
     </div>
   );
 }

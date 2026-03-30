@@ -1,13 +1,18 @@
 'use client';
 
 import { TranslatableInput } from './translatable-input';
+import { FormSwitch } from './form-switch';
 import type { TranslatableField } from '@/lib/i18n-content';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
 interface PressFormProps {
   action: (formData: FormData) => void;
   defaultValues?: {
     title?: TranslatableField;
-    slug?: string;
     publication?: string;
     publishedAt?: string;
     url?: string;
@@ -18,70 +23,87 @@ interface PressFormProps {
   };
 }
 
-const inputClass = 'w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent';
-
 export function PressForm({ action, defaultValues = {} }: PressFormProps) {
   return (
     <form action={action} className="max-w-2xl space-y-6">
-      <div className="grid grid-cols-2 gap-4">
-        <TranslatableInput
-          name="title"
-          label="Title"
-          defaultValue={defaultValues.title}
-          required
-        />
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Slug *</label>
-          <input name="slug" defaultValue={defaultValues.slug} required pattern="[a-z0-9-]+" className={inputClass} />
-        </div>
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Article Details</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <TranslatableInput
+            name="title"
+            label="Title"
+            defaultValue={defaultValues.title}
+            required
+          />
 
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Publication *</label>
-          <input name="publication" defaultValue={defaultValues.publication} required className={inputClass} placeholder="Artnet News" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Published Date *</label>
-          <input name="publishedAt" type="date" defaultValue={defaultValues.publishedAt} required className={inputClass} />
-        </div>
-      </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="publication" className="mb-1.5">Publication *</Label>
+              <Input id="publication" name="publication" defaultValue={defaultValues.publication} required placeholder="Artnet News" />
+            </div>
+            <div>
+              <Label htmlFor="publishedAt" className="mb-1.5">Published Date *</Label>
+              <Input id="publishedAt" name="publishedAt" type="date" defaultValue={defaultValues.publishedAt} required />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Article URL</label>
-        <input name="url" defaultValue={defaultValues.url ?? ''} type="url" className={inputClass} />
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Links & Media</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <Label htmlFor="url" className="mb-1.5">Article URL</Label>
+            <Input id="url" name="url" defaultValue={defaultValues.url ?? ''} type="url" />
+          </div>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Image URL</label>
-        <input name="imageUrl" defaultValue={defaultValues.imageUrl ?? ''} type="url" className={inputClass} />
-      </div>
+          <div>
+            <Label htmlFor="imageUrl" className="mb-1.5">Image URL</Label>
+            <Input id="imageUrl" name="imageUrl" defaultValue={defaultValues.imageUrl ?? ''} type="url" />
+          </div>
+        </CardContent>
+      </Card>
 
-      <TranslatableInput
-        name="excerpt"
-        label="Excerpt"
-        defaultValue={defaultValues.excerpt}
-        type="textarea"
-        rows={3}
-      />
+      <Card>
+        <CardHeader>
+          <CardTitle>Content</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <TranslatableInput
+            name="excerpt"
+            label="Excerpt"
+            defaultValue={defaultValues.excerpt}
+            type="textarea"
+            rows={3}
+          />
+        </CardContent>
+      </Card>
 
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Sort Order</label>
-          <input name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} className={inputClass} />
-        </div>
-        <div className="flex items-end pb-1">
-          <label className="flex items-center gap-2 text-sm">
-            <input name="visible" type="checkbox" defaultChecked={defaultValues.visible ?? true} value="true" className="rounded" />
-            Visible
-          </label>
-        </div>
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Display Settings</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="sortOrder" className="mb-1.5">Sort Order</Label>
+              <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
+            </div>
+            <div className="flex items-end pb-2">
+              <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-      <div className="pt-4">
-        <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800">
+      <div className="flex justify-end">
+        <Button type="submit" size="lg">
           Save Article
-        </button>
+        </Button>
       </div>
     </form>
   );

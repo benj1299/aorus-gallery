@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     alternateLocale: ['fr_FR', 'zh_TW'],
+    images: [{ url: '/images/gallery/logo.jpeg', width: 800, height: 800, alt: 'ORUS Gallery' }],
   },
   robots: {
     index: true,

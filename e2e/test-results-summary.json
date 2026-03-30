@@ -54,14 +54,5 @@
     "Removed unused components/admin/delete-dialog.tsx",
     "Fixed @types/pg version conflict with type cast"
   ],
-  "final_status": "green",
-  "credentials": {
-    "email": "admin@orusgallery.com",
-    "password": "admin-orus-2025"
-  },
-  "database": {
-    "provider": "Neon PostgreSQL",
-    "project_id": "tiny-darkness-85140567",
-    "database": "neondb"
-  }
+  "final_status": "green"
 }

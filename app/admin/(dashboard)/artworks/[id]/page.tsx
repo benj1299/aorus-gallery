@@ -34,7 +34,6 @@ export default async function EditArtworkPage({ params }: Props) {
         artists={artists}
         defaultValues={{
           title: artwork.title as TranslatableField,
-          slug: artwork.slug,
           artistId: artwork.artistId,
           medium: (artwork.medium as TranslatableField | null) ?? undefined,
           dimensions: artwork.dimensions ?? '',

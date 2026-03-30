@@ -8,14 +8,14 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
+import { slugify } from '@/lib/slugify';
 
 const pressSchema = z.object({
   title: translatableSchema,
-  slug: z.string().min(1).regex(/^[a-z0-9-]+$/),
   publication: z.string().min(1),
   publishedAt: z.coerce.date(),
-  url: z.string().url().optional().or(z.literal('')),
-  imageUrl: z.string().url().optional().or(z.literal('')),
+  url: z.string().url().refine((url) => url.startsWith('https://'), { message: 'URL must use HTTPS' }).optional().or(z.literal('')),
+  imageUrl: z.string().url().refine((url) => url.startsWith('https://'), { message: 'URL must use HTTPS' }).optional().or(z.literal('')),
   excerpt: optionalTranslatableSchema,
   visible: z.coerce.boolean().default(true),
   sortOrder: z.coerce.number().int().default(0),
@@ -37,7 +37,6 @@ export async function createPressArticle(formData: FormData) {
 
   const raw = {
     title: extractTranslatable(formData, 'title'),
-    slug: formData.get('slug')?.toString() ?? '',
     publication: formData.get('publication')?.toString() ?? '',
     publishedAt: formData.get('publishedAt')?.toString() ?? '',
     url: formData.get('url')?.toString() ?? '',
@@ -47,12 +46,14 @@ export async function createPressArticle(formData: FormData) {
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
   };
   const data = pressSchema.parse(raw);
+  const slug = slugify(data.title.en);
 
   const excerptVal = data.excerpt && (data.excerpt.en || data.excerpt.fr || data.excerpt.zh) ? data.excerpt : Prisma.JsonNull;
 
   await prisma.pressArticle.create({
     data: {
       ...data,
+      slug,
       url: data.url || null,
       imageUrl: data.imageUrl || null,
       excerpt: excerptVal,
@@ -68,7 +69,6 @@ export async function updatePressArticle(id: string, formData: FormData) {
 
   const raw = {
     title: extractTranslatable(formData, 'title'),
-    slug: formData.get('slug')?.toString() ?? '',
     publication: formData.get('publication')?.toString() ?? '',
     publishedAt: formData.get('publishedAt')?.toString() ?? '',
     url: formData.get('url')?.toString() ?? '',
