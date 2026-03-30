@@ -39,8 +39,8 @@ export default function AboutPage() {
               className="aspect-[4/3] lg:aspect-[4/5] relative overflow-hidden"
             >
               <Image
-                src="/images/gallery/Orus vernissage nuit.png"
-                alt="ORUS Gallery vernissage"
+                src="/images/gallery/vision-artwork.jpeg"
+                alt="Contemporary artwork in gallery setting"
                 fill
                 className="object-cover"
               />
@@ -164,18 +164,38 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center p-12 border border-noir/10"
           >
-            <span className="font-display text-4xl tracking-[0.2em] text-noir">PARIS</span>
+            <div className="aspect-[4/3] relative overflow-hidden">
+              <Image
+                src="/images/gallery/Orus vernissage nuit.png"
+                alt="Paris"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-noir/40" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-blanc font-display text-4xl tracking-[0.2em]">PARIS</span>
+              </div>
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center p-12 border border-noir/10"
           >
-            <span className="font-display text-4xl tracking-[0.2em] text-noir">TAIPEI</span>
+            <div className="aspect-[4/3] relative overflow-hidden">
+              <Image
+                src="/images/gallery/Galerie 1.png"
+                alt="Taipei"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-noir/40" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-blanc font-display text-4xl tracking-[0.2em]">TAIPEI</span>
+              </div>
+            </div>
           </motion.div>
         </div>
 
