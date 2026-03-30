@@ -1,7 +1,17 @@
 {
   "metadata": {
-    "title": "ORUS Gallery | 當代藝術 | 台灣",
-    "description": "ORUS Gallery 代理國際當代藝術家，為亞洲及全球藏家呈獻。Origin + Us：藝術與身份的交匯。"
+    "title": "ORUS Gallery | 當代藝術 | 台北 — 巴黎",
+    "description": "ORUS Gallery 代理國際當代藝術家，為亞洲及全球藏家呈獻。Origin + Us：藝術與身份的交匯。",
+    "aboutTitle": "關於 | ORUS Gallery",
+    "aboutDescription": "ORUS Gallery 創立於巴黎與台灣之間，發展一批國際當代藝術家的精選。Origin + Us。",
+    "artistsTitle": "藝術家 | ORUS Gallery",
+    "artistsDescription": "探索 ORUS Gallery 代理的藝術家。巴黎與台北之間的新興與知名藝術家精選。",
+    "pressTitle": "媒體 | ORUS Gallery",
+    "pressDescription": "ORUS Gallery 的媒體報導、文章和新聞資源。",
+    "contactTitle": "聯繫 | ORUS Gallery",
+    "contactDescription": "聯繫 ORUS Gallery，了解有關作品、藝術家或畫廊項目的信息。台北 — 巴黎。",
+    "exhibitionsTitle": "展覽 | ORUS Gallery",
+    "exhibitionsDescription": "ORUS Gallery 正在展出及即將展出的展覽。台北與巴黎之間的當代藝術。"
   },
   "nav": {
     "home": "首頁",
@@ -221,7 +231,8 @@
       "upcoming": "即將展出",
       "past": "過往展覽"
     },
-    "noExhibitions": "目前沒有展覽"
+    "noExhibitions": "目前沒有展覽",
+    "cta": "聯繫我們"
   },
   "footer": {
     "tagline": "Origin + Us — 藝術與身份的交匯",

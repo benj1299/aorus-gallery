@@ -250,3 +250,20 @@ model GalleryExhibitionArtwork {
   @@id([exhibitionId, artworkId])
   @@map("gallery_exhibition_artwork")
 }
+
+// ========================
+// Contact Submissions
+// ========================
+
+model ContactSubmission {
+  id                String   @id @default(cuid())
+  status            String
+  name              String
+  email             String
+  message           String
+  interestedIn      String?
+  preferredLanguage String?
+  createdAt         DateTime @default(now())
+
+  @@map("contact_submission")
+}

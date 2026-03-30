@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
-import { Users, Image, Newspaper, Megaphone, Calendar, LogOut } from 'lucide-react';
+import { Users, Image, Newspaper, Megaphone, Calendar, Mail, LogOut } from 'lucide-react';
 
 const navItems = [
   { label: 'Artists', href: '/admin/artists', icon: Users },
@@ -13,6 +13,7 @@ const navItems = [
   { label: 'Press', href: '/admin/press', icon: Newspaper },
   { label: 'Banner', href: '/admin/banner', icon: Megaphone },
   { label: 'Exhibitions', href: '/admin/exhibitions', icon: Calendar },
+  { label: 'Messages', href: '/admin/messages', icon: Mail },
 ];
 
 export function AdminSidebar() {

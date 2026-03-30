@@ -164,38 +164,18 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center p-12 border border-noir/10"
           >
-            <div className="aspect-[4/3] relative overflow-hidden mb-6">
-              <Image
-                src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
-                alt="Paris"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-noir/40" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-blanc font-display text-4xl tracking-[0.2em]">PARIS</span>
-              </div>
-            </div>
+            <span className="font-display text-4xl tracking-[0.2em] text-noir">PARIS</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center p-12 border border-noir/10"
           >
-            <div className="aspect-[4/3] relative overflow-hidden mb-6">
-              <Image
-                src="https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
-                alt="Taipei"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-noir/40" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-blanc font-display text-4xl tracking-[0.2em]">TAIPEI</span>
-              </div>
-            </div>
+            <span className="font-display text-4xl tracking-[0.2em] text-noir">TAIPEI</span>
           </motion.div>
         </div>
 

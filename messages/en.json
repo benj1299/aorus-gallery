@@ -1,7 +1,17 @@
 {
   "metadata": {
-    "title": "ORUS Gallery | Contemporary Art | Taiwan",
-    "description": "ORUS Gallery represents international contemporary artists for Asian and global collectors. Origin + Us: where art meets identity."
+    "title": "ORUS Gallery | Contemporary Art | Taipei — Paris",
+    "description": "ORUS Gallery represents international contemporary artists for Asian and global collectors. Origin + Us: where art meets identity.",
+    "aboutTitle": "About | ORUS Gallery",
+    "aboutDescription": "Founded between Paris and Taiwan, ORUS Gallery develops an international selection of contemporary artists. Origin + Us.",
+    "artistsTitle": "Artists | ORUS Gallery",
+    "artistsDescription": "Discover the artists represented by ORUS Gallery. A curated selection of emerging and established voices between Paris and Taipei.",
+    "pressTitle": "Press | ORUS Gallery",
+    "pressDescription": "Media coverage, articles, and press resources from ORUS Gallery.",
+    "contactTitle": "Contact | ORUS Gallery",
+    "contactDescription": "Contact ORUS Gallery for information about artworks, artists, or the gallery program. Taipei — Paris.",
+    "exhibitionsTitle": "Exhibitions | ORUS Gallery",
+    "exhibitionsDescription": "Current and upcoming exhibitions at ORUS Gallery. Contemporary art between Taipei and Paris."
   },
   "nav": {
     "home": "Home",
@@ -221,7 +231,8 @@
       "upcoming": "Upcoming",
       "past": "Past"
     },
-    "noExhibitions": "No exhibitions to display"
+    "noExhibitions": "No exhibitions to display",
+    "cta": "Contact Us"
   },
   "footer": {
     "tagline": "Origin + Us — Where art meets identity",

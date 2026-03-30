@@ -14,6 +14,7 @@ import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import { PageHero } from '@/components/PageHero';
 import { FormField } from '@/components/FormField';
+import { submitContactForm } from '@/lib/actions/contact';
 
 const contactSchema = z.object({
   status: z.enum(['collector', 'press', 'institution', 'corporate', 'artist', 'other']),
@@ -53,9 +54,19 @@ export default function ContactPage() {
 
   const onSubmit = async (data: ContactFormData) => {
     setFormStatus('sending');
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log('Form data:', data);
-    setFormStatus('success');
+    try {
+      await submitContactForm({
+        status: data.status,
+        name: data.name,
+        email: data.email,
+        message: data.message,
+        interestedIn: data.interestedIn || undefined,
+        preferredLanguage: data.preferredLanguage || undefined,
+      });
+      setFormStatus('success');
+    } catch {
+      setFormStatus('error');
+    }
   };
 
   const statusOptions = [

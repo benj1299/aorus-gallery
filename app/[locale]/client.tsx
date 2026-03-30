@@ -131,39 +131,76 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
         transition={{ duration: 1 }}
         viewportMargin="-100px"
       >
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2 className="title-section text-noir">{t('gallery.title')}</h2>
           {featuredArtworks.length > 0 && (
-            <p className="text-sm tracking-wide italic mt-4" style={{ color: '#4BAF91' }}>{t('gallery.subtitle')}</p>
+            <p className="text-sm tracking-wide italic mt-4 text-jade">{t('gallery.subtitle')}</p>
           )}
         </div>
         {featuredArtworks.length > 0 ? (
-          <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="group"
-            >
-              <Link href={`/artists/${featuredArtworks[0].artistSlug}`}>
-                <div className="aspect-[16/9] relative overflow-hidden">
-                  <Image
-                    src={featuredArtworks[0].imageUrl}
-                    alt={featuredArtworks[0].title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/40 transition-colors duration-500 flex items-end p-8 opacity-0 group-hover:opacity-100">
-                    <p className="font-display text-xl text-blanc tracking-wide">{featuredArtworks[0].title}</p>
+          <div className="space-y-12 md:space-y-16">
+            {/* Row 1: Asymmetric masonry — large portrait left, two stacked right */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              {/* Large artwork — 2/3 width, portrait format */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="group md:col-span-2"
+              >
+                <Link href={`/artists/${featuredArtworks[0].artistSlug}`}>
+                  <div className="aspect-[3/4] relative overflow-hidden">
+                    <Image
+                      src={featuredArtworks[0].imageUrl}
+                      alt={featuredArtworks[0].title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/40 transition-colors duration-500 flex items-end p-8 opacity-0 group-hover:opacity-100">
+                      <p className="font-display text-xl text-blanc tracking-wide">{featuredArtworks[0].title}</p>
+                    </div>
                   </div>
+                  <p className="text-noir/60 text-sm tracking-wide mt-4">{featuredArtworks[0].artistName}</p>
+                </Link>
+              </motion.div>
+
+              {/* Two stacked artworks — 1/3 width */}
+              {featuredArtworks.length > 1 && (
+                <div className="flex flex-col gap-6 md:gap-8">
+                  {featuredArtworks.slice(1, 3).map((artwork, index) => (
+                    <motion.div
+                      key={artwork.id}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.1 * (index + 1) }}
+                      className="group flex-1"
+                    >
+                      <Link href={`/artists/${artwork.artistSlug}`}>
+                        <div className="aspect-[4/3] relative overflow-hidden">
+                          <Image
+                            src={artwork.imageUrl}
+                            alt={artwork.title}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/40 transition-colors duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
+                            <p className="font-display text-lg text-blanc tracking-wide">{artwork.title}</p>
+                          </div>
+                        </div>
+                        <p className="text-noir/60 text-sm tracking-wide mt-4">{artwork.artistName}</p>
+                      </Link>
+                    </motion.div>
+                  ))}
                 </div>
-                <p className="text-noir/60 text-sm tracking-wide mt-3">{featuredArtworks[0].artistName}</p>
-              </Link>
-            </motion.div>
-            {featuredArtworks.length > 1 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {featuredArtworks.slice(1).map((artwork, index) => (
+              )}
+            </div>
+
+            {/* Row 2: Three equal columns — remaining artworks */}
+            {featuredArtworks.length > 3 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+                {featuredArtworks.slice(3).map((artwork, index) => (
                   <motion.div
                     key={artwork.id}
                     initial={{ opacity: 0, y: 30 }}
@@ -173,7 +210,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
                     className="group"
                   >
                     <Link href={`/artists/${artwork.artistSlug}`}>
-                      <div className="aspect-[4/3] relative overflow-hidden">
+                      <div className="aspect-[4/5] relative overflow-hidden">
                         <Image
                           src={artwork.imageUrl}
                           alt={artwork.title}
@@ -184,12 +221,22 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
                           <p className="font-display text-lg text-blanc tracking-wide">{artwork.title}</p>
                         </div>
                       </div>
-                      <p className="text-noir/60 text-sm tracking-wide mt-3">{artwork.artistName}</p>
+                      <p className="text-noir/60 text-sm tracking-wide mt-4">{artwork.artistName}</p>
                     </Link>
                   </motion.div>
                 ))}
               </div>
             )}
+
+            {/* "Voir les artistes" link */}
+            <div className="text-center pt-4">
+              <Link
+                href="/artists"
+                className="inline-flex items-center gap-3 text-noir/60 text-sm tracking-[0.1em] uppercase transition-colors duration-300 hover:text-noir"
+              >
+                {t('gallery.cta')} <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </div>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
@@ -274,7 +321,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
               transition={{ duration: 0.8, delay: 0.1 * (index + 1) }}
               className="text-center px-6 py-10"
             >
-              <div className="w-12 h-px mx-auto mb-8" style={{ backgroundColor: '#4BAF91' }} />
+              <div className="w-12 h-px mx-auto mb-8 bg-jade" />
               <h3 className="font-display text-xl text-noir mb-4 tracking-wide">
                 {t(`values.items.${index}.title`)}
               </h3>

@@ -23,16 +23,23 @@ interface Exhibition {
 
 type TabKey = 'EXHIBITION' | 'ART_FAIR' | 'OFFSITE';
 
-function formatDateRange(startDate: string | null, endDate: string | null): string {
+const LOCALE_MAP: Record<string, string> = {
+  fr: 'fr-FR',
+  en: 'en-US',
+  zh: 'zh-TW',
+};
+
+function formatDateRange(startDate: string | null, endDate: string | null, locale: string): string {
   if (!startDate) return '';
+  const intlLocale = LOCALE_MAP[locale] || locale;
   const start = new Date(startDate);
   const opts: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
-  if (!endDate) return start.toLocaleDateString('en-US', opts);
+  if (!endDate) return start.toLocaleDateString(intlLocale, opts);
   const end = new Date(endDate);
-  return `${start.toLocaleDateString('en-US', opts)} — ${end.toLocaleDateString('en-US', opts)}`;
+  return `${start.toLocaleDateString(intlLocale, opts)} — ${end.toLocaleDateString(intlLocale, opts)}`;
 }
 
-export function ExhibitionsPageClient({ exhibitions }: { exhibitions: Exhibition[] }) {
+export function ExhibitionsPageClient({ exhibitions, locale }: { exhibitions: Exhibition[]; locale: string }) {
   const t = useTranslations('exhibitions');
   const tNav = useTranslations('nav');
   const [activeTab, setActiveTab] = useState<TabKey>('EXHIBITION');
@@ -107,7 +114,7 @@ export function ExhibitionsPageClient({ exhibitions }: { exhibitions: Exhibition
                     )}
                     {(exhibition.startDate || exhibition.location) && (
                       <p className="text-noir/50 text-sm">
-                        {formatDateRange(exhibition.startDate, exhibition.endDate)}
+                        {formatDateRange(exhibition.startDate, exhibition.endDate, locale)}
                         {exhibition.startDate && exhibition.location && ' — '}
                         {exhibition.location}
                       </p>
@@ -127,7 +134,7 @@ export function ExhibitionsPageClient({ exhibitions }: { exhibitions: Exhibition
 
       <CTAStrip
         title={t('title')}
-        primaryLink={{ href: '/contact', label: 'Contact' }}
+        primaryLink={{ href: '/contact', label: t('cta') }}
       />
     </div>
   );
