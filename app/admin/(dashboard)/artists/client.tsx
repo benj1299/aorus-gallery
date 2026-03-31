@@ -2,7 +2,6 @@
 
 import { AdminTable } from '@/components/admin/admin-table';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
-import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { deleteArtist } from '@/lib/actions/artists';
 
@@ -29,8 +28,8 @@ const columns = [
           <AvatarFallback>{a.name.charAt(0)}</AvatarFallback>
         </Avatar>
         <div>
-          <p className="font-medium text-sm">{a.name}</p>
-          <p className="text-muted-foreground text-xs">{a.slug}</p>
+          <p className="font-medium text-sm text-gray-900">{a.name}</p>
+          <p className="text-gray-500 text-xs">{a.slug}</p>
         </div>
       </div>
     ),
@@ -39,7 +38,7 @@ const columns = [
     key: 'nationality',
     label: 'Nationalité',
     render: (a: Artist) => (
-      <span className="text-sm">{resolveTranslation(a.nationality as TranslatableField, 'fr')}</span>
+      <span className="text-sm text-gray-900">{resolveTranslation(a.nationality as TranslatableField, 'fr')}</span>
     ),
   },
   {
@@ -47,15 +46,15 @@ const columns = [
     label: 'Œuvres',
     sortable: true,
     getValue: (a: Artist) => a._count.artworks,
-    render: (a: Artist) => <span className="text-sm">{a._count.artworks}</span>,
+    render: (a: Artist) => <span className="text-sm text-gray-900">{a._count.artworks}</span>,
   },
   {
     key: 'visible',
     label: 'Statut',
     render: (a: Artist) => (
-      <Badge variant={a.visible ? 'default' : 'secondary'}>
-        {a.visible ? 'Visible' : 'Masqué'}
-      </Badge>
+      a.visible
+        ? <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Visible</span>
+        : <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">Masqué</span>
     ),
   },
 ];

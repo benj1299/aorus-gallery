@@ -1,9 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Label } from '@/components/ui/label';
-
 interface FormSelectProps {
   name: string;
   label: string;
@@ -14,21 +10,26 @@ interface FormSelectProps {
 }
 
 export function FormSelect({ name, label, options, defaultValue, required, placeholder }: FormSelectProps) {
-  const [value, setValue] = useState(defaultValue ?? '');
   return (
     <div>
-      <Label className="mb-1.5">{label} {required && '*'}</Label>
-      <Select value={value} onValueChange={setValue}>
-        <SelectTrigger className="w-full">
-          <SelectValue placeholder={placeholder || `Sélectionner...`} />
-        </SelectTrigger>
-        <SelectContent>
-          {options.map(opt => (
-            <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      <input type="hidden" name={name} value={value} />
+      <label className="block text-sm font-medium text-gray-700 mb-1.5">
+        {label} {required && '*'}
+      </label>
+      <select
+        name={name}
+        defaultValue={defaultValue ?? ''}
+        required={required}
+        className="w-full h-10 px-3 bg-white text-gray-900 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+      >
+        <option value="" disabled>
+          {placeholder || 'Selectionner...'}
+        </option>
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

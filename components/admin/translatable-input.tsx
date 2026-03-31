@@ -2,10 +2,8 @@
 
 import { useState } from 'react';
 import { LOCALES, type TranslatableField } from '@/lib/i18n-content';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 
 interface TranslatableInputProps {
   name: string;
@@ -30,40 +28,45 @@ export function TranslatableInput({
 
   return (
     <div>
-      <Label className="mb-1.5">{label}{required ? ' *' : ''}</Label>
-      <Tabs value={active} onValueChange={setActive}>
-        <TabsList className="h-9 mb-1.5">
-          {LOCALES.map((loc) => (
-            <TabsTrigger
-              key={loc}
-              value={loc}
-              className="text-sm px-3 py-1 h-7 font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm rounded-md transition-colors"
-            >
-              {loc.toUpperCase()}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+      <label className="block text-sm font-medium text-gray-700 mb-1.5">{label}{required ? ' *' : ''}</label>
+      <div className="flex gap-1 bg-gray-100 rounded-lg p-1 mb-2">
         {LOCALES.map((loc) => (
-          <TabsContent key={loc} value={loc} className="mt-0">
-            {type === 'textarea' ? (
-              <Textarea
-                name={`${name}.${loc}`}
-                defaultValue={defaultValue[loc] ?? ''}
-                required={required && loc === 'en'}
-                rows={rows}
-                placeholder={placeholder}
-              />
-            ) : (
-              <Input
-                name={`${name}.${loc}`}
-                defaultValue={defaultValue[loc] ?? ''}
-                required={required && loc === 'en'}
-                placeholder={placeholder}
-              />
-            )}
-          </TabsContent>
+          <button
+            key={loc}
+            type="button"
+            onClick={() => setActive(loc)}
+            className={
+              active === loc
+                ? 'px-3 py-1.5 text-sm font-medium bg-white text-gray-900 rounded-md shadow-sm'
+                : 'px-3 py-1.5 text-sm font-medium text-gray-500 hover:text-gray-700 rounded-md'
+            }
+          >
+            {loc.toUpperCase()}
+          </button>
         ))}
-      </Tabs>
+      </div>
+      {LOCALES.map((loc) => (
+        <div key={loc} className={active === loc ? '' : 'hidden'}>
+          {type === 'textarea' ? (
+            <Textarea
+              name={`${name}.${loc}`}
+              defaultValue={defaultValue[loc] ?? ''}
+              required={required && loc === 'en'}
+              rows={rows}
+              placeholder={placeholder}
+              className="bg-white text-gray-900 border-gray-300"
+            />
+          ) : (
+            <Input
+              name={`${name}.${loc}`}
+              defaultValue={defaultValue[loc] ?? ''}
+              required={required && loc === 'en'}
+              placeholder={placeholder}
+              className="bg-white text-gray-900 border-gray-300"
+            />
+          )}
+        </div>
+      ))}
     </div>
   );
 }

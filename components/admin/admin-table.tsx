@@ -3,13 +3,10 @@
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Button } from '@/components/ui/button';
-// DropdownMenu removed — using direct icon buttons instead
 import { AdminSearchInput } from './admin-search';
 import { AdminBreadcrumb } from './admin-breadcrumb';
 import { DeleteButton } from './delete-button';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Plus, Pencil, Trash2, ArrowUpDown, Eye, EyeOff } from 'lucide-react';
+import { Plus, Pencil, ArrowUpDown } from 'lucide-react';
 
 interface Column<T> {
   key: string;
@@ -113,29 +110,30 @@ export function AdminTable<T extends Record<string, unknown>>({
       <AdminBreadcrumb items={[{ label: title }]} />
 
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900">{title}</h1>
         {newHref && (
-          <Button asChild>
-            <Link href={newHref}>
-              <Plus className="w-4 h-4 mr-1" />
-              {newLabel}
-            </Link>
-          </Button>
+          <Link
+            href={newHref}
+            className="inline-flex items-center gap-1 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
+          >
+            <Plus className="w-4 h-4" />
+            {newLabel}
+          </Link>
         )}
       </div>
 
       <AdminSearchInput value={query} onChange={setQuery} placeholder={searchPlaceholder} />
 
-      <div className="rounded-lg border" style={{ background: '#fff' }}>
+      <div className="rounded-lg border border-gray-200 bg-white overflow-hidden">
         <Table>
           <TableHeader>
             <TableRow>
               {columns.map((col) => (
-                <TableHead key={col.key}>
+                <TableHead key={col.key} className="text-gray-500 font-medium text-xs uppercase bg-gray-50">
                   {col.sortable ? (
                     <button
                       type="button"
-                      className="flex items-center gap-1 hover:text-foreground"
+                      className="flex items-center gap-1 text-gray-500 hover:text-gray-900"
                       onClick={() => handleSort(col.key)}
                     >
                       {col.label}
@@ -146,43 +144,38 @@ export function AdminTable<T extends Record<string, unknown>>({
                   )}
                 </TableHead>
               ))}
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead className="text-right text-gray-500 font-medium text-xs uppercase bg-gray-50">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {paginated.map((item) => (
               <TableRow key={getId(item)}>
                 {columns.map((col) => (
-                  <TableCell key={col.key}>{col.render(item)}</TableCell>
+                  <TableCell key={col.key} className="text-gray-900 text-sm">{col.render(item)}</TableCell>
                 ))}
-                <TableCell className="text-right">
-                  <TooltipProvider delayDuration={300}>
-                    <div className="flex items-center justify-end gap-1">
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-                            <Link href={editHref(item)}>
-                              <Pencil className="h-4 w-4" />
-                            </Link>
-                          </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>Modifier</TooltipContent>
-                      </Tooltip>
-                      {deleteAction && (
-                        <DeleteButton
-                          id={getId(item)}
-                          action={deleteAction}
-                        />
-                      )}
-                    </div>
-                  </TooltipProvider>
+                <TableCell className="text-right text-sm">
+                  <div className="flex items-center justify-end gap-1">
+                    <Link
+                      href={editHref(item)}
+                      className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+                      title="Modifier"
+                    >
+                      <Pencil className="h-4 w-4" />
+                    </Link>
+                    {deleteAction && (
+                      <DeleteButton
+                        id={getId(item)}
+                        action={deleteAction}
+                      />
+                    )}
+                  </div>
                 </TableCell>
               </TableRow>
             ))}
             {paginated.length === 0 && (
               <TableRow>
-                <TableCell colSpan={totalColumns} className="h-24 text-center text-muted-foreground">
-                  Aucun élément pour le moment.
+                <TableCell colSpan={totalColumns} className="h-24 text-center text-gray-500">
+                  Aucun element pour le moment.
                 </TableCell>
               </TableRow>
             )}
@@ -191,30 +184,28 @@ export function AdminTable<T extends Record<string, unknown>>({
       </div>
 
       <div className="flex items-center justify-between">
-        <p className="text-sm text-muted-foreground">
-          {sorted.length} résultat{sorted.length !== 1 ? 's' : ''}
+        <p className="text-sm text-gray-500">
+          {sorted.length} resultat{sorted.length !== 1 ? 's' : ''}
         </p>
         {totalPages > 1 && (
           <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="sm"
+            <button
+              className="px-3 py-1.5 text-sm bg-white text-gray-700 border border-gray-200 rounded-md hover:bg-gray-50 disabled:opacity-50 transition-colors"
               disabled={page <= 1}
               onClick={() => setPage((p) => p - 1)}
             >
-              Précédent
-            </Button>
-            <span className="text-sm text-muted-foreground">
+              Precedent
+            </button>
+            <span className="text-sm text-gray-500">
               {page} / {totalPages}
             </span>
-            <Button
-              variant="outline"
-              size="sm"
+            <button
+              className="px-3 py-1.5 text-sm bg-white text-gray-700 border border-gray-200 rounded-md hover:bg-gray-50 disabled:opacity-50 transition-colors"
               disabled={page >= totalPages}
               onClick={() => setPage((p) => p + 1)}
             >
               Suivant
-            </Button>
+            </button>
           </div>
         )}
       </div>

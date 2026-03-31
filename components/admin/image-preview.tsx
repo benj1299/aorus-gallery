@@ -13,8 +13,8 @@ export function ImagePreview({ url, className = '' }: ImagePreviewProps) {
 
   if (!url || error) {
     return (
-      <div className={`w-12 h-12 rounded border border-dashed border-border flex items-center justify-center bg-muted shrink-0 ${className}`}>
-        <ImageIcon className="w-4 h-4 text-muted-foreground" />
+      <div className={`w-12 h-12 rounded border border-dashed border-gray-200 flex items-center justify-center bg-gray-50 shrink-0 ${className}`}>
+        <ImageIcon className="w-4 h-4 text-gray-400" />
       </div>
     );
   }
@@ -24,7 +24,7 @@ export function ImagePreview({ url, className = '' }: ImagePreviewProps) {
       src={url}
       alt="Aperçu"
       onError={() => setError(true)}
-      className={`w-12 h-12 rounded border border-border object-cover shrink-0 ${className}`}
+      className={`w-12 h-12 rounded border border-gray-200 object-cover shrink-0 ${className}`}
     />
   );
 }

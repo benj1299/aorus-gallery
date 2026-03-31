@@ -1,8 +1,5 @@
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Users, Image, Calendar, Mail, Plus, ArrowRight } from 'lucide-react';
 
 async function getDashboardData() {
@@ -33,8 +30,8 @@ export default async function AdminDashboardPage() {
   return (
     <div className="space-y-10">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Tableau de bord</h1>
-        <p className="text-muted-foreground text-sm mt-1">Vue d&apos;ensemble de votre galerie</p>
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900">Tableau de bord</h1>
+        <p className="text-gray-500 text-sm mt-1">Vue d&apos;ensemble de votre galerie</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -42,19 +39,17 @@ export default async function AdminDashboardPage() {
           const Icon = stat.icon;
           return (
             <Link key={stat.href} href={stat.href}>
-              <Card className="hover:shadow-md transition-shadow cursor-pointer">
-                <CardContent className="pt-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-muted-foreground">{stat.label}</p>
-                      <p className="text-3xl font-bold mt-1">{stat.count}</p>
-                    </div>
-                    <div className="h-12 w-12 rounded-lg bg-muted flex items-center justify-center">
-                      <Icon className="h-6 w-6 text-muted-foreground" />
-                    </div>
+              <div className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-500">{stat.label}</p>
+                    <p className="text-3xl font-bold text-gray-900 mt-1">{stat.count}</p>
                   </div>
-                </CardContent>
-              </Card>
+                  <div className="h-12 w-12 rounded-lg bg-gray-100 flex items-center justify-center">
+                    <Icon className="h-6 w-6 text-gray-500" />
+                  </div>
+                </div>
+              </div>
             </Link>
           );
         })}
@@ -62,70 +57,58 @@ export default async function AdminDashboardPage() {
 
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold">Derniers messages</h2>
-          <Button variant="ghost" size="sm" asChild>
-            <Link href="/admin/messages">
-              Voir tout
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
-          </Button>
+          <h2 className="text-lg font-semibold text-gray-900">Derniers messages</h2>
+          <Link href="/admin/messages" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-900 transition-colors">
+            Voir tout
+            <ArrowRight className="w-4 h-4 ml-1" />
+          </Link>
         </div>
         {recentMessages.length === 0 ? (
-          <Card>
-            <CardContent className="py-10 text-center text-muted-foreground">
-              Aucun message pour le moment.
-            </CardContent>
-          </Card>
+          <div className="bg-white rounded-xl border border-gray-200 py-10 text-center text-gray-500">
+            Aucun message pour le moment.
+          </div>
         ) : (
           <div className="space-y-3">
             {recentMessages.map((msg) => (
-              <Card key={msg.id}>
-                <CardContent className="py-4">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <p className="font-medium text-sm">{msg.name}</p>
-                        <Badge variant="outline" className="capitalize text-xs">
-                          {msg.status}
-                        </Badge>
-                      </div>
-                      <p className="text-sm text-muted-foreground truncate">{msg.message}</p>
+              <div key={msg.id} className="bg-white border border-gray-200 rounded-lg p-4">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <p className="text-gray-900 font-medium text-sm">{msg.name}</p>
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 capitalize">
+                        {msg.status}
+                      </span>
                     </div>
-                    <p className="text-xs text-muted-foreground whitespace-nowrap">
-                      {msg.createdAt.toLocaleDateString('fr-FR', {
-                        day: 'numeric',
-                        month: 'short',
-                      })}
-                    </p>
+                    <p className="text-sm text-gray-600 truncate">{msg.message}</p>
                   </div>
-                </CardContent>
-              </Card>
+                  <p className="text-xs text-gray-400 whitespace-nowrap">
+                    {msg.createdAt.toLocaleDateString('fr-FR', {
+                      day: 'numeric',
+                      month: 'short',
+                    })}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         )}
       </div>
 
       <div>
-        <h2 className="text-lg font-semibold mb-4">Actions rapides</h2>
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">Actions rapides</h2>
         <div className="flex flex-wrap gap-3">
-          <Button asChild>
-            <Link href="/admin/artists/new">
-              <Plus className="w-4 h-4 mr-1" />
-              Nouvel artiste
-            </Link>
-          </Button>
-          <Button variant="outline" asChild>
-            <Link href="/admin/artworks/new">
-              <Plus className="w-4 h-4 mr-1" />
-              Nouvelle œuvre
-            </Link>
-          </Button>
-          <Button variant="outline" asChild>
-            <Link href="/admin/exhibitions/new">
-              <Plus className="w-4 h-4 mr-1" />
-              Nouvelle exposition
-            </Link>
-          </Button>
+          <Link href="/admin/artists/new" className="inline-flex items-center justify-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
+            <Plus className="w-4 h-4 mr-1" />
+            Nouvel artiste
+          </Link>
+          <Link href="/admin/artworks/new" className="inline-flex items-center justify-center px-4 py-2 bg-gray-100 text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors">
+            <Plus className="w-4 h-4 mr-1" />
+            Nouvelle œuvre
+          </Link>
+          <Link href="/admin/exhibitions/new" className="inline-flex items-center justify-center px-4 py-2 bg-gray-100 text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors">
+            <Plus className="w-4 h-4 mr-1" />
+            Nouvelle exposition
+          </Link>
         </div>
       </div>
     </div>

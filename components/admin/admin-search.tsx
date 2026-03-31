@@ -13,12 +13,12 @@ interface AdminSearchProps {
 export function AdminSearchInput({ value, onChange, placeholder = 'Rechercher...' }: AdminSearchProps) {
   return (
     <div className="relative max-w-sm">
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
       <Input
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="pl-9"
+        className="pl-9 bg-white text-gray-900 border-gray-300"
       />
     </div>
   );

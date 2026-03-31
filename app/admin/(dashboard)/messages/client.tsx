@@ -1,7 +1,6 @@
 'use client';
 
 import { AdminTable } from '@/components/admin/admin-table';
-import { Badge } from '@/components/ui/badge';
 
 type ContactSubmission = {
   id: string;
@@ -17,7 +16,7 @@ const columns = [
     key: 'status',
     label: 'Statut',
     render: (s: ContactSubmission) => (
-      <Badge variant="outline" className="capitalize">{s.status}</Badge>
+      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 capitalize">{s.status}</span>
     ),
   },
   {
@@ -25,13 +24,13 @@ const columns = [
     label: 'Nom',
     sortable: true,
     getValue: (s: ContactSubmission) => s.name,
-    render: (s: ContactSubmission) => <span className="font-medium text-sm">{s.name}</span>,
+    render: (s: ContactSubmission) => <span className="font-medium text-sm text-gray-900">{s.name}</span>,
   },
   {
     key: 'email',
     label: 'Email',
     render: (s: ContactSubmission) => (
-      <a href={`mailto:${s.email}`} className="text-sm hover:underline text-foreground">
+      <a href={`mailto:${s.email}`} className="text-sm hover:underline text-gray-900">
         {s.email}
       </a>
     ),
@@ -40,14 +39,14 @@ const columns = [
     key: 'message',
     label: 'Message',
     render: (s: ContactSubmission) => (
-      <span className="text-sm max-w-xs truncate block">{s.message}</span>
+      <span className="text-sm text-gray-600 max-w-xs truncate block">{s.message}</span>
     ),
   },
   {
     key: 'createdAt',
     label: 'Date',
     render: (s: ContactSubmission) => (
-      <span className="text-sm text-muted-foreground whitespace-nowrap">{s.createdAtFormatted}</span>
+      <span className="text-sm text-gray-500 whitespace-nowrap">{s.createdAtFormatted}</span>
     ),
   },
 ];

@@ -6,11 +6,8 @@ import { FormSwitch } from './form-switch';
 import { FormSelect } from './form-select';
 import { ImagePreview } from './image-preview';
 import type { TranslatableField } from '@/lib/i18n-content';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 
 interface ArtworkFormProps {
   action: (formData: FormData) => void;
@@ -37,11 +34,11 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
 
   return (
     <form action={action} className="max-w-2xl space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Détails de l'œuvre</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Détails de l'œuvre</h3>
+        </div>
+        <div className="p-6 space-y-4">
           <TranslatableInput
             name="title"
             label="Titre"
@@ -66,42 +63,42 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
               placeholder="Huile sur toile"
             />
             <div>
-              <Label htmlFor="dimensions" className="mb-1.5">Dimensions</Label>
+              <Label htmlFor="dimensions" className="text-sm font-medium text-gray-700 mb-1.5">Dimensions</Label>
               <Input id="dimensions" name="dimensions" defaultValue={defaultValues.dimensions ?? ''} placeholder="120 x 90 cm" />
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Tarification</CardTitle>
-        </CardHeader>
-        <CardContent>
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Tarification</h3>
+        </div>
+        <div className="p-6">
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <Label htmlFor="year" className="mb-1.5">Année</Label>
+              <Label htmlFor="year" className="text-sm font-medium text-gray-700 mb-1.5">Année</Label>
               <Input id="year" name="year" type="number" defaultValue={defaultValues.year ?? ''} />
             </div>
             <div>
-              <Label htmlFor="price" className="mb-1.5">Prix</Label>
+              <Label htmlFor="price" className="text-sm font-medium text-gray-700 mb-1.5">Prix</Label>
               <Input id="price" name="price" type="number" step="0.01" defaultValue={defaultValues.price ?? ''} />
             </div>
             <div>
-              <Label htmlFor="currency" className="mb-1.5">Devise</Label>
+              <Label htmlFor="currency" className="text-sm font-medium text-gray-700 mb-1.5">Devise</Label>
               <Input id="currency" name="currency" defaultValue={defaultValues.currency ?? 'EUR'} />
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Média et affichage</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Média et affichage</h3>
+        </div>
+        <div className="p-6 space-y-4">
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">URL de l'image *</Label>
+            <Label htmlFor="imageUrl" className="text-sm font-medium text-gray-700 mb-1.5">URL de l'image *</Label>
             <div className="flex gap-3 items-start">
               <div className="flex-1">
                 <Input
@@ -117,27 +114,27 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
             </div>
           </div>
 
-          <Separator />
+          <div className="h-px bg-gray-100" />
 
           <div>
-            <Label htmlFor="sortOrder" className="mb-1.5">Ordre d'affichage</Label>
+            <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">Ordre d'affichage</Label>
             <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} className="max-w-32" />
           </div>
 
-          <Separator />
+          <div className="h-px bg-gray-100" />
 
           <div className="flex flex-wrap gap-6">
             <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
             <FormSwitch name="featuredHome" label="En avant sur l'accueil" defaultChecked={defaultValues.featuredHome ?? false} />
             <FormSwitch name="showPrice" label="Afficher le prix" defaultChecked={defaultValues.showPrice ?? false} />
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       <div className="flex justify-end">
-        <Button type="submit" size="lg">
+        <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
           Enregistrer
-        </Button>
+        </button>
       </div>
     </form>
   );

@@ -24,7 +24,7 @@ export default async function AdminBannerPage() {
 
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Bannière d&apos;accueil</h1>
-        <p className="text-muted-foreground text-sm mt-1">Configurez la bannière affichée en haut de la page d&apos;accueil.</p>
+        <p className="text-gray-500 text-sm mt-1">Configurez la bannière affichée en haut de la page d&apos;accueil.</p>
       </div>
 
       <BannerForm

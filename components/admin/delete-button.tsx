@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Trash2, X, Check } from 'lucide-react';
 
 interface DeleteButtonProps {
@@ -28,38 +26,31 @@ export function DeleteButton({ id, action }: DeleteButtonProps) {
   if (confirming) {
     return (
       <div className="flex items-center gap-1">
-        <TooltipProvider delayDuration={300}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="destructive" size="icon" className="h-8 w-8" onClick={handleDelete}>
-                <Check className="h-4 w-4" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>Confirmer</TooltipContent>
-          </Tooltip>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => setConfirming(false)}>
-                <X className="h-4 w-4" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>Annuler</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <button
+          className="h-8 w-8 inline-flex items-center justify-center rounded-md bg-red-600 text-white transition-colors"
+          onClick={handleDelete}
+          title="Confirmer"
+        >
+          <Check className="h-4 w-4" />
+        </button>
+        <button
+          className="h-8 w-8 inline-flex items-center justify-center rounded-md bg-white text-gray-600 border border-gray-200 transition-colors"
+          onClick={() => setConfirming(false)}
+          title="Annuler"
+        >
+          <X className="h-4 w-4" />
+        </button>
       </div>
     );
   }
 
   return (
-    <TooltipProvider delayDuration={300}>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:text-destructive" onClick={() => setConfirming(true)}>
-            <Trash2 className="h-4 w-4" />
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>Supprimer</TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <button
+      className="h-8 w-8 inline-flex items-center justify-center rounded-md text-red-400 hover:text-red-600 hover:bg-red-50 transition-colors"
+      onClick={() => setConfirming(true)}
+      title="Supprimer"
+    >
+      <Trash2 className="h-4 w-4" />
+    </button>
   );
 }

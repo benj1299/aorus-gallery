@@ -15,9 +15,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const messageCount = await prisma.contactSubmission.count();
 
   return (
-    <div className="admin-theme flex min-h-screen" style={{ background: '#fff', color: '#0a0a0a' }}>
+    <div className="flex min-h-screen bg-gray-50">
       <AdminSidebar messageCount={messageCount} />
-      <main className="flex-1 p-6 md:p-10" style={{ background: '#fafafa' }}>{children}</main>
+      <main className="flex-1 p-6 md:p-10">{children}</main>
       <Toaster position="top-right" theme="light" />
     </div>
   );

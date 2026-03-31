@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Switch } from '@/components/ui/switch';
-import { Label } from '@/components/ui/label';
 
 interface FormSwitchProps {
   name: string;
@@ -15,7 +14,7 @@ export function FormSwitch({ name, label, defaultChecked = false }: FormSwitchPr
   return (
     <div className="flex items-center gap-3">
       <Switch checked={checked} onCheckedChange={setChecked} id={name} />
-      <Label htmlFor={name} className="text-sm font-medium">{label}</Label>
+      <label htmlFor={name} className="text-sm font-medium text-gray-700">{label}</label>
       <input type="hidden" name={name} value={checked ? 'true' : 'false'} />
     </div>
   );

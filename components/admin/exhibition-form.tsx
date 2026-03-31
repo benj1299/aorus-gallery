@@ -6,12 +6,9 @@ import { FormSwitch } from './form-switch';
 import { FormSelect } from './form-select';
 import { ImagePreview } from './image-preview';
 import type { TranslatableField } from '@/lib/i18n-content';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 
 interface ExhibitionFormProps {
   action: (formData: FormData) => void;
@@ -50,11 +47,11 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
   return (
     <form action={action} className="max-w-2xl space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Détails de l'exposition</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Détails de l'exposition</h3>
+        </div>
+        <div className="p-6 space-y-4">
           <TranslatableInput
             name="title"
             label="Titre"
@@ -71,17 +68,17 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
           />
 
           <div>
-            <Label htmlFor="location" className="mb-1.5">Lieu</Label>
+            <Label htmlFor="location" className="text-sm font-medium text-gray-700 mb-1.5">Lieu</Label>
             <Input id="location" name="location" defaultValue={defaultValues.location} placeholder="ex. Paris, France" />
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Classification et calendrier</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Classification et calendrier</h3>
+        </div>
+        <div className="p-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <FormSelect
               name="type"
@@ -101,24 +98,24 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="startDate" className="mb-1.5">Date de début</Label>
+              <Label htmlFor="startDate" className="text-sm font-medium text-gray-700 mb-1.5">Date de début</Label>
               <Input id="startDate" name="startDate" type="date" defaultValue={defaultValues.startDate} />
             </div>
             <div>
-              <Label htmlFor="endDate" className="mb-1.5">Date de fin</Label>
+              <Label htmlFor="endDate" className="text-sm font-medium text-gray-700 mb-1.5">Date de fin</Label>
               <Input id="endDate" name="endDate" type="date" defaultValue={defaultValues.endDate} />
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Média</CardTitle>
-        </CardHeader>
-        <CardContent>
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Média</h3>
+        </div>
+        <div className="p-6">
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">URL de l'image</Label>
+            <Label htmlFor="imageUrl" className="text-sm font-medium text-gray-700 mb-1.5">URL de l'image</Label>
             <div className="flex gap-3 items-start">
               <div className="flex-1">
                 <Input
@@ -132,17 +129,17 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
               <ImagePreview url={imageUrl} />
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Artistes et œuvres</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Artistes et œuvres</h3>
+        </div>
+        <div className="p-6 space-y-4">
           <div>
-            <Label className="mb-2">Artistes</Label>
-            <div className="border border-border rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
+            <Label className="text-sm font-medium text-gray-700 mb-2">Artistes</Label>
+            <div className="border border-gray-200 rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
               {artists.map((artist) => (
                 <div key={artist.id} className="flex items-center gap-2">
                   <Checkbox
@@ -151,20 +148,20 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
                     value={artist.id}
                     defaultChecked={defaultValues.artistIds?.includes(artist.id)}
                   />
-                  <Label htmlFor={`artist-${artist.id}`} className="text-sm font-normal">{artist.name}</Label>
+                  <Label htmlFor={`artist-${artist.id}`} className="text-sm text-gray-700 font-normal">{artist.name}</Label>
                 </div>
               ))}
               {artists.length === 0 && (
-                <p className="text-muted-foreground text-sm">Aucun artiste disponible</p>
+                <p className="text-gray-500 text-sm">Aucun artiste disponible</p>
               )}
             </div>
           </div>
 
-          <Separator />
+          <div className="h-px bg-gray-100" />
 
           <div>
-            <Label className="mb-2">{'Œuvres'}</Label>
-            <div className="border border-border rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
+            <Label className="text-sm font-medium text-gray-700 mb-2">{'Œuvres'}</Label>
+            <div className="border border-gray-200 rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
               {artworks.map((artwork) => (
                 <div key={artwork.id} className="flex items-center gap-2">
                   <Checkbox
@@ -173,38 +170,38 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
                     value={artwork.id}
                     defaultChecked={defaultValues.artworkIds?.includes(artwork.id)}
                   />
-                  <Label htmlFor={`artwork-${artwork.id}`} className="text-sm font-normal">{artwork.title}</Label>
+                  <Label htmlFor={`artwork-${artwork.id}`} className="text-sm text-gray-700 font-normal">{artwork.title}</Label>
                 </div>
               ))}
               {artworks.length === 0 && (
-                <p className="text-muted-foreground text-sm">Aucune {'œuvre'} disponible</p>
+                <p className="text-gray-500 text-sm">Aucune {'œuvre'} disponible</p>
               )}
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Paramètres d'affichage</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Paramètres d'affichage</h3>
+        </div>
+        <div className="p-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d'affichage</Label>
+              <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">Ordre d'affichage</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
             </div>
             <div className="flex items-end pb-2">
               <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       <div className="flex justify-end">
-        <Button type="submit" size="lg">
+        <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
           Enregistrer
-        </Button>
+        </button>
       </div>
     </form>
   );

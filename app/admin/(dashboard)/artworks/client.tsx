@@ -2,7 +2,6 @@
 
 import { AdminTable } from '@/components/admin/admin-table';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
-import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { deleteArtwork } from '@/lib/actions/artworks';
 
@@ -35,8 +34,8 @@ const columns = [
             <AvatarFallback className="rounded">{t.charAt(0)}</AvatarFallback>
           </Avatar>
           <div>
-            <p className="font-medium text-sm">{t}</p>
-            <p className="text-muted-foreground text-xs">{aw.dimensions}</p>
+            <p className="font-medium text-sm text-gray-900">{t}</p>
+            <p className="text-gray-500 text-xs">{aw.dimensions}</p>
           </div>
         </div>
       );
@@ -47,13 +46,13 @@ const columns = [
     label: 'Artiste',
     sortable: true,
     getValue: (aw: Artwork) => aw.artist.name,
-    render: (aw: Artwork) => <span className="text-sm">{aw.artist.name}</span>,
+    render: (aw: Artwork) => <span className="text-sm text-gray-900">{aw.artist.name}</span>,
   },
   {
     key: 'medium',
     label: 'Technique',
     render: (aw: Artwork) => (
-      <span className="text-sm">
+      <span className="text-sm text-gray-900">
         {aw.medium ? resolveTranslation(aw.medium as TranslatableField, 'fr') : '—'}
       </span>
     ),
@@ -64,7 +63,7 @@ const columns = [
     sortable: true,
     getValue: (aw: Artwork) => aw.price ?? 0,
     render: (aw: Artwork) => (
-      <span className="text-sm">
+      <span className="text-sm text-gray-900">
         {aw.price ? `${aw.price} ${aw.currency}` : '—'}
       </span>
     ),
@@ -74,10 +73,11 @@ const columns = [
     label: 'Statut',
     render: (aw: Artwork) => (
       <div className="flex gap-1">
-        <Badge variant={aw.visible ? 'default' : 'secondary'}>
-          {aw.visible ? 'Visible' : 'Masqué'}
-        </Badge>
-        {aw.featuredHome && <Badge variant="outline">En avant</Badge>}
+        {aw.visible
+          ? <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Visible</span>
+          : <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">Masqué</span>
+        }
+        {aw.featuredHome && <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">En avant</span>}
       </div>
     ),
   },

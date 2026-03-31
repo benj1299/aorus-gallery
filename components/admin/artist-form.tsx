@@ -6,11 +6,8 @@ import { FormSwitch } from './form-switch';
 import { ImagePreview } from './image-preview';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { LOCALES } from '@/lib/i18n-content';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { Plus, X } from 'lucide-react';
 
 interface CVEntry {
@@ -88,13 +85,13 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
 
   return (
     <form action={action} className="max-w-2xl space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Informations générales</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Informations générales</h3>
+        </div>
+        <div className="p-6 space-y-4">
           <div>
-            <Label htmlFor="name" className="mb-1.5">Nom *</Label>
+            <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-1.5">Nom *</Label>
             <Input id="name" name="name" defaultValue={defaultValues.name} required />
           </div>
 
@@ -115,7 +112,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
           />
 
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">URL de l'image *</Label>
+            <Label htmlFor="imageUrl" className="text-sm font-medium text-gray-700 mb-1.5">URL de l'image *</Label>
             <div className="flex gap-3 items-start">
               <div className="flex-1">
                 <Input
@@ -130,35 +127,35 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
               <ImagePreview url={imageUrl} />
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Paramètres d'affichage</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Paramètres d'affichage</h3>
+        </div>
+        <div className="p-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d'affichage</Label>
+              <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">Ordre d'affichage</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
             </div>
             <div className="flex items-end pb-2">
               <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>CV / Historique d'expositions</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">CV / Historique d'expositions</h3>
+        </div>
+        <div className="p-6 space-y-6">
           {cvSections.map((section, sectionIdx) => (
             <div key={section.key}>
-              {sectionIdx > 0 && <Separator className="mb-4" />}
-              <Label className="mb-2">{section.label}</Label>
+              {sectionIdx > 0 && <div className="h-px bg-gray-100 mb-4" />}
+              <Label className="text-sm font-medium text-gray-700 mb-2">{section.label}</Label>
               <div className="space-y-3">
                 {section.items.map((entry, i) => (
                   <div key={i} className="flex gap-2">
@@ -172,38 +169,34 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
                         />
                       ))}
                     </div>
-                    <Button
+                    <button
                       type="button"
-                      variant="ghost"
-                      size="icon"
-                      className="self-start mt-1 text-destructive hover:text-destructive"
+                      className="self-start mt-1 text-red-400 hover:text-red-600"
                       onClick={() => section.setItems(section.items.filter((_, j) => j !== i))}
                     >
                       <X className="w-4 h-4" />
-                    </Button>
+                    </button>
                   </div>
                 ))}
               </div>
-              <Button
+              <button
                 type="button"
-                variant="ghost"
-                size="sm"
-                className="mt-2 text-muted-foreground"
+                className="mt-2 text-sm text-gray-500 hover:text-gray-900 inline-flex items-center"
                 onClick={() => section.setItems([...section.items, emptyT()])}
               >
                 <Plus className="w-3 h-3 mr-1" />
                 Ajouter
-              </Button>
+              </button>
             </div>
           ))}
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Collections</CardTitle>
-        </CardHeader>
-        <CardContent>
+      <div className="bg-white rounded-xl border border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-base font-semibold text-gray-900">Collections</h3>
+        </div>
+        <div className="p-6">
           <div className="space-y-3">
             {collections.map((col, i) => (
               <div key={i} className="flex gap-2">
@@ -217,35 +210,31 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
                     />
                   ))}
                 </div>
-                <Button
+                <button
                   type="button"
-                  variant="ghost"
-                  size="icon"
-                  className="self-start mt-1 text-destructive hover:text-destructive"
+                  className="self-start mt-1 text-red-400 hover:text-red-600"
                   onClick={() => setCollections(collections.filter((_, j) => j !== i))}
                 >
                   <X className="w-4 h-4" />
-                </Button>
+                </button>
               </div>
             ))}
           </div>
-          <Button
+          <button
             type="button"
-            variant="ghost"
-            size="sm"
-            className="mt-2 text-muted-foreground"
+            className="mt-2 text-sm text-gray-500 hover:text-gray-900 inline-flex items-center"
             onClick={() => setCollections([...collections, emptyT()])}
           >
             <Plus className="w-3 h-3 mr-1" />
             Ajouter une collection
-          </Button>
-        </CardContent>
-      </Card>
+          </button>
+        </div>
+      </div>
 
       <div className="flex justify-end">
-        <Button type="submit" size="lg">
+        <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
           Enregistrer
-        </Button>
+        </button>
       </div>
     </form>
   );

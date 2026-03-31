@@ -2,7 +2,6 @@
 
 import { AdminTable } from '@/components/admin/admin-table';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
-import { Badge } from '@/components/ui/badge';
 import { deletePressArticle } from '@/lib/actions/press';
 
 type PressArticle = {
@@ -22,8 +21,8 @@ const columns = [
     getValue: (a: PressArticle) => resolveTranslation(a.title as TranslatableField, 'fr'),
     render: (a: PressArticle) => (
       <div>
-        <p className="font-medium text-sm">{resolveTranslation(a.title as TranslatableField, 'fr')}</p>
-        <p className="text-muted-foreground text-xs">{a.slug}</p>
+        <p className="font-medium text-sm text-gray-900">{resolveTranslation(a.title as TranslatableField, 'fr')}</p>
+        <p className="text-gray-500 text-xs">{a.slug}</p>
       </div>
     ),
   },
@@ -32,20 +31,20 @@ const columns = [
     label: 'Publication',
     sortable: true,
     getValue: (a: PressArticle) => a.publication,
-    render: (a: PressArticle) => <span className="text-sm">{a.publication}</span>,
+    render: (a: PressArticle) => <span className="text-sm text-gray-900">{a.publication}</span>,
   },
   {
     key: 'publishedAt',
     label: 'Date',
-    render: (a: PressArticle) => <span className="text-sm">{a.publishedAtFormatted}</span>,
+    render: (a: PressArticle) => <span className="text-sm text-gray-900">{a.publishedAtFormatted}</span>,
   },
   {
     key: 'visible',
     label: 'Visible',
     render: (a: PressArticle) => (
-      <Badge variant={a.visible ? 'default' : 'secondary'}>
-        {a.visible ? 'Visible' : 'Masqué'}
-      </Badge>
+      a.visible
+        ? <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Visible</span>
+        : <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">Masqué</span>
     ),
   },
 ];
