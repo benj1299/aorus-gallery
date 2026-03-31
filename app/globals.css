@@ -640,7 +640,8 @@
   }
 }
 
-/* Admin Theme Override - light background for admin panel */
+/* Admin Theme Override - light background for admin panel
+   Override BOTH --var and --color-var to work with Tailwind v4 @theme mappings */
 .admin-theme,
 .admin-theme * {
   --background: #FFFFFF !important;
@@ -663,6 +664,25 @@
   --input: #E5E5E5 !important;
   --ring: #171717 !important;
   --radius: 0.5rem !important;
+  --color-background: #FFFFFF !important;
+  --color-foreground: #0A0A0A !important;
+  --color-card: #FFFFFF !important;
+  --color-card-foreground: #0A0A0A !important;
+  --color-popover: #FFFFFF !important;
+  --color-popover-foreground: #0A0A0A !important;
+  --color-primary: #171717 !important;
+  --color-primary-foreground: #FAFAFA !important;
+  --color-secondary: #F5F5F5 !important;
+  --color-secondary-foreground: #171717 !important;
+  --color-muted: #F5F5F5 !important;
+  --color-muted-foreground: #737373 !important;
+  --color-accent: #F5F5F5 !important;
+  --color-accent-foreground: #171717 !important;
+  --color-destructive: #DC2626 !important;
+  --color-destructive-foreground: #FAFAFA !important;
+  --color-border: #E5E5E5 !important;
+  --color-input: #E5E5E5 !important;
+  --color-ring: #171717 !important;
 }
 
 /* Scrollbar - Minimal */
