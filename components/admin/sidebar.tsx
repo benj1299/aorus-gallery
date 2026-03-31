@@ -4,20 +4,26 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
-import { Users, Image, Newspaper, Megaphone, Calendar, Mail, LogOut } from 'lucide-react';
+import { Users, Image, Newspaper, Megaphone, Calendar, Mail, LogOut, LayoutDashboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
+
+interface AdminSidebarProps {
+  messageCount?: number;
+}
 
 const navItems = [
-  { label: 'Artists', href: '/admin/artists', icon: Users },
-  { label: 'Artworks', href: '/admin/artworks', icon: Image },
-  { label: 'Press', href: '/admin/press', icon: Newspaper },
-  { label: 'Banner', href: '/admin/banner', icon: Megaphone },
-  { label: 'Exhibitions', href: '/admin/exhibitions', icon: Calendar },
-  { label: 'Messages', href: '/admin/messages', icon: Mail },
+  { label: 'Tableau de bord', href: '/admin', icon: LayoutDashboard, exact: true },
+  { label: 'Artistes', href: '/admin/artists', icon: Users },
+  { label: '\u0152uvres', href: '/admin/artworks', icon: Image },
+  { label: 'Presse', href: '/admin/press', icon: Newspaper },
+  { label: 'Banni\u00e8re', href: '/admin/banner', icon: Megaphone },
+  { label: 'Expositions', href: '/admin/exhibitions', icon: Calendar },
+  { label: 'Messages', href: '/admin/messages', icon: Mail, showBadge: true },
 ];
 
-export function AdminSidebar() {
+export function AdminSidebar({ messageCount = 0 }: AdminSidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -29,15 +35,17 @@ export function AdminSidebar() {
   return (
     <aside className="w-64 min-h-screen border-r border-border bg-card flex flex-col">
       <div className="p-6">
-        <Link href="/admin" className="text-xl font-bold tracking-wide text-foreground">
-          ORUS Admin
+        <Link href="/admin" className="text-lg font-semibold tracking-widest text-foreground uppercase">
+          Administration ORUS
         </Link>
       </div>
       <Separator />
-      <nav className="flex-1 p-3 space-y-1">
+      <nav className="flex-1 p-3 space-y-0.5">
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = pathname.startsWith(item.href);
+          const isActive = item.exact
+            ? pathname === item.href
+            : pathname.startsWith(item.href) && item.href !== '/admin';
           return (
             <Button
               key={item.href}
@@ -47,7 +55,12 @@ export function AdminSidebar() {
             >
               <Link href={item.href}>
                 <Icon className="w-4 h-4" />
-                {item.label}
+                <span className="flex-1 text-left">{item.label}</span>
+                {item.showBadge && messageCount > 0 && (
+                  <Badge variant="default" className="ml-auto h-5 min-w-5 flex items-center justify-center text-xs px-1.5">
+                    {messageCount}
+                  </Badge>
+                )}
               </Link>
             </Button>
           );
@@ -61,7 +74,7 @@ export function AdminSidebar() {
           onClick={handleLogout}
         >
           <LogOut className="w-4 h-4" />
-          Logout
+          D\u00e9connexion
         </Button>
       </div>
     </aside>

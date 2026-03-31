@@ -1,8 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
 import { FormSelect } from './form-select';
+import { ImagePreview } from './image-preview';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -30,37 +32,38 @@ interface ArtworkFormProps {
 }
 
 export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkFormProps) {
+  const [imageUrl, setImageUrl] = useState(defaultValues.imageUrl ?? '');
   const artistOptions = artists.map((a) => ({ value: a.id, label: a.name }));
 
   return (
     <form action={action} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Artwork Details</CardTitle>
+          <CardTitle>D\u00e9tails de l&apos;\u0153uvre</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <TranslatableInput
             name="title"
-            label="Title"
+            label="Titre"
             defaultValue={defaultValues.title}
             required
           />
 
           <FormSelect
             name="artistId"
-            label="Artist"
+            label="Artiste"
             options={artistOptions}
             defaultValue={defaultValues.artistId}
             required
-            placeholder="Select artist..."
+            placeholder="S\u00e9lectionner un artiste..."
           />
 
           <div className="grid grid-cols-2 gap-4">
             <TranslatableInput
               name="medium"
-              label="Medium"
+              label="Technique"
               defaultValue={defaultValues.medium}
-              placeholder="Oil on canvas"
+              placeholder="Huile sur toile"
             />
             <div>
               <Label htmlFor="dimensions" className="mb-1.5">Dimensions</Label>
@@ -72,20 +75,20 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
 
       <Card>
         <CardHeader>
-          <CardTitle>Pricing</CardTitle>
+          <CardTitle>Tarification</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <Label htmlFor="year" className="mb-1.5">Year</Label>
+              <Label htmlFor="year" className="mb-1.5">Ann\u00e9e</Label>
               <Input id="year" name="year" type="number" defaultValue={defaultValues.year ?? ''} />
             </div>
             <div>
-              <Label htmlFor="price" className="mb-1.5">Price</Label>
+              <Label htmlFor="price" className="mb-1.5">Prix</Label>
               <Input id="price" name="price" type="number" step="0.01" defaultValue={defaultValues.price ?? ''} />
             </div>
             <div>
-              <Label htmlFor="currency" className="mb-1.5">Currency</Label>
+              <Label htmlFor="currency" className="mb-1.5">Devise</Label>
               <Input id="currency" name="currency" defaultValue={defaultValues.currency ?? 'EUR'} />
             </div>
           </div>
@@ -94,18 +97,30 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
 
       <Card>
         <CardHeader>
-          <CardTitle>Media & Display</CardTitle>
+          <CardTitle>M\u00e9dia et affichage</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">Image URL *</Label>
-            <Input id="imageUrl" name="imageUrl" defaultValue={defaultValues.imageUrl} required type="url" />
+            <Label htmlFor="imageUrl" className="mb-1.5">URL de l&apos;image *</Label>
+            <div className="flex gap-3 items-start">
+              <div className="flex-1">
+                <Input
+                  id="imageUrl"
+                  name="imageUrl"
+                  value={imageUrl}
+                  onChange={(e) => setImageUrl(e.target.value)}
+                  required
+                  type="url"
+                />
+              </div>
+              <ImagePreview url={imageUrl} />
+            </div>
           </div>
 
           <Separator />
 
           <div>
-            <Label htmlFor="sortOrder" className="mb-1.5">Sort Order</Label>
+            <Label htmlFor="sortOrder" className="mb-1.5">Ordre d&apos;affichage</Label>
             <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} className="max-w-32" />
           </div>
 
@@ -113,15 +128,15 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
 
           <div className="flex flex-wrap gap-6">
             <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
-            <FormSwitch name="featuredHome" label="Featured on homepage" defaultChecked={defaultValues.featuredHome ?? false} />
-            <FormSwitch name="showPrice" label="Show price" defaultChecked={defaultValues.showPrice ?? false} />
+            <FormSwitch name="featuredHome" label="En avant sur l&apos;accueil" defaultChecked={defaultValues.featuredHome ?? false} />
+            <FormSwitch name="showPrice" label="Afficher le prix" defaultChecked={defaultValues.showPrice ?? false} />
           </div>
         </CardContent>
       </Card>
 
       <div className="flex justify-end">
         <Button type="submit" size="lg">
-          Save Artwork
+          Enregistrer
         </Button>
       </div>
     </form>

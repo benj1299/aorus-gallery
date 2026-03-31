@@ -4,6 +4,7 @@ import { prisma } from '@/lib/db';
 import { updateExhibition } from '@/lib/actions/exhibitions';
 import { ExhibitionForm } from '@/components/admin/exhibition-form';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -33,19 +34,31 @@ export default async function EditExhibitionPage({ params }: Props) {
 
   const artworkOptions = artworks.map((aw) => ({
     id: aw.id,
-    title: resolveTranslation(aw.title as TranslatableField, 'en'),
+    title: resolveTranslation(aw.title as TranslatableField, 'fr'),
   }));
 
+  const exhibitionTitle = resolveTranslation(exhibition.title as TranslatableField, 'fr') || 'Exposition';
+
   return (
-    <div>
-      <div className="mb-8">
-        <Link href="/admin/exhibitions" className="text-sm text-gray-500 hover:text-gray-700">
-          &larr; Back to exhibitions
-        </Link>
-        <h1 className="text-2xl font-bold mt-2">
-          Edit: {resolveTranslation(exhibition.title as TranslatableField, 'en') || 'Exhibition'}
-        </h1>
-      </div>
+    <div className="space-y-6">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild><Link href="/admin">Administration</Link></BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild><Link href="/admin/exhibitions">Expositions</Link></BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Modifier : {exhibitionTitle}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <h1 className="text-2xl font-bold tracking-tight">Modifier : {exhibitionTitle}</h1>
+
       <ExhibitionForm
         action={updateWithId}
         artists={artists}

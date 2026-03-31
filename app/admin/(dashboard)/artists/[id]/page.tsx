@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { updateArtist } from '@/lib/actions/artists';
 import { ArtistForm } from '@/components/admin/artist-form';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import type { TranslatableField } from '@/lib/i18n-content';
 
 interface Props {
@@ -25,13 +26,25 @@ export default async function EditArtistPage({ params }: Props) {
   const updateWithId = updateArtist.bind(null, artist.id);
 
   return (
-    <div>
-      <div className="mb-8">
-        <Link href="/admin/artists" className="text-sm text-gray-500 hover:text-gray-700">
-          &larr; Back to artists
-        </Link>
-        <h1 className="text-2xl font-bold mt-2">Edit: {artist.name}</h1>
-      </div>
+    <div className="space-y-6">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild><Link href="/admin">Administration</Link></BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild><Link href="/admin/artists">Artistes</Link></BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Modifier : {artist.name}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <h1 className="text-2xl font-bold tracking-tight">Modifier : {artist.name}</h1>
+
       <ArtistForm
         action={updateWithId}
         defaultValues={{

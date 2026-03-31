@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
+import { ImagePreview } from './image-preview';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -20,23 +22,25 @@ interface BannerFormProps {
 }
 
 export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
+  const [imageUrl, setImageUrl] = useState(defaultValues.imageUrl ?? '');
+
   return (
     <form action={action} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Banner Content</CardTitle>
+          <CardTitle>Contenu de la banni\u00e8re</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <TranslatableInput
             name="title"
-            label="Title"
+            label="Titre"
             defaultValue={defaultValues.title}
             required
           />
 
           <TranslatableInput
             name="subtitle"
-            label="Subtitle"
+            label="Sous-titre"
             defaultValue={defaultValues.subtitle ?? undefined}
           />
         </CardContent>
@@ -44,16 +48,28 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Media & Link</CardTitle>
+          <CardTitle>M\u00e9dia et lien</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">Image URL *</Label>
-            <Input id="imageUrl" name="imageUrl" defaultValue={defaultValues.imageUrl} required type="url" />
+            <Label htmlFor="imageUrl" className="mb-1.5">URL de l&apos;image *</Label>
+            <div className="flex gap-3 items-start">
+              <div className="flex-1">
+                <Input
+                  id="imageUrl"
+                  name="imageUrl"
+                  value={imageUrl}
+                  onChange={(e) => setImageUrl(e.target.value)}
+                  required
+                  type="url"
+                />
+              </div>
+              <ImagePreview url={imageUrl} />
+            </div>
           </div>
 
           <div>
-            <Label htmlFor="linkUrl" className="mb-1.5">Link URL</Label>
+            <Label htmlFor="linkUrl" className="mb-1.5">URL du lien</Label>
             <Input id="linkUrl" name="linkUrl" defaultValue={defaultValues.linkUrl ?? ''} type="url" placeholder="https://..." />
           </div>
         </CardContent>
@@ -61,7 +77,7 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Display</CardTitle>
+          <CardTitle>Affichage</CardTitle>
         </CardHeader>
         <CardContent>
           <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? false} />
@@ -70,7 +86,7 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
 
       <div className="flex justify-end">
         <Button type="submit" size="lg">
-          Save Banner
+          Enregistrer
         </Button>
       </div>
     </form>

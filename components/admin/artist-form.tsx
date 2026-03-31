@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
+import { ImagePreview } from './image-preview';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { LOCALES } from '@/lib/i18n-content';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -34,11 +35,11 @@ interface ArtistFormProps {
 const emptyT = (): TranslatableField => ({ en: '', fr: '', zh: '' });
 
 const CV_TYPES = [
-  { key: 'SOLO_SHOW', label: 'Solo Shows' },
-  { key: 'GROUP_SHOW', label: 'Group Shows' },
-  { key: 'ART_FAIR', label: 'Art Fairs' },
-  { key: 'RESIDENCY', label: 'Residencies' },
-  { key: 'AWARD', label: 'Awards / Prizes' },
+  { key: 'SOLO_SHOW', label: 'Expositions personnelles' },
+  { key: 'GROUP_SHOW', label: 'Expositions collectives' },
+  { key: 'ART_FAIR', label: 'Foires d\u2019art' },
+  { key: 'RESIDENCY', label: 'R\u00e9sidences' },
+  { key: 'AWARD', label: 'Prix et distinctions' },
 ] as const;
 
 function filterEntriesByType(entries: CVEntry[] | undefined, type: string): TranslatableField[] {
@@ -47,6 +48,7 @@ function filterEntriesByType(entries: CVEntry[] | undefined, type: string): Tran
 }
 
 export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
+  const [imageUrl, setImageUrl] = useState(defaultValues.imageUrl ?? '');
   const [soloShows, setSoloShows] = useState<TranslatableField[]>(
     filterEntriesByType(defaultValues.cvEntries, 'SOLO_SHOW').length > 0
       ? filterEntriesByType(defaultValues.cvEntries, 'SOLO_SHOW')
@@ -77,35 +79,35 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
   );
 
   const cvSections = [
-    { key: 'SOLO_SHOW', label: 'Solo Shows', items: soloShows, setItems: setSoloShows },
-    { key: 'GROUP_SHOW', label: 'Group Shows', items: groupShows, setItems: setGroupShows },
-    { key: 'ART_FAIR', label: 'Art Fairs', items: artFairs, setItems: setArtFairs },
-    { key: 'RESIDENCY', label: 'Residencies', items: residencies, setItems: setResidencies },
-    { key: 'AWARD', label: 'Awards / Prizes', items: awards, setItems: setAwards },
+    { key: 'SOLO_SHOW', label: 'Expositions personnelles', items: soloShows, setItems: setSoloShows },
+    { key: 'GROUP_SHOW', label: 'Expositions collectives', items: groupShows, setItems: setGroupShows },
+    { key: 'ART_FAIR', label: 'Foires d\u2019art', items: artFairs, setItems: setArtFairs },
+    { key: 'RESIDENCY', label: 'R\u00e9sidences', items: residencies, setItems: setResidencies },
+    { key: 'AWARD', label: 'Prix et distinctions', items: awards, setItems: setAwards },
   ] as const;
 
   return (
     <form action={action} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Basic Information</CardTitle>
+          <CardTitle>Informations g\u00e9n\u00e9rales</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <Label htmlFor="name" className="mb-1.5">Name *</Label>
+            <Label htmlFor="name" className="mb-1.5">Nom *</Label>
             <Input id="name" name="name" defaultValue={defaultValues.name} required />
           </div>
 
           <TranslatableInput
             name="nationality"
-            label="Nationality"
+            label="Nationalit\u00e9"
             defaultValue={defaultValues.nationality}
             required
           />
 
           <TranslatableInput
             name="bio"
-            label="Bio"
+            label="Biographie"
             defaultValue={defaultValues.bio}
             required
             type="textarea"
@@ -113,20 +115,32 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
           />
 
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">Image URL *</Label>
-            <Input id="imageUrl" name="imageUrl" defaultValue={defaultValues.imageUrl} required type="url" />
+            <Label htmlFor="imageUrl" className="mb-1.5">URL de l&apos;image *</Label>
+            <div className="flex gap-3 items-start">
+              <div className="flex-1">
+                <Input
+                  id="imageUrl"
+                  name="imageUrl"
+                  value={imageUrl}
+                  onChange={(e) => setImageUrl(e.target.value)}
+                  required
+                  type="url"
+                />
+              </div>
+              <ImagePreview url={imageUrl} />
+            </div>
           </div>
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
-          <CardTitle>Display Settings</CardTitle>
+          <CardTitle>Param\u00e8tres d&apos;affichage</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="sortOrder" className="mb-1.5">Sort Order</Label>
+              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d&apos;affichage</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
             </div>
             <div className="flex items-end pb-2">
@@ -138,7 +152,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>CV / Exhibition History</CardTitle>
+          <CardTitle>CV / Historique d&apos;expositions</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           {cvSections.map((section, sectionIdx) => (
@@ -178,7 +192,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
                 onClick={() => section.setItems([...section.items, emptyT()])}
               >
                 <Plus className="w-3 h-3 mr-1" />
-                Add {section.label.toLowerCase()}
+                Ajouter
               </Button>
             </div>
           ))}
@@ -223,14 +237,14 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
             onClick={() => setCollections([...collections, emptyT()])}
           >
             <Plus className="w-3 h-3 mr-1" />
-            Add collection
+            Ajouter une collection
           </Button>
         </CardContent>
       </Card>
 
       <div className="flex justify-end">
         <Button type="submit" size="lg">
-          Save Artist
+          Enregistrer
         </Button>
       </div>
     </form>

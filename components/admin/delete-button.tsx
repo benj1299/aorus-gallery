@@ -27,10 +27,10 @@ export function DeleteButton({ id, action, label }: DeleteButtonProps) {
     return (
       <div className="flex items-center gap-1">
         <Button variant="destructive" size="sm" onClick={handleDelete}>
-          Confirm
+          Confirmer
         </Button>
         <Button variant="outline" size="sm" onClick={() => setConfirming(false)}>
-          Cancel
+          Annuler
         </Button>
       </div>
     );
@@ -38,7 +38,7 @@ export function DeleteButton({ id, action, label }: DeleteButtonProps) {
 
   return (
     <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive" onClick={() => setConfirming(true)}>
-      Delete
+      Supprimer
     </Button>
   );
 }

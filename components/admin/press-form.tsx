@@ -1,13 +1,14 @@
 'use client';
 
+import { useState } from 'react';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
+import { ImagePreview } from './image-preview';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 
 interface PressFormProps {
   action: (formData: FormData) => void;
@@ -24,16 +25,18 @@ interface PressFormProps {
 }
 
 export function PressForm({ action, defaultValues = {} }: PressFormProps) {
+  const [imageUrl, setImageUrl] = useState(defaultValues.imageUrl ?? '');
+
   return (
     <form action={action} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Article Details</CardTitle>
+          <CardTitle>D\u00e9tails de l&apos;article</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <TranslatableInput
             name="title"
-            label="Title"
+            label="Titre"
             defaultValue={defaultValues.title}
             required
           />
@@ -44,7 +47,7 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
               <Input id="publication" name="publication" defaultValue={defaultValues.publication} required placeholder="Artnet News" />
             </div>
             <div>
-              <Label htmlFor="publishedAt" className="mb-1.5">Published Date *</Label>
+              <Label htmlFor="publishedAt" className="mb-1.5">Date de publication *</Label>
               <Input id="publishedAt" name="publishedAt" type="date" defaultValue={defaultValues.publishedAt} required />
             </div>
           </div>
@@ -53,29 +56,40 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Links & Media</CardTitle>
+          <CardTitle>Liens et m\u00e9dia</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <Label htmlFor="url" className="mb-1.5">Article URL</Label>
+            <Label htmlFor="url" className="mb-1.5">URL de l&apos;article</Label>
             <Input id="url" name="url" defaultValue={defaultValues.url ?? ''} type="url" />
           </div>
 
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">Image URL</Label>
-            <Input id="imageUrl" name="imageUrl" defaultValue={defaultValues.imageUrl ?? ''} type="url" />
+            <Label htmlFor="imageUrl" className="mb-1.5">URL de l&apos;image</Label>
+            <div className="flex gap-3 items-start">
+              <div className="flex-1">
+                <Input
+                  id="imageUrl"
+                  name="imageUrl"
+                  value={imageUrl}
+                  onChange={(e) => setImageUrl(e.target.value)}
+                  type="url"
+                />
+              </div>
+              <ImagePreview url={imageUrl} />
+            </div>
           </div>
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
-          <CardTitle>Content</CardTitle>
+          <CardTitle>Contenu</CardTitle>
         </CardHeader>
         <CardContent>
           <TranslatableInput
             name="excerpt"
-            label="Excerpt"
+            label="Extrait"
             defaultValue={defaultValues.excerpt}
             type="textarea"
             rows={3}
@@ -85,12 +99,12 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Display Settings</CardTitle>
+          <CardTitle>Param\u00e8tres d&apos;affichage</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="sortOrder" className="mb-1.5">Sort Order</Label>
+              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d&apos;affichage</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
             </div>
             <div className="flex items-end pb-2">
@@ -102,7 +116,7 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
 
       <div className="flex justify-end">
         <Button type="submit" size="lg">
-          Save Article
+          Enregistrer
         </Button>
       </div>
     </form>

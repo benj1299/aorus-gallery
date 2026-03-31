@@ -1,8 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
 import { FormSelect } from './form-select';
+import { ImagePreview } from './image-preview';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -31,28 +33,30 @@ interface ExhibitionFormProps {
 }
 
 const TYPE_OPTIONS = [
-  { value: 'EXHIBITION', label: 'Exhibition' },
-  { value: 'ART_FAIR', label: 'Art Fair' },
-  { value: 'OFFSITE', label: 'Off-site' },
+  { value: 'EXHIBITION', label: 'Exposition' },
+  { value: 'ART_FAIR', label: 'Foire d\u2019art' },
+  { value: 'OFFSITE', label: 'Hors les murs' },
 ];
 
 const STATUS_OPTIONS = [
-  { value: 'CURRENT', label: 'Current' },
-  { value: 'UPCOMING', label: 'Upcoming' },
-  { value: 'PAST', label: 'Past' },
+  { value: 'CURRENT', label: 'En cours' },
+  { value: 'UPCOMING', label: '\u00c0 venir' },
+  { value: 'PAST', label: 'Pass\u00e9e' },
 ];
 
 export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }: ExhibitionFormProps) {
+  const [imageUrl, setImageUrl] = useState(defaultValues.imageUrl ?? '');
+
   return (
     <form action={action} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Exhibition Details</CardTitle>
+          <CardTitle>D\u00e9tails de l&apos;exposition</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <TranslatableInput
             name="title"
-            label="Title"
+            label="Titre"
             defaultValue={defaultValues.title}
             required
           />
@@ -66,15 +70,15 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
           />
 
           <div>
-            <Label htmlFor="location" className="mb-1.5">Location</Label>
-            <Input id="location" name="location" defaultValue={defaultValues.location} placeholder="e.g. Taipei, Taiwan" />
+            <Label htmlFor="location" className="mb-1.5">Lieu</Label>
+            <Input id="location" name="location" defaultValue={defaultValues.location} placeholder="ex. Paris, France" />
           </div>
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
-          <CardTitle>Classification & Schedule</CardTitle>
+          <CardTitle>Classification et calendrier</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
@@ -87,7 +91,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
             />
             <FormSelect
               name="status"
-              label="Status"
+              label="Statut"
               options={STATUS_OPTIONS}
               defaultValue={defaultValues.status ?? 'UPCOMING'}
               required
@@ -96,11 +100,11 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="startDate" className="mb-1.5">Start Date</Label>
+              <Label htmlFor="startDate" className="mb-1.5">Date de d\u00e9but</Label>
               <Input id="startDate" name="startDate" type="date" defaultValue={defaultValues.startDate} />
             </div>
             <div>
-              <Label htmlFor="endDate" className="mb-1.5">End Date</Label>
+              <Label htmlFor="endDate" className="mb-1.5">Date de fin</Label>
               <Input id="endDate" name="endDate" type="date" defaultValue={defaultValues.endDate} />
             </div>
           </div>
@@ -109,23 +113,34 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
       <Card>
         <CardHeader>
-          <CardTitle>Media</CardTitle>
+          <CardTitle>M\u00e9dia</CardTitle>
         </CardHeader>
         <CardContent>
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">Image URL</Label>
-            <Input id="imageUrl" name="imageUrl" defaultValue={defaultValues.imageUrl} type="url" />
+            <Label htmlFor="imageUrl" className="mb-1.5">URL de l&apos;image</Label>
+            <div className="flex gap-3 items-start">
+              <div className="flex-1">
+                <Input
+                  id="imageUrl"
+                  name="imageUrl"
+                  value={imageUrl}
+                  onChange={(e) => setImageUrl(e.target.value)}
+                  type="url"
+                />
+              </div>
+              <ImagePreview url={imageUrl} />
+            </div>
           </div>
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
-          <CardTitle>Artists & Artworks</CardTitle>
+          <CardTitle>Artistes et \u0153uvres</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <Label className="mb-2">Artists</Label>
+            <Label className="mb-2">Artistes</Label>
             <div className="border border-border rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
               {artists.map((artist) => (
                 <label key={artist.id} className="flex items-center gap-2 text-sm">
@@ -140,7 +155,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
                 </label>
               ))}
               {artists.length === 0 && (
-                <p className="text-muted-foreground text-sm">No artists available</p>
+                <p className="text-muted-foreground text-sm">Aucun artiste disponible</p>
               )}
             </div>
           </div>
@@ -148,7 +163,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
           <Separator />
 
           <div>
-            <Label className="mb-2">Artworks</Label>
+            <Label className="mb-2">{'\u0152uvres'}</Label>
             <div className="border border-border rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
               {artworks.map((artwork) => (
                 <label key={artwork.id} className="flex items-center gap-2 text-sm">
@@ -163,7 +178,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
                 </label>
               ))}
               {artworks.length === 0 && (
-                <p className="text-muted-foreground text-sm">No artworks available</p>
+                <p className="text-muted-foreground text-sm">Aucune {'\u0153uvre'} disponible</p>
               )}
             </div>
           </div>
@@ -172,12 +187,12 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
       <Card>
         <CardHeader>
-          <CardTitle>Display Settings</CardTitle>
+          <CardTitle>Param\u00e8tres d&apos;affichage</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="sortOrder" className="mb-1.5">Sort Order</Label>
+              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d&apos;affichage</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
             </div>
             <div className="flex items-end pb-2">
@@ -189,7 +204,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
       <div className="flex justify-end">
         <Button type="submit" size="lg">
-          Save Exhibition
+          Enregistrer
         </Button>
       </div>
     </form>

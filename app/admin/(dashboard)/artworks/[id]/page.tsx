@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { updateArtwork } from '@/lib/actions/artworks';
 import { ArtworkForm } from '@/components/admin/artwork-form';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import type { TranslatableField } from '@/lib/i18n-content';
 
 interface Props {
@@ -20,15 +21,28 @@ export default async function EditArtworkPage({ params }: Props) {
   if (!artwork) notFound();
 
   const updateWithId = updateArtwork.bind(null, artwork.id);
+  const title = (artwork.title as TranslatableField).fr || (artwork.title as TranslatableField).en || '\u0152uvre';
 
   return (
-    <div>
-      <div className="mb-8">
-        <Link href="/admin/artworks" className="text-sm text-gray-500 hover:text-gray-700">
-          &larr; Back to artworks
-        </Link>
-        <h1 className="text-2xl font-bold mt-2">Edit: {(artwork.title as TranslatableField).en || 'Artwork'}</h1>
-      </div>
+    <div className="space-y-6">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild><Link href="/admin">Administration</Link></BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild><Link href="/admin/artworks">{'\u0152uvres'}</Link></BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Modifier : {title}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <h1 className="text-2xl font-bold tracking-tight">Modifier : {title}</h1>
+
       <ArtworkForm
         action={updateWithId}
         artists={artists}
