@@ -37,7 +37,7 @@ export function DeleteButton({ id, action, label }: DeleteButtonProps) {
   }
 
   return (
-    <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive" onClick={() => setConfirming(true)}>
+    <Button variant="destructive" size="sm" onClick={() => setConfirming(true)}>
       Supprimer
     </Button>
   );

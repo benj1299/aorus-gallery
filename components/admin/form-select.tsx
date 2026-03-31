@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
 
 interface FormSelectProps {
   name: string;
@@ -16,7 +17,7 @@ export function FormSelect({ name, label, options, defaultValue, required, place
   const [value, setValue] = useState(defaultValue ?? '');
   return (
     <div>
-      <label className="block text-sm font-medium text-foreground mb-1.5">{label} {required && '*'}</label>
+      <Label className="mb-1.5">{label} {required && '*'}</Label>
       <Select value={value} onValueChange={setValue}>
         <SelectTrigger className="w-full">
           <SelectValue placeholder={placeholder || `S\u00e9lectionner...`} />

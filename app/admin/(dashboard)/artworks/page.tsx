@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Plus, MoreHorizontal, Pencil } from 'lucide-react';
 
 export default async function AdminArtworksPage() {
@@ -55,9 +56,10 @@ export default async function AdminArtworksPage() {
                   <TableRow key={artwork.id}>
                     <TableCell>
                       <div className="flex items-center gap-3">
-                        {artwork.imageUrl && (
-                          <img src={artwork.imageUrl} alt="" className="w-12 h-12 rounded object-cover" />
-                        )}
+                        <Avatar className="h-12 w-12 rounded">
+                          <AvatarImage src={artwork.imageUrl} alt={resolveTranslation(artwork.title as TranslatableField, 'fr')} />
+                          <AvatarFallback className="rounded">{resolveTranslation(artwork.title as TranslatableField, 'fr').charAt(0)}</AvatarFallback>
+                        </Avatar>
                         <div>
                           <p className="font-medium text-sm">{resolveTranslation(artwork.title as TranslatableField, 'fr')}</p>
                           <p className="text-muted-foreground text-xs">{artwork.dimensions}</p>

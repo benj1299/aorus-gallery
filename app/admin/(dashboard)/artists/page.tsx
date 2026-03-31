@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Plus, MoreHorizontal, Pencil } from 'lucide-react';
 
 export default async function AdminArtistsPage() {
@@ -54,9 +55,10 @@ export default async function AdminArtistsPage() {
                   <TableRow key={artist.id}>
                     <TableCell>
                       <div className="flex items-center gap-3">
-                        {artist.imageUrl && (
-                          <img src={artist.imageUrl} alt="" className="w-10 h-10 rounded-full object-cover" />
-                        )}
+                        <Avatar className="h-10 w-10">
+                          <AvatarImage src={artist.imageUrl} alt={artist.name} />
+                          <AvatarFallback>{artist.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
                         <div>
                           <p className="font-medium text-sm">{artist.name}</p>
                           <p className="text-muted-foreground text-xs">{artist.slug}</p>

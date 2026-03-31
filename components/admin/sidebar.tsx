@@ -33,7 +33,7 @@ export function AdminSidebar({ messageCount = 0 }: AdminSidebarProps) {
   };
 
   return (
-    <aside className="w-64 min-h-screen border-r flex flex-col" style={{ backgroundColor: '#FFFFFF', borderColor: '#E5E5E5' }}>
+    <aside className="w-64 min-h-screen border-r bg-card flex flex-col">
       <div className="p-6">
         <Link href="/admin" className="text-lg font-semibold tracking-widest text-foreground uppercase">
           Administration ORUS

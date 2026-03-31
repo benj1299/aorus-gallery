@@ -7,6 +7,7 @@ import { FormSelect } from './form-select';
 import { ImagePreview } from './image-preview';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -143,16 +144,15 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
             <Label className="mb-2">Artistes</Label>
             <div className="border border-border rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
               {artists.map((artist) => (
-                <label key={artist.id} className="flex items-center gap-2 text-sm">
-                  <input
-                    type="checkbox"
+                <div key={artist.id} className="flex items-center gap-2">
+                  <Checkbox
+                    id={`artist-${artist.id}`}
                     name="artistIds"
                     value={artist.id}
                     defaultChecked={defaultValues.artistIds?.includes(artist.id)}
-                    className="rounded border-input"
                   />
-                  {artist.name}
-                </label>
+                  <Label htmlFor={`artist-${artist.id}`} className="text-sm font-normal">{artist.name}</Label>
+                </div>
               ))}
               {artists.length === 0 && (
                 <p className="text-muted-foreground text-sm">Aucun artiste disponible</p>
@@ -166,16 +166,15 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
             <Label className="mb-2">{'\u0152uvres'}</Label>
             <div className="border border-border rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
               {artworks.map((artwork) => (
-                <label key={artwork.id} className="flex items-center gap-2 text-sm">
-                  <input
-                    type="checkbox"
+                <div key={artwork.id} className="flex items-center gap-2">
+                  <Checkbox
+                    id={`artwork-${artwork.id}`}
                     name="artworkIds"
                     value={artwork.id}
                     defaultChecked={defaultValues.artworkIds?.includes(artwork.id)}
-                    className="rounded border-input"
                   />
-                  {artwork.title}
-                </label>
+                  <Label htmlFor={`artwork-${artwork.id}`} className="text-sm font-normal">{artwork.title}</Label>
+                </div>
               ))}
               {artworks.length === 0 && (
                 <p className="text-muted-foreground text-sm">Aucune {'\u0153uvre'} disponible</p>
