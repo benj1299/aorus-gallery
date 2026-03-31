@@ -76,7 +76,7 @@ export function ExhibitionsListClient({ exhibitions }: { exhibitions: Exhibition
 
       <AdminSearchInput value={query} onChange={setQuery} placeholder="Rechercher une exposition..." />
 
-      <div className="rounded-lg border bg-card">
+      <div className="rounded-lg border" style={{ background: "#fff" }}>
         <Table>
           <TableHeader>
             <TableRow>

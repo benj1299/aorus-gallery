@@ -50,7 +50,7 @@ export function ArtistsListClient({ artists }: { artists: Artist[] }) {
 
       <AdminSearchInput value={query} onChange={setQuery} placeholder="Rechercher un artiste..." />
 
-      <div className="rounded-lg border bg-card">
+      <div className="rounded-lg border" style={{ background: "#fff" }}>
         <Table>
           <TableHeader>
             <TableRow>

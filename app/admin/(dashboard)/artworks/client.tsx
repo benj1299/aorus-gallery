@@ -54,7 +54,7 @@ export function ArtworksListClient({ artworks }: { artworks: Artwork[] }) {
 
       <AdminSearchInput value={query} onChange={setQuery} placeholder="Rechercher une \u0153uvre..." />
 
-      <div className="rounded-lg border bg-card">
+      <div className="rounded-lg border" style={{ background: "#fff" }}>
         <Table>
           <TableHeader>
             <TableRow>

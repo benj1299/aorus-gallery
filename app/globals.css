@@ -685,6 +685,35 @@
   --color-ring: #171717 !important;
 }
 
+/* Admin direct style overrides — bypass Tailwind v4 @theme resolution */
+.admin-theme [data-slot="card"],
+.admin-theme .bg-card {
+  background-color: #FFFFFF !important;
+  color: #0A0A0A !important;
+}
+
+.admin-theme .bg-background,
+.admin-theme .bg-muted {
+  background-color: #FAFAFA !important;
+}
+
+.admin-theme .bg-muted\/30 {
+  background-color: rgba(245, 245, 245, 0.3) !important;
+}
+
+.admin-theme .text-foreground {
+  color: #0A0A0A !important;
+}
+
+.admin-theme .text-muted-foreground {
+  color: #737373 !important;
+}
+
+.admin-theme .border-border,
+.admin-theme .border-r {
+  border-color: #E5E5E5 !important;
+}
+
 /* Scrollbar - Minimal */
 ::-webkit-scrollbar {
   width: 6px;

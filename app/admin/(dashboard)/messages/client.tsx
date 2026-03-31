@@ -39,7 +39,7 @@ export function MessagesListClient({ submissions }: { submissions: ContactSubmis
 
       <AdminSearchInput value={query} onChange={setQuery} placeholder="Rechercher un message..." />
 
-      <div className="rounded-lg border bg-card">
+      <div className="rounded-lg border" style={{ background: "#fff" }}>
         <Table>
           <TableHeader>
             <TableRow>

@@ -48,7 +48,7 @@ export function PressListClient({ articles }: { articles: PressArticle[] }) {
 
       <AdminSearchInput value={query} onChange={setQuery} placeholder="Rechercher un article..." />
 
-      <div className="rounded-lg border bg-card">
+      <div className="rounded-lg border" style={{ background: "#fff" }}>
         <Table>
           <TableHeader>
             <TableRow>
