@@ -36,13 +36,13 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 1 }}
-              className="aspect-[4/3] lg:aspect-[4/5] relative overflow-hidden"
+              className="aspect-[3/2] lg:aspect-[3/4] relative overflow-hidden"
             >
               <Image
                 src="/images/gallery/vision-artwork.jpeg"
                 alt="Contemporary artwork in gallery setting"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
               />
             </motion.div>
             <motion.div
@@ -98,12 +98,12 @@ export default function AboutPage() {
               transition={{ duration: 1, delay: 0.2 }}
               className="order-1 lg:order-2"
             >
-              <div className="aspect-[4/3] lg:aspect-[3/4] relative overflow-hidden">
+              <div className="aspect-[3/2] lg:aspect-[3/4] relative overflow-hidden">
                 <Image
                   src="/images/gallery/discussion.png"
                   alt="Discussion devant une oeuvre"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
               </div>
             </motion.div>
@@ -120,13 +120,13 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 1 }}
-              className="aspect-[4/3] lg:aspect-[4/5] relative overflow-hidden"
+              className="aspect-[3/2] lg:aspect-[3/4] relative overflow-hidden"
             >
               <Image
                 src="/images/gallery/Secretariat.png"
                 alt="ORUS Gallery reception"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
               />
             </motion.div>
             <motion.div
