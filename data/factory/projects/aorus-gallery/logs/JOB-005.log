@@ -1,0 +1,27 @@
+JOB-005: Artists Listing — Filtres + Cartes 4:5
+Date: 2026-02-23
+
+## Changes Made
+
+### app/[locale]/artists/page.tsx (rewrite)
+- 'use client' page with useState for activeMedium / activeRegion filters
+- MEDIUMS = ['Painting', 'Mixed Media', 'Resin'] — REGION_KEYS lookup map for type safety
+- REGIONS = ['Europe', 'Africa', 'Americas', 'Asia']
+- visibleArtists filters out contentStatus === 'coming-soon' artists
+- Page header: H1 title + text-stone subtitle
+- Filter bar: micro-label style (12px uppercase tracking-[0.12em]), jade underline via framer-motion layoutId
+- Grid: grid-cols-2 md:grid-cols-3 gap-6 md:gap-8
+- Artist card: aspect-[4/5] image, group-hover:scale-105 on Image, jade underline under name via scale-x animation
+- "View profile →" appears on hover (opacity-0 -> opacity-100)
+- AnimatePresence for grid entrance + empty state
+- Used getArtists() from @/lib/artists-data (getFilteredArtists not needed — filtering done client-side)
+
+### messages/en.json, fr.json, zh.json
+- Added keys: filterMedium, filterRegion, mediumPainting, mediumMixedMedia, mediumResin, regionEurope, regionAfrica, regionAmericas, regionAsia, viewProfile, noResults
+- Updated subtitle to match spec
+
+## Postconditions
+- pnpm exec tsc --noEmit: PASS
+- pnpm build: PASS (21 pages generated)
+- Filter UI: PASS (Medium + Region filters with jade underline active state)
+- messages/en.json artists.* keys: PASS

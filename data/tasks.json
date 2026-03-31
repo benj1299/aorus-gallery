@@ -1,0 +1,20 @@
+{
+  "project": "orus-gallery-admin-polish",
+  "updated": "2026-03-31T14:00",
+  "tasks": [
+    { "id": "T01", "title": "Icônes Eye/PDF → colonne Actions (artistes)", "status": "done" },
+    { "id": "T02", "title": "Dossier de presse expositions (PDF)", "status": "done" },
+    { "id": "T03", "title": "Page détail messages", "status": "done" },
+    { "id": "T04", "title": "Fix breadcrumb affichage", "status": "done" },
+    { "id": "T05", "title": "Test E2E contact form → messages", "status": "done" },
+    { "id": "T06", "title": "Champ 'sold' sur Artwork (admin only)", "status": "todo", "priority": "medium" },
+    { "id": "T07", "title": "Brancher requireAuth partagé", "status": "todo", "priority": "medium" },
+    { "id": "T08", "title": "Brancher schemas/common.ts", "status": "todo", "priority": "medium" },
+    { "id": "T09", "title": "Supprimer dead code", "status": "todo", "priority": "low" },
+    { "id": "T10", "title": "Fix DeleteButton error handling", "status": "todo", "priority": "medium" },
+    { "id": "T11", "title": "Tests E2E → UI française", "status": "todo", "priority": "high" },
+    { "id": "T12", "title": "Deploy final", "status": "todo", "priority": "high" },
+    { "id": "T13", "title": "Polish design formulaires", "status": "todo", "priority": "medium" },
+    { "id": "T14", "title": "Fix upload MIME fallback", "status": "done" }
+  ]
+}

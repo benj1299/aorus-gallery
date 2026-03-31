@@ -1,6 +1,7 @@
 'use client';
 
 import { AdminTable } from '@/components/admin/admin-table';
+import { Eye } from 'lucide-react';
 
 type ContactSubmission = {
   id: string;
@@ -40,6 +41,17 @@ const columns = [
     label: 'Message',
     render: (s: ContactSubmission) => (
       <span className="text-sm text-gray-600 max-w-xs truncate block">{s.message}</span>
+    ),
+  },
+  {
+    key: 'view',
+    label: '',
+    render: (s: ContactSubmission) => (
+      <a href={`/admin/messages/${s.id}`}
+         className="inline-flex items-center justify-center h-7 w-7 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded transition-colors"
+         title="Voir le message">
+        <Eye className="h-3.5 w-3.5" />
+      </a>
     ),
   },
   {

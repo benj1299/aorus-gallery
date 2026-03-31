@@ -3,6 +3,7 @@
 import { AdminTable } from '@/components/admin/admin-table';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
 import { deleteExhibition } from '@/lib/actions/exhibitions';
+import { Eye, FileDown } from 'lucide-react';
 
 type Exhibition = {
   id: string;
@@ -70,6 +71,24 @@ const columns = [
       <span className="text-sm text-gray-900">
         {e.artists.map((a) => a.artist.name).join(', ') || '—'}
       </span>
+    ),
+  },
+  {
+    key: 'links',
+    label: '',
+    render: (e: Exhibition) => (
+      <div className="flex gap-1">
+        <a href={`/fr/exhibitions`} target="_blank" rel="noopener noreferrer"
+           className="inline-flex items-center justify-center h-7 w-7 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded transition-colors"
+           title="Voir la page publique">
+          <Eye className="h-3.5 w-3.5" />
+        </a>
+        <a href={`/admin/exhibitions/${e.id}/view`}
+           className="inline-flex items-center justify-center h-7 w-7 text-gray-400 hover:text-emerald-700 hover:bg-emerald-50 rounded transition-colors"
+           title="Dossier de presse (PDF)">
+          <FileDown className="h-3.5 w-3.5" />
+        </a>
+      </div>
     ),
   },
   {

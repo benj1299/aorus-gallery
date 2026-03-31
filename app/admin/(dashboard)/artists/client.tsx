@@ -32,18 +32,6 @@ const columns = [
           <p className="font-medium text-sm text-gray-900">{a.name}</p>
           <p className="text-gray-500 text-xs">{a.slug}</p>
         </div>
-        <div className="ml-auto flex gap-1">
-          <a href={`/fr/artists/${a.slug}`} target="_blank" rel="noopener noreferrer"
-             className="inline-flex items-center justify-center h-7 w-7 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded transition-colors"
-             title="Voir la page publique">
-            <Eye className="h-3.5 w-3.5" />
-          </a>
-          <a href={`/admin/artists/${a.id}/view`}
-             className="inline-flex items-center justify-center h-7 w-7 text-gray-400 hover:text-emerald-700 hover:bg-emerald-50 rounded transition-colors"
-             title="Fiche artiste (PDF)">
-            <FileDown className="h-3.5 w-3.5" />
-          </a>
-        </div>
       </div>
     ),
   },
@@ -60,6 +48,24 @@ const columns = [
     sortable: true,
     getValue: (a: Artist) => a._count.artworks,
     render: (a: Artist) => <span className="text-sm text-gray-900">{a._count.artworks}</span>,
+  },
+  {
+    key: 'links',
+    label: '',
+    render: (a: Artist) => (
+      <div className="flex gap-1">
+        <a href={`/fr/artists/${a.slug}`} target="_blank" rel="noopener noreferrer"
+           className="inline-flex items-center justify-center h-7 w-7 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded transition-colors"
+           title="Voir la page publique">
+          <Eye className="h-3.5 w-3.5" />
+        </a>
+        <a href={`/admin/artists/${a.id}/view`}
+           className="inline-flex items-center justify-center h-7 w-7 text-gray-400 hover:text-emerald-700 hover:bg-emerald-50 rounded transition-colors"
+           title="Fiche artiste (PDF)">
+          <FileDown className="h-3.5 w-3.5" />
+        </a>
+      </div>
+    ),
   },
   {
     key: 'visible',

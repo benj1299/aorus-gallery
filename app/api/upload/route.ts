@@ -22,8 +22,19 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Aucun fichier' }, { status: 400 });
   }
 
-  if (!ALLOWED_TYPES.includes(file.type)) {
-    return NextResponse.json({ error: 'Format non supporté' }, { status: 400 });
+  // Determine MIME type — fallback to extension if browser didn't set it
+  let mimeType = file.type;
+  if (!mimeType || !ALLOWED_TYPES.includes(mimeType)) {
+    const ext = file.name.split('.').pop()?.toLowerCase();
+    const extMap: Record<string, string> = {
+      jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png',
+      webp: 'image/webp', gif: 'image/gif',
+    };
+    mimeType = extMap[ext ?? ''] ?? mimeType;
+  }
+
+  if (!ALLOWED_TYPES.includes(mimeType)) {
+    return NextResponse.json({ error: 'Format non supporté (JPG, PNG, WebP, GIF)' }, { status: 400 });
   }
 
   if (file.size > MAX_SIZE) {

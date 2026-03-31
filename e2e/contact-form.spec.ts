@@ -6,8 +6,8 @@ test.describe('Contact Form', () => {
     const uniqueEmail = `e2e-${Date.now()}@test.com`;
     const uniqueMessage = `This is an automated E2E test message ${Date.now()}`;
 
-    // Navigate to the contact page
-    await page.goto('/en/contact');
+    // Navigate to the French contact page
+    await page.goto('/fr/contact');
     await expect(page.locator('h1')).toBeVisible({ timeout: 10000 });
 
     // Select a status radio button (collector)
@@ -26,14 +26,14 @@ test.describe('Contact Form', () => {
     await page.locator('#rgpd').check();
 
     // Submit the form
-    await page.getByRole('button', { name: /Send Message/i }).click();
+    await page.getByRole('button', { name: /Envoyer/i }).click();
 
-    // Verify success message appears
-    await expect(page.getByText('Thank you for your message')).toBeVisible({ timeout: 10000 });
+    // Verify success message appears (French)
+    await expect(page.getByText('Merci pour votre message')).toBeVisible({ timeout: 10000 });
 
     // Navigate to admin messages and verify the submission appears
     await page.goto('/admin/messages');
-    await expect(page.getByRole('heading', { name: 'Contact Messages' })).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole('heading', { name: 'Messages de contact' })).toBeVisible({ timeout: 10000 });
     await expect(page.getByText(uniqueName)).toBeVisible({ timeout: 5000 });
     await expect(page.getByText(uniqueEmail)).toBeVisible();
   });
