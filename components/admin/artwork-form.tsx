@@ -39,7 +39,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
     <form action={action} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>D\u00e9tails de l&apos;\u0153uvre</CardTitle>
+          <CardTitle>Détails de l'œuvre</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <TranslatableInput
@@ -55,7 +55,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
             options={artistOptions}
             defaultValue={defaultValues.artistId}
             required
-            placeholder="S\u00e9lectionner un artiste..."
+            placeholder="Sélectionner un artiste..."
           />
 
           <div className="grid grid-cols-2 gap-4">
@@ -80,7 +80,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
         <CardContent>
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <Label htmlFor="year" className="mb-1.5">Ann\u00e9e</Label>
+              <Label htmlFor="year" className="mb-1.5">Année</Label>
               <Input id="year" name="year" type="number" defaultValue={defaultValues.year ?? ''} />
             </div>
             <div>
@@ -97,11 +97,11 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
 
       <Card>
         <CardHeader>
-          <CardTitle>M\u00e9dia et affichage</CardTitle>
+          <CardTitle>Média et affichage</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">URL de l&apos;image *</Label>
+            <Label htmlFor="imageUrl" className="mb-1.5">URL de l'image *</Label>
             <div className="flex gap-3 items-start">
               <div className="flex-1">
                 <Input
@@ -120,7 +120,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
           <Separator />
 
           <div>
-            <Label htmlFor="sortOrder" className="mb-1.5">Ordre d&apos;affichage</Label>
+            <Label htmlFor="sortOrder" className="mb-1.5">Ordre d'affichage</Label>
             <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} className="max-w-32" />
           </div>
 
@@ -128,7 +128,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
 
           <div className="flex flex-wrap gap-6">
             <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
-            <FormSwitch name="featuredHome" label="En avant sur l&apos;accueil" defaultChecked={defaultValues.featuredHome ?? false} />
+            <FormSwitch name="featuredHome" label="En avant sur l'accueil" defaultChecked={defaultValues.featuredHome ?? false} />
             <FormSwitch name="showPrice" label="Afficher le prix" defaultChecked={defaultValues.showPrice ?? false} />
           </div>
         </CardContent>

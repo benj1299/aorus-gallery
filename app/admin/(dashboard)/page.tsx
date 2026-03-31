@@ -25,7 +25,7 @@ export default async function AdminDashboardPage() {
 
   const stats = [
     { label: 'Artistes', count: artistCount, icon: Users, href: '/admin/artists' },
-    { label: '\u0152uvres', count: artworkCount, icon: Image, href: '/admin/artworks' },
+    { label: 'Œuvres', count: artworkCount, icon: Image, href: '/admin/artworks' },
     { label: 'Expositions', count: exhibitionCount, icon: Calendar, href: '/admin/exhibitions' },
     { label: 'Messages', count: messageCount, icon: Mail, href: '/admin/messages' },
   ];
@@ -117,7 +117,7 @@ export default async function AdminDashboardPage() {
           <Button variant="outline" asChild>
             <Link href="/admin/artworks/new">
               <Plus className="w-4 h-4 mr-1" />
-              Nouvelle \u0153uvre
+              Nouvelle œuvre
             </Link>
           </Button>
           <Button variant="outline" asChild>

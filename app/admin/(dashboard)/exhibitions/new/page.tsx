@@ -1,9 +1,8 @@
-import Link from 'next/link';
 import { createExhibition } from '@/lib/actions/exhibitions';
 import { ExhibitionForm } from '@/components/admin/exhibition-form';
 import { prisma } from '@/lib/db';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
+import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
 
 export default async function NewExhibitionPage() {
   const [artists, artworks] = await Promise.all([
@@ -21,21 +20,10 @@ export default async function NewExhibitionPage() {
 
   return (
     <div className="space-y-6">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild><Link href="/admin">Administration</Link></BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild><Link href="/admin/exhibitions">Expositions</Link></BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Nouvelle exposition</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <AdminBreadcrumb items={[
+        { label: 'Expositions', href: '/admin/exhibitions' },
+        { label: 'Nouvelle exposition' },
+      ]} />
 
       <h1 className="text-2xl font-bold tracking-tight">Nouvelle exposition</h1>
 

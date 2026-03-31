@@ -32,9 +32,13 @@ export function TranslatableInput({
     <div>
       <Label className="mb-1.5">{label}{required ? ' *' : ''}</Label>
       <Tabs value={active} onValueChange={setActive}>
-        <TabsList className="h-7 mb-1.5">
+        <TabsList className="h-9 mb-1.5">
           {LOCALES.map((loc) => (
-            <TabsTrigger key={loc} value={loc} className="text-xs px-2.5 py-0.5 h-5">
+            <TabsTrigger
+              key={loc}
+              value={loc}
+              className="text-sm px-3 py-1 h-7 font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm rounded-md transition-colors"
+            >
               {loc.toUpperCase()}
             </TabsTrigger>
           ))}

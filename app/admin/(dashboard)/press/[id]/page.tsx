@@ -1,9 +1,8 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getPressArticleById } from '@/lib/queries/press';
 import { updatePressArticle } from '@/lib/actions/press';
 import { PressForm } from '@/components/admin/press-form';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
+import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
 import type { TranslatableField } from '@/lib/i18n-content';
 
 interface Props {
@@ -21,21 +20,10 @@ export default async function EditPressPage({ params }: Props) {
 
   return (
     <div className="space-y-6">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild><Link href="/admin">Administration</Link></BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild><Link href="/admin/press">Presse</Link></BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Modifier : {title}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <AdminBreadcrumb items={[
+        { label: 'Presse', href: '/admin/press' },
+        { label: `Modifier : ${title}` },
+      ]} />
 
       <h1 className="text-2xl font-bold tracking-tight">Modifier : {title}</h1>
 

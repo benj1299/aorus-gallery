@@ -22,7 +22,7 @@ export function ImagePreview({ url, className = '' }: ImagePreviewProps) {
   return (
     <img
       src={url}
-      alt="Aper\u00e7u"
+      alt="Aperçu"
       onError={() => setError(true)}
       className={`w-12 h-12 rounded border border-border object-cover shrink-0 ${className}`}
     />

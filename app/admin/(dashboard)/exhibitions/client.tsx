@@ -1,14 +1,9 @@
 'use client';
 
-import Link from 'next/link';
-import { AdminSearchInput, useSearch } from '@/components/admin/admin-search';
+import { AdminTable } from '@/components/admin/admin-table';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { Plus, MoreHorizontal, Pencil } from 'lucide-react';
+import { deleteExhibition } from '@/lib/actions/exhibitions';
 
 type Exhibition = {
   id: string;
@@ -25,8 +20,8 @@ type Exhibition = {
 function statusLabel(status: string) {
   switch (status) {
     case 'CURRENT': return 'En cours';
-    case 'UPCOMING': return '\u00c0 venir';
-    default: return 'Pass\u00e9e';
+    case 'UPCOMING': return 'À venir';
+    default: return 'Passée';
   }
 }
 
@@ -47,101 +42,66 @@ function typeLabel(type: string) {
   }
 }
 
+const columns = [
+  {
+    key: 'title',
+    label: 'Titre',
+    sortable: true,
+    getValue: (e: Exhibition) => resolveTranslation(e.title as TranslatableField, 'fr'),
+    render: (e: Exhibition) => (
+      <div>
+        <p className="font-medium text-sm">{resolveTranslation(e.title as TranslatableField, 'fr')}</p>
+        <p className="text-muted-foreground text-xs">{e.slug}</p>
+      </div>
+    ),
+  },
+  {
+    key: 'type',
+    label: 'Type',
+    render: (e: Exhibition) => <Badge variant="outline">{typeLabel(e.type)}</Badge>,
+  },
+  {
+    key: 'status',
+    label: 'Statut',
+    render: (e: Exhibition) => (
+      <Badge variant={statusVariant(e.status)}>{statusLabel(e.status)}</Badge>
+    ),
+  },
+  {
+    key: 'artists',
+    label: 'Artistes',
+    sortable: true,
+    getValue: (e: Exhibition) => e.artists.length,
+    render: (e: Exhibition) => (
+      <span className="text-sm">
+        {e.artists.map((a) => a.artist.name).join(', ') || '—'}
+      </span>
+    ),
+  },
+  {
+    key: 'visible',
+    label: 'Visible',
+    render: (e: Exhibition) => (
+      <Badge variant={e.visible ? 'default' : 'secondary'}>
+        {e.visible ? 'Visible' : 'Masqué'}
+      </Badge>
+    ),
+  },
+];
+
 export function ExhibitionsListClient({ exhibitions }: { exhibitions: Exhibition[] }) {
-  const { query, setQuery, filtered } = useSearch(exhibitions, ['title', 'location']);
-
   return (
-    <div className="space-y-6">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild><Link href="/admin">Administration</Link></BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Expositions</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold tracking-tight">Expositions</h1>
-        <Button asChild>
-          <Link href="/admin/exhibitions/new">
-            <Plus className="w-4 h-4 mr-1" />
-            Nouvelle exposition
-          </Link>
-        </Button>
-      </div>
-
-      <AdminSearchInput value={query} onChange={setQuery} placeholder="Rechercher une exposition..." />
-
-      <div className="rounded-lg border" style={{ background: "#fff" }}>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Titre</TableHead>
-              <TableHead>Type</TableHead>
-              <TableHead>Statut</TableHead>
-              <TableHead>Artistes</TableHead>
-              <TableHead>&OElig;uvres</TableHead>
-              <TableHead>Visibilit&eacute;</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filtered.map((exhibition) => (
-              <TableRow key={exhibition.id}>
-                <TableCell>
-                  <p className="font-medium text-sm">{resolveTranslation(exhibition.title as TranslatableField, 'fr')}</p>
-                  <p className="text-muted-foreground text-xs">{exhibition.slug}</p>
-                </TableCell>
-                <TableCell>
-                  <Badge variant="outline">{typeLabel(exhibition.type)}</Badge>
-                </TableCell>
-                <TableCell>
-                  <Badge variant={statusVariant(exhibition.status)}>
-                    {statusLabel(exhibition.status)}
-                  </Badge>
-                </TableCell>
-                <TableCell className="text-sm">
-                  {exhibition.artists.map((a) => a.artist.name).join(', ') || '\u2014'}
-                </TableCell>
-                <TableCell className="text-sm">{exhibition._count.artworks}</TableCell>
-                <TableCell>
-                  <Badge variant={exhibition.visible ? 'default' : 'secondary'}>
-                    {exhibition.visible ? 'Visible' : 'Masqu\u00e9'}
-                  </Badge>
-                </TableCell>
-                <TableCell className="text-right">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
-                        <MoreHorizontal className="h-4 w-4" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuItem asChild>
-                        <Link href={`/admin/exhibitions/${exhibition.id}`} className="flex items-center gap-2">
-                          <Pencil className="h-3.5 w-3.5" />
-                          Modifier
-                        </Link>
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
-              </TableRow>
-            ))}
-            {filtered.length === 0 && (
-              <TableRow>
-                <TableCell colSpan={7} className="h-24 text-center text-muted-foreground">
-                  Aucune exposition pour le moment. <Link href="/admin/exhibitions/new" className="underline">Cr&eacute;ez la premi&egrave;re</Link>.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
-    </div>
+    <AdminTable
+      title="Expositions"
+      data={exhibitions}
+      columns={columns}
+      searchKeys={['title', 'location']}
+      searchPlaceholder="Rechercher une exposition..."
+      newHref="/admin/exhibitions/new"
+      newLabel="Nouvelle exposition"
+      editHref={(e) => `/admin/exhibitions/${e.id}`}
+      deleteAction={deleteExhibition}
+      getId={(e) => e.id}
+    />
   );
 }

@@ -20,7 +20,7 @@ export function FormSelect({ name, label, options, defaultValue, required, place
       <Label className="mb-1.5">{label} {required && '*'}</Label>
       <Select value={value} onValueChange={setValue}>
         <SelectTrigger className="w-full">
-          <SelectValue placeholder={placeholder || `S\u00e9lectionner...`} />
+          <SelectValue placeholder={placeholder || `Sélectionner...`} />
         </SelectTrigger>
         <SelectContent>
           {options.map(opt => (

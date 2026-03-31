@@ -1,0 +1,218 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - navigation [ref=e7]:
+            - button "previous" [disabled] [ref=e8]:
+              - img "previous" [ref=e9]
+            - generic [ref=e11]:
+              - generic [ref=e12]: 1/
+              - text: "1"
+            - button "next" [disabled] [ref=e13]:
+              - img "next" [ref=e14]
+          - img
+        - generic [ref=e16]:
+          - link "Next.js 16.1.7 (stale) Turbopack" [ref=e17] [cursor=pointer]:
+            - /url: https://nextjs.org/docs/messages/version-staleness
+            - img [ref=e18]
+            - generic "There is a newer version (16.2.1) available, upgrade recommended!" [ref=e20]: Next.js 16.1.7 (stale)
+            - generic [ref=e21]: Turbopack
+          - img
+      - generic [ref=e22]:
+        - dialog "Runtime Error" [ref=e23]:
+          - generic [ref=e27]:
+            - generic [ref=e28]:
+              - generic [ref=e30]: Runtime Error
+              - generic [ref=e31]:
+                - button "Copy Error Info" [ref=e32] [cursor=pointer]:
+                  - img [ref=e33]
+                - link "Go to related documentation" [ref=e35] [cursor=pointer]:
+                  - /url: https://nextjs.org/docs/messages/missing-root-layout-tags
+                  - img [ref=e36]
+                - button "Attach Node.js inspector" [ref=e38] [cursor=pointer]:
+                  - img [ref=e39]
+            - generic [ref=e48]:
+              - text: Missing <html> and <body> tags in the root layout. Read more at
+              - link "https://nextjs.org/docs/messages/missing-root-layout-tags" [ref=e49] [cursor=pointer]:
+                - /url: https://nextjs.org/docs/messages/missing-root-layout-tags
+          - generic [ref=e50]: "1"
+          - generic [ref=e51]: "2"
+        - contentinfo [ref=e52]:
+          - region "Error feedback" [ref=e53]:
+            - paragraph [ref=e54]:
+              - link "Was this helpful?" [ref=e55] [cursor=pointer]:
+                - /url: https://nextjs.org/telemetry#error-feedback
+            - button "Mark as helpful" [ref=e56] [cursor=pointer]:
+              - img [ref=e57]
+            - button "Mark as not helpful" [ref=e60] [cursor=pointer]:
+              - img [ref=e61]
+    - generic [ref=e67] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e68]:
+        - img [ref=e69]
+      - generic [ref=e72]:
+        - button "Open issues overlay" [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e75]: "0"
+            - generic [ref=e76]: "1"
+          - generic [ref=e77]: Issue
+        - button "Collapse issues badge" [ref=e78]:
+          - img [ref=e79]
+  - generic [ref=e81]:
+    - complementary [ref=e82]:
+      - link "ORUS Admin" [ref=e84] [cursor=pointer]:
+        - /url: /admin
+      - navigation [ref=e85]:
+        - link "Artists" [ref=e86] [cursor=pointer]:
+          - /url: /admin/artists
+          - img
+          - text: Artists
+        - link "Artworks" [ref=e87] [cursor=pointer]:
+          - /url: /admin/artworks
+          - img
+          - text: Artworks
+        - link "Press" [ref=e88] [cursor=pointer]:
+          - /url: /admin/press
+          - img
+          - text: Press
+        - link "Banner" [ref=e89] [cursor=pointer]:
+          - /url: /admin/banner
+          - img
+          - text: Banner
+        - link "Exhibitions" [ref=e90] [cursor=pointer]:
+          - /url: /admin/exhibitions
+          - img
+          - text: Exhibitions
+        - link "Messages" [ref=e91] [cursor=pointer]:
+          - /url: /admin/messages
+          - img
+          - text: Messages
+      - button "Logout" [ref=e93]:
+        - img
+        - text: Logout
+    - main [ref=e94]:
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - link "← Back to artists" [ref=e97] [cursor=pointer]:
+            - /url: /admin/artists
+          - heading "New Artist" [level=1] [ref=e98]
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e102]: Basic Information
+            - generic [ref=e103]:
+              - generic [ref=e104]:
+                - generic [ref=e105]: Name *
+                - textbox "Name *" [active] [ref=e106]: Test Artist
+              - generic [ref=e107]:
+                - generic [ref=e108]: Nationality *
+                - generic [ref=e109]:
+                  - tablist [ref=e110]:
+                    - tab "EN" [selected] [ref=e111]
+                    - tab "FR" [ref=e112]
+                    - tab "ZH" [ref=e113]
+                  - tabpanel "EN" [ref=e114]:
+                    - textbox [ref=e115]
+              - generic [ref=e116]:
+                - generic [ref=e117]: Bio *
+                - generic [ref=e118]:
+                  - tablist [ref=e119]:
+                    - tab "EN" [selected] [ref=e120]
+                    - tab "FR" [ref=e121]
+                    - tab "ZH" [ref=e122]
+                  - tabpanel "EN" [ref=e123]:
+                    - textbox [ref=e124]
+              - generic [ref=e125]:
+                - generic [ref=e126]: Image URL *
+                - textbox "Image URL *" [ref=e127]
+          - generic [ref=e128]:
+            - generic [ref=e130]: Display Settings
+            - generic [ref=e132]:
+              - generic [ref=e133]:
+                - generic [ref=e134]: Sort Order
+                - spinbutton "Sort Order" [ref=e135]: "0"
+              - generic [ref=e137]:
+                - switch "Visible" [checked] [ref=e138]
+                - checkbox [checked]
+                - generic [ref=e139]: Visible
+          - generic [ref=e140]:
+            - generic [ref=e142]: CV / Exhibition History
+            - generic [ref=e143]:
+              - generic [ref=e144]:
+                - generic [ref=e145]: Solo Shows
+                - generic [ref=e147]:
+                  - generic [ref=e148]:
+                    - textbox "Solo Shows (EN)" [ref=e149]
+                    - textbox "Solo Shows (FR)" [ref=e150]
+                    - textbox "Solo Shows (ZH)" [ref=e151]
+                  - button [ref=e152]:
+                    - img
+                - button "Add solo shows" [ref=e153]:
+                  - img
+                  - text: Add solo shows
+              - generic [ref=e154]:
+                - generic [ref=e155]: Group Shows
+                - generic [ref=e157]:
+                  - generic [ref=e158]:
+                    - textbox "Group Shows (EN)" [ref=e159]
+                    - textbox "Group Shows (FR)" [ref=e160]
+                    - textbox "Group Shows (ZH)" [ref=e161]
+                  - button [ref=e162]:
+                    - img
+                - button "Add group shows" [ref=e163]:
+                  - img
+                  - text: Add group shows
+              - generic [ref=e164]:
+                - generic [ref=e165]: Art Fairs
+                - generic [ref=e167]:
+                  - generic [ref=e168]:
+                    - textbox "Art Fairs (EN)" [ref=e169]
+                    - textbox "Art Fairs (FR)" [ref=e170]
+                    - textbox "Art Fairs (ZH)" [ref=e171]
+                  - button [ref=e172]:
+                    - img
+                - button "Add art fairs" [ref=e173]:
+                  - img
+                  - text: Add art fairs
+              - generic [ref=e174]:
+                - generic [ref=e175]: Residencies
+                - generic [ref=e177]:
+                  - generic [ref=e178]:
+                    - textbox "Residencies (EN)" [ref=e179]
+                    - textbox "Residencies (FR)" [ref=e180]
+                    - textbox "Residencies (ZH)" [ref=e181]
+                  - button [ref=e182]:
+                    - img
+                - button "Add residencies" [ref=e183]:
+                  - img
+                  - text: Add residencies
+              - generic [ref=e184]:
+                - generic [ref=e185]: Awards / Prizes
+                - generic [ref=e187]:
+                  - generic [ref=e188]:
+                    - textbox "Awards / Prizes (EN)" [ref=e189]
+                    - textbox "Awards / Prizes (FR)" [ref=e190]
+                    - textbox "Awards / Prizes (ZH)" [ref=e191]
+                  - button [ref=e192]:
+                    - img
+                - button "Add awards / prizes" [ref=e193]:
+                  - img
+                  - text: Add awards / prizes
+          - generic [ref=e194]:
+            - generic [ref=e196]: Collections
+            - generic [ref=e197]:
+              - generic [ref=e199]:
+                - generic [ref=e200]:
+                  - textbox "Collection (EN)" [ref=e201]
+                  - textbox "Collection (FR)" [ref=e202]
+                  - textbox "Collection (ZH)" [ref=e203]
+                - button [ref=e204]:
+                  - img
+              - button "Add collection" [ref=e205]:
+                - img
+                - text: Add collection
+          - button "Save Artist" [ref=e207]
+  - alert [ref=e208]
+```

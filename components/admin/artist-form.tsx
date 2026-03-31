@@ -37,8 +37,8 @@ const emptyT = (): TranslatableField => ({ en: '', fr: '', zh: '' });
 const CV_TYPES = [
   { key: 'SOLO_SHOW', label: 'Expositions personnelles' },
   { key: 'GROUP_SHOW', label: 'Expositions collectives' },
-  { key: 'ART_FAIR', label: 'Foires d\u2019art' },
-  { key: 'RESIDENCY', label: 'R\u00e9sidences' },
+  { key: 'ART_FAIR', label: "Foires d'art" },
+  { key: 'RESIDENCY', label: "Résidences" },
   { key: 'AWARD', label: 'Prix et distinctions' },
 ] as const;
 
@@ -81,8 +81,8 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
   const cvSections = [
     { key: 'SOLO_SHOW', label: 'Expositions personnelles', items: soloShows, setItems: setSoloShows },
     { key: 'GROUP_SHOW', label: 'Expositions collectives', items: groupShows, setItems: setGroupShows },
-    { key: 'ART_FAIR', label: 'Foires d\u2019art', items: artFairs, setItems: setArtFairs },
-    { key: 'RESIDENCY', label: 'R\u00e9sidences', items: residencies, setItems: setResidencies },
+    { key: 'ART_FAIR', label: "Foires d'art", items: artFairs, setItems: setArtFairs },
+    { key: 'RESIDENCY', label: "Résidences", items: residencies, setItems: setResidencies },
     { key: 'AWARD', label: 'Prix et distinctions', items: awards, setItems: setAwards },
   ] as const;
 
@@ -90,7 +90,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
     <form action={action} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Informations g\u00e9n\u00e9rales</CardTitle>
+          <CardTitle>Informations générales</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -100,7 +100,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
 
           <TranslatableInput
             name="nationality"
-            label="Nationalit\u00e9"
+            label="Nationalité"
             defaultValue={defaultValues.nationality}
             required
           />
@@ -115,7 +115,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
           />
 
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">URL de l&apos;image *</Label>
+            <Label htmlFor="imageUrl" className="mb-1.5">URL de l'image *</Label>
             <div className="flex gap-3 items-start">
               <div className="flex-1">
                 <Input
@@ -135,12 +135,12 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Param\u00e8tres d&apos;affichage</CardTitle>
+          <CardTitle>Paramètres d'affichage</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d&apos;affichage</Label>
+              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d'affichage</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
             </div>
             <div className="flex items-end pb-2">
@@ -152,7 +152,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>CV / Historique d&apos;expositions</CardTitle>
+          <CardTitle>CV / Historique d'expositions</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           {cvSections.map((section, sectionIdx) => (

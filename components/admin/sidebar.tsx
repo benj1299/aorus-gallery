@@ -16,9 +16,9 @@ interface AdminSidebarProps {
 const navItems = [
   { label: 'Tableau de bord', href: '/admin', icon: LayoutDashboard, exact: true },
   { label: 'Artistes', href: '/admin/artists', icon: Users },
-  { label: '\u0152uvres', href: '/admin/artworks', icon: Image },
+  { label: 'Œuvres', href: '/admin/artworks', icon: Image },
   { label: 'Presse', href: '/admin/press', icon: Newspaper },
-  { label: 'Banni\u00e8re', href: '/admin/banner', icon: Megaphone },
+  { label: 'Bannière', href: '/admin/banner', icon: Megaphone },
   { label: 'Expositions', href: '/admin/exhibitions', icon: Calendar },
   { label: 'Messages', href: '/admin/messages', icon: Mail, showBadge: true },
 ];
@@ -74,7 +74,7 @@ export function AdminSidebar({ messageCount = 0 }: AdminSidebarProps) {
           onClick={handleLogout}
         >
           <LogOut className="w-4 h-4" />
-          D\u00e9connexion
+          Déconnexion
         </Button>
       </div>
     </aside>

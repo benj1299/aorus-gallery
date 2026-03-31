@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { updateExhibition } from '@/lib/actions/exhibitions';
 import { ExhibitionForm } from '@/components/admin/exhibition-form';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
+import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -41,21 +40,10 @@ export default async function EditExhibitionPage({ params }: Props) {
 
   return (
     <div className="space-y-6">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild><Link href="/admin">Administration</Link></BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild><Link href="/admin/exhibitions">Expositions</Link></BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Modifier : {exhibitionTitle}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <AdminBreadcrumb items={[
+        { label: 'Expositions', href: '/admin/exhibitions' },
+        { label: `Modifier : ${exhibitionTitle}` },
+      ]} />
 
       <h1 className="text-2xl font-bold tracking-tight">Modifier : {exhibitionTitle}</h1>
 

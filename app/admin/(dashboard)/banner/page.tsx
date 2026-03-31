@@ -17,14 +17,14 @@ export default async function AdminBannerPage() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Banni\u00e8re</BreadcrumbPage>
+            <BreadcrumbPage>Bannière</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
 
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Banni\u00e8re d&apos;accueil</h1>
-        <p className="text-muted-foreground text-sm mt-1">Configurez la banni\u00e8re affich\u00e9e en haut de la page d&apos;accueil.</p>
+        <h1 className="text-2xl font-bold tracking-tight">Bannière d&apos;accueil</h1>
+        <p className="text-muted-foreground text-sm mt-1">Configurez la bannière affichée en haut de la page d&apos;accueil.</p>
       </div>
 
       <BannerForm

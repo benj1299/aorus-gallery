@@ -35,14 +35,14 @@ interface ExhibitionFormProps {
 
 const TYPE_OPTIONS = [
   { value: 'EXHIBITION', label: 'Exposition' },
-  { value: 'ART_FAIR', label: 'Foire d\u2019art' },
+  { value: 'ART_FAIR', label: "Foire d'art" },
   { value: 'OFFSITE', label: 'Hors les murs' },
 ];
 
 const STATUS_OPTIONS = [
   { value: 'CURRENT', label: 'En cours' },
-  { value: 'UPCOMING', label: '\u00c0 venir' },
-  { value: 'PAST', label: 'Pass\u00e9e' },
+  { value: 'UPCOMING', label: 'À venir' },
+  { value: 'PAST', label: 'Passée' },
 ];
 
 export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }: ExhibitionFormProps) {
@@ -52,7 +52,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
     <form action={action} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>D\u00e9tails de l&apos;exposition</CardTitle>
+          <CardTitle>Détails de l'exposition</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <TranslatableInput
@@ -101,7 +101,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="startDate" className="mb-1.5">Date de d\u00e9but</Label>
+              <Label htmlFor="startDate" className="mb-1.5">Date de début</Label>
               <Input id="startDate" name="startDate" type="date" defaultValue={defaultValues.startDate} />
             </div>
             <div>
@@ -114,11 +114,11 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
       <Card>
         <CardHeader>
-          <CardTitle>M\u00e9dia</CardTitle>
+          <CardTitle>Média</CardTitle>
         </CardHeader>
         <CardContent>
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">URL de l&apos;image</Label>
+            <Label htmlFor="imageUrl" className="mb-1.5">URL de l'image</Label>
             <div className="flex gap-3 items-start">
               <div className="flex-1">
                 <Input
@@ -137,7 +137,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
       <Card>
         <CardHeader>
-          <CardTitle>Artistes et \u0153uvres</CardTitle>
+          <CardTitle>Artistes et œuvres</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -163,7 +163,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
           <Separator />
 
           <div>
-            <Label className="mb-2">{'\u0152uvres'}</Label>
+            <Label className="mb-2">{'Œuvres'}</Label>
             <div className="border border-border rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
               {artworks.map((artwork) => (
                 <div key={artwork.id} className="flex items-center gap-2">
@@ -177,7 +177,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
                 </div>
               ))}
               {artworks.length === 0 && (
-                <p className="text-muted-foreground text-sm">Aucune {'\u0153uvre'} disponible</p>
+                <p className="text-muted-foreground text-sm">Aucune {'œuvre'} disponible</p>
               )}
             </div>
           </div>
@@ -186,12 +186,12 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
       <Card>
         <CardHeader>
-          <CardTitle>Param\u00e8tres d&apos;affichage</CardTitle>
+          <CardTitle>Paramètres d'affichage</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d&apos;affichage</Label>
+              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d'affichage</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
             </div>
             <div className="flex items-end pb-2">

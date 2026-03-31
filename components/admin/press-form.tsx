@@ -31,7 +31,7 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
     <form action={action} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>D\u00e9tails de l&apos;article</CardTitle>
+          <CardTitle>Détails de l'article</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <TranslatableInput
@@ -56,16 +56,16 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Liens et m\u00e9dia</CardTitle>
+          <CardTitle>Liens et média</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <Label htmlFor="url" className="mb-1.5">URL de l&apos;article</Label>
+            <Label htmlFor="url" className="mb-1.5">URL de l'article</Label>
             <Input id="url" name="url" defaultValue={defaultValues.url ?? ''} type="url" />
           </div>
 
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">URL de l&apos;image</Label>
+            <Label htmlFor="imageUrl" className="mb-1.5">URL de l'image</Label>
             <div className="flex gap-3 items-start">
               <div className="flex-1">
                 <Input
@@ -99,12 +99,12 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Param\u00e8tres d&apos;affichage</CardTitle>
+          <CardTitle>Paramètres d'affichage</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d&apos;affichage</Label>
+              <Label htmlFor="sortOrder" className="mb-1.5">Ordre d'affichage</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
             </div>
             <div className="flex items-end pb-2">

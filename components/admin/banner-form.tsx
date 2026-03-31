@@ -28,7 +28,7 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
     <form action={action} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Contenu de la banni\u00e8re</CardTitle>
+          <CardTitle>Contenu de la bannière</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <TranslatableInput
@@ -48,11 +48,11 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>M\u00e9dia et lien</CardTitle>
+          <CardTitle>Média et lien</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <Label htmlFor="imageUrl" className="mb-1.5">URL de l&apos;image *</Label>
+            <Label htmlFor="imageUrl" className="mb-1.5">URL de l'image *</Label>
             <div className="flex gap-3 items-start">
               <div className="flex-1">
                 <Input

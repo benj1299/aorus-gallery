@@ -1,9 +1,8 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { updateArtist } from '@/lib/actions/artists';
 import { ArtistForm } from '@/components/admin/artist-form';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
+import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
 import type { TranslatableField } from '@/lib/i18n-content';
 
 interface Props {
@@ -27,21 +26,10 @@ export default async function EditArtistPage({ params }: Props) {
 
   return (
     <div className="space-y-6">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild><Link href="/admin">Administration</Link></BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild><Link href="/admin/artists">Artistes</Link></BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Modifier : {artist.name}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <AdminBreadcrumb items={[
+        { label: 'Artistes', href: '/admin/artists' },
+        { label: `Modifier : ${artist.name}` },
+      ]} />
 
       <h1 className="text-2xl font-bold tracking-tight">Modifier : {artist.name}</h1>
 
