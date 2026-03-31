@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
-import { ImagePreview } from './image-preview';
+import { ImageUpload } from './image-upload';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { LOCALES } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
@@ -45,7 +45,6 @@ function filterEntriesByType(entries: CVEntry[] | undefined, type: string): Tran
 }
 
 export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
-  const [imageUrl, setImageUrl] = useState(defaultValues.imageUrl ?? '');
   const [soloShows, setSoloShows] = useState<TranslatableField[]>(
     filterEntriesByType(defaultValues.cvEntries, 'SOLO_SHOW').length > 0
       ? filterEntriesByType(defaultValues.cvEntries, 'SOLO_SHOW')
@@ -112,20 +111,8 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
           />
 
           <div>
-            <Label htmlFor="imageUrl" className="text-sm font-medium text-gray-700 mb-1.5">URL de l'image *</Label>
-            <div className="flex gap-3 items-start">
-              <div className="flex-1">
-                <Input
-                  id="imageUrl"
-                  name="imageUrl"
-                  value={imageUrl}
-                  onChange={(e) => setImageUrl(e.target.value)}
-                  required
-                  type="url"
-                />
-              </div>
-              <ImagePreview url={imageUrl} />
-            </div>
+            <Label className="text-sm font-medium text-gray-700 mb-1.5">Image *</Label>
+            <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} required />
           </div>
         </div>
       </div>

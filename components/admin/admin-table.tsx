@@ -155,13 +155,13 @@ export function AdminTable<T extends Record<string, unknown>>({
                 ))}
                 <TableCell className="text-right text-sm">
                   <div className="flex items-center justify-end gap-1">
-                    <Link
+                    <a
                       href={editHref(item)}
                       className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
                       title="Modifier"
                     >
                       <Pencil className="h-4 w-4" />
-                    </Link>
+                    </a>
                     {deleteAction && (
                       <DeleteButton
                         id={getId(item)}

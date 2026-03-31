@@ -15,7 +15,7 @@ export function Header() {
   const navItems: { href: string; label: string; hidden?: boolean }[] = [
     { href: '/', label: t('home') },
     { href: '/artists', label: t('artists') },
-    { href: '/exhibitions', label: t('exhibitions'), hidden: true },
+    { href: '/exhibitions', label: t('exhibitions') },
     { href: '/press', label: t('press') },
     { href: '/about', label: t('about') },
     { href: '/contact', label: t('contact') },

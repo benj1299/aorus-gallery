@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
-import { ImagePreview } from './image-preview';
+import { ImageUpload } from './image-upload';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -20,8 +19,6 @@ interface BannerFormProps {
 }
 
 export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
-  const [imageUrl, setImageUrl] = useState(defaultValues.imageUrl ?? '');
-
   return (
     <form action={action} className="max-w-2xl space-y-6">
       <div className="bg-white rounded-xl border border-gray-200">
@@ -50,20 +47,8 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
         </div>
         <div className="p-6 space-y-4">
           <div>
-            <Label htmlFor="imageUrl" className="text-sm font-medium text-gray-700 mb-1.5">URL de l'image *</Label>
-            <div className="flex gap-3 items-start">
-              <div className="flex-1">
-                <Input
-                  id="imageUrl"
-                  name="imageUrl"
-                  value={imageUrl}
-                  onChange={(e) => setImageUrl(e.target.value)}
-                  required
-                  type="url"
-                />
-              </div>
-              <ImagePreview url={imageUrl} />
-            </div>
+            <Label className="text-sm font-medium text-gray-700 mb-1.5">Image *</Label>
+            <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} required />
           </div>
 
           <div>
