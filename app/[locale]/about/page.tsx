@@ -36,13 +36,14 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 1 }}
-              className="aspect-[3/2] lg:aspect-[3/4] relative overflow-hidden"
+              className="aspect-[16/9] lg:aspect-[4/3] relative overflow-hidden"
             >
               <Image
                 src="/images/gallery/vision-artwork.jpeg"
                 alt="Contemporary artwork in gallery setting"
                 fill
-                className="object-cover object-center"
+                className="object-cover"
+                style={{ objectPosition: 'center 30%' }}
               />
             </motion.div>
             <motion.div
@@ -165,9 +166,9 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="aspect-[4/3] relative overflow-hidden">
+            <div className="aspect-[4/3] relative overflow-hidden mb-6">
               <Image
-                src="/images/gallery/Orus vernissage nuit.png"
+                src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
                 alt="Paris"
                 fill
                 className="object-cover"
@@ -184,9 +185,9 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="aspect-[4/3] relative overflow-hidden">
+            <div className="aspect-[4/3] relative overflow-hidden mb-6">
               <Image
-                src="/images/gallery/Galerie 1.png"
+                src="https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
                 alt="Taipei"
                 fill
                 className="object-cover"

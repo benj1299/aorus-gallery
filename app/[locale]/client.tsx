@@ -39,28 +39,6 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
 
   return (
     <div className="flex flex-col">
-      {banner && (
-        <section className="relative h-[70vh] overflow-hidden">
-          <Image src={banner.imageUrl} alt={banner.title} fill className="object-cover" />
-          <div className="absolute inset-0 bg-noir/40" />
-          <div className="absolute inset-0 flex items-center justify-center text-center px-6">
-            {banner.linkUrl ? (
-              <Link href={banner.linkUrl}>
-                <div>
-                  <h2 className="font-display text-4xl md:text-6xl text-blanc tracking-wide">{banner.title}</h2>
-                  {banner.subtitle && <p className="text-blanc/80 text-lg mt-4 tracking-wide">{banner.subtitle}</p>}
-                </div>
-              </Link>
-            ) : (
-              <div>
-                <h2 className="font-display text-4xl md:text-6xl text-blanc tracking-wide">{banner.title}</h2>
-                {banner.subtitle && <p className="text-blanc/80 text-lg mt-4 tracking-wide">{banner.subtitle}</p>}
-              </div>
-            )}
-          </div>
-        </section>
-      )}
-
       {/* ===== BLOCK 1 — HERO ===== */}
       <section className="bg-blanc min-h-screen flex items-center justify-center relative">
         <div className="absolute inset-0">
@@ -126,6 +104,28 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
           </motion.div>
         </motion.div>
       </section>
+
+      {banner && (
+        <section className="relative h-[70vh] overflow-hidden">
+          <Image src={banner.imageUrl} alt={banner.title} fill className="object-cover" />
+          <div className="absolute inset-0 bg-noir/40" />
+          <div className="absolute inset-0 flex items-center justify-center text-center px-6">
+            {banner.linkUrl ? (
+              <Link href={banner.linkUrl}>
+                <div>
+                  <h2 className="font-display text-4xl md:text-6xl text-blanc tracking-wide">{banner.title}</h2>
+                  {banner.subtitle && <p className="text-blanc/80 text-lg mt-4 tracking-wide">{banner.subtitle}</p>}
+                </div>
+              </Link>
+            ) : (
+              <div>
+                <h2 className="font-display text-4xl md:text-6xl text-blanc tracking-wide">{banner.title}</h2>
+                {banner.subtitle && <p className="text-blanc/80 text-lg mt-4 tracking-wide">{banner.subtitle}</p>}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ===== BLOCK 2 — SELECTION D'OEUVRES ===== */}
       <AnimatedSection
