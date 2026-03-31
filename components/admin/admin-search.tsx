@@ -1,22 +1,30 @@
 'use client';
 
-import { useState, useMemo, type ReactNode } from 'react';
+import { useState, useMemo } from 'react';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 
-interface AdminSearchProps<T> {
-  items: T[];
-  searchKeys: (keyof T)[];
-  children: (filteredItems: T[]) => ReactNode;
+interface AdminSearchProps {
+  value: string;
+  onChange: (value: string) => void;
   placeholder?: string;
 }
 
-export function AdminSearch<T extends Record<string, unknown>>({
-  items,
-  searchKeys,
-  children,
-  placeholder = 'Rechercher...',
-}: AdminSearchProps<T>) {
+export function AdminSearchInput({ value, onChange, placeholder = 'Rechercher...' }: AdminSearchProps) {
+  return (
+    <div className="relative max-w-sm">
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+      <Input
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className="pl-9"
+      />
+    </div>
+  );
+}
+
+export function useSearch<T extends Record<string, unknown>>(items: T[], searchKeys: (keyof T)[]) {
   const [query, setQuery] = useState('');
 
   const filtered = useMemo(() => {
@@ -35,18 +43,5 @@ export function AdminSearch<T extends Record<string, unknown>>({
     );
   }, [items, searchKeys, query]);
 
-  return (
-    <>
-      <div className="relative max-w-sm">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-        <Input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={placeholder}
-          className="pl-9"
-        />
-      </div>
-      {children(filtered)}
-    </>
-  );
+  return { query, setQuery, filtered };
 }
