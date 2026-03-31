@@ -146,9 +146,7 @@ export function ExhibitionsPageClient({ exhibitions, locale }: { exhibitions: Ex
                       </p>
                     )}
                     {exhibition.description && (
-                      <p className="text-noir/60 text-sm mt-3 leading-relaxed line-clamp-3">
-                        {exhibition.description}
-                      </p>
+                      <div className="text-noir/60 text-sm mt-3 leading-relaxed line-clamp-3" dangerouslySetInnerHTML={{ __html: exhibition.description }} />
                     )}
                   </div>
                 ))}

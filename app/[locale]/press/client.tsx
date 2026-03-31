@@ -65,7 +65,7 @@ export function PressPageClient({ articles }: { articles: PressArticle[] }) {
                     <p className="font-display text-lg text-noir tracking-wide">{article.title}</p>
                   )}
                   {article.excerpt && (
-                    <p className="text-noir/50 text-sm leading-relaxed mt-2">{article.excerpt}</p>
+                    <div className="text-noir/50 text-sm leading-relaxed mt-2" dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                   )}
                 </div>
               </motion.div>

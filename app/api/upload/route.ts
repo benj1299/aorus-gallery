@@ -41,11 +41,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Fichier trop lourd (max 10 MB)' }, { status: 400 });
   }
 
-  const buffer = Buffer.from(await file.arrayBuffer());
-  const webpBuffer = await sharp(buffer)
-    .resize({ width: 2000, withoutEnlargement: true })
-    .webp({ quality: 80 })
-    .toBuffer();
+  let webpBuffer: Buffer;
+  try {
+    const buffer = Buffer.from(await file.arrayBuffer());
+    webpBuffer = await sharp(buffer)
+      .resize({ width: 2000, withoutEnlargement: true })
+      .webp({ quality: 80 })
+      .toBuffer();
+  } catch {
+    return NextResponse.json({ error: 'Image corrompue ou non lisible' }, { status: 422 });
+  }
 
   const key = `images/${Date.now()}-${randomUUID()}.webp`;
 
@@ -53,6 +58,8 @@ export async function POST(request: NextRequest) {
     const base64 = webpBuffer.toString('base64');
     return NextResponse.json({ url: `data:image/webp;base64,${base64}` });
   }
+
+  const publicUrl = (process.env.R2_PUBLIC_URL || '').replace(/\/+$/, '');
 
   await r2.send(
     new PutObjectCommand({
@@ -64,5 +71,5 @@ export async function POST(request: NextRequest) {
     })
   );
 
-  return NextResponse.json({ url: `${R2_PUBLIC_URL}/${key}` });
+  return NextResponse.json({ url: `${publicUrl}/${key}` });
 }

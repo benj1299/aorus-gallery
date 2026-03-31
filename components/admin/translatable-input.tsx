@@ -4,13 +4,14 @@ import { useState } from 'react';
 import { LOCALES, type TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { RichTextEditor } from './rich-text-editor';
 
 interface TranslatableInputProps {
   name: string;
   label: string;
   defaultValue?: TranslatableField;
   required?: boolean;
-  type?: 'input' | 'textarea';
+  type?: 'input' | 'textarea' | 'richtext';
   rows?: number;
   placeholder?: string;
 }
@@ -47,7 +48,13 @@ export function TranslatableInput({
       </div>
       {LOCALES.map((loc) => (
         <div key={loc} className={active === loc ? '' : 'hidden'}>
-          {type === 'textarea' ? (
+          {type === 'richtext' ? (
+            <RichTextEditor
+              name={`${name}.${loc}`}
+              defaultValue={defaultValue[loc] ?? ''}
+              placeholder={placeholder}
+            />
+          ) : type === 'textarea' ? (
             <Textarea
               name={`${name}.${loc}`}
               defaultValue={defaultValue[loc] ?? ''}

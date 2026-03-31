@@ -83,7 +83,7 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
               </h1>
               <p className="text-or text-sm tracking-[0.15em] uppercase mb-8">{artist.nationality}</p>
               <div className="divider-gold mb-8" />
-              <p className="text-noir/60 text-lg leading-relaxed">{artist.bio}</p>
+              <div className="text-noir/60 text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: artist.bio }} />
             </div>
           </motion.div>
         </div>

@@ -60,8 +60,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
             name="description"
             label="Description"
             defaultValue={defaultValues.description}
-            type="textarea"
-            rows={4}
+            type="richtext"
           />
 
           <div>

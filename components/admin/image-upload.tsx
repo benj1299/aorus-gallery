@@ -49,6 +49,7 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
       const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
+        credentials: 'same-origin',
       });
 
       setProgress(80);

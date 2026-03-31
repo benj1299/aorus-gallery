@@ -106,8 +106,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
             label="Biographie"
             defaultValue={defaultValues.bio}
             required
-            type="textarea"
-            rows={5}
+            type="richtext"
           />
 
           <div>
