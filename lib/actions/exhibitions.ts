@@ -18,7 +18,7 @@ const exhibitionSchema = z.object({
   startDate: z.coerce.date().optional().nullable(),
   endDate: z.coerce.date().optional().nullable(),
   location: z.string().optional().default(''),
-  imageUrl: z.string().url().refine((url) => url.startsWith('https://'), { message: 'URL must use HTTPS' }).optional().or(z.literal('')),
+  imageUrl: z.string().url().refine((url) => url.startsWith('https://') || url.startsWith('data:'), { message: 'URL must use HTTPS or data URI' }).optional().or(z.literal('')),
   visible: z.coerce.boolean().default(true),
   sortOrder: z.coerce.number().int().default(0),
 });

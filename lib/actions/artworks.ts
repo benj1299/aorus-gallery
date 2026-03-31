@@ -18,7 +18,7 @@ const artworkSchema = z.object({
   year: z.coerce.number().int().optional().nullable(),
   price: z.coerce.number().optional().nullable(),
   currency: z.string().default('EUR'),
-  imageUrl: z.string().url().refine((url) => url.startsWith('https://'), { message: 'URL must use HTTPS' }),
+  imageUrl: z.string().url().refine((url) => url.startsWith('https://') || url.startsWith('data:'), { message: 'URL must use HTTPS or data URI' }),
   visible: z.coerce.boolean().default(true),
   sortOrder: z.coerce.number().int().default(0),
   featuredHome: z.coerce.boolean().default(false),

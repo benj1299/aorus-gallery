@@ -13,7 +13,7 @@ const artistSchema = z.object({
   name: z.string().min(1),
   nationality: translatableSchema,
   bio: translatableSchema,
-  imageUrl: z.string().url().refine((url) => url.startsWith('https://'), { message: 'URL must use HTTPS' }),
+  imageUrl: z.string().url().refine((url) => url.startsWith('https://') || url.startsWith('data:'), { message: 'URL must use HTTPS or data URI' }),
   sortOrder: z.coerce.number().int().default(0),
   visible: z.coerce.boolean().default(true),
 });
