@@ -26,14 +26,18 @@ export async function getArtworksByArtist(artistId: string) {
   });
 }
 
-/** Get all artworks for admin with artist name */
+/** Get all artworks for admin with artist name — serializes Decimal to number */
 export async function getAllArtworksAdmin() {
-  return prisma.artwork.findMany({
+  const artworks = await prisma.artwork.findMany({
     orderBy: [{ artist: { name: 'asc' } }, { sortOrder: 'asc' }],
     include: {
       artist: { select: { name: true, slug: true } },
     },
   });
+  return artworks.map((aw) => ({
+    ...aw,
+    price: aw.price ? Number(aw.price) : null,
+  }));
 }
 
 export async function getArtworkById(id: string) {
