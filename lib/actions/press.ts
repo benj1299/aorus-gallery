@@ -1,31 +1,24 @@
 'use server';
 
 import { prisma } from '@/lib/db';
-import { Prisma } from '@prisma/client';
-import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+import { requireAuth } from '@/lib/auth-utils';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
+import { optionalHttpsUrl, serializeTranslatable } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 
 const pressSchema = z.object({
   title: translatableSchema,
   publication: z.string().min(1),
   publishedAt: z.coerce.date(),
-  url: z.string().url().refine((url) => url.startsWith('https://') || url.startsWith('data:'), { message: 'URL must use HTTPS or data URI' }).optional().or(z.literal('')),
-  imageUrl: z.string().url().refine((url) => url.startsWith('https://') || url.startsWith('data:'), { message: 'URL must use HTTPS or data URI' }).optional().or(z.literal('')),
+  url: optionalHttpsUrl,
+  imageUrl: optionalHttpsUrl,
   excerpt: optionalTranslatableSchema,
   visible: z.coerce.boolean().default(true),
   sortOrder: z.coerce.number().int().default(0),
 });
-
-async function requireAuth() {
-  const session = await auth.api.getSession({ headers: await headers() });
-  if (!session) throw new Error('Unauthorized');
-  return session;
-}
 
 function revalidateAll() {
   revalidatePath('/admin/press');
@@ -48,15 +41,13 @@ export async function createPressArticle(formData: FormData) {
   const data = pressSchema.parse(raw);
   const slug = slugify(data.title.en);
 
-  const excerptVal = data.excerpt && (data.excerpt.en || data.excerpt.fr || data.excerpt.zh) ? data.excerpt : Prisma.JsonNull;
-
   await prisma.pressArticle.create({
     data: {
       ...data,
       slug,
       url: data.url || null,
       imageUrl: data.imageUrl || null,
-      excerpt: excerptVal,
+      excerpt: serializeTranslatable(data.excerpt),
     },
   });
 
@@ -79,15 +70,13 @@ export async function updatePressArticle(id: string, formData: FormData) {
   };
   const data = pressSchema.parse(raw);
 
-  const excerptVal = data.excerpt && (data.excerpt.en || data.excerpt.fr || data.excerpt.zh) ? data.excerpt : Prisma.JsonNull;
-
   await prisma.pressArticle.update({
     where: { id },
     data: {
       ...data,
       url: data.url || null,
       imageUrl: data.imageUrl || null,
-      excerpt: excerptVal,
+      excerpt: serializeTranslatable(data.excerpt),
     },
   });
 

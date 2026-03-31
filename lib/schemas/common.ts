@@ -3,13 +3,13 @@ import { Prisma } from '@prisma/client';
 import type { TranslatableField } from '@/lib/i18n-content';
 
 export const httpsUrl = z.string().url().refine(
-  (url) => url.startsWith('https://'),
-  { message: 'URL must use HTTPS' }
+  (url) => url.startsWith('https://') || url.startsWith('data:'),
+  { message: 'URL must use HTTPS or data URI' }
 );
 
 export const optionalHttpsUrl = z.string().url().refine(
-  (url) => url.startsWith('https://'),
-  { message: 'URL must use HTTPS' }
+  (url) => url.startsWith('https://') || url.startsWith('data:'),
+  { message: 'URL must use HTTPS or data URI' }
 ).optional().or(z.literal(''));
 
 export function serializeTranslatable(field: TranslatableField | undefined | null): TranslatableField | typeof Prisma.JsonNull {

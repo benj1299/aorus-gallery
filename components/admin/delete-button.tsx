@@ -7,7 +7,6 @@ import { Trash2, X, Check } from 'lucide-react';
 interface DeleteButtonProps {
   id: string;
   action: (id: string) => Promise<void>;
-  label?: string;
 }
 
 export function DeleteButton({ id, action }: DeleteButtonProps) {
@@ -17,8 +16,10 @@ export function DeleteButton({ id, action }: DeleteButtonProps) {
   const handleDelete = async () => {
     try {
       await action(id);
-    } catch {
-      // redirect() throws NEXT_REDIRECT - expected behavior
+    } catch (error: unknown) {
+      const err = error as { digest?: string };
+      if (err?.digest?.startsWith('NEXT_REDIRECT')) throw error;
+      console.error('Delete failed:', error);
     }
     router.refresh();
   };

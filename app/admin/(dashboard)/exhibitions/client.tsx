@@ -74,24 +74,6 @@ const columns = [
     ),
   },
   {
-    key: 'links',
-    label: '',
-    render: (e: Exhibition) => (
-      <div className="flex gap-1">
-        <a href={`/fr/exhibitions`} target="_blank" rel="noopener noreferrer"
-           className="inline-flex items-center justify-center h-7 w-7 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded transition-colors"
-           title="Voir la page publique">
-          <Eye className="h-3.5 w-3.5" />
-        </a>
-        <a href={`/admin/exhibitions/${e.id}/view`}
-           className="inline-flex items-center justify-center h-7 w-7 text-gray-400 hover:text-emerald-700 hover:bg-emerald-50 rounded transition-colors"
-           title="Dossier de presse (PDF)">
-          <FileDown className="h-3.5 w-3.5" />
-        </a>
-      </div>
-    ),
-  },
-  {
     key: 'visible',
     label: 'Visible',
     render: (e: Exhibition) => (
@@ -115,6 +97,20 @@ export function ExhibitionsListClient({ exhibitions }: { exhibitions: Exhibition
       editHref={(e) => `/admin/exhibitions/${e.id}`}
       deleteAction={deleteExhibition}
       getId={(e) => e.id}
+      extraActions={(e) => (
+        <>
+          <a href="/fr/exhibitions" target="_blank" rel="noopener noreferrer"
+             className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+             title="Voir la page publique">
+            <Eye className="h-4 w-4" />
+          </a>
+          <a href={`/admin/exhibitions/${e.id}/view`}
+             className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-emerald-700 hover:bg-emerald-50 rounded-md transition-colors"
+             title="Dossier de presse (PDF)">
+            <FileDown className="h-4 w-4" />
+          </a>
+        </>
+      )}
     />
   );
 }

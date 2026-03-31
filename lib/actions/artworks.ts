@@ -1,13 +1,12 @@
 'use server';
 
 import { prisma } from '@/lib/db';
-import { Prisma } from '@prisma/client';
-import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+import { requireAuth } from '@/lib/auth-utils';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
+import { httpsUrl, serializeTranslatable } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 
 const artworkSchema = z.object({
@@ -18,18 +17,13 @@ const artworkSchema = z.object({
   year: z.coerce.number().int().optional().nullable(),
   price: z.coerce.number().optional().nullable(),
   currency: z.string().default('EUR'),
-  imageUrl: z.string().url().refine((url) => url.startsWith('https://') || url.startsWith('data:'), { message: 'URL must use HTTPS or data URI' }),
+  imageUrl: httpsUrl,
   visible: z.coerce.boolean().default(true),
   sortOrder: z.coerce.number().int().default(0),
   featuredHome: z.coerce.boolean().default(false),
   showPrice: z.coerce.boolean().default(false),
+  sold: z.coerce.boolean().default(false),
 });
-
-async function requireAuth() {
-  const session = await auth.api.getSession({ headers: await headers() });
-  if (!session) throw new Error('Unauthorized');
-  return session;
-}
 
 function revalidateAll() {
   revalidatePath('/admin/artworks');
@@ -53,6 +47,7 @@ export async function createArtwork(formData: FormData) {
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
     featuredHome: formData.get('featuredHome')?.toString() ?? 'false',
     showPrice: formData.get('showPrice')?.toString() ?? 'false',
+    sold: formData.get('sold')?.toString() ?? 'false',
   };
   const data = artworkSchema.parse(raw);
 
@@ -60,13 +55,11 @@ export async function createArtwork(formData: FormData) {
   const artistSlug = artist?.slug ?? 'unknown';
   const slug = slugify(artistSlug + '-' + data.title.en);
 
-  const mediumVal = data.medium && (data.medium.en || data.medium.fr || data.medium.zh) ? data.medium : Prisma.JsonNull;
-
   await prisma.artwork.create({
     data: {
       ...data,
       slug,
-      medium: mediumVal,
+      medium: serializeTranslatable(data.medium),
       dimensions: data.dimensions || null,
       price: data.price ?? null,
       year: data.year ?? null,
@@ -93,16 +86,15 @@ export async function updateArtwork(id: string, formData: FormData) {
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
     featuredHome: formData.get('featuredHome')?.toString() ?? 'false',
     showPrice: formData.get('showPrice')?.toString() ?? 'false',
+    sold: formData.get('sold')?.toString() ?? 'false',
   };
   const data = artworkSchema.parse(raw);
-
-  const mediumVal = data.medium && (data.medium.en || data.medium.fr || data.medium.zh) ? data.medium : Prisma.JsonNull;
 
   await prisma.artwork.update({
     where: { id },
     data: {
       ...data,
-      medium: mediumVal,
+      medium: serializeTranslatable(data.medium),
       dimensions: data.dimensions || null,
       price: data.price ?? null,
       year: data.year ?? null,

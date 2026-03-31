@@ -24,6 +24,7 @@ interface ArtworkFormProps {
     visible?: boolean;
     featuredHome?: boolean;
     showPrice?: boolean;
+    sold?: boolean;
   };
 }
 
@@ -31,7 +32,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
   const artistOptions = artists.map((a) => ({ value: a.id, label: a.name }));
 
   return (
-    <form action={action} className="max-w-2xl space-y-6">
+    <form action={action} className="max-w-4xl space-y-6">
       <div className="bg-white rounded-xl border border-gray-200">
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Détails de l'œuvre</h3>
@@ -82,10 +83,19 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
               <Label htmlFor="price" className="text-sm font-medium text-gray-700 mb-1.5">Prix</Label>
               <Input id="price" name="price" type="number" step="0.01" defaultValue={defaultValues.price ?? ''} />
             </div>
-            <div>
-              <Label htmlFor="currency" className="text-sm font-medium text-gray-700 mb-1.5">Devise</Label>
-              <Input id="currency" name="currency" defaultValue={defaultValues.currency ?? 'EUR'} />
-            </div>
+            <FormSelect
+              name="currency"
+              label="Devise"
+              options={[
+                { value: 'EUR', label: 'EUR' },
+                { value: 'USD', label: 'USD' },
+                { value: 'GBP', label: 'GBP' },
+                { value: 'TWD', label: 'TWD' },
+                { value: 'CNY', label: 'CNY' },
+                { value: 'HKD', label: 'HKD' },
+              ]}
+              defaultValue={defaultValues.currency ?? 'EUR'}
+            />
           </div>
         </div>
       </div>
@@ -113,11 +123,12 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
             <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
             <FormSwitch name="featuredHome" label="En avant sur l'accueil" defaultChecked={defaultValues.featuredHome ?? false} />
             <FormSwitch name="showPrice" label="Afficher le prix" defaultChecked={defaultValues.showPrice ?? false} />
+            <FormSwitch name="sold" label="Vendu" defaultChecked={defaultValues.sold ?? false} />
           </div>
         </div>
       </div>
 
-      <div className="flex justify-end">
+      <div className="flex justify-end pt-6 border-t border-gray-100">
         <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
           Enregistrer
         </button>

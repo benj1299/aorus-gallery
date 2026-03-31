@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useMemo } from 'react';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 
@@ -22,26 +21,4 @@ export function AdminSearchInput({ value, onChange, placeholder = 'Rechercher...
       />
     </div>
   );
-}
-
-export function useSearch<T extends Record<string, unknown>>(items: T[], searchKeys: (keyof T)[]) {
-  const [query, setQuery] = useState('');
-
-  const filtered = useMemo(() => {
-    if (!query.trim()) return items;
-    const lower = query.toLowerCase();
-    return items.filter((item) =>
-      searchKeys.some((key) => {
-        const val = item[key];
-        if (typeof val === 'string') return val.toLowerCase().includes(lower);
-        if (val && typeof val === 'object' && 'en' in (val as Record<string, unknown>)) {
-          const t = val as Record<string, string>;
-          return Object.values(t).some((v) => v?.toLowerCase().includes(lower));
-        }
-        return false;
-      })
-    );
-  }, [items, searchKeys, query]);
-
-  return { query, setQuery, filtered };
 }

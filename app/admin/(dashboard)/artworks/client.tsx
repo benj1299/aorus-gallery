@@ -16,6 +16,7 @@ type Artwork = {
   currency: string | null;
   visible: boolean;
   featuredHome: boolean;
+  sold: boolean;
   artist: { name: string; slug: string };
 };
 
@@ -78,6 +79,7 @@ const columns = [
           : <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">Masqué</span>
         }
         {aw.featuredHome && <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">En avant</span>}
+        {aw.sold && <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Vendu</span>}
       </div>
     ),
   },

@@ -47,6 +47,7 @@ export default async function EditArtworkPage({ params }: Props) {
           visible: artwork.visible,
           featuredHome: artwork.featuredHome,
           showPrice: artwork.showPrice,
+          sold: artwork.sold,
         }}
       />
     </div>

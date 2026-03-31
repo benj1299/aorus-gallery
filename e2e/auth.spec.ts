@@ -5,9 +5,9 @@ test.describe('Authentication', () => {
 
   test('login with valid credentials redirects to admin', async ({ page }) => {
     await page.goto('/admin/login');
-    await page.getByLabel('Email').fill('admin@orusgallery.com');
-    await page.getByLabel('Password').fill('admin-orus-2025');
-    await page.getByRole('button', { name: 'Sign in' }).click();
+    await page.locator('#email').fill('admin@orusgallery.com');
+    await page.locator('#password').fill('admin-orus-2025');
+    await page.locator('button[type="submit"]').click();
 
     await page.waitForURL('**/admin/artists', { timeout: 15000 });
     await expect(page).toHaveURL(/\/admin\/artists/);
@@ -15,11 +15,11 @@ test.describe('Authentication', () => {
 
   test('login with wrong credentials shows error', async ({ page }) => {
     await page.goto('/admin/login');
-    await page.getByLabel('Email').fill('wrong@email.com');
-    await page.getByLabel('Password').fill('wrongpassword');
-    await page.getByRole('button', { name: 'Sign in' }).click();
+    await page.locator('#email').fill('wrong@email.com');
+    await page.locator('#password').fill('wrongpassword');
+    await page.locator('button[type="submit"]').click();
 
-    await expect(page.locator('text=Invalid')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('text=Invalid').or(page.locator('text=incorrects').or(page.locator('text=erreur')))).toBeVisible({ timeout: 5000 });
   });
 
   test('accessing admin without session redirects to login', async ({ page }) => {

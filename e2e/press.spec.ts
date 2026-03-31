@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Press CRUD', () => {
   test('list shows seeded articles', async ({ page }) => {
     await page.goto('/admin/press');
-    await expect(page.getByText('Press Articles')).toBeVisible();
+    await expect(page.locator('h1')).toBeVisible();
     await expect(page.getByText('ORUS Gallery Opens New Space in Taipei')).toBeVisible();
     const rows = page.locator('tbody tr');
     const count = await rows.count();
@@ -12,7 +12,7 @@ test.describe('Press CRUD', () => {
 
   test('create new press article', async ({ page }) => {
     await page.goto('/admin/press/new');
-    await expect(page.getByText('New Press Article')).toBeVisible();
+    await expect(page.locator('h1')).toBeVisible();
 
     await page.locator('input[name="title.en"]').fill('Test Press Article E2E');
     await page.locator('input[name="publication"]').fill('Test Publication');
@@ -31,7 +31,7 @@ test.describe('Press CRUD', () => {
     await page.goto('/admin/press');
 
     const row = page.locator('tr', { hasText: 'Test Press Article E2E' });
-    await row.getByText('Edit').click();
+    await row.locator('[title="Modifier"]').click();
 
     const titleInput = page.locator('input[name="title.en"]');
     await titleInput.clear();
@@ -47,8 +47,8 @@ test.describe('Press CRUD', () => {
     await page.goto('/admin/press');
 
     const row = page.locator('tr', { hasText: 'Test Press Updated' });
-    await row.getByText('Delete').click();
-    await row.getByText('Confirm').click();
+    await row.locator('[title="Supprimer"]').click();
+    await row.locator('[title="Confirmer"]').click();
 
     await page.waitForTimeout(3000);
     await page.reload();

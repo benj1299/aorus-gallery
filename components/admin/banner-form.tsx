@@ -20,7 +20,7 @@ interface BannerFormProps {
 
 export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
   return (
-    <form action={action} className="max-w-2xl space-y-6">
+    <form action={action} className="max-w-4xl space-y-6">
       <div className="bg-white rounded-xl border border-gray-200">
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Contenu de la bannière</h3>
@@ -67,7 +67,7 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
         </div>
       </div>
 
-      <div className="flex justify-end">
+      <div className="flex justify-end pt-6 border-t border-gray-100">
         <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
           Enregistrer
         </button>

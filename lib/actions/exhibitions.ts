@@ -1,13 +1,12 @@
 'use server';
 
 import { prisma } from '@/lib/db';
-import { Prisma } from '@prisma/client';
-import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+import { requireAuth } from '@/lib/auth-utils';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
+import { optionalHttpsUrl, serializeTranslatable } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 
 const exhibitionSchema = z.object({
@@ -18,16 +17,10 @@ const exhibitionSchema = z.object({
   startDate: z.coerce.date().optional().nullable(),
   endDate: z.coerce.date().optional().nullable(),
   location: z.string().optional().default(''),
-  imageUrl: z.string().url().refine((url) => url.startsWith('https://') || url.startsWith('data:'), { message: 'URL must use HTTPS or data URI' }).optional().or(z.literal('')),
+  imageUrl: optionalHttpsUrl,
   visible: z.coerce.boolean().default(true),
   sortOrder: z.coerce.number().int().default(0),
 });
-
-async function requireAuth() {
-  const session = await auth.api.getSession({ headers: await headers() });
-  if (!session) throw new Error('Unauthorized');
-  return session;
-}
 
 function revalidateAll() {
   revalidatePath('/admin/exhibitions');
@@ -75,17 +68,13 @@ export async function createExhibition(formData: FormData) {
   const data = exhibitionSchema.parse(raw);
   const slug = slugify(data.title.en);
 
-  const descriptionVal = data.description && (data.description.en || data.description.fr || data.description.zh)
-    ? data.description
-    : Prisma.JsonNull;
-
   const artistIds = parseArtistIds(formData);
   const artworkIds = parseArtworkIds(formData);
 
   await prisma.galleryExhibition.create({
     data: {
       title: data.title,
-      description: descriptionVal,
+      description: serializeTranslatable(data.description),
       slug,
       type: data.type,
       status: data.status,
@@ -124,10 +113,6 @@ export async function updateExhibition(id: string, formData: FormData) {
   };
   const data = exhibitionSchema.parse(raw);
 
-  const descriptionVal = data.description && (data.description.en || data.description.fr || data.description.zh)
-    ? data.description
-    : Prisma.JsonNull;
-
   const artistIds = parseArtistIds(formData);
   const artworkIds = parseArtworkIds(formData);
 
@@ -138,7 +123,7 @@ export async function updateExhibition(id: string, formData: FormData) {
       where: { id },
       data: {
         title: data.title,
-        description: descriptionVal,
+        description: serializeTranslatable(data.description),
         type: data.type,
         status: data.status,
         startDate: data.startDate ?? null,

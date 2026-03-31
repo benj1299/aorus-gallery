@@ -1,30 +1,24 @@
 'use server';
 
 import { prisma } from '@/lib/db';
-import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+import { requireAuth } from '@/lib/auth-utils';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, extractTranslatable, extractTranslatableArray, type TranslatableField } from '@/lib/i18n-content';
+import { httpsUrl } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 
 const artistSchema = z.object({
   name: z.string().min(1),
   nationality: translatableSchema,
   bio: translatableSchema,
-  imageUrl: z.string().url().refine((url) => url.startsWith('https://') || url.startsWith('data:'), { message: 'URL must use HTTPS or data URI' }),
+  imageUrl: httpsUrl,
   sortOrder: z.coerce.number().int().default(0),
   visible: z.coerce.boolean().default(true),
 });
 
 const CV_TYPES = ['SOLO_SHOW', 'GROUP_SHOW', 'ART_FAIR', 'RESIDENCY', 'AWARD'] as const;
-
-async function requireAuth() {
-  const session = await auth.api.getSession({ headers: await headers() });
-  if (!session) throw new Error('Unauthorized');
-  return session;
-}
 
 function revalidateAll() {
   revalidatePath('/admin/artists');

@@ -27,6 +27,7 @@ interface AdminTableProps<T> {
   editHref: (item: T) => string;
   deleteAction?: (id: string) => Promise<void>;
   getId: (item: T) => string;
+  extraActions?: (item: T) => React.ReactNode;
   itemsPerPage?: number;
 }
 
@@ -43,6 +44,7 @@ export function AdminTable<T extends Record<string, unknown>>({
   editHref,
   deleteAction,
   getId,
+  extraActions,
   itemsPerPage = 10,
 }: AdminTableProps<T>) {
   const [query, setQuery] = useState('');
@@ -155,6 +157,7 @@ export function AdminTable<T extends Record<string, unknown>>({
                 ))}
                 <TableCell className="text-right text-sm">
                   <div className="flex items-center justify-end gap-1">
+                    {extraActions && extraActions(item)}
                     <a
                       href={editHref(item)}
                       className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"

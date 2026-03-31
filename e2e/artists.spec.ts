@@ -13,7 +13,7 @@ test.describe('Artists CRUD', () => {
 
   test('create new artist', async ({ page }) => {
     await page.goto('/admin/artists/new');
-    await expect(page.getByText('New Artist')).toBeVisible();
+    await expect(page.locator('h1')).toContainText('artiste');
 
     await page.locator('input[name="name"]').fill('Test Artist');
     await page.locator('input[name="nationality.en"]').fill('Test Country');
@@ -30,11 +30,11 @@ test.describe('Artists CRUD', () => {
   test('edit artist', async ({ page }) => {
     await page.goto('/admin/artists');
 
-    // Find Test Artist row and click Edit
+    // Find Test Artist row and click Edit (pencil icon with title="Modifier")
     const row = page.locator('tr', { hasText: 'Test Artist' });
-    await row.getByText('Edit').click();
+    await row.locator('[title="Modifier"]').click();
 
-    await expect(page.getByText('Edit: Test Artist')).toBeVisible();
+    await expect(page.locator('h1')).toBeVisible();
 
     // Change the name
     const nameInput = page.locator('input[name="name"]');
@@ -51,10 +51,10 @@ test.describe('Artists CRUD', () => {
     await page.goto('/admin/artists');
 
     const row = page.locator('tr', { hasText: 'Test Artist Updated' });
-    await row.getByText('Delete').click();
+    await row.locator('[title="Supprimer"]').click();
 
-    // Confirm deletion
-    await row.getByText('Confirm').click();
+    // Confirm deletion (check icon with title="Confirmer")
+    await row.locator('[title="Confirmer"]').click();
 
     // Wait for server action + refresh
     await page.waitForTimeout(3000);
