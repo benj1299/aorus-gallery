@@ -104,7 +104,7 @@ export function ExhibitionsListClient({ exhibitions }: { exhibitions: Exhibition
              title="Voir la page publique">
             <Eye className="h-4 w-4" />
           </a>
-          <a href={`/admin/exhibitions/${e.id}/view`}
+          <a href={`/admin/print/exhibition/${e.id}`} target="_blank" rel="noopener noreferrer"
              className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-emerald-700 hover:bg-emerald-50 rounded-md transition-colors"
              title="Dossier de presse (PDF)">
             <FileDown className="h-4 w-4" />
