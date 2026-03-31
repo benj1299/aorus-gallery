@@ -16,11 +16,19 @@ export default async function SettingsPage() {
           <div className="px-6 py-4 border-b border-gray-100">
             <h3 className="text-base font-semibold text-gray-900">Pages publiques</h3>
           </div>
-          <div className="p-6 space-y-4">
+          <div className="p-6 space-y-5">
             <FormSwitch
               name="showExhibitions"
-              label="Afficher la page Expositions et le lien dans le menu"
+              label="Afficher la page Expositions"
+              description="Affiche le lien Expositions dans le menu de navigation"
               defaultChecked={settings.showExhibitions}
+            />
+            <div className="h-px bg-gray-100" />
+            <FormSwitch
+              name="showBanner"
+              label="Afficher la bannière d'accueil"
+              description="Affiche la bannière visuelle sur la page d'accueil (sous le hero)"
+              defaultChecked={settings.showBanner}
             />
           </div>
         </div>

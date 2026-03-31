@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { getFeaturedArtworks } from '@/lib/queries/artworks';
 import { getArtistsForFrontend } from '@/lib/queries/artists';
 import { getActiveBanner } from '@/lib/queries/banner';
+import { getSiteSettings } from '@/lib/queries/settings';
 import { HomePageClient } from './client';
 import type { Locale } from '@/i18n/routing';
 
@@ -41,7 +42,8 @@ export default async function HomePage({ params }: Props) {
   const featuredArtworks = await getFeaturedArtworks(locale as Locale);
   const allArtists = await getArtistsForFrontend(locale as Locale);
   const featuredArtists = allArtists.slice(0, 4);
-  const banner = await getActiveBanner(locale as Locale);
+  const settings = await getSiteSettings();
+  const banner = settings.showBanner ? await getActiveBanner(locale as Locale) : null;
 
   const jsonLd = {
     '@context': 'https://schema.org',

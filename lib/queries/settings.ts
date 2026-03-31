@@ -2,5 +2,5 @@ import { prisma } from '@/lib/db';
 
 export async function getSiteSettings() {
   const settings = await prisma.siteSettings.findFirst();
-  return settings ?? { showExhibitions: false };
+  return settings ?? { showExhibitions: false, showBanner: false };
 }

@@ -17,6 +17,7 @@ export function RichTextEditor({ name, defaultValue = '', placeholder }: RichTex
   const [html, setHtml] = useState(defaultValue);
 
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: [
       StarterKit,
       Link.configure({

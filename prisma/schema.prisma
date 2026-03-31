@@ -276,6 +276,7 @@ model ContactSubmission {
 model SiteSettings {
   id               String  @id @default("default")
   showExhibitions  Boolean @default(false)
+  showBanner       Boolean @default(false)
 
   @@map("site_settings")
 }

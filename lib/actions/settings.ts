@@ -9,11 +9,12 @@ export async function updateSiteSettings(formData: FormData) {
   await requireAuth();
 
   const showExhibitions = formData.get('showExhibitions')?.toString() === 'true';
+  const showBanner = formData.get('showBanner')?.toString() === 'true';
 
   await prisma.siteSettings.upsert({
     where: { id: 'default' },
-    update: { showExhibitions },
-    create: { id: 'default', showExhibitions },
+    update: { showExhibitions, showBanner },
+    create: { id: 'default', showExhibitions, showBanner },
   });
 
   revalidatePath('/admin/settings');
