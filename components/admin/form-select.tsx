@@ -1,5 +1,8 @@
 'use client';
 
+import { ChevronDown } from 'lucide-react';
+import { inputStyles, labelStyles } from './form-styles';
+
 interface FormSelectProps {
   name: string;
   label: string;
@@ -12,24 +15,27 @@ interface FormSelectProps {
 export function FormSelect({ name, label, options, defaultValue, required, placeholder }: FormSelectProps) {
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-1.5">
-        {label} {required && '*'}
+      <label className={labelStyles}>
+        {label} {required && <span className="text-red-500">*</span>}
       </label>
-      <select
-        name={name}
-        defaultValue={defaultValue ?? ''}
-        required={required}
-        className="w-full h-10 px-3 bg-white text-gray-900 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-      >
-        <option value="" disabled>
-          {placeholder || 'Selectionner...'}
-        </option>
-        {options.map((opt) => (
-          <option key={opt.value} value={opt.value}>
-            {opt.label}
+      <div className="relative">
+        <select
+          name={name}
+          defaultValue={defaultValue ?? ''}
+          required={required}
+          className={`${inputStyles} appearance-none pr-10 cursor-pointer`}
+        >
+          <option value="" disabled>
+            {placeholder || 'Sélectionner...'}
           </option>
-        ))}
-      </select>
+          {options.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+      </div>
     </div>
   );
 }

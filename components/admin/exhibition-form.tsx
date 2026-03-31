@@ -8,6 +8,7 @@ import type { TranslatableField } from '@/lib/i18n-content';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { cardStyles } from './form-styles';
 
 interface ExhibitionFormProps {
   action: (formData: FormData) => void;
@@ -44,7 +45,7 @@ const STATUS_OPTIONS = [
 export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }: ExhibitionFormProps) {
   return (
     <form action={action} className="max-w-4xl space-y-6">
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Détails de l'exposition</h3>
         </div>
@@ -70,7 +71,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Classification et calendrier</h3>
         </div>
@@ -105,7 +106,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Média</h3>
         </div>
@@ -117,7 +118,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Artistes et œuvres</h3>
         </div>
@@ -166,7 +167,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Paramètres d'affichage</h3>
         </div>

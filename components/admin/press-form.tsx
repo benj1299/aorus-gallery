@@ -6,6 +6,7 @@ import { ImageUpload } from './image-upload';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { cardStyles } from './form-styles';
 
 interface PressFormProps {
   action: (formData: FormData) => void;
@@ -24,7 +25,7 @@ interface PressFormProps {
 export function PressForm({ action, defaultValues = {} }: PressFormProps) {
   return (
     <form action={action} className="max-w-4xl space-y-6">
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Détails de l'article</h3>
         </div>
@@ -38,18 +39,18 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="publication" className="text-sm font-medium text-gray-700 mb-1.5">Publication *</Label>
+              <Label htmlFor="publication" className="text-sm font-medium text-gray-700 mb-1.5">Publication <span className="text-red-500">*</span></Label>
               <Input id="publication" name="publication" defaultValue={defaultValues.publication} required placeholder="Artnet News" />
             </div>
             <div>
-              <Label htmlFor="publishedAt" className="text-sm font-medium text-gray-700 mb-1.5">Date de publication *</Label>
+              <Label htmlFor="publishedAt" className="text-sm font-medium text-gray-700 mb-1.5">Date de publication <span className="text-red-500">*</span></Label>
               <Input id="publishedAt" name="publishedAt" type="date" defaultValue={defaultValues.publishedAt} required />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Liens et média</h3>
         </div>
@@ -66,7 +67,7 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Contenu</h3>
         </div>
@@ -80,7 +81,7 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Paramètres d'affichage</h3>
         </div>

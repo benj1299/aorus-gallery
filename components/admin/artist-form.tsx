@@ -9,6 +9,7 @@ import { LOCALES } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Plus, X } from 'lucide-react';
+import { cardStyles } from './form-styles';
 
 interface CVEntry {
   type: string;
@@ -84,13 +85,13 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
 
   return (
     <form action={action} className="max-w-4xl space-y-6">
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Informations générales</h3>
         </div>
         <div className="p-6 space-y-4">
           <div>
-            <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-1.5">Nom *</Label>
+            <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-1.5">Nom <span className="text-red-500">*</span></Label>
             <Input id="name" name="name" defaultValue={defaultValues.name} required />
           </div>
 
@@ -110,13 +111,13 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
           />
 
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-1.5">Image *</Label>
+            <Label className="text-sm font-medium text-gray-700 mb-1.5">Image <span className="text-red-500">*</span></Label>
             <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} required />
           </div>
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Paramètres d'affichage</h3>
         </div>
@@ -133,7 +134,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">CV / Historique d'expositions</h3>
         </div>
@@ -178,7 +179,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200">
+      <div className={cardStyles}>
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-base font-semibold text-gray-900">Collections</h3>
         </div>

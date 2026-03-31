@@ -29,7 +29,7 @@ export function TranslatableInput({
 
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-1.5">{label}{required ? ' *' : ''}</label>
+      <label className="block text-sm font-medium text-gray-700 mb-1.5">{label}{required ? <> <span className="text-red-500">*</span></> : ''}</label>
       <div className="flex gap-1 bg-gray-100 rounded-lg p-1 mb-2">
         {LOCALES.map((loc) => (
           <button
