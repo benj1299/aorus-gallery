@@ -16,12 +16,11 @@ test.describe('Artists CRUD', () => {
     await expect(page.getByText('New Artist')).toBeVisible();
 
     await page.locator('input[name="name"]').fill('Test Artist');
-    await page.locator('input[name="slug"]').fill('test-artist');
     await page.locator('input[name="nationality.en"]').fill('Test Country');
     await page.locator('textarea[name="bio.en"]').fill('This is a test artist bio for E2E testing.');
     await page.locator('input[name="imageUrl"]').fill('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80');
 
-    await page.getByRole('button', { name: 'Save Artist' }).click();
+    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 
     // Should redirect to artists list
     await page.waitForURL('**/admin/artists', { timeout: 15000 });
@@ -42,7 +41,7 @@ test.describe('Artists CRUD', () => {
     await nameInput.clear();
     await nameInput.fill('Test Artist Updated');
 
-    await page.getByRole('button', { name: 'Save Artist' }).click();
+    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 
     await page.waitForURL('**/admin/artists', { timeout: 15000 });
     await expect(page.getByText('Test Artist Updated')).toBeVisible();

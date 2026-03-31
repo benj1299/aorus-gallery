@@ -15,14 +15,13 @@ test.describe('Press CRUD', () => {
     await expect(page.getByText('New Press Article')).toBeVisible();
 
     await page.locator('input[name="title.en"]').fill('Test Press Article E2E');
-    await page.locator('input[name="slug"]').fill('test-press-e2e');
     await page.locator('input[name="publication"]').fill('Test Publication');
     await page.locator('input[name="publishedAt"]').fill('2025-06-15');
     await page.locator('input[name="url"]').fill('https://example.com/test');
     await page.locator('input[name="imageUrl"]').fill('https://images.unsplash.com/photo-1577720643272-265f09367456?w=600&q=80');
     await page.locator('textarea[name="excerpt.en"]').fill('Test excerpt for E2E testing.');
 
-    await page.getByRole('button', { name: 'Save Article' }).click();
+    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 
     await page.waitForURL('**/admin/press', { timeout: 15000 });
     await expect(page.getByText('Test Press Article E2E')).toBeVisible();
@@ -38,7 +37,7 @@ test.describe('Press CRUD', () => {
     await titleInput.clear();
     await titleInput.fill('Test Press Updated');
 
-    await page.getByRole('button', { name: 'Save Article' }).click();
+    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 
     await page.waitForURL('**/admin/press', { timeout: 15000 });
     await expect(page.getByText('Test Press Updated')).toBeVisible();

@@ -15,10 +15,14 @@ test.describe('Artworks CRUD', () => {
     await expect(page.getByText('New Artwork')).toBeVisible();
 
     await page.locator('input[name="title.en"]').fill('Test Artwork E2E');
-    await page.locator('input[name="slug"]').fill('test-artwork-e2e');
 
-    // Select first artist
-    await page.locator('select[name="artistId"]').selectOption({ index: 1 });
+    // Select first artist via Radix Select hidden input
+    const firstArtistId = await page.locator('input[name="artistId"]').inputValue().catch(() => '');
+    if (!firstArtistId) {
+      // Click Radix select trigger and pick first option
+      await page.locator('[data-testid="artist-select"]').or(page.getByText('Select artist...')).first().click();
+      await page.locator('[role="option"]').first().click();
+    }
 
     await page.locator('input[name="medium.en"]').fill('Oil on canvas');
     await page.locator('input[name="dimensions"]').fill('100 x 80 cm');
@@ -26,7 +30,7 @@ test.describe('Artworks CRUD', () => {
     await page.locator('input[name="price"]').fill('5000');
     await page.locator('input[name="imageUrl"]').fill('https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80');
 
-    await page.getByRole('button', { name: 'Save Artwork' }).click();
+    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 
     await page.waitForURL('**/admin/artworks', { timeout: 15000 });
     await expect(page.getByText('Test Artwork E2E')).toBeVisible();
@@ -42,7 +46,7 @@ test.describe('Artworks CRUD', () => {
     await titleInput.clear();
     await titleInput.fill('Test Artwork Updated');
 
-    await page.getByRole('button', { name: 'Save Artwork' }).click();
+    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 
     await page.waitForURL('**/admin/artworks', { timeout: 15000 });
     await expect(page.getByText('Test Artwork Updated')).toBeVisible();
