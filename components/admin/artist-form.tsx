@@ -107,7 +107,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
             label="Biographie"
             defaultValue={defaultValues.bio}
             required
-            type="richtext"
+            type="richtext" collapsible
           />
 
           <div>

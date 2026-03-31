@@ -194,23 +194,25 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
 
       {/* Preview */}
       {currentUrl && (
-        <div className="relative inline-block">
-          <img
-            src={currentUrl}
-            alt="Aperçu"
-            className="max-h-48 rounded-lg border border-gray-200 object-contain"
-            onError={() => {
-              if (tab === 'url') {
-                setError('Impossible de charger l\'image');
-              }
-            }}
-          />
+        <div className="relative w-full max-w-xs">
+          <div className="h-48 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden">
+            <img
+              src={currentUrl}
+              alt="Aperçu"
+              className="w-full h-full object-cover"
+              onError={() => {
+                if (tab === 'url') {
+                  setError('Impossible de charger l\'image');
+                }
+              }}
+            />
+          </div>
           <button
             type="button"
             onClick={handleRemove}
-            className="absolute -top-2 -right-2 w-6 h-6 bg-white border border-gray-200 rounded-full flex items-center justify-center shadow-sm hover:bg-gray-50 transition-colors"
+            className="absolute top-2 right-2 w-7 h-7 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full flex items-center justify-center shadow-sm hover:bg-white transition-colors"
           >
-            <X className="w-3.5 h-3.5 text-gray-500" />
+            <X className="w-4 h-4 text-gray-600" />
           </button>
         </div>
       )}

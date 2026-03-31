@@ -76,7 +76,7 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
             name="excerpt"
             label="Extrait"
             defaultValue={defaultValues.excerpt}
-            type="richtext"
+            type="richtext" collapsible
           />
         </div>
       </div>

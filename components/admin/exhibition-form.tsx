@@ -61,7 +61,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
             name="description"
             label="Description"
             defaultValue={defaultValues.description}
-            type="richtext"
+            type="richtext" collapsible
           />
 
           <div>

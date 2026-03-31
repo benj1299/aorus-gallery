@@ -14,7 +14,7 @@ export function FormSwitch({ name, label, description, defaultChecked = false }:
   const [checked, setChecked] = useState(defaultChecked);
   return (
     <div className="flex items-start gap-3">
-      <Switch checked={checked} onCheckedChange={setChecked} id={name} className="mt-0.5" />
+      <Switch checked={checked} onCheckedChange={setChecked} id={name} className="mt-0.5 data-[state=checked]:bg-emerald-600 data-[state=unchecked]:bg-gray-200" />
       <div>
         <label htmlFor={name} className="text-sm font-medium text-gray-700">{label}</label>
         {description && <p className="text-xs text-gray-400 mt-0.5">{description}</p>}
