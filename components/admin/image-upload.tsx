@@ -222,17 +222,9 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
         <p className="text-sm text-red-600">{error}</p>
       )}
 
-      {/* Required validation */}
+      {/* Required hint */}
       {required && !currentUrl && (
-        <input
-          type="text"
-          required
-          value=""
-          onChange={() => {}}
-          className="sr-only"
-          tabIndex={-1}
-          aria-hidden="true"
-        />
+        <p className="text-sm text-red-500">Image requise</p>
       )}
     </div>
   );
