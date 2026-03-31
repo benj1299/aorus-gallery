@@ -268,3 +268,14 @@ model ContactSubmission {
 
   @@map("contact_submission")
 }
+
+// ========================
+// Site Settings
+// ========================
+
+model SiteSettings {
+  id               String  @id @default("default")
+  showExhibitions  Boolean @default(false)
+
+  @@map("site_settings")
+}

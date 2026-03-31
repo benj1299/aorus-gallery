@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
-export function Header() {
+export function Header({ showExhibitions = true }: { showExhibitions?: boolean }) {
   const t = useTranslations('nav');
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,7 +15,7 @@ export function Header() {
   const navItems: { href: string; label: string; hidden?: boolean }[] = [
     { href: '/', label: t('home') },
     { href: '/artists', label: t('artists') },
-    { href: '/exhibitions', label: t('exhibitions') },
+    { href: '/exhibitions', label: t('exhibitions'), hidden: !showExhibitions },
     { href: '/press', label: t('press') },
     { href: '/about', label: t('about') },
     { href: '/contact', label: t('contact') },

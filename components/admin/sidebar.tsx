@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
-import { Users, Image, Newspaper, Megaphone, Calendar, Mail, LogOut, LayoutDashboard } from 'lucide-react';
+import { Users, Image, Newspaper, Megaphone, Calendar, Mail, LogOut, LayoutDashboard, Settings } from 'lucide-react';
 
 interface AdminSidebarProps {
   messageCount?: number;
@@ -18,6 +18,7 @@ const navItems = [
   { label: 'Banniere', href: '/admin/banner', icon: Megaphone },
   { label: 'Expositions', href: '/admin/exhibitions', icon: Calendar },
   { label: 'Messages', href: '/admin/messages', icon: Mail, showBadge: true },
+  { label: 'Paramètres', href: '/admin/settings', icon: Settings },
 ];
 
 export function AdminSidebar({ messageCount = 0 }: AdminSidebarProps) {
