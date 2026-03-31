@@ -42,6 +42,7 @@ export default function AboutPage() {
                 src="/images/gallery/vision-artwork.jpeg"
                 alt="Contemporary artwork in gallery setting"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
                 style={{ objectPosition: 'center 30%' }}
               />
@@ -104,6 +105,7 @@ export default function AboutPage() {
                   src="/images/gallery/discussion.png"
                   alt="Discussion devant une oeuvre"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center"
                 />
               </div>
@@ -127,6 +129,7 @@ export default function AboutPage() {
                 src="/images/gallery/Secretariat.png"
                 alt="ORUS Gallery reception"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
               />
             </motion.div>
@@ -171,6 +174,7 @@ export default function AboutPage() {
                 src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
                 alt="Paris"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-noir/40" />
@@ -190,6 +194,7 @@ export default function AboutPage() {
                 src="https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
                 alt="Taipei"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-noir/40" />

@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { translatableSchema, extractTranslatable, extractTranslatableArray, type TranslatableField } from '@/lib/i18n-content';
 import { httpsUrl } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
+import { sanitizeTranslatable } from '@/lib/sanitize';
 
 const artistSchema = z.object({
   name: z.string().min(1),
@@ -43,7 +44,7 @@ export async function createArtist(formData: FormData) {
   const raw = {
     name: formData.get('name')?.toString() ?? '',
     nationality: extractTranslatable(formData, 'nationality'),
-    bio: extractTranslatable(formData, 'bio'),
+    bio: sanitizeTranslatable(extractTranslatable(formData, 'bio')),
     imageUrl: formData.get('imageUrl')?.toString() ?? '',
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
     visible: formData.get('visible')?.toString() ?? 'false',
@@ -81,7 +82,7 @@ export async function updateArtist(id: string, formData: FormData) {
   const raw = {
     name: formData.get('name')?.toString() ?? '',
     nationality: extractTranslatable(formData, 'nationality'),
-    bio: extractTranslatable(formData, 'bio'),
+    bio: sanitizeTranslatable(extractTranslatable(formData, 'bio')),
     imageUrl: formData.get('imageUrl')?.toString() ?? '',
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
     visible: formData.get('visible')?.toString() ?? 'false',

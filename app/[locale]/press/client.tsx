@@ -45,7 +45,7 @@ export function PressPageClient({ articles }: { articles: PressArticle[] }) {
               >
                 {article.imageUrl && (
                   <div className="w-20 h-20 md:w-32 md:h-32 shrink-0 relative overflow-hidden">
-                    <Image src={article.imageUrl} alt={article.title} fill className="object-cover" />
+                    <Image src={article.imageUrl} alt={article.title} fill sizes="(max-width: 768px) 80px, 128px" className="object-cover" />
                   </div>
                 )}
                 <div className="flex-1 min-w-0">

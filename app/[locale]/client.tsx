@@ -107,7 +107,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
 
       {banner && (
         <section className="relative h-[70vh] overflow-hidden">
-          <Image src={banner.imageUrl} alt={banner.title} fill className="object-cover" />
+          <Image src={banner.imageUrl} alt={banner.title} fill sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-noir/40" />
           <div className="absolute inset-0 flex items-center justify-center text-center px-6">
             {banner.linkUrl ? (
@@ -199,6 +199,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
                       src={artist.image}
                       alt={artist.name}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
@@ -226,6 +227,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
                 src="/images/gallery/Galerie 1.png"
                 alt="ORUS Gallery facade"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </motion.div>

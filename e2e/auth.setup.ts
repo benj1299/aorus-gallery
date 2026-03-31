@@ -9,8 +9,8 @@ setup('authenticate as admin', async ({ page }) => {
   await page.locator('#password').fill('admin-orus-2025');
   await page.locator('button[type="submit"]').click();
 
-  // Wait for redirect to admin artists page
-  await page.waitForURL('**/admin/artists', { timeout: 15000 });
+  // Wait for redirect to admin dashboard
+  await page.waitForURL('**/admin', { timeout: 15000 });
   await expect(page.locator('h1')).toBeVisible();
 
   await page.context().storageState({ path: authFile });

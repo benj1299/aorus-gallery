@@ -10,11 +10,18 @@ test.describe('Rich Text Editor', () => {
 
     // Type text
     await editor.click();
-    await editor.type('Hello World');
+    await editor.pressSequentially('Hello World');
 
     // Select all text and bold it
-    await page.keyboard.press('Control+A');
-    await page.locator('button[title="Gras"]').or(page.locator('button').filter({ has: page.locator('svg') }).first()).click();
+    await page.keyboard.press('Meta+A');
+    // Click the bold button in the toolbar
+    const boldButton = page.locator('button[title="Gras"]');
+    if (await boldButton.count() > 0) {
+      await boldButton.click();
+    } else {
+      // Fallback: use keyboard shortcut
+      await page.keyboard.press('Meta+B');
+    }
 
     // Check hidden input contains <strong>
     const html = await page.locator('input[type="hidden"][name="bio.en"]').inputValue();

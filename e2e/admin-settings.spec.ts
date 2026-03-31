@@ -2,34 +2,52 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Admin Settings', () => {
   test('toggle exhibitions visibility', async ({ page }) => {
-    // Enable exhibitions
+    // Step 1: Enable exhibitions
     await page.goto('/admin/settings');
     await expect(page.locator('h1')).toBeVisible();
 
-    // Set showExhibitions to true via hidden input
-    await page.evaluate(() => {
-      const input = document.querySelector('input[type="hidden"][name="showExhibitions"]') as HTMLInputElement;
-      if (input) input.value = 'true';
-    });
-    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
-    await page.waitForURL('**/admin/settings', { timeout: 15000 });
+    // Read current state
+    const currentState = await page.locator('button[role="switch"]#showExhibitions').getAttribute('data-state');
+
+    // If unchecked, click to toggle on
+    if (currentState === 'unchecked') {
+      await page.locator('button[role="switch"]#showExhibitions').click();
+      await expect(page.locator('input[type="hidden"][name="showExhibitions"]')).toHaveValue('true');
+    }
+
+    // Submit and wait for the server action to complete
+    await Promise.all([
+      page.waitForResponse((resp) => resp.url().includes('/admin/settings') && resp.status() < 400),
+      page.locator('button[type="submit"]').click(),
+    ]);
+
+    // Wait for the page to fully settle
+    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(1000);
 
     // Verify exhibitions link visible on public site
-    await page.goto('/fr');
-    const header = page.locator('header');
-    await expect(header.getByText('Expositions')).toBeVisible();
+    await page.goto('/fr', { waitUntil: 'networkidle' });
+    await expect(page.locator('header').getByText('Expositions')).toBeVisible({ timeout: 10000 });
 
-    // Disable exhibitions
+    // Step 2: Disable exhibitions
     await page.goto('/admin/settings');
-    await page.evaluate(() => {
-      const input = document.querySelector('input[type="hidden"][name="showExhibitions"]') as HTMLInputElement;
-      if (input) input.value = 'false';
-    });
-    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
-    await page.waitForURL('**/admin/settings', { timeout: 15000 });
+    await expect(page.locator('h1')).toBeVisible();
 
-    // Verify exhibitions link hidden
-    await page.goto('/fr');
-    await expect(page.locator('header').getByText('Expositions')).not.toBeVisible();
+    const currentState2 = await page.locator('button[role="switch"]#showExhibitions').getAttribute('data-state');
+    if (currentState2 === 'checked') {
+      await page.locator('button[role="switch"]#showExhibitions').click();
+      await expect(page.locator('input[type="hidden"][name="showExhibitions"]')).toHaveValue('false');
+    }
+
+    await Promise.all([
+      page.waitForResponse((resp) => resp.url().includes('/admin/settings') && resp.status() < 400),
+      page.locator('button[type="submit"]').click(),
+    ]);
+
+    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(1000);
+
+    await page.goto('/fr', { waitUntil: 'networkidle' });
+    await expect(page.locator('header').getByText('Expositions')).not.toBeVisible({ timeout: 5000 });
   });
 });

@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
 import { optionalHttpsUrl, serializeTranslatable } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
+import { sanitizeTranslatable } from '@/lib/sanitize';
 
 const exhibitionSchema = z.object({
   title: translatableSchema,
@@ -55,7 +56,7 @@ export async function createExhibition(formData: FormData) {
 
   const raw = {
     title: extractTranslatable(formData, 'title'),
-    description: extractTranslatable(formData, 'description'),
+    description: sanitizeTranslatable(extractTranslatable(formData, 'description')),
     type: formData.get('type')?.toString() ?? 'EXHIBITION',
     status: formData.get('status')?.toString() ?? 'UPCOMING',
     startDate: startDateStr || null,
@@ -101,7 +102,7 @@ export async function updateExhibition(id: string, formData: FormData) {
 
   const raw = {
     title: extractTranslatable(formData, 'title'),
-    description: extractTranslatable(formData, 'description'),
+    description: sanitizeTranslatable(extractTranslatable(formData, 'description')),
     type: formData.get('type')?.toString() ?? 'EXHIBITION',
     status: formData.get('status')?.toString() ?? 'UPCOMING',
     startDate: startDateStr || null,

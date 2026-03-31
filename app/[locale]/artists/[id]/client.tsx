@@ -74,7 +74,7 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
           >
             <div className="md:col-span-1">
               <div className="aspect-[3/4] relative overflow-hidden">
-                <Image src={artist.image} alt={artist.name} fill priority className="object-cover" />
+                <Image src={artist.image} alt={artist.name} fill priority sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
               </div>
             </div>
             <div className="md:col-span-2">
@@ -116,6 +116,7 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
                     src={artwork.imageUrl}
                     alt={artwork.title}
                     fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/40 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">

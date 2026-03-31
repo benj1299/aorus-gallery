@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-
-const BASE_URL = 'https://aorus-gallery.vercel.app';
+import { OG_LOCALE, generateAlternates } from '@/lib/seo';
 
 interface Props {
   children: React.ReactNode;
@@ -14,19 +13,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('contactTitle'),
     description: t('contactDescription'),
-    alternates: {
-      languages: {
-        en: `${BASE_URL}/en/contact`,
-        fr: `${BASE_URL}/fr/contact`,
-        zh: `${BASE_URL}/zh/contact`,
-      },
-    },
+    alternates: generateAlternates(locale, '/contact'),
     openGraph: {
       title: t('contactTitle'),
       description: t('contactDescription'),
       type: 'website',
       siteName: 'ORUS Gallery',
+      locale: OG_LOCALE[locale],
+      images: [{ url: '/images/gallery/logo.jpeg', width: 800, height: 800, alt: 'ORUS Gallery' }],
     },
+    twitter: { card: 'summary_large_image' as const },
   };
 }
 

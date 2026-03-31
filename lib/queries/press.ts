@@ -6,6 +6,16 @@ export async function getPressArticles(locale: Locale = 'en') {
   const articles = await prisma.pressArticle.findMany({
     where: { visible: true },
     orderBy: { publishedAt: 'desc' },
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      publication: true,
+      publishedAt: true,
+      url: true,
+      imageUrl: true,
+      excerpt: true,
+    },
   });
   return articles.map((a) => ({
     ...a,

@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { getArtistsForFrontend } from '@/lib/queries/artists';
+import { getArtistsListForFrontend } from '@/lib/queries/artists';
 import { ArtistsPageClient } from './client';
 import type { Locale } from '@/i18n/routing';
-
-const BASE_URL = 'https://aorus-gallery.vercel.app';
+import { OG_LOCALE, generateAlternates } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,24 +17,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('artistsTitle'),
     description: t('artistsDescription'),
-    alternates: {
-      languages: {
-        en: `${BASE_URL}/en/artists`,
-        fr: `${BASE_URL}/fr/artists`,
-        zh: `${BASE_URL}/zh/artists`,
-      },
-    },
+    alternates: generateAlternates(locale, '/artists'),
     openGraph: {
       title: t('artistsTitle'),
       description: t('artistsDescription'),
       type: 'website',
       siteName: 'ORUS Gallery',
+      locale: OG_LOCALE[locale],
+      images: [{ url: '/images/gallery/logo.jpeg', width: 800, height: 800, alt: 'ORUS Gallery' }],
     },
+    twitter: { card: 'summary_large_image' as const },
   };
 }
 
 export default async function ArtistsPage({ params }: Props) {
   const { locale } = await params;
-  const artists = await getArtistsForFrontend(locale as Locale);
+  const artists = await getArtistsListForFrontend(locale as Locale);
   return <ArtistsPageClient artists={artists} />;
 }

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { getArtistBySlugForFrontend } from '@/lib/queries/artists';
 import { ArtistDetailClient } from './client';
 import type { Locale } from '@/i18n/routing';
-
-const BASE_URL = 'https://aorus-gallery.vercel.app';
+import { BASE_URL, OG_LOCALE, generateAlternates } from '@/lib/seo';
+import { stripHtml } from '@/lib/strip-html';
 
 interface Props {
   params: Promise<{ id: string; locale: string }>;
@@ -14,30 +15,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id, locale } = await params;
   const artist = await getArtistBySlugForFrontend(id, locale as Locale);
   if (!artist) return { title: 'Artist Not Found' };
-  const description = artist.bio ? artist.bio.slice(0, 160) : `${artist.name} at ORUS Gallery`;
+  const description = artist.bio ? stripHtml(artist.bio).slice(0, 160) : `${artist.name} at ORUS Gallery`;
   return {
     title: `${artist.name} | ORUS Gallery`,
     description,
-    alternates: {
-      languages: {
-        en: `${BASE_URL}/en/artists/${id}`,
-        fr: `${BASE_URL}/fr/artists/${id}`,
-        zh: `${BASE_URL}/zh/artists/${id}`,
-      },
-    },
+    alternates: generateAlternates(locale, `/artists/${id}`),
     openGraph: {
       title: `${artist.name} | ORUS Gallery`,
       description,
       type: 'website',
       siteName: 'ORUS Gallery',
-      ...(artist.image ? { images: [{ url: artist.image }] } : {}),
+      locale: OG_LOCALE[locale],
+      images: artist.image
+        ? [{ url: artist.image, alt: artist.name }]
+        : [{ url: '/images/gallery/logo.jpeg', width: 800, height: 800, alt: 'ORUS Gallery' }],
     },
+    twitter: { card: 'summary_large_image' as const },
   };
 }
 
 export default async function ArtistPage({ params }: Props) {
   const { id, locale } = await params;
   const artist = await getArtistBySlugForFrontend(id, locale as Locale);
+  const t = await getTranslations({ locale, namespace: 'nav' });
 
   if (!artist) notFound();
 
@@ -46,9 +46,19 @@ export default async function ArtistPage({ params }: Props) {
     '@type': 'Person',
     name: artist.name,
     nationality: artist.nationality,
-    description: artist.bio,
+    description: artist.bio ? stripHtml(artist.bio) : undefined,
     image: artist.image,
-    url: `https://aorus-gallery.vercel.app/${locale}/artists/${id}`,
+    url: `${BASE_URL}/${locale}/artists/${id}`,
+  };
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: t('artists'), item: `${BASE_URL}/${locale}/artists` },
+      { '@type': 'ListItem', position: 3, name: artist.name },
+    ],
   };
 
   return (
@@ -56,6 +66,10 @@ export default async function ArtistPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <ArtistDetailClient artist={artist} />
     </>

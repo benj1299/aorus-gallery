@@ -18,6 +18,8 @@ export async function updateSiteSettings(formData: FormData) {
   });
 
   revalidatePath('/admin/settings');
-  revalidatePath('/[locale]', 'layout');
+  revalidatePath('/en', 'layout');
+  revalidatePath('/fr', 'layout');
+  revalidatePath('/zh', 'layout');
   redirect('/admin/settings');
 }

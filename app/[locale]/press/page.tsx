@@ -3,8 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { getPressArticles } from '@/lib/queries/press';
 import { PressPageClient } from './client';
 import type { Locale } from '@/i18n/routing';
-
-const BASE_URL = 'https://aorus-gallery.vercel.app';
+import { OG_LOCALE, generateAlternates } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,19 +17,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('pressTitle'),
     description: t('pressDescription'),
-    alternates: {
-      languages: {
-        en: `${BASE_URL}/en/press`,
-        fr: `${BASE_URL}/fr/press`,
-        zh: `${BASE_URL}/zh/press`,
-      },
-    },
+    alternates: generateAlternates(locale, '/press'),
     openGraph: {
       title: t('pressTitle'),
       description: t('pressDescription'),
       type: 'website',
       siteName: 'ORUS Gallery',
+      locale: OG_LOCALE[locale],
+      images: [{ url: '/images/gallery/logo.jpeg', width: 800, height: 800, alt: 'ORUS Gallery' }],
     },
+    twitter: { card: 'summary_large_image' as const },
   };
 }
 

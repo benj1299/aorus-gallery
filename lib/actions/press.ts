@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
 import { optionalHttpsUrl, serializeTranslatable } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
+import { sanitizeTranslatable } from '@/lib/sanitize';
 
 const pressSchema = z.object({
   title: translatableSchema,
@@ -34,7 +35,7 @@ export async function createPressArticle(formData: FormData) {
     publishedAt: formData.get('publishedAt')?.toString() ?? '',
     url: formData.get('url')?.toString() ?? '',
     imageUrl: formData.get('imageUrl')?.toString() ?? '',
-    excerpt: extractTranslatable(formData, 'excerpt'),
+    excerpt: sanitizeTranslatable(extractTranslatable(formData, 'excerpt')),
     visible: formData.get('visible')?.toString() ?? 'false',
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
   };
@@ -64,7 +65,7 @@ export async function updatePressArticle(id: string, formData: FormData) {
     publishedAt: formData.get('publishedAt')?.toString() ?? '',
     url: formData.get('url')?.toString() ?? '',
     imageUrl: formData.get('imageUrl')?.toString() ?? '',
-    excerpt: extractTranslatable(formData, 'excerpt'),
+    excerpt: sanitizeTranslatable(extractTranslatable(formData, 'excerpt')),
     visible: formData.get('visible')?.toString() ?? 'false',
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
   };

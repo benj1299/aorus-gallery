@@ -32,6 +32,21 @@ export async function getAllArtistSlugs() {
   return artists.map((a) => a.slug);
 }
 
+/** Returns lightweight data for artist list/grid pages (no CV, no bio, no joins) */
+export async function getArtistsListForFrontend(locale: Locale = 'en') {
+  const artists = await prisma.artist.findMany({
+    where: { visible: true },
+    orderBy: { sortOrder: 'asc' },
+    select: { slug: true, name: true, nationality: true, imageUrl: true },
+  });
+  return artists.map((a) => ({
+    id: a.slug,
+    name: a.name,
+    nationality: resolveTranslation(a.nationality as TranslatableField, locale),
+    image: a.imageUrl,
+  }));
+}
+
 /** Returns data for the frontend with CV grouped by type */
 export async function getArtistsForFrontend(locale: Locale = 'en') {
   const artists = await getArtists();

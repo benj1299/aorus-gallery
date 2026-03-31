@@ -3,6 +3,8 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   experimental: {
@@ -29,7 +31,7 @@ const nextConfig: NextConfig = {
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://res.cloudinary.com https://*.supabase.co https://*.vercel-storage.com https://*.r2.dev https://r2.orusgallery.com; font-src 'self'; connect-src 'self'; frame-ancestors 'none'",
+            value: `default-src 'self'; script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://res.cloudinary.com https://*.supabase.co https://*.vercel-storage.com https://*.r2.dev https://r2.orusgallery.com; font-src 'self'; connect-src 'self'; frame-ancestors 'none'`,
           },
         ],
       },

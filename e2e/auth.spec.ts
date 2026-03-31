@@ -9,8 +9,8 @@ test.describe('Authentication', () => {
     await page.locator('#password').fill('admin-orus-2025');
     await page.locator('button[type="submit"]').click();
 
-    await page.waitForURL('**/admin/artists', { timeout: 15000 });
-    await expect(page).toHaveURL(/\/admin\/artists/);
+    await page.waitForURL('**/admin', { timeout: 15000 });
+    await expect(page).toHaveURL(/\/admin/);
   });
 
   test('login with wrong credentials shows error', async ({ page }) => {

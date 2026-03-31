@@ -2,6 +2,8 @@
 
 import { prisma } from '@/lib/db';
 import { z } from 'zod';
+import { headers } from 'next/headers';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 const contactSchema = z.object({
   status: z.string().min(1),
@@ -20,6 +22,12 @@ export async function submitContactForm(formData: {
   interestedIn?: string;
   preferredLanguage?: string;
 }) {
+  const headersList = await headers();
+  const ip = headersList.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+  if (!checkRateLimit(ip)) {
+    return { error: 'Trop de soumissions. Veuillez réessayer plus tard.' };
+  }
+
   const data = contactSchema.parse(formData);
 
   await prisma.contactSubmission.create({ data });

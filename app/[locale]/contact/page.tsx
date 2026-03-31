@@ -116,6 +116,7 @@ export default function ContactPage() {
                   src="/images/gallery/Image Contact .png"
                   alt="ORUS Gallery"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>

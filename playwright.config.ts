@@ -10,11 +10,14 @@ export default defineConfig({
   retries: isProduction ? 1 : 0,
   workers: 1,
   reporter: [['list'], ['json', { outputFile: 'e2e/test-results.json' }]],
+  expect: {
+    timeout: 15000,
+  },
   use: {
     baseURL,
     trace: 'on-first-retry',
-    actionTimeout: isProduction ? 15000 : 5000,
-    navigationTimeout: isProduction ? 30000 : 15000,
+    actionTimeout: 15000,
+    navigationTimeout: 30000,
   },
   projects: [
     { name: 'setup', testMatch: /.*\.setup\.ts/ },

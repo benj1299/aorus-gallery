@@ -5,7 +5,7 @@ test.describe('Artists CRUD', () => {
     await page.goto('/admin/artists');
     await expect(page.getByText('Matthieu Scheiffer')).toBeVisible();
     await expect(page.getByText('Owen Rival')).toBeVisible();
-    // Should have 9 artists in table
+    // Should have artists in table
     const rows = page.locator('tbody tr');
     const count = await rows.count();
     expect(count).toBeGreaterThanOrEqual(9);
@@ -17,8 +17,17 @@ test.describe('Artists CRUD', () => {
 
     await page.locator('input[name="name"]').fill('Test Artist');
     await page.locator('input[name="nationality.en"]').fill('Test Country');
-    await page.locator('textarea[name="bio.en"]').fill('This is a test artist bio for E2E testing.');
-    await page.locator('input[name="imageUrl"]').fill('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80');
+
+    // Bio is now a rich text editor (Tiptap)
+    const editor = page.locator('.ProseMirror').first();
+    await expect(editor).toBeVisible({ timeout: 10000 });
+    await editor.click();
+    await editor.pressSequentially('This is a test artist bio for E2E testing.');
+
+    // Set image via ImageUpload hidden input
+    await page.locator('input[type="hidden"][name="imageUrl"]').evaluate(
+      (el: HTMLInputElement) => { el.value = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80'; }
+    );
 
     await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 

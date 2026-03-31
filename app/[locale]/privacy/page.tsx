@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/PageHero';
+import { OG_LOCALE, generateAlternates } from '@/lib/seo';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -12,6 +13,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${t('privacyTitle')} | ORUS Gallery`,
     description: t('privacyIntro'),
+    alternates: generateAlternates(locale, '/privacy'),
+    openGraph: {
+      title: `${t('privacyTitle')} | ORUS Gallery`,
+      description: t('privacyIntro'),
+      type: 'website',
+      siteName: 'ORUS Gallery',
+      locale: OG_LOCALE[locale],
+      images: [{ url: '/images/gallery/logo.jpeg', width: 800, height: 800, alt: 'ORUS Gallery' }],
+    },
+    twitter: { card: 'summary_large_image' as const },
   };
 }
 

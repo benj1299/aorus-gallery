@@ -45,6 +45,7 @@ export function ArtistsPageClient({ artists }: { artists: Artist[] }) {
                       src={artist.image}
                       alt={artist.name}
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-noir/60 via-noir/30 to-transparent" />

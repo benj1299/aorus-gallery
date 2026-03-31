@@ -41,9 +41,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Fichier trop lourd (max 10 MB)' }, { status: 400 });
   }
 
+  const buffer = Buffer.from(await file.arrayBuffer());
+
+  // Validate real MIME type via magic bytes
+  const { fileTypeFromBuffer } = await import('file-type');
+  const detected = await fileTypeFromBuffer(buffer);
+  const allowedMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+  if (!detected || !allowedMimes.includes(detected.mime)) {
+    return NextResponse.json({ error: 'Format non supporté' }, { status: 400 });
+  }
+
   let webpBuffer: Buffer;
   try {
-    const buffer = Buffer.from(await file.arrayBuffer());
     webpBuffer = await sharp(buffer)
       .resize({ width: 2000, withoutEnlargement: true })
       .webp({ quality: 80 })

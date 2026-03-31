@@ -23,7 +23,11 @@ test.describe('Artworks CRUD', () => {
     await page.locator('input[name="dimensions"]').fill('100 x 80 cm');
     await page.locator('input[name="year"]').fill('2025');
     await page.locator('input[name="price"]').fill('5000');
-    await page.locator('input[name="imageUrl"]').fill('https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80');
+
+    // Set image via ImageUpload hidden input
+    await page.locator('input[type="hidden"][name="imageUrl"]').evaluate(
+      (el: HTMLInputElement) => { el.value = 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80'; }
+    );
 
     await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 

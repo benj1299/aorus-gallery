@@ -3,8 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { getGalleryExhibitions } from '@/lib/queries/exhibitions';
 import { ExhibitionsPageClient } from './client';
 import type { Locale } from '@/i18n/routing';
-
-const BASE_URL = 'https://aorus-gallery.vercel.app';
+import { BASE_URL, OG_LOCALE, generateAlternates } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,24 +17,56 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('exhibitionsTitle'),
     description: t('exhibitionsDescription'),
-    alternates: {
-      languages: {
-        en: `${BASE_URL}/en/exhibitions`,
-        fr: `${BASE_URL}/fr/exhibitions`,
-        zh: `${BASE_URL}/zh/exhibitions`,
-      },
-    },
+    alternates: generateAlternates(locale, '/exhibitions'),
     openGraph: {
       title: t('exhibitionsTitle'),
       description: t('exhibitionsDescription'),
       type: 'website',
       siteName: 'ORUS Gallery',
+      locale: OG_LOCALE[locale],
+      images: [{ url: '/images/gallery/logo.jpeg', width: 800, height: 800, alt: 'ORUS Gallery' }],
     },
+    twitter: { card: 'summary_large_image' as const },
   };
 }
 
 export default async function ExhibitionsPage({ params }: Props) {
   const { locale } = await params;
   const exhibitions = await getGalleryExhibitions(locale);
-  return <ExhibitionsPageClient exhibitions={exhibitions} locale={locale} />;
+
+  const upcomingExhibitions = exhibitions.filter(
+    (ex) => ex.status === 'CURRENT' || ex.status === 'UPCOMING'
+  );
+
+  const exhibitionEventsLd = upcomingExhibitions.map((ex) => ({
+    '@context': 'https://schema.org',
+    '@type': 'ExhibitionEvent',
+    name: ex.title,
+    description: ex.description ?? undefined,
+    startDate: ex.startDate ?? undefined,
+    endDate: ex.endDate ?? undefined,
+    location: ex.location
+      ? { '@type': 'Place', name: ex.location }
+      : undefined,
+    image: ex.imageUrl ?? undefined,
+    url: `${BASE_URL}/${locale}/exhibitions`,
+    organizer: {
+      '@type': 'Organization',
+      name: 'ORUS Gallery',
+      url: BASE_URL,
+    },
+  }));
+
+  return (
+    <>
+      {exhibitionEventsLd.map((ld, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
+      <ExhibitionsPageClient exhibitions={exhibitions} locale={locale} />
+    </>
+  );
 }

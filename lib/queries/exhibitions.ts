@@ -8,7 +8,6 @@ export async function getGalleryExhibitions(locale: Locale = 'en') {
     orderBy: [{ sortOrder: 'asc' }, { startDate: 'desc' }],
     include: {
       artists: { include: { artist: { select: { name: true, slug: true } } } },
-      artworks: { include: { artwork: { select: { title: true, slug: true, imageUrl: true } } } },
     },
   });
   return exhibitions.map((ex) => ({
