@@ -4,11 +4,12 @@ import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+// DropdownMenu removed — using direct icon buttons instead
 import { AdminSearchInput } from './admin-search';
 import { AdminBreadcrumb } from './admin-breadcrumb';
 import { DeleteButton } from './delete-button';
-import { Plus, MoreHorizontal, Pencil, ArrowUpDown } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Plus, Pencil, Trash2, ArrowUpDown, Eye, EyeOff } from 'lucide-react';
 
 interface Column<T> {
   key: string;
@@ -155,30 +156,26 @@ export function AdminTable<T extends Record<string, unknown>>({
                   <TableCell key={col.key}>{col.render(item)}</TableCell>
                 ))}
                 <TableCell className="text-right">
-                  <div className="flex items-center justify-end gap-1">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <MoreHorizontal className="h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuItem asChild>
-                          <Link href={editHref(item)} className="flex items-center gap-2">
-                            <Pencil className="h-3.5 w-3.5" />
-                            Modifier
-                          </Link>
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                    {deleteAction && (
-                      <DeleteButton
-                        id={getId(item)}
-                        action={deleteAction}
-                        label="Supprimer"
-                      />
-                    )}
-                  </div>
+                  <TooltipProvider delayDuration={300}>
+                    <div className="flex items-center justify-end gap-1">
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
+                            <Link href={editHref(item)}>
+                              <Pencil className="h-4 w-4" />
+                            </Link>
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>Modifier</TooltipContent>
+                      </Tooltip>
+                      {deleteAction && (
+                        <DeleteButton
+                          id={getId(item)}
+                          action={deleteAction}
+                        />
+                      )}
+                    </div>
+                  </TooltipProvider>
                 </TableCell>
               </TableRow>
             ))}
@@ -193,11 +190,11 @@ export function AdminTable<T extends Record<string, unknown>>({
         </Table>
       </div>
 
-      {sorted.length > itemsPerPage && (
-        <div className="flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">
-            {sorted.length} résultat{sorted.length !== 1 ? 's' : ''}
-          </p>
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-muted-foreground">
+          {sorted.length} résultat{sorted.length !== 1 ? 's' : ''}
+        </p>
+        {totalPages > 1 && (
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
@@ -219,8 +216,8 @@ export function AdminTable<T extends Record<string, unknown>>({
               Suivant
             </Button>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
