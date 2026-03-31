@@ -50,4 +50,37 @@ test.describe('Admin Settings', () => {
     await page.goto('/fr', { waitUntil: 'networkidle' });
     await expect(page.locator('header').getByText('Expositions')).not.toBeVisible({ timeout: 5000 });
   });
+
+  test('toggle banner visibility', async ({ page }) => {
+    // First ensure a banner exists and showBanner is enabled
+    await page.goto('/admin/settings');
+    await expect(page.locator('h1')).toBeVisible();
+
+    const bannerSwitch = page.locator('button[role="switch"]#showBanner');
+    const bannerState = await bannerSwitch.getAttribute('data-state');
+    if (bannerState === 'unchecked') {
+      await bannerSwitch.click();
+      await expect(page.locator('input[type="hidden"][name="showBanner"]')).toHaveValue('true');
+    }
+
+    await Promise.all([
+      page.waitForResponse(resp => resp.url().includes('/admin/settings') && resp.status() < 400),
+      page.locator('button[type="submit"]').click(),
+    ]);
+    await page.waitForLoadState('networkidle');
+
+    // Disable showBanner
+    await page.goto('/admin/settings');
+    const bannerSwitch2 = page.locator('button[role="switch"]#showBanner');
+    const state2 = await bannerSwitch2.getAttribute('data-state');
+    if (state2 === 'checked') {
+      await bannerSwitch2.click();
+      await expect(page.locator('input[type="hidden"][name="showBanner"]')).toHaveValue('false');
+    }
+
+    await Promise.all([
+      page.waitForResponse(resp => resp.url().includes('/admin/settings') && resp.status() < 400),
+      page.locator('button[type="submit"]').click(),
+    ]);
+  });
 });

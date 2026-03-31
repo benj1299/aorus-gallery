@@ -37,4 +37,33 @@ test.describe('Contact Form', () => {
     await expect(page.getByText(uniqueName)).toBeVisible({ timeout: 5000 });
     await expect(page.getByText(uniqueEmail)).toBeVisible();
   });
+
+  test('XSS in contact form is safely escaped in admin', async ({ page }) => {
+    const ts = Date.now();
+    const xssName = `XSS${ts}`;
+    const xssMessage = `Hello <script>window.xssTriggered=true</script> world ${ts}`;
+
+    // Submit contact form with XSS payload in the message field
+    await page.goto('/fr/contact');
+    await expect(page.locator('h1')).toBeVisible({ timeout: 10000 });
+    await page.locator('#status-collector').click();
+    await page.locator('#name').fill(xssName);
+    await page.locator('#email').fill(`xss-${ts}@test.com`);
+    await page.locator('#message').fill(xssMessage);
+    await page.locator('#rgpd').check();
+    await page.getByRole('button', { name: /Envoyer/i }).click();
+    await expect(page.getByText('Merci')).toBeVisible({ timeout: 10000 });
+
+    // Navigate to admin messages detail page
+    await page.goto('/admin/messages');
+    await expect(page.getByText(xssName)).toBeVisible({ timeout: 10000 });
+
+    const row = page.locator('tbody tr', { hasText: xssName });
+    await row.locator('a[title*="Voir"]').click();
+    await expect(page.locator('h1')).toBeVisible({ timeout: 10000 });
+
+    // Verify no XSS executed — the script tag should be rendered as safe text
+    const xssTriggered = await page.evaluate(() => (window as any).xssTriggered);
+    expect(xssTriggered).toBeFalsy();
+  });
 });

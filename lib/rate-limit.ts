@@ -1,6 +1,8 @@
 const store = new Map<string, number[]>();
 
-export function checkRateLimit(ip: string, maxRequests = 5, windowMs = 10 * 60 * 1000): boolean {
+const DEFAULT_MAX = process.env.NODE_ENV === 'production' ? 5 : 50;
+
+export function checkRateLimit(ip: string, maxRequests = DEFAULT_MAX, windowMs = 10 * 60 * 1000): boolean {
   const now = Date.now();
   const timestamps = store.get(ip)?.filter(t => now - t < windowMs) ?? [];
   if (timestamps.length >= maxRequests) return false;
