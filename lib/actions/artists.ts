@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { requireAuth } from '@/lib/auth-utils';
 import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
@@ -20,10 +20,6 @@ const artistSchema = z.object({
 });
 
 const CV_TYPES = ['SOLO_SHOW', 'GROUP_SHOW', 'ART_FAIR', 'RESIDENCY', 'AWARD'] as const;
-
-function revalidateAll() {
-  revalidateEntity('/admin/artists', ['/artists', '']);
-}
 
 function extractCVEntries(formData: FormData): { title: TranslatableField; type: string; sortOrder: number }[] {
   const allEntries: { title: TranslatableField; type: string; sortOrder: number }[] = [];
@@ -53,7 +49,7 @@ export async function createArtist(formData: FormData) {
   const cvEntries = extractCVEntries(formData);
   const collections = extractTranslatableArray(formData, 'collections');
 
-  await prisma.artist.create({
+  await db.artist.create({
     data: {
       ...data,
       slug,
@@ -70,7 +66,7 @@ export async function createArtist(formData: FormData) {
     },
   });
 
-  revalidateAll();
+  revalidateEntity('/admin/artists', ['/artists', '']);
   redirect('/admin/artists');
 }
 
@@ -90,10 +86,10 @@ export async function updateArtist(id: string, formData: FormData) {
   const cvEntries = extractCVEntries(formData);
   const collections = extractTranslatableArray(formData, 'collections');
 
-  await prisma.$transaction([
-    prisma.exhibition.deleteMany({ where: { artistId: id } }),
-    prisma.collection.deleteMany({ where: { artistId: id } }),
-    prisma.artist.update({
+  await db.$transaction([
+    db.exhibition.deleteMany({ where: { artistId: id } }),
+    db.collection.deleteMany({ where: { artistId: id } }),
+    db.artist.update({
       where: { id },
       data: {
         ...data,
@@ -111,12 +107,12 @@ export async function updateArtist(id: string, formData: FormData) {
     }),
   ]);
 
-  revalidateAll();
+  revalidateEntity('/admin/artists', ['/artists', '']);
   redirect('/admin/artists');
 }
 
 export async function deleteArtist(id: string) {
   await requireAuth();
-  await prisma.artist.delete({ where: { id } });
-  revalidateAll();
+  await db.artist.delete({ where: { id } });
+  revalidateEntity('/admin/artists', ['/artists', '']);
 }

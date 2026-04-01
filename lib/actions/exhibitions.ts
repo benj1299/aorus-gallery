@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { requireAuth } from '@/lib/auth-utils';
 import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
@@ -22,10 +22,6 @@ const exhibitionSchema = z.object({
   visible: z.coerce.boolean().default(true),
   sortOrder: z.coerce.number().int().default(0),
 });
-
-function revalidateAll() {
-  revalidateEntity('/admin/exhibitions', ['/exhibitions']);
-}
 
 function parseArtistIds(formData: FormData): string[] {
   const ids: string[] = [];
@@ -71,7 +67,7 @@ export async function createExhibition(formData: FormData) {
   const artistIds = parseArtistIds(formData);
   const artworkIds = parseArtworkIds(formData);
 
-  await prisma.galleryExhibition.create({
+  await db.galleryExhibition.create({
     data: {
       title: data.title,
       description: serializeTranslatable(data.description),
@@ -89,7 +85,7 @@ export async function createExhibition(formData: FormData) {
     },
   });
 
-  revalidateAll();
+  revalidateEntity('/admin/exhibitions', ['/exhibitions']);
   redirect('/admin/exhibitions');
 }
 
@@ -116,10 +112,10 @@ export async function updateExhibition(id: string, formData: FormData) {
   const artistIds = parseArtistIds(formData);
   const artworkIds = parseArtworkIds(formData);
 
-  await prisma.$transaction([
-    prisma.galleryExhibitionArtist.deleteMany({ where: { exhibitionId: id } }),
-    prisma.galleryExhibitionArtwork.deleteMany({ where: { exhibitionId: id } }),
-    prisma.galleryExhibition.update({
+  await db.$transaction([
+    db.galleryExhibitionArtist.deleteMany({ where: { exhibitionId: id } }),
+    db.galleryExhibitionArtwork.deleteMany({ where: { exhibitionId: id } }),
+    db.galleryExhibition.update({
       where: { id },
       data: {
         title: data.title,
@@ -138,12 +134,12 @@ export async function updateExhibition(id: string, formData: FormData) {
     }),
   ]);
 
-  revalidateAll();
+  revalidateEntity('/admin/exhibitions', ['/exhibitions']);
   redirect('/admin/exhibitions');
 }
 
 export async function deleteExhibition(id: string) {
   await requireAuth();
-  await prisma.galleryExhibition.delete({ where: { id } });
-  revalidateAll();
+  await db.galleryExhibition.delete({ where: { id } });
+  revalidateEntity('/admin/exhibitions', ['/exhibitions']);
 }

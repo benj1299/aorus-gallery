@@ -3,7 +3,6 @@ import { getBannerAdmin } from '@/lib/queries/banner';
 import { upsertBanner } from '@/lib/actions/banner';
 import { BannerForm } from '@/components/admin/banner-form';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import type { TranslatableField } from '@/lib/i18n-content';
 
 export default async function AdminBannerPage() {
   const banner = await getBannerAdmin();
@@ -30,8 +29,8 @@ export default async function AdminBannerPage() {
       <BannerForm
         action={upsertBanner}
         defaultValues={banner ? {
-          title: banner.title as TranslatableField,
-          subtitle: banner.subtitle as TranslatableField | null,
+          title: banner.title,
+          subtitle: banner.subtitle,
           imageUrl: banner.imageUrl,
           linkUrl: banner.linkUrl,
           visible: banner.visible,

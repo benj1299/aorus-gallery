@@ -1,6 +1,6 @@
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { notFound } from 'next/navigation';
-import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
+import { resolveTranslation } from '@/lib/i18n-content';
 import { ExhibitionViewClient } from './client';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 
 export default async function ExhibitionViewPage({ params }: Props) {
   const { id } = await params;
-  const exhibition = await prisma.galleryExhibition.findUnique({
+  const exhibition = await db.galleryExhibition.findUnique({
     where: { id },
     include: {
       artists: {
@@ -53,9 +53,9 @@ export default async function ExhibitionViewPage({ params }: Props) {
   }
 
   const data = {
-    title: resolveTranslation(exhibition.title as TranslatableField, 'fr'),
+    title: resolveTranslation(exhibition.title, 'fr'),
     description: exhibition.description
-      ? resolveTranslation(exhibition.description as TranslatableField, 'fr')
+      ? resolveTranslation(exhibition.description, 'fr')
       : null,
     type: typeLabel(exhibition.type),
     status: statusLabel(exhibition.status),
@@ -67,13 +67,13 @@ export default async function ExhibitionViewPage({ params }: Props) {
       name: a.artist.name,
       slug: a.artist.slug,
       imageUrl: a.artist.imageUrl,
-      nationality: resolveTranslation(a.artist.nationality as TranslatableField, 'fr'),
-      bio: resolveTranslation(a.artist.bio as TranslatableField, 'fr'),
+      nationality: resolveTranslation(a.artist.nationality, 'fr'),
+      bio: resolveTranslation(a.artist.bio, 'fr'),
     })),
     artworks: exhibition.artworks.map((aw) => ({
-      title: resolveTranslation(aw.artwork.title as TranslatableField, 'fr'),
+      title: resolveTranslation(aw.artwork.title, 'fr'),
       imageUrl: aw.artwork.imageUrl,
-      medium: aw.artwork.medium ? resolveTranslation(aw.artwork.medium as TranslatableField, 'fr') : null,
+      medium: aw.artwork.medium ? resolveTranslation(aw.artwork.medium, 'fr') : null,
       dimensions: aw.artwork.dimensions,
       year: aw.artwork.year,
       artistName: aw.artwork.artist.name,

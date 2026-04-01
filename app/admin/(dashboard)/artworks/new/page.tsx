@@ -1,10 +1,10 @@
 import { createArtwork } from '@/lib/actions/artworks';
 import { ArtworkForm } from '@/components/admin/artwork-form';
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
 
 export default async function NewArtworkPage() {
-  const artists = await prisma.artist.findMany({
+  const artists = await db.artist.findMany({
     orderBy: { name: 'asc' },
     select: { id: true, name: true },
   });

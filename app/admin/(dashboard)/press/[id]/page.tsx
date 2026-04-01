@@ -3,7 +3,6 @@ import { getPressArticleById } from '@/lib/queries/press';
 import { updatePressArticle } from '@/lib/actions/press';
 import { PressForm } from '@/components/admin/press-form';
 import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
-import type { TranslatableField } from '@/lib/i18n-content';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -16,7 +15,7 @@ export default async function EditPressPage({ params }: Props) {
   if (!article) notFound();
 
   const updateWithId = updatePressArticle.bind(null, article.id);
-  const title = (article.title as TranslatableField).fr || (article.title as TranslatableField).en || 'Article';
+  const title = article.title.fr || article.title.en || 'Article';
 
   return (
     <div className="space-y-6">
@@ -30,12 +29,12 @@ export default async function EditPressPage({ params }: Props) {
       <PressForm
         action={updateWithId}
         defaultValues={{
-          title: article.title as TranslatableField,
+          title: article.title,
           publication: article.publication,
           publishedAt: article.publishedAt.toISOString().split('T')[0],
           url: article.url ?? '',
           imageUrl: article.imageUrl ?? '',
-          excerpt: (article.excerpt as TranslatableField | null) ?? undefined,
+          excerpt: article.excerpt ?? undefined,
           sortOrder: article.sortOrder,
           visible: article.visible,
         }}

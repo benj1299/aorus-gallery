@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { requireAuth } from '@/lib/auth-utils';
 import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
@@ -21,10 +21,6 @@ const pressSchema = z.object({
   sortOrder: z.coerce.number().int().default(0),
 });
 
-function revalidateAll() {
-  revalidateEntity('/admin/press', ['/press']);
-}
-
 export async function createPressArticle(formData: FormData) {
   await requireAuth();
 
@@ -41,7 +37,7 @@ export async function createPressArticle(formData: FormData) {
   const data = pressSchema.parse(raw);
   const slug = slugify(data.title.en);
 
-  await prisma.pressArticle.create({
+  await db.pressArticle.create({
     data: {
       ...data,
       slug,
@@ -51,7 +47,7 @@ export async function createPressArticle(formData: FormData) {
     },
   });
 
-  revalidateAll();
+  revalidateEntity('/admin/press', ['/press']);
   redirect('/admin/press');
 }
 
@@ -70,7 +66,7 @@ export async function updatePressArticle(id: string, formData: FormData) {
   };
   const data = pressSchema.parse(raw);
 
-  await prisma.pressArticle.update({
+  await db.pressArticle.update({
     where: { id },
     data: {
       ...data,
@@ -80,12 +76,12 @@ export async function updatePressArticle(id: string, formData: FormData) {
     },
   });
 
-  revalidateAll();
+  revalidateEntity('/admin/press', ['/press']);
   redirect('/admin/press');
 }
 
 export async function deletePressArticle(id: string) {
   await requireAuth();
-  await prisma.pressArticle.delete({ where: { id } });
-  revalidateAll();
+  await db.pressArticle.delete({ where: { id } });
+  revalidateEntity('/admin/press', ['/press']);
 }

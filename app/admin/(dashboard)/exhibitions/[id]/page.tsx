@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { updateExhibition } from '@/lib/actions/exhibitions';
 import { ExhibitionForm } from '@/components/admin/exhibition-form';
-import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
+import { resolveTranslation } from '@/lib/i18n-content';
 import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
 
 interface Props {
@@ -13,15 +13,15 @@ export default async function EditExhibitionPage({ params }: Props) {
   const { id } = await params;
 
   const [exhibition, artists, artworks] = await Promise.all([
-    prisma.galleryExhibition.findUnique({
+    db.galleryExhibition.findUnique({
       where: { id },
       include: {
         artists: { select: { artistId: true } },
         artworks: { select: { artworkId: true } },
       },
     }),
-    prisma.artist.findMany({ orderBy: { name: 'asc' }, select: { id: true, name: true } }),
-    prisma.artwork.findMany({
+    db.artist.findMany({ orderBy: { name: 'asc' }, select: { id: true, name: true } }),
+    db.artwork.findMany({
       orderBy: { sortOrder: 'asc' },
       select: { id: true, title: true },
     }),
@@ -33,10 +33,10 @@ export default async function EditExhibitionPage({ params }: Props) {
 
   const artworkOptions = artworks.map((aw) => ({
     id: aw.id,
-    title: resolveTranslation(aw.title as TranslatableField, 'fr'),
+    title: resolveTranslation(aw.title, 'fr'),
   }));
 
-  const exhibitionTitle = resolveTranslation(exhibition.title as TranslatableField, 'fr') || 'Exposition';
+  const exhibitionTitle = resolveTranslation(exhibition.title, 'fr') || 'Exposition';
 
   return (
     <div className="space-y-6">
@@ -52,8 +52,8 @@ export default async function EditExhibitionPage({ params }: Props) {
         artists={artists}
         artworks={artworkOptions}
         defaultValues={{
-          title: exhibition.title as TranslatableField,
-          description: (exhibition.description as TranslatableField | null) ?? undefined,
+          title: exhibition.title,
+          description: exhibition.description ?? undefined,
           type: exhibition.type,
           status: exhibition.status,
           startDate: exhibition.startDate ? exhibition.startDate.toISOString().split('T')[0] : undefined,

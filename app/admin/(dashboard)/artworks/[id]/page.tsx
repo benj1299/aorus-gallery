@@ -1,9 +1,8 @@
 import { notFound } from 'next/navigation';
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { updateArtwork } from '@/lib/actions/artworks';
 import { ArtworkForm } from '@/components/admin/artwork-form';
 import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
-import type { TranslatableField } from '@/lib/i18n-content';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -13,14 +12,14 @@ export default async function EditArtworkPage({ params }: Props) {
   const { id } = await params;
 
   const [artwork, artists] = await Promise.all([
-    prisma.artwork.findUnique({ where: { id } }),
-    prisma.artist.findMany({ orderBy: { name: 'asc' }, select: { id: true, name: true } }),
+    db.artwork.findUnique({ where: { id } }),
+    db.artist.findMany({ orderBy: { name: 'asc' }, select: { id: true, name: true } }),
   ]);
 
   if (!artwork) notFound();
 
   const updateWithId = updateArtwork.bind(null, artwork.id);
-  const title = (artwork.title as TranslatableField).fr || (artwork.title as TranslatableField).en || 'Œuvre';
+  const title = artwork.title.fr || artwork.title.en || 'Œuvre';
 
   return (
     <div className="space-y-6">
@@ -35,9 +34,9 @@ export default async function EditArtworkPage({ params }: Props) {
         action={updateWithId}
         artists={artists}
         defaultValues={{
-          title: artwork.title as TranslatableField,
+          title: artwork.title,
           artistId: artwork.artistId,
-          medium: (artwork.medium as TranslatableField | null) ?? undefined,
+          medium: artwork.medium ?? undefined,
           dimensions: artwork.dimensions ?? '',
           year: artwork.year,
           price: artwork.price ? Number(artwork.price) : null,

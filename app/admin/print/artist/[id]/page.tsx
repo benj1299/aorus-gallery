@@ -1,6 +1,6 @@
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { notFound } from 'next/navigation';
-import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
+import { resolveTranslation } from '@/lib/i18n-content';
 import { ArtistViewClient } from '@/app/admin/(dashboard)/artists/[id]/view/client';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 
 export default async function ArtistPrintPage({ params }: Props) {
   const { id } = await params;
-  const artist = await prisma.artist.findUnique({
+  const artist = await db.artist.findUnique({
     where: { id },
     include: {
       exhibitions: { orderBy: { sortOrder: 'asc' } },
@@ -22,20 +22,20 @@ export default async function ArtistPrintPage({ params }: Props) {
   const data = {
     name: artist.name,
     slug: artist.slug,
-    nationality: resolveTranslation(artist.nationality as TranslatableField, 'fr'),
-    bio: resolveTranslation(artist.bio as TranslatableField, 'fr'),
+    nationality: resolveTranslation(artist.nationality, 'fr'),
+    bio: resolveTranslation(artist.bio, 'fr'),
     imageUrl: artist.imageUrl,
     cv: {
-      soloShows: artist.exhibitions.filter(e => e.type === 'SOLO_SHOW').map(e => resolveTranslation(e.title as TranslatableField, 'fr')),
-      groupShows: artist.exhibitions.filter(e => e.type === 'GROUP_SHOW').map(e => resolveTranslation(e.title as TranslatableField, 'fr')),
-      artFairs: artist.exhibitions.filter(e => e.type === 'ART_FAIR').map(e => resolveTranslation(e.title as TranslatableField, 'fr')),
-      residencies: artist.exhibitions.filter(e => e.type === 'RESIDENCY').map(e => resolveTranslation(e.title as TranslatableField, 'fr')),
-      awards: artist.exhibitions.filter(e => e.type === 'AWARD').map(e => resolveTranslation(e.title as TranslatableField, 'fr')),
+      soloShows: artist.exhibitions.filter(e => e.type === 'SOLO_SHOW').map(e => resolveTranslation(e.title, 'fr')),
+      groupShows: artist.exhibitions.filter(e => e.type === 'GROUP_SHOW').map(e => resolveTranslation(e.title, 'fr')),
+      artFairs: artist.exhibitions.filter(e => e.type === 'ART_FAIR').map(e => resolveTranslation(e.title, 'fr')),
+      residencies: artist.exhibitions.filter(e => e.type === 'RESIDENCY').map(e => resolveTranslation(e.title, 'fr')),
+      awards: artist.exhibitions.filter(e => e.type === 'AWARD').map(e => resolveTranslation(e.title, 'fr')),
     },
-    collections: artist.collections.map(c => resolveTranslation(c.title as TranslatableField, 'fr')),
+    collections: artist.collections.map(c => resolveTranslation(c.title, 'fr')),
     artworks: artist.artworks.map(aw => ({
-      title: resolveTranslation(aw.title as TranslatableField, 'fr'),
-      medium: aw.medium ? resolveTranslation(aw.medium as TranslatableField, 'fr') : null,
+      title: resolveTranslation(aw.title, 'fr'),
+      medium: aw.medium ? resolveTranslation(aw.medium, 'fr') : null,
       dimensions: aw.dimensions,
       year: aw.year,
       imageUrl: aw.imageUrl,

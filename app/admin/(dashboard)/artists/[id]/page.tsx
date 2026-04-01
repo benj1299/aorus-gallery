@@ -1,9 +1,8 @@
 import { notFound } from 'next/navigation';
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { updateArtist } from '@/lib/actions/artists';
 import { ArtistForm } from '@/components/admin/artist-form';
 import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
-import type { TranslatableField } from '@/lib/i18n-content';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -12,7 +11,7 @@ interface Props {
 export default async function EditArtistPage({ params }: Props) {
   const { id } = await params;
 
-  const artist = await prisma.artist.findUnique({
+  const artist = await db.artist.findUnique({
     where: { id },
     include: {
       exhibitions: { orderBy: { sortOrder: 'asc' } },
@@ -37,16 +36,16 @@ export default async function EditArtistPage({ params }: Props) {
         action={updateWithId}
         defaultValues={{
           name: artist.name,
-          nationality: artist.nationality as TranslatableField,
-          bio: artist.bio as TranslatableField,
+          nationality: artist.nationality,
+          bio: artist.bio,
           imageUrl: artist.imageUrl,
           sortOrder: artist.sortOrder,
           visible: artist.visible,
           cvEntries: artist.exhibitions.map((e) => ({
             type: e.type,
-            title: e.title as TranslatableField,
+            title: e.title,
           })),
-          collections: artist.collections.map((c) => c.title as TranslatableField),
+          collections: artist.collections.map((c) => c.title),
         }}
       />
     </div>

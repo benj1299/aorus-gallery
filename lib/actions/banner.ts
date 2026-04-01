@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { requireAuth } from '@/lib/auth-utils';
 import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
@@ -29,14 +29,14 @@ export async function upsertBanner(formData: FormData) {
   };
   const data = bannerSchema.parse(raw);
 
-  const existing = await prisma.homeBanner.findFirst();
+  const existing = await db.homeBanner.findFirst();
   if (existing) {
-    await prisma.homeBanner.update({
+    await db.homeBanner.update({
       where: { id: existing.id },
       data: { ...data, subtitle: serializeTranslatable(data.subtitle), linkUrl: data.linkUrl || null },
     });
   } else {
-    await prisma.homeBanner.create({
+    await db.homeBanner.create({
       data: { ...data, subtitle: serializeTranslatable(data.subtitle), linkUrl: data.linkUrl || null },
     });
   }

@@ -1,13 +1,13 @@
 import { createExhibition } from '@/lib/actions/exhibitions';
 import { ExhibitionForm } from '@/components/admin/exhibition-form';
-import { prisma } from '@/lib/db';
-import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
+import { db } from '@/lib/db-typed';
+import { resolveTranslation } from '@/lib/i18n-content';
 import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
 
 export default async function NewExhibitionPage() {
   const [artists, artworks] = await Promise.all([
-    prisma.artist.findMany({ orderBy: { name: 'asc' }, select: { id: true, name: true } }),
-    prisma.artwork.findMany({
+    db.artist.findMany({ orderBy: { name: 'asc' }, select: { id: true, name: true } }),
+    db.artwork.findMany({
       orderBy: { sortOrder: 'asc' },
       select: { id: true, title: true },
     }),
@@ -15,7 +15,7 @@ export default async function NewExhibitionPage() {
 
   const artworkOptions = artworks.map((aw) => ({
     id: aw.id,
-    title: resolveTranslation(aw.title as TranslatableField, 'fr'),
+    title: resolveTranslation(aw.title, 'fr'),
   }));
 
   return (

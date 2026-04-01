@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { requireAuth } from '@/lib/auth-utils';
 import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
@@ -25,10 +25,6 @@ const artworkSchema = z.object({
   sold: z.coerce.boolean().default(false),
 });
 
-function revalidateAll() {
-  revalidateEntity('/admin/artworks', ['/artists', '']);
-}
-
 export async function createArtwork(formData: FormData) {
   await requireAuth();
 
@@ -49,11 +45,11 @@ export async function createArtwork(formData: FormData) {
   };
   const data = artworkSchema.parse(raw);
 
-  const artist = await prisma.artist.findUnique({ where: { id: data.artistId }, select: { slug: true } });
+  const artist = await db.artist.findUnique({ where: { id: data.artistId }, select: { slug: true } });
   const artistSlug = artist?.slug ?? 'unknown';
   const slug = slugify(artistSlug + '-' + data.title.en);
 
-  await prisma.artwork.create({
+  await db.artwork.create({
     data: {
       ...data,
       slug,
@@ -64,7 +60,7 @@ export async function createArtwork(formData: FormData) {
     },
   });
 
-  revalidateAll();
+  revalidateEntity('/admin/artworks', ['/artists', '']);
   redirect('/admin/artworks');
 }
 
@@ -88,7 +84,7 @@ export async function updateArtwork(id: string, formData: FormData) {
   };
   const data = artworkSchema.parse(raw);
 
-  await prisma.artwork.update({
+  await db.artwork.update({
     where: { id },
     data: {
       ...data,
@@ -99,12 +95,12 @@ export async function updateArtwork(id: string, formData: FormData) {
     },
   });
 
-  revalidateAll();
+  revalidateEntity('/admin/artworks', ['/artists', '']);
   redirect('/admin/artworks');
 }
 
 export async function deleteArtwork(id: string) {
   await requireAuth();
-  await prisma.artwork.delete({ where: { id } });
-  revalidateAll();
+  await db.artwork.delete({ where: { id } });
+  revalidateEntity('/admin/artworks', ['/artists', '']);
 }
