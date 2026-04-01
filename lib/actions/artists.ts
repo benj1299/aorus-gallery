@@ -22,12 +22,19 @@ const artistSchema = z.object({
 
 const CV_TYPES = ['SOLO_SHOW', 'GROUP_SHOW', 'ART_FAIR', 'RESIDENCY', 'AWARD'] as const;
 
-function extractCVEntries(formData: FormData): { title: TranslatableField; type: string; sortOrder: number }[] {
-  const allEntries: { title: TranslatableField; type: string; sortOrder: number }[] = [];
+function extractCVEntries(formData: FormData): { title: TranslatableField; type: string; sortOrder: number; year?: number }[] {
+  const allEntries: { title: TranslatableField; type: string; sortOrder: number; year?: number }[] = [];
   for (const cvType of CV_TYPES) {
     const entries = extractTranslatableArray(formData, `cv.${cvType}`);
-    entries.forEach((title) => {
-      allEntries.push({ title, type: cvType, sortOrder: allEntries.length });
+    entries.forEach((title, i) => {
+      const yearStr = formData.get(`cv.${cvType}.${i}.year`)?.toString();
+      const year = yearStr ? parseInt(yearStr, 10) : undefined;
+      allEntries.push({
+        title,
+        type: cvType,
+        sortOrder: allEntries.length,
+        year: year && !isNaN(year) ? year : undefined,
+      });
     });
   }
   return allEntries;
@@ -61,6 +68,7 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
           title: entry.title,
           type: entry.type as 'SOLO_SHOW' | 'GROUP_SHOW' | 'ART_FAIR' | 'RESIDENCY' | 'AWARD',
           sortOrder: entry.sortOrder,
+          year: entry.year ?? null,
         })),
       },
       collections: {

@@ -44,6 +44,7 @@ export default async function EditArtistPage({ params }: Props) {
           cvEntries: artist.exhibitions.map((e) => ({
             type: e.type,
             title: e.title,
+            year: e.year,
           })),
           collections: artist.collections.map((c) => c.title),
         }}

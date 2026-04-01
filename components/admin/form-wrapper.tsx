@@ -1,6 +1,5 @@
 'use client';
 
-import { useActionState, useEffect } from 'react';
 import { toast } from 'sonner';
 
 interface AdminFormProps {
@@ -10,20 +9,15 @@ interface AdminFormProps {
 }
 
 export function AdminForm({ action, children, className }: AdminFormProps) {
-  const [state, formAction] = useActionState(
-    async (_prev: { error: string } | null, formData: FormData) => {
+  async function handleSubmit(formData: FormData) {
+    try {
       const result = await action(formData);
-      if (result && 'error' in result) return result;
-      return null;
-    },
-    null
-  );
-
-  useEffect(() => {
-    if (state?.error) {
-      toast.error(state.error);
+      if (result?.error) toast.error(result.error);
+    } catch (e) {
+      // NEXT_REDIRECT throws here — re-throw to let Next.js handle redirect
+      throw e;
     }
-  }, [state]);
+  }
 
-  return <form action={formAction} className={className} noValidate>{children}</form>;
+  return <form action={handleSubmit} className={className} noValidate>{children}</form>;
 }

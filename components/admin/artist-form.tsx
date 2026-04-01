@@ -15,6 +15,7 @@ import { AdminForm } from './form-wrapper';
 interface CVEntry {
   type: string;
   title: TranslatableField;
+  year?: number | null;
 }
 
 interface ArtistFormProps {
@@ -33,6 +34,22 @@ interface ArtistFormProps {
 
 const emptyT = (): TranslatableField => ({ en: '', fr: '', zh: '' });
 
+let nextId = 0;
+function uid(): string {
+  return `entry-${++nextId}-${Date.now()}`;
+}
+
+interface CVItem {
+  id: string;
+  value: TranslatableField;
+  year?: number | null;
+}
+
+interface ColItem {
+  id: string;
+  value: TranslatableField;
+}
+
 const CV_TYPES = [
   { key: 'SOLO_SHOW', label: 'Expositions personnelles' },
   { key: 'GROUP_SHOW', label: 'Expositions collectives' },
@@ -41,40 +58,29 @@ const CV_TYPES = [
   { key: 'AWARD', label: 'Prix et distinctions' },
 ] as const;
 
-function filterEntriesByType(entries: CVEntry[] | undefined, type: string): TranslatableField[] {
+function filterEntriesByType(entries: CVEntry[] | undefined, type: string): CVItem[] {
   if (!entries) return [];
-  return entries.filter((e) => e.type === type).map((e) => e.title);
+  return entries
+    .filter((e) => e.type === type)
+    .map((e) => ({ id: uid(), value: e.title, year: e.year }));
+}
+
+function initItems(entries: CVItem[]): CVItem[] {
+  return entries.length > 0 ? entries : [{ id: uid(), value: emptyT() }];
+}
+
+function initCollections(cols: TranslatableField[] | undefined): ColItem[] {
+  if (cols?.length) return cols.map((c) => ({ id: uid(), value: c }));
+  return [{ id: uid(), value: emptyT() }];
 }
 
 export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
-  const [soloShows, setSoloShows] = useState<TranslatableField[]>(
-    filterEntriesByType(defaultValues.cvEntries, 'SOLO_SHOW').length > 0
-      ? filterEntriesByType(defaultValues.cvEntries, 'SOLO_SHOW')
-      : [emptyT()]
-  );
-  const [groupShows, setGroupShows] = useState<TranslatableField[]>(
-    filterEntriesByType(defaultValues.cvEntries, 'GROUP_SHOW').length > 0
-      ? filterEntriesByType(defaultValues.cvEntries, 'GROUP_SHOW')
-      : [emptyT()]
-  );
-  const [artFairs, setArtFairs] = useState<TranslatableField[]>(
-    filterEntriesByType(defaultValues.cvEntries, 'ART_FAIR').length > 0
-      ? filterEntriesByType(defaultValues.cvEntries, 'ART_FAIR')
-      : [emptyT()]
-  );
-  const [residencies, setResidencies] = useState<TranslatableField[]>(
-    filterEntriesByType(defaultValues.cvEntries, 'RESIDENCY').length > 0
-      ? filterEntriesByType(defaultValues.cvEntries, 'RESIDENCY')
-      : [emptyT()]
-  );
-  const [awards, setAwards] = useState<TranslatableField[]>(
-    filterEntriesByType(defaultValues.cvEntries, 'AWARD').length > 0
-      ? filterEntriesByType(defaultValues.cvEntries, 'AWARD')
-      : [emptyT()]
-  );
-  const [collections, setCollections] = useState<TranslatableField[]>(
-    defaultValues.collections?.length ? defaultValues.collections : [emptyT()]
-  );
+  const [soloShows, setSoloShows] = useState<CVItem[]>(initItems(filterEntriesByType(defaultValues.cvEntries, 'SOLO_SHOW')));
+  const [groupShows, setGroupShows] = useState<CVItem[]>(initItems(filterEntriesByType(defaultValues.cvEntries, 'GROUP_SHOW')));
+  const [artFairs, setArtFairs] = useState<CVItem[]>(initItems(filterEntriesByType(defaultValues.cvEntries, 'ART_FAIR')));
+  const [residencies, setResidencies] = useState<CVItem[]>(initItems(filterEntriesByType(defaultValues.cvEntries, 'RESIDENCY')));
+  const [awards, setAwards] = useState<CVItem[]>(initItems(filterEntriesByType(defaultValues.cvEntries, 'AWARD')));
+  const [collections, setCollections] = useState<ColItem[]>(initCollections(defaultValues.collections));
 
   const cvSections = [
     { key: 'SOLO_SHOW', label: 'Expositions personnelles', items: soloShows, setItems: setSoloShows },
@@ -133,13 +139,22 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
               <Label className="text-sm font-medium text-gray-700 mb-2">{section.label}</Label>
               <div className="space-y-3">
                 {section.items.map((entry, i) => (
-                  <div key={i} className="flex gap-2">
+                  <div key={entry.id} className="flex gap-2">
+                    <div className="w-20 shrink-0">
+                      <Input
+                        name={`cv.${section.key}.${i}.year`}
+                        type="number"
+                        defaultValue={entry.year ?? ''}
+                        placeholder="Année"
+                        className="text-center"
+                      />
+                    </div>
                     <div className="flex-1 space-y-1">
                       {LOCALES.map((loc) => (
                         <Input
                           key={loc}
                           name={`cv.${section.key}.${i}.${loc}`}
-                          defaultValue={entry[loc] ?? ''}
+                          defaultValue={entry.value[loc] ?? ''}
                           placeholder={`${section.label} (${loc.toUpperCase()})`}
                         />
                       ))}
@@ -147,7 +162,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
                     <button
                       type="button"
                       className="self-start mt-1 text-red-400 hover:text-red-600"
-                      onClick={() => section.setItems(section.items.filter((_, j) => j !== i))}
+                      onClick={() => section.setItems(section.items.filter((item) => item.id !== entry.id))}
                     >
                       <X className="w-4 h-4" />
                     </button>
@@ -157,7 +172,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
               <button
                 type="button"
                 className="mt-2 text-sm text-gray-500 hover:text-gray-900 inline-flex items-center"
-                onClick={() => section.setItems([...section.items, emptyT()])}
+                onClick={() => section.setItems([...section.items, { id: uid(), value: emptyT() }])}
               >
                 <Plus className="w-3 h-3 mr-1" />
                 Ajouter
@@ -170,13 +185,13 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
       <FormCard title="Collections">
           <div className="space-y-3">
             {collections.map((col, i) => (
-              <div key={i} className="flex gap-2">
+              <div key={col.id} className="flex gap-2">
                 <div className="flex-1 space-y-1">
                   {LOCALES.map((loc) => (
                     <Input
                       key={loc}
                       name={`collections.${i}.${loc}`}
-                      defaultValue={col[loc] ?? ''}
+                      defaultValue={col.value[loc] ?? ''}
                       placeholder={`Collection (${loc.toUpperCase()})`}
                     />
                   ))}
@@ -184,7 +199,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
                 <button
                   type="button"
                   className="self-start mt-1 text-red-400 hover:text-red-600"
-                  onClick={() => setCollections(collections.filter((_, j) => j !== i))}
+                  onClick={() => setCollections(collections.filter((c) => c.id !== col.id))}
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -194,7 +209,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
           <button
             type="button"
             className="mt-2 text-sm text-gray-500 hover:text-gray-900 inline-flex items-center"
-            onClick={() => setCollections([...collections, emptyT()])}
+            onClick={() => setCollections([...collections, { id: uid(), value: emptyT() }])}
           >
             <Plus className="w-3 h-3 mr-1" />
             Ajouter une collection
