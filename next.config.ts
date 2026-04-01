@@ -7,6 +7,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  serverExternalPackages: ['sharp'],
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
