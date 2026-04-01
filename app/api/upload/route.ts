@@ -78,15 +78,22 @@ export async function POST(request: NextRequest) {
 
   const publicUrl = (process.env.R2_PUBLIC_URL || '').replace(/\/+$/, '');
 
-  await r2.send(
-    new PutObjectCommand({
-      Bucket: R2_BUCKET,
-      Key: key,
-      Body: webpBuffer,
-      ContentType: 'image/webp',
-      CacheControl: 'public, max-age=31536000, immutable',
-    })
-  );
+  try {
+    await r2.send(
+      new PutObjectCommand({
+        Bucket: R2_BUCKET,
+        Key: key,
+        Body: webpBuffer,
+        ContentType: 'image/webp',
+        CacheControl: 'public, max-age=31536000, immutable',
+      })
+    );
+  } catch (err) {
+    console.error('[upload] R2 upload failed:', err);
+    // Fallback to data URL if R2 fails
+    const base64 = webpBuffer.toString('base64');
+    return NextResponse.json({ url: `data:image/webp;base64,${base64}` });
+  }
 
   return NextResponse.json({ url: `${publicUrl}/${key}` });
 }
