@@ -53,4 +53,39 @@ test.describe('Form Validation', () => {
     await page.waitForTimeout(2000);
     expect(page.url()).toContain('/admin/press/new');
   });
+
+  test('banner form rejects empty title', async ({ page }) => {
+    await page.goto('/admin/banner');
+    await expect(page.locator('h1')).toBeVisible();
+
+    // Don't fill title, just set image and submit
+    await page.locator('input[type="hidden"][name="imageUrl"]').evaluate(
+      (el: HTMLInputElement) => { el.value = 'https://example.com/test.jpg'; }
+    );
+
+    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
+    await page.waitForTimeout(2000);
+
+    // Should stay on banner page (no redirect)
+    expect(page.url()).toContain('/admin/banner');
+  });
+
+  test('artist form shows error toast for invalid data', async ({ page }) => {
+    await page.goto('/admin/artists/new');
+    await expect(page.locator('h1')).toBeVisible();
+
+    // Submit with empty name via button click (triggers useActionState properly)
+    await page.locator('input[type="hidden"][name="imageUrl"]').evaluate(
+      (el: HTMLInputElement) => { el.value = 'https://example.com/test.jpg'; }
+    );
+
+    await page.locator('button[type="submit"]').click();
+
+    // Should show a toast error (Sonner uses [data-sonner-toast] or li[data-sonner-toast])
+    const toastLocator = page.locator('[data-sonner-toast]').or(page.locator('[role="status"]'));
+    await expect(toastLocator).toBeVisible({ timeout: 10000 });
+
+    // Should NOT redirect — still on /new
+    expect(page.url()).toContain('/admin/artists/new');
+  });
 });

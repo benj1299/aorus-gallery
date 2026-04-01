@@ -9,6 +9,7 @@ import { translatableSchema, optionalTranslatableSchema, extractTranslatable } f
 import { optionalHttpsUrl, serializeTranslatable } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 import { sanitizeTranslatable } from '@/lib/sanitize';
+import { parseFormData } from '@/lib/actions/safe-action';
 
 const exhibitionSchema = z.object({
   title: translatableSchema,
@@ -43,7 +44,7 @@ function parseArtworkIds(formData: FormData): string[] {
   return ids;
 }
 
-export async function createExhibition(formData: FormData) {
+export async function createExhibition(formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
   const startDateStr = formData.get('startDate')?.toString() ?? '';
@@ -61,7 +62,9 @@ export async function createExhibition(formData: FormData) {
     visible: formData.get('visible')?.toString() ?? 'false',
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
   };
-  const data = exhibitionSchema.parse(raw);
+  const parsed = parseFormData(exhibitionSchema, raw);
+  if (!parsed.success) return { error: parsed.error };
+  const data = parsed.data;
   const slug = slugify(data.title.en);
 
   const artistIds = parseArtistIds(formData);
@@ -89,7 +92,7 @@ export async function createExhibition(formData: FormData) {
   redirect('/admin/exhibitions');
 }
 
-export async function updateExhibition(id: string, formData: FormData) {
+export async function updateExhibition(id: string, formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
   const startDateStr = formData.get('startDate')?.toString() ?? '';
@@ -107,7 +110,9 @@ export async function updateExhibition(id: string, formData: FormData) {
     visible: formData.get('visible')?.toString() ?? 'false',
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
   };
-  const data = exhibitionSchema.parse(raw);
+  const parsed = parseFormData(exhibitionSchema, raw);
+  if (!parsed.success) return { error: parsed.error };
+  const data = parsed.data;
 
   const artistIds = parseArtistIds(formData);
   const artworkIds = parseArtworkIds(formData);

@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
 import { httpsUrl, serializeTranslatable } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
+import { parseFormData } from '@/lib/actions/safe-action';
 
 const artworkSchema = z.object({
   title: translatableSchema,
@@ -25,7 +26,7 @@ const artworkSchema = z.object({
   sold: z.coerce.boolean().default(false),
 });
 
-export async function createArtwork(formData: FormData) {
+export async function createArtwork(formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
   const raw = {
@@ -43,7 +44,9 @@ export async function createArtwork(formData: FormData) {
     showPrice: formData.get('showPrice')?.toString() ?? 'false',
     sold: formData.get('sold')?.toString() ?? 'false',
   };
-  const data = artworkSchema.parse(raw);
+  const parsed = parseFormData(artworkSchema, raw);
+  if (!parsed.success) return { error: parsed.error };
+  const data = parsed.data;
 
   const artist = await db.artist.findUnique({ where: { id: data.artistId }, select: { slug: true } });
   const artistSlug = artist?.slug ?? 'unknown';
@@ -64,7 +67,7 @@ export async function createArtwork(formData: FormData) {
   redirect('/admin/artworks');
 }
 
-export async function updateArtwork(id: string, formData: FormData) {
+export async function updateArtwork(id: string, formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
   const raw = {
@@ -82,7 +85,9 @@ export async function updateArtwork(id: string, formData: FormData) {
     showPrice: formData.get('showPrice')?.toString() ?? 'false',
     sold: formData.get('sold')?.toString() ?? 'false',
   };
-  const data = artworkSchema.parse(raw);
+  const parsed = parseFormData(artworkSchema, raw);
+  if (!parsed.success) return { error: parsed.error };
+  const data = parsed.data;
 
   await db.artwork.update({
     where: { id },

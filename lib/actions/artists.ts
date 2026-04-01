@@ -9,6 +9,7 @@ import { translatableSchema, extractTranslatable, extractTranslatableArray, type
 import { httpsUrl } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 import { sanitizeTranslatable } from '@/lib/sanitize';
+import { parseFormData } from '@/lib/actions/safe-action';
 
 const artistSchema = z.object({
   name: z.string().min(1),
@@ -32,7 +33,7 @@ function extractCVEntries(formData: FormData): { title: TranslatableField; type:
   return allEntries;
 }
 
-export async function createArtist(formData: FormData) {
+export async function createArtist(formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
   const raw = {
@@ -43,7 +44,9 @@ export async function createArtist(formData: FormData) {
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
     visible: formData.get('visible')?.toString() ?? 'false',
   };
-  const data = artistSchema.parse(raw);
+  const parsed = parseFormData(artistSchema, raw);
+  if (!parsed.success) return { error: parsed.error };
+  const data = parsed.data;
   const slug = slugify(data.name);
 
   const cvEntries = extractCVEntries(formData);
@@ -70,7 +73,7 @@ export async function createArtist(formData: FormData) {
   redirect('/admin/artists');
 }
 
-export async function updateArtist(id: string, formData: FormData) {
+export async function updateArtist(id: string, formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
   const raw = {
@@ -81,7 +84,9 @@ export async function updateArtist(id: string, formData: FormData) {
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
     visible: formData.get('visible')?.toString() ?? 'false',
   };
-  const data = artistSchema.parse(raw);
+  const parsed = parseFormData(artistSchema, raw);
+  if (!parsed.success) return { error: parsed.error };
+  const data = parsed.data;
 
   const cvEntries = extractCVEntries(formData);
   const collections = extractTranslatableArray(formData, 'collections');

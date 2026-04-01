@@ -8,9 +8,10 @@ import type { TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { FormCard } from './form-card';
+import { AdminForm } from './form-wrapper';
 
 interface ArtworkFormProps {
-  action: (formData: FormData) => void;
+  action: (formData: FormData) => Promise<{ error: string } | void>;
   artists: { id: string; name: string }[];
   defaultValues?: {
     title?: TranslatableField;
@@ -33,7 +34,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
   const artistOptions = artists.map((a) => ({ value: a.id, label: a.name }));
 
   return (
-    <form action={action} className="max-w-4xl space-y-6">
+    <AdminForm action={action} className="max-w-4xl space-y-6">
       <FormCard title="Détails de l'œuvre">
           <TranslatableInput
             name="title"
@@ -119,6 +120,6 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
           Enregistrer
         </button>
       </div>
-    </form>
+    </AdminForm>
   );
 }

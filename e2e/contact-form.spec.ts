@@ -92,4 +92,16 @@ test.describe('Contact Form', () => {
     await page.locator('button[type="submit"]').click();
     await expect(page.getByText('感謝您的訊息')).toBeVisible({ timeout: 10000 });
   });
+
+  test('contact form shows validation errors for invalid fields', async ({ page }) => {
+    await page.goto('/fr/contact');
+    await expect(page.locator('h1')).toBeVisible({ timeout: 10000 });
+
+    // Try to submit with empty fields (only check RGPD)
+    await page.locator('#rgpd').check();
+    await page.getByRole('button', { name: /Envoyer/i }).click();
+
+    // Should show inline error messages (react-hook-form validation via .text-red-600)
+    await expect(page.locator('.text-red-600').first()).toBeVisible({ timeout: 5000 });
+  });
 });

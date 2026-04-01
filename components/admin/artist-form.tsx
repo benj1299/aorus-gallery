@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Plus, X } from 'lucide-react';
 import { FormCard } from './form-card';
+import { AdminForm } from './form-wrapper';
 
 interface CVEntry {
   type: string;
@@ -17,7 +18,7 @@ interface CVEntry {
 }
 
 interface ArtistFormProps {
-  action: (formData: FormData) => void;
+  action: (formData: FormData) => Promise<{ error: string } | void>;
   defaultValues?: {
     name?: string;
     nationality?: TranslatableField;
@@ -84,7 +85,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
   ] as const;
 
   return (
-    <form action={action} className="max-w-4xl space-y-6">
+    <AdminForm action={action} className="max-w-4xl space-y-6">
       <FormCard title="Informations générales">
           <div>
             <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-1.5">Nom <span className="text-red-500">*</span></Label>
@@ -205,6 +206,6 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
           Enregistrer
         </button>
       </div>
-    </form>
+    </AdminForm>
   );
 }

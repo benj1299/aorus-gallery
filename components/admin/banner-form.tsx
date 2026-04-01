@@ -7,9 +7,10 @@ import type { TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { FormCard } from './form-card';
+import { AdminForm } from './form-wrapper';
 
 interface BannerFormProps {
-  action: (formData: FormData) => void;
+  action: (formData: FormData) => Promise<{ error: string } | void>;
   defaultValues?: {
     title?: TranslatableField;
     subtitle?: TranslatableField | null;
@@ -21,7 +22,7 @@ interface BannerFormProps {
 
 export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
   return (
-    <form action={action} className="max-w-4xl space-y-6">
+    <AdminForm action={action} className="max-w-4xl space-y-6">
       <FormCard title="Contenu de la bannière">
           <TranslatableInput
             name="title"
@@ -58,6 +59,6 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
           Enregistrer
         </button>
       </div>
-    </form>
+    </AdminForm>
   );
 }

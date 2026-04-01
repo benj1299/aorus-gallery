@@ -7,9 +7,10 @@ import type { TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { FormCard } from './form-card';
+import { AdminForm } from './form-wrapper';
 
 interface PressFormProps {
-  action: (formData: FormData) => void;
+  action: (formData: FormData) => Promise<{ error: string } | void>;
   defaultValues?: {
     title?: TranslatableField;
     publication?: string;
@@ -24,7 +25,7 @@ interface PressFormProps {
 
 export function PressForm({ action, defaultValues = {} }: PressFormProps) {
   return (
-    <form action={action} className="max-w-4xl space-y-6">
+    <AdminForm action={action} className="max-w-4xl space-y-6">
       <FormCard title="Détails de l'article">
           <TranslatableInput
             name="title"
@@ -83,6 +84,6 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
           Enregistrer
         </button>
       </div>
-    </form>
+    </AdminForm>
   );
 }

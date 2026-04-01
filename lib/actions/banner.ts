@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
 import { httpsUrl, serializeTranslatable } from '@/lib/schemas/common';
 import { sanitizeTranslatable } from '@/lib/sanitize';
+import { parseFormData } from '@/lib/actions/safe-action';
 
 const bannerSchema = z.object({
   title: translatableSchema,
@@ -17,7 +18,7 @@ const bannerSchema = z.object({
   visible: z.coerce.boolean().default(false),
 });
 
-export async function upsertBanner(formData: FormData) {
+export async function upsertBanner(formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
   const raw = {
@@ -27,7 +28,9 @@ export async function upsertBanner(formData: FormData) {
     linkUrl: formData.get('linkUrl')?.toString() ?? '',
     visible: formData.get('visible')?.toString() ?? 'false',
   };
-  const data = bannerSchema.parse(raw);
+  const parsed = parseFormData(bannerSchema, raw);
+  if (!parsed.success) return { error: parsed.error };
+  const data = parsed.data;
 
   const existing = await db.homeBanner.findFirst();
   if (existing) {

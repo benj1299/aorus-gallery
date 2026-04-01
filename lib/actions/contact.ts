@@ -28,9 +28,13 @@ export async function submitContactForm(formData: {
     return { error: 'Trop de soumissions. Veuillez réessayer plus tard.' };
   }
 
-  const data = contactSchema.parse(formData);
+  const result = contactSchema.safeParse(formData);
+  if (!result.success) {
+    const messages = result.error.issues.map(e => e.message).join(', ');
+    return { error: messages };
+  }
 
-  await prisma.contactSubmission.create({ data });
+  await prisma.contactSubmission.create({ data: result.data });
 
   return { success: true };
 }
