@@ -21,7 +21,7 @@ export async function submitContactForm(formData: {
   message: string;
   interestedIn?: string;
   preferredLanguage?: string;
-}) {
+}): Promise<{ error: string } | { success: true }> {
   const headersList = await headers();
   const ip = headersList.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
   if (!checkRateLimit(ip)) {

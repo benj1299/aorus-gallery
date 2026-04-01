@@ -2,7 +2,7 @@
 
 import { prisma } from '@/lib/db';
 import { requireAuth } from '@/lib/auth-utils';
-import { revalidatePath } from 'next/cache';
+import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
@@ -24,8 +24,7 @@ const exhibitionSchema = z.object({
 });
 
 function revalidateAll() {
-  revalidatePath('/admin/exhibitions');
-  revalidatePath('/[locale]/exhibitions', 'page');
+  revalidateEntity('/admin/exhibitions', ['/exhibitions']);
 }
 
 function parseArtistIds(formData: FormData): string[] {

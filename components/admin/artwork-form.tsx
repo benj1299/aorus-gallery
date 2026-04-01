@@ -7,7 +7,7 @@ import { ImageUpload } from './image-upload';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { cardStyles } from './form-styles';
+import { FormCard } from './form-card';
 
 interface ArtworkFormProps {
   action: (formData: FormData) => void;
@@ -34,11 +34,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
 
   return (
     <form action={action} className="max-w-4xl space-y-6">
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Détails de l'œuvre</h3>
-        </div>
-        <div className="p-6 space-y-4">
+      <FormCard title="Détails de l'œuvre">
           <TranslatableInput
             name="title"
             label="Titre"
@@ -67,14 +63,9 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
               <Input id="dimensions" name="dimensions" defaultValue={defaultValues.dimensions ?? ''} placeholder="120 x 90 cm" />
             </div>
           </div>
-        </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Tarification</h3>
-        </div>
-        <div className="p-6">
+      <FormCard title="Tarification">
           <div className="grid grid-cols-3 gap-4">
             <div>
               <Label htmlFor="year" className="text-sm font-medium text-gray-700 mb-1.5">Année</Label>
@@ -98,14 +89,9 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
               defaultValue={defaultValues.currency ?? 'EUR'}
             />
           </div>
-        </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Média et affichage</h3>
-        </div>
-        <div className="p-6 space-y-4">
+      <FormCard title="Média et affichage">
           <div>
             <Label className="text-sm font-medium text-gray-700 mb-1.5">Image <span className="text-red-500">*</span></Label>
             <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} required />
@@ -126,8 +112,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
             <FormSwitch name="showPrice" label="Afficher le prix" defaultChecked={defaultValues.showPrice ?? false} />
             <FormSwitch name="sold" label="Vendu" defaultChecked={defaultValues.sold ?? false} />
           </div>
-        </div>
-      </div>
+      </FormCard>
 
       <div className="flex justify-end pt-6 border-t border-gray-100">
         <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">

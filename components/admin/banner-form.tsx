@@ -6,7 +6,7 @@ import { ImageUpload } from './image-upload';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { cardStyles } from './form-styles';
+import { FormCard } from './form-card';
 
 interface BannerFormProps {
   action: (formData: FormData) => void;
@@ -22,11 +22,7 @@ interface BannerFormProps {
 export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
   return (
     <form action={action} className="max-w-4xl space-y-6">
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Contenu de la bannière</h3>
-        </div>
-        <div className="p-6 space-y-4">
+      <FormCard title="Contenu de la bannière">
           <TranslatableInput
             name="title"
             label="Titre"
@@ -39,14 +35,9 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
             label="Sous-titre"
             defaultValue={defaultValues.subtitle ?? undefined}
           />
-        </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Média et lien</h3>
-        </div>
-        <div className="p-6 space-y-4">
+      <FormCard title="Média et lien">
           <div>
             <Label className="text-sm font-medium text-gray-700 mb-1.5">Image <span className="text-red-500">*</span></Label>
             <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} required />
@@ -56,17 +47,11 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
             <Label htmlFor="linkUrl" className="text-sm font-medium text-gray-700 mb-1.5">URL du lien</Label>
             <Input id="linkUrl" name="linkUrl" defaultValue={defaultValues.linkUrl ?? ''} type="url" placeholder="https://..." />
           </div>
-        </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Affichage</h3>
-        </div>
-        <div className="p-6">
+      <FormCard title="Affichage">
           <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? false} />
-        </div>
-      </div>
+      </FormCard>
 
       <div className="flex justify-end pt-6 border-t border-gray-100">
         <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">

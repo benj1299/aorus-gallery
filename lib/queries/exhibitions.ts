@@ -1,9 +1,9 @@
-import { prisma } from '@/lib/db';
-import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
+import { db } from '@/lib/db-typed';
+import { resolveTranslation } from '@/lib/i18n-content';
 import type { Locale } from '@/i18n/routing';
 
 export async function getGalleryExhibitions(locale: Locale = 'en') {
-  const exhibitions = await prisma.galleryExhibition.findMany({
+  const exhibitions = await db.galleryExhibition.findMany({
     where: { visible: true },
     orderBy: [{ sortOrder: 'asc' }, { startDate: 'desc' }],
     include: {
@@ -13,8 +13,8 @@ export async function getGalleryExhibitions(locale: Locale = 'en') {
   return exhibitions.map((ex) => ({
     id: ex.id,
     slug: ex.slug,
-    title: resolveTranslation(ex.title as TranslatableField, locale),
-    description: ex.description ? resolveTranslation(ex.description as TranslatableField, locale) : null,
+    title: resolveTranslation(ex.title, locale),
+    description: ex.description ? resolveTranslation(ex.description, locale) : null,
     type: ex.type,
     status: ex.status,
     startDate: ex.startDate?.toISOString() ?? null,
@@ -26,7 +26,7 @@ export async function getGalleryExhibitions(locale: Locale = 'en') {
 }
 
 export async function getAllExhibitionsAdmin() {
-  return prisma.galleryExhibition.findMany({
+  return db.galleryExhibition.findMany({
     orderBy: { sortOrder: 'asc' },
     include: {
       artists: { include: { artist: { select: { name: true } } } },
@@ -36,7 +36,7 @@ export async function getAllExhibitionsAdmin() {
 }
 
 export async function getExhibitionById(id: string) {
-  return prisma.galleryExhibition.findUnique({
+  return db.galleryExhibition.findUnique({
     where: { id },
     include: {
       artists: { select: { artistId: true } },

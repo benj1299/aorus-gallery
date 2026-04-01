@@ -6,11 +6,6 @@ export const LOCALES = ['en', 'fr', 'zh'] as const;
 /** Shape of a translatable JSON column */
 export type TranslatableField = Record<Locale, string>;
 
-/** Create an empty translatable field */
-export function emptyTranslatable(): TranslatableField {
-  return { en: '', fr: '', zh: '' };
-}
-
 /** Resolve a translatable field to a string for a given locale, with en fallback */
 export function resolveTranslation(
   field: TranslatableField | string | null | undefined,

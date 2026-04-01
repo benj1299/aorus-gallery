@@ -2,7 +2,7 @@
 
 import { prisma } from '@/lib/db';
 import { requireAuth } from '@/lib/auth-utils';
-import { revalidatePath } from 'next/cache';
+import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
@@ -41,7 +41,6 @@ export async function upsertBanner(formData: FormData) {
     });
   }
 
-  revalidatePath('/admin/banner');
-  revalidatePath('/[locale]', 'page');
+  revalidateEntity('/admin/banner', ['']);
   redirect('/admin/banner');
 }

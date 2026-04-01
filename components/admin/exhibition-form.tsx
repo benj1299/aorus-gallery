@@ -8,7 +8,7 @@ import type { TranslatableField } from '@/lib/i18n-content';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { cardStyles } from './form-styles';
+import { FormCard } from './form-card';
 
 interface ExhibitionFormProps {
   action: (formData: FormData) => void;
@@ -45,11 +45,7 @@ const STATUS_OPTIONS = [
 export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }: ExhibitionFormProps) {
   return (
     <form action={action} className="max-w-4xl space-y-6">
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Détails de l'exposition</h3>
-        </div>
-        <div className="p-6 space-y-4">
+      <FormCard title="Détails de l'exposition">
           <TranslatableInput
             name="title"
             label="Titre"
@@ -68,14 +64,9 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
             <Label htmlFor="location" className="text-sm font-medium text-gray-700 mb-1.5">Lieu</Label>
             <Input id="location" name="location" defaultValue={defaultValues.location} placeholder="ex. Paris, France" />
           </div>
-        </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Classification et calendrier</h3>
-        </div>
-        <div className="p-6 space-y-4">
+      <FormCard title="Classification et calendrier">
           <div className="grid grid-cols-2 gap-4">
             <FormSelect
               name="type"
@@ -103,26 +94,16 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
               <Input id="endDate" name="endDate" type="date" defaultValue={defaultValues.endDate} />
             </div>
           </div>
-        </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Média</h3>
-        </div>
-        <div className="p-6">
+      <FormCard title="Média">
           <div>
             <Label className="text-sm font-medium text-gray-700 mb-1.5">Image</Label>
             <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} />
           </div>
-        </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Artistes et œuvres</h3>
-        </div>
-        <div className="p-6 space-y-4">
+      <FormCard title="Artistes et œuvres">
           <div>
             <Label className="text-sm font-medium text-gray-700 mb-2">Artistes</Label>
             <div className="border border-gray-200 rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
@@ -164,14 +145,9 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
               )}
             </div>
           </div>
-        </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Paramètres d'affichage</h3>
-        </div>
-        <div className="p-6 space-y-4">
+      <FormCard title="Paramètres d'affichage">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">Ordre d'affichage</Label>
@@ -181,8 +157,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
               <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
             </div>
           </div>
-        </div>
-      </div>
+      </FormCard>
 
       <div className="flex justify-end pt-6 border-t border-gray-100">
         <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">

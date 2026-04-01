@@ -2,7 +2,7 @@
 
 import { prisma } from '@/lib/db';
 import { requireAuth } from '@/lib/auth-utils';
-import { revalidatePath } from 'next/cache';
+import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, extractTranslatable, extractTranslatableArray, type TranslatableField } from '@/lib/i18n-content';
@@ -22,9 +22,7 @@ const artistSchema = z.object({
 const CV_TYPES = ['SOLO_SHOW', 'GROUP_SHOW', 'ART_FAIR', 'RESIDENCY', 'AWARD'] as const;
 
 function revalidateAll() {
-  revalidatePath('/admin/artists');
-  revalidatePath('/[locale]/artists', 'page');
-  revalidatePath('/[locale]', 'page');
+  revalidateEntity('/admin/artists', ['/artists', '']);
 }
 
 function extractCVEntries(formData: FormData): { title: TranslatableField; type: string; sortOrder: number }[] {

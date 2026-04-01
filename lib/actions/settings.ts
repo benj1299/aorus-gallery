@@ -2,7 +2,7 @@
 
 import { prisma } from '@/lib/db';
 import { requireAuth } from '@/lib/auth-utils';
-import { revalidatePath } from 'next/cache';
+import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 
 export async function updateSiteSettings(formData: FormData) {
@@ -17,9 +17,6 @@ export async function updateSiteSettings(formData: FormData) {
     create: { id: 'default', showExhibitions, showBanner },
   });
 
-  revalidatePath('/admin/settings');
-  revalidatePath('/en', 'layout');
-  revalidatePath('/fr', 'layout');
-  revalidatePath('/zh', 'layout');
+  revalidateEntity('/admin/settings', ['']);
   redirect('/admin/settings');
 }

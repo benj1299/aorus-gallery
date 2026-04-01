@@ -2,7 +2,7 @@
 
 import { prisma } from '@/lib/db';
 import { requireAuth } from '@/lib/auth-utils';
-import { revalidatePath } from 'next/cache';
+import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
@@ -22,8 +22,7 @@ const pressSchema = z.object({
 });
 
 function revalidateAll() {
-  revalidatePath('/admin/press');
-  revalidatePath('/[locale]/press', 'page');
+  revalidateEntity('/admin/press', ['/press']);
 }
 
 export async function createPressArticle(formData: FormData) {

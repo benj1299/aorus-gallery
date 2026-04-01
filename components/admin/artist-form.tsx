@@ -9,7 +9,7 @@ import { LOCALES } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Plus, X } from 'lucide-react';
-import { cardStyles } from './form-styles';
+import { FormCard } from './form-card';
 
 interface CVEntry {
   type: string;
@@ -85,11 +85,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
 
   return (
     <form action={action} className="max-w-4xl space-y-6">
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Informations générales</h3>
-        </div>
-        <div className="p-6 space-y-4">
+      <FormCard title="Informations générales">
           <div>
             <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-1.5">Nom <span className="text-red-500">*</span></Label>
             <Input id="name" name="name" defaultValue={defaultValues.name} required />
@@ -114,14 +110,9 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
             <Label className="text-sm font-medium text-gray-700 mb-1.5">Image <span className="text-red-500">*</span></Label>
             <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} required />
           </div>
-        </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Paramètres d'affichage</h3>
-        </div>
-        <div className="p-6 space-y-4">
+      <FormCard title="Paramètres d'affichage">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">Ordre d'affichage</Label>
@@ -131,14 +122,10 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
               <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
             </div>
           </div>
-        </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">CV / Historique d'expositions</h3>
-        </div>
-        <div className="p-6 space-y-6">
+      <FormCard title="CV / Historique d'expositions">
+        <div className="space-y-6">
           {cvSections.map((section, sectionIdx) => (
             <div key={section.key}>
               {sectionIdx > 0 && <div className="h-px bg-gray-100 mb-4" />}
@@ -177,13 +164,9 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
             </div>
           ))}
         </div>
-      </div>
+      </FormCard>
 
-      <div className={cardStyles}>
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="text-base font-semibold text-gray-900">Collections</h3>
-        </div>
-        <div className="p-6">
+      <FormCard title="Collections">
           <div className="space-y-3">
             {collections.map((col, i) => (
               <div key={i} className="flex gap-2">
@@ -215,8 +198,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
             <Plus className="w-3 h-3 mr-1" />
             Ajouter une collection
           </button>
-        </div>
-      </div>
+      </FormCard>
 
       <div className="flex justify-end pt-6 border-t border-gray-100">
         <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">

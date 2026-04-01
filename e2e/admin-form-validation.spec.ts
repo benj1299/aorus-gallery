@@ -32,4 +32,25 @@ test.describe('Form Validation', () => {
     await page.waitForTimeout(2000);
     expect(page.url()).toContain('/admin/artworks/new');
   });
+
+  test('exhibition form rejects empty title', async ({ page }) => {
+    await page.goto('/admin/exhibitions/new');
+    await expect(page.locator('h1')).toBeVisible();
+
+    // Don't fill title, just submit
+    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
+    await page.waitForTimeout(2000);
+    expect(page.url()).toContain('/admin/exhibitions/new');
+  });
+
+  test('press form rejects empty publication', async ({ page }) => {
+    await page.goto('/admin/press/new');
+    await expect(page.locator('h1')).toBeVisible();
+
+    // Fill title but skip required publication and publishedAt fields
+    await page.locator('input[name="title.en"]').fill('Test Press');
+    await page.evaluate(() => document.querySelector('form')?.requestSubmit());
+    await page.waitForTimeout(2000);
+    expect(page.url()).toContain('/admin/press/new');
+  });
 });

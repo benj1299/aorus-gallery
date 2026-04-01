@@ -1,9 +1,9 @@
-import { prisma } from '@/lib/db';
-import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
+import { db } from '@/lib/db-typed';
+import { resolveTranslation } from '@/lib/i18n-content';
 import type { Locale } from '@/i18n/routing';
 
 export async function getArtists() {
-  return prisma.artist.findMany({
+  return db.artist.findMany({
     where: { visible: true },
     orderBy: { sortOrder: 'asc' },
     include: {
@@ -14,7 +14,7 @@ export async function getArtists() {
 }
 
 export async function getArtistBySlug(slug: string) {
-  return prisma.artist.findUnique({
+  return db.artist.findUnique({
     where: { slug },
     include: {
       exhibitions: { orderBy: { sortOrder: 'asc' } },
@@ -25,7 +25,7 @@ export async function getArtistBySlug(slug: string) {
 }
 
 export async function getAllArtistSlugs() {
-  const artists = await prisma.artist.findMany({
+  const artists = await db.artist.findMany({
     where: { visible: true },
     select: { slug: true },
   });
@@ -34,7 +34,7 @@ export async function getAllArtistSlugs() {
 
 /** Returns lightweight data for artist list/grid pages (no CV, no bio, no joins) */
 export async function getArtistsListForFrontend(locale: Locale = 'en') {
-  const artists = await prisma.artist.findMany({
+  const artists = await db.artist.findMany({
     where: { visible: true },
     orderBy: { sortOrder: 'asc' },
     select: { slug: true, name: true, nationality: true, imageUrl: true },
@@ -42,7 +42,7 @@ export async function getArtistsListForFrontend(locale: Locale = 'en') {
   return artists.map((a) => ({
     id: a.slug,
     name: a.name,
-    nationality: resolveTranslation(a.nationality as TranslatableField, locale),
+    nationality: resolveTranslation(a.nationality, locale),
     image: a.imageUrl,
   }));
 }
@@ -53,16 +53,16 @@ export async function getArtistsForFrontend(locale: Locale = 'en') {
   return artists.map((a) => ({
     id: a.slug,
     name: a.name,
-    nationality: resolveTranslation(a.nationality as TranslatableField, locale),
-    bio: resolveTranslation(a.bio as TranslatableField, locale),
+    nationality: resolveTranslation(a.nationality, locale),
+    bio: resolveTranslation(a.bio, locale),
     image: a.imageUrl,
     cv: {
-      soloShows: a.exhibitions.filter((e) => e.type === 'SOLO_SHOW').map((e) => resolveTranslation(e.title as TranslatableField, locale)),
-      groupShows: a.exhibitions.filter((e) => e.type === 'GROUP_SHOW').map((e) => resolveTranslation(e.title as TranslatableField, locale)),
-      artFairs: a.exhibitions.filter((e) => e.type === 'ART_FAIR').map((e) => resolveTranslation(e.title as TranslatableField, locale)),
-      residencies: a.exhibitions.filter((e) => e.type === 'RESIDENCY').map((e) => resolveTranslation(e.title as TranslatableField, locale)),
-      awards: a.exhibitions.filter((e) => e.type === 'AWARD').map((e) => resolveTranslation(e.title as TranslatableField, locale)),
-      collections: a.collections.map((c) => resolveTranslation(c.title as TranslatableField, locale)),
+      soloShows: a.exhibitions.filter((e) => e.type === 'SOLO_SHOW').map((e) => resolveTranslation(e.title, locale)),
+      groupShows: a.exhibitions.filter((e) => e.type === 'GROUP_SHOW').map((e) => resolveTranslation(e.title, locale)),
+      artFairs: a.exhibitions.filter((e) => e.type === 'ART_FAIR').map((e) => resolveTranslation(e.title, locale)),
+      residencies: a.exhibitions.filter((e) => e.type === 'RESIDENCY').map((e) => resolveTranslation(e.title, locale)),
+      awards: a.exhibitions.filter((e) => e.type === 'AWARD').map((e) => resolveTranslation(e.title, locale)),
+      collections: a.collections.map((c) => resolveTranslation(c.title, locale)),
     },
   }));
 }
@@ -74,21 +74,21 @@ export async function getArtistBySlugForFrontend(slug: string, locale: Locale = 
   return {
     id: a.slug,
     name: a.name,
-    nationality: resolveTranslation(a.nationality as TranslatableField, locale),
-    bio: resolveTranslation(a.bio as TranslatableField, locale),
+    nationality: resolveTranslation(a.nationality, locale),
+    bio: resolveTranslation(a.bio, locale),
     image: a.imageUrl,
     cv: {
-      soloShows: a.exhibitions.filter((e) => e.type === 'SOLO_SHOW').map((e) => resolveTranslation(e.title as TranslatableField, locale)),
-      groupShows: a.exhibitions.filter((e) => e.type === 'GROUP_SHOW').map((e) => resolveTranslation(e.title as TranslatableField, locale)),
-      artFairs: a.exhibitions.filter((e) => e.type === 'ART_FAIR').map((e) => resolveTranslation(e.title as TranslatableField, locale)),
-      residencies: a.exhibitions.filter((e) => e.type === 'RESIDENCY').map((e) => resolveTranslation(e.title as TranslatableField, locale)),
-      awards: a.exhibitions.filter((e) => e.type === 'AWARD').map((e) => resolveTranslation(e.title as TranslatableField, locale)),
-      collections: a.collections.map((c) => resolveTranslation(c.title as TranslatableField, locale)),
+      soloShows: a.exhibitions.filter((e) => e.type === 'SOLO_SHOW').map((e) => resolveTranslation(e.title, locale)),
+      groupShows: a.exhibitions.filter((e) => e.type === 'GROUP_SHOW').map((e) => resolveTranslation(e.title, locale)),
+      artFairs: a.exhibitions.filter((e) => e.type === 'ART_FAIR').map((e) => resolveTranslation(e.title, locale)),
+      residencies: a.exhibitions.filter((e) => e.type === 'RESIDENCY').map((e) => resolveTranslation(e.title, locale)),
+      awards: a.exhibitions.filter((e) => e.type === 'AWARD').map((e) => resolveTranslation(e.title, locale)),
+      collections: a.collections.map((c) => resolveTranslation(c.title, locale)),
     },
     artworks: a.artworks.map((aw) => ({
       ...aw,
-      title: resolveTranslation(aw.title as TranslatableField, locale),
-      medium: aw.medium ? resolveTranslation(aw.medium as TranslatableField, locale) : null,
+      title: resolveTranslation(aw.title, locale),
+      medium: aw.medium ? resolveTranslation(aw.medium, locale) : null,
       showPrice: aw.showPrice,
       price: aw.price ? Number(aw.price) : null,
       currency: aw.currency,
@@ -98,7 +98,7 @@ export async function getArtistBySlugForFrontend(slug: string, locale: Locale = 
 
 /** Get all artists including hidden ones (for admin) */
 export async function getAllArtistsAdmin() {
-  return prisma.artist.findMany({
+  return db.artist.findMany({
     orderBy: { sortOrder: 'asc' },
     include: {
       _count: { select: { artworks: true } },

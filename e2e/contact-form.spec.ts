@@ -66,4 +66,30 @@ test.describe('Contact Form', () => {
     const xssTriggered = await page.evaluate(() => (window as any).xssTriggered);
     expect(xssTriggered).toBeFalsy();
   });
+
+  test('submit contact form in English locale', async ({ page }) => {
+    const uniqueName = `EN Tester ${Date.now()}`;
+    await page.goto('/en/contact');
+    await expect(page.locator('h1')).toBeVisible({ timeout: 10000 });
+    await page.locator('#status-collector').click();
+    await page.locator('#name').fill(uniqueName);
+    await page.locator('#email').fill(`en-${Date.now()}@test.com`);
+    await page.locator('#message').fill('English locale contact test message for E2E');
+    await page.locator('#rgpd').check();
+    await page.getByRole('button', { name: /Send Message/i }).click();
+    await expect(page.getByText('Thank you for your message')).toBeVisible({ timeout: 10000 });
+  });
+
+  test('submit contact form in Chinese locale', async ({ page }) => {
+    const uniqueName = `ZH Tester ${Date.now()}`;
+    await page.goto('/zh/contact');
+    await expect(page.locator('h1')).toBeVisible({ timeout: 10000 });
+    await page.locator('#status-collector').click();
+    await page.locator('#name').fill(uniqueName);
+    await page.locator('#email').fill(`zh-${Date.now()}@test.com`);
+    await page.locator('#message').fill('Chinese locale contact test message for E2E testing');
+    await page.locator('#rgpd').check();
+    await page.locator('button[type="submit"]').click();
+    await expect(page.getByText('感謝您的訊息')).toBeVisible({ timeout: 10000 });
+  });
 });

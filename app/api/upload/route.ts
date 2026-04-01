@@ -11,6 +11,12 @@ const MIME_EXT: Record<string, string> = {
   'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif',
 };
 
+const EXT_MIME: Record<string, string> = Object.fromEntries(
+  Object.entries(MIME_EXT).flatMap(([mime, ext]) =>
+    ext === 'jpg' ? [['jpg', mime], ['jpeg', mime]] : [[ext, mime]]
+  ),
+);
+
 function detectMimeFromBytes(buf: Buffer): string | null {
   if (buf.length < 12) return null;
   if (buf[0] === 0xFF && buf[1] === 0xD8 && buf[2] === 0xFF) return 'image/jpeg';
@@ -55,11 +61,7 @@ export async function POST(request: NextRequest) {
     let mimeType = file.type;
     if (!mimeType || !ALLOWED_TYPES.includes(mimeType)) {
       const ext = file.name.split('.').pop()?.toLowerCase();
-      const extMap: Record<string, string> = {
-        jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png',
-        webp: 'image/webp', gif: 'image/gif',
-      };
-      mimeType = extMap[ext ?? ''] ?? mimeType;
+      mimeType = EXT_MIME[ext ?? ''] ?? mimeType;
     }
 
     if (!ALLOWED_TYPES.includes(mimeType)) {

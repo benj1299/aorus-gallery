@@ -1,9 +1,9 @@
-import { prisma } from '@/lib/db';
-import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
+import { db } from '@/lib/db-typed';
+import { resolveTranslation } from '@/lib/i18n-content';
 import type { Locale } from '@/i18n/routing';
 
 export async function getFeaturedArtworks(locale: Locale = 'en') {
-  const artworks = await prisma.artwork.findMany({
+  const artworks = await db.artwork.findMany({
     where: { featuredHome: true, visible: true },
     orderBy: { sortOrder: 'asc' },
     take: 6,
@@ -12,7 +12,7 @@ export async function getFeaturedArtworks(locale: Locale = 'en') {
   return artworks.map((aw) => ({
     id: aw.id,
     slug: aw.slug,
-    title: resolveTranslation(aw.title as TranslatableField, locale),
+    title: resolveTranslation(aw.title, locale),
     imageUrl: aw.imageUrl,
     artistName: aw.artist.name,
     artistSlug: aw.artist.slug,
@@ -20,7 +20,7 @@ export async function getFeaturedArtworks(locale: Locale = 'en') {
 }
 
 export async function getArtworksByArtist(artistId: string) {
-  return prisma.artwork.findMany({
+  return db.artwork.findMany({
     where: { artistId, visible: true },
     orderBy: { sortOrder: 'asc' },
   });
@@ -28,7 +28,7 @@ export async function getArtworksByArtist(artistId: string) {
 
 /** Get all artworks for admin with artist name — serializes Decimal to number */
 export async function getAllArtworksAdmin() {
-  const artworks = await prisma.artwork.findMany({
+  const artworks = await db.artwork.findMany({
     orderBy: [{ artist: { name: 'asc' } }, { sortOrder: 'asc' }],
     include: {
       artist: { select: { name: true, slug: true } },
@@ -41,7 +41,7 @@ export async function getAllArtworksAdmin() {
 }
 
 export async function getArtworkById(id: string) {
-  return prisma.artwork.findUnique({
+  return db.artwork.findUnique({
     where: { id },
     include: { artist: { select: { name: true, slug: true } } },
   });
