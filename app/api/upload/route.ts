@@ -25,6 +25,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Non autorisé' }, { status: 401 });
   }
 
+  try {
   const formData = await request.formData();
   const file = formData.get('file') as File | null;
 
@@ -96,4 +97,9 @@ export async function POST(request: NextRequest) {
   }
 
   return NextResponse.json({ url: `${publicUrl}/${key}` });
+  } catch (err) {
+    console.error('[upload] Unhandled error:', err);
+    const message = err instanceof Error ? err.message : 'Erreur interne';
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }
