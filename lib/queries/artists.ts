@@ -2,12 +2,29 @@ import { db } from '@/lib/db-typed';
 import { resolveTranslation } from '@/lib/i18n-content';
 import type { Locale } from '@/i18n/routing';
 
+/** Format CV entries with year prefix, sorted by year descending */
+function formatCVEntries(
+  entries: { title: unknown; year: number | null }[],
+  locale: Locale,
+): string[] {
+  const sorted = [...entries].sort((a, b) => {
+    if (a.year && b.year) return b.year - a.year;
+    if (a.year) return -1;
+    if (b.year) return 1;
+    return 0;
+  });
+  return sorted.map((e) => {
+    const title = resolveTranslation(e.title as Parameters<typeof resolveTranslation>[0], locale);
+    return e.year ? `${e.year} — ${title}` : title;
+  });
+}
+
 export async function getArtists() {
   return db.artist.findMany({
     where: { visible: true },
     orderBy: { sortOrder: 'asc' },
     include: {
-      exhibitions: { orderBy: { sortOrder: 'asc' } },
+      exhibitions: { orderBy: [{ year: 'desc' }, { sortOrder: 'asc' }] },
       collections: { orderBy: { sortOrder: 'asc' } },
     },
   });
@@ -17,7 +34,7 @@ export async function getArtistBySlug(slug: string) {
   return db.artist.findUnique({
     where: { slug },
     include: {
-      exhibitions: { orderBy: { sortOrder: 'asc' } },
+      exhibitions: { orderBy: [{ year: 'desc' }, { sortOrder: 'asc' }] },
       collections: { orderBy: { sortOrder: 'asc' } },
       artworks: { where: { visible: true }, orderBy: { sortOrder: 'asc' } },
     },
@@ -57,11 +74,11 @@ export async function getArtistsForFrontend(locale: Locale = 'en') {
     bio: resolveTranslation(a.bio, locale),
     image: a.imageUrl,
     cv: {
-      soloShows: a.exhibitions.filter((e) => e.type === 'SOLO_SHOW').map((e) => resolveTranslation(e.title, locale)),
-      groupShows: a.exhibitions.filter((e) => e.type === 'GROUP_SHOW').map((e) => resolveTranslation(e.title, locale)),
-      artFairs: a.exhibitions.filter((e) => e.type === 'ART_FAIR').map((e) => resolveTranslation(e.title, locale)),
-      residencies: a.exhibitions.filter((e) => e.type === 'RESIDENCY').map((e) => resolveTranslation(e.title, locale)),
-      awards: a.exhibitions.filter((e) => e.type === 'AWARD').map((e) => resolveTranslation(e.title, locale)),
+      soloShows: formatCVEntries(a.exhibitions.filter((e) => e.type === 'SOLO_SHOW'), locale),
+      groupShows: formatCVEntries(a.exhibitions.filter((e) => e.type === 'GROUP_SHOW'), locale),
+      artFairs: formatCVEntries(a.exhibitions.filter((e) => e.type === 'ART_FAIR'), locale),
+      residencies: formatCVEntries(a.exhibitions.filter((e) => e.type === 'RESIDENCY'), locale),
+      awards: formatCVEntries(a.exhibitions.filter((e) => e.type === 'AWARD'), locale),
       collections: a.collections.map((c) => resolveTranslation(c.title, locale)),
     },
   }));
@@ -78,11 +95,11 @@ export async function getArtistBySlugForFrontend(slug: string, locale: Locale = 
     bio: resolveTranslation(a.bio, locale),
     image: a.imageUrl,
     cv: {
-      soloShows: a.exhibitions.filter((e) => e.type === 'SOLO_SHOW').map((e) => resolveTranslation(e.title, locale)),
-      groupShows: a.exhibitions.filter((e) => e.type === 'GROUP_SHOW').map((e) => resolveTranslation(e.title, locale)),
-      artFairs: a.exhibitions.filter((e) => e.type === 'ART_FAIR').map((e) => resolveTranslation(e.title, locale)),
-      residencies: a.exhibitions.filter((e) => e.type === 'RESIDENCY').map((e) => resolveTranslation(e.title, locale)),
-      awards: a.exhibitions.filter((e) => e.type === 'AWARD').map((e) => resolveTranslation(e.title, locale)),
+      soloShows: formatCVEntries(a.exhibitions.filter((e) => e.type === 'SOLO_SHOW'), locale),
+      groupShows: formatCVEntries(a.exhibitions.filter((e) => e.type === 'GROUP_SHOW'), locale),
+      artFairs: formatCVEntries(a.exhibitions.filter((e) => e.type === 'ART_FAIR'), locale),
+      residencies: formatCVEntries(a.exhibitions.filter((e) => e.type === 'RESIDENCY'), locale),
+      awards: formatCVEntries(a.exhibitions.filter((e) => e.type === 'AWARD'), locale),
       collections: a.collections.map((c) => resolveTranslation(c.title, locale)),
     },
     artworks: a.artworks.map((aw) => ({

@@ -111,6 +111,7 @@ export async function updateArtist(id: string, formData: FormData): Promise<{ er
             title: entry.title,
             type: entry.type as 'SOLO_SHOW' | 'GROUP_SHOW' | 'ART_FAIR' | 'RESIDENCY' | 'AWARD',
             sortOrder: entry.sortOrder,
+            year: entry.year ?? null,
           })),
         },
         collections: {

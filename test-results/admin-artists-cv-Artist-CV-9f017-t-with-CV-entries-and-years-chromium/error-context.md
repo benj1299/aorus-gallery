@@ -1,0 +1,211 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - link "Administration ORUS" [ref=e5] [cursor=pointer]:
+        - /url: /admin
+      - navigation [ref=e7]:
+        - link "Tableau de bord" [ref=e8] [cursor=pointer]:
+          - /url: /admin
+          - img [ref=e9]
+          - generic [ref=e14]: Tableau de bord
+        - link "Artistes" [ref=e15] [cursor=pointer]:
+          - /url: /admin/artists
+          - img [ref=e16]
+          - generic [ref=e21]: Artistes
+        - link "Oeuvres" [ref=e22] [cursor=pointer]:
+          - /url: /admin/artworks
+          - img [ref=e23]
+          - generic [ref=e27]: Oeuvres
+        - link "Presse" [ref=e28] [cursor=pointer]:
+          - /url: /admin/press
+          - img [ref=e29]
+          - generic [ref=e32]: Presse
+        - link "Banniere" [ref=e33] [cursor=pointer]:
+          - /url: /admin/banner
+          - img [ref=e34]
+          - generic [ref=e37]: Banniere
+        - link "Expositions" [ref=e38] [cursor=pointer]:
+          - /url: /admin/exhibitions
+          - img [ref=e39]
+          - generic [ref=e41]: Expositions
+        - link "Messages 87" [ref=e42] [cursor=pointer]:
+          - /url: /admin/messages
+          - img [ref=e43]
+          - generic [ref=e46]: Messages
+          - generic [ref=e47]: "87"
+        - link "Paramètres" [ref=e48] [cursor=pointer]:
+          - /url: /admin/settings
+          - img [ref=e49]
+          - generic [ref=e52]: Paramètres
+      - button "Deconnexion" [ref=e55]:
+        - img [ref=e56]
+        - text: Deconnexion
+    - main [ref=e59]:
+      - generic [ref=e60]:
+        - navigation [ref=e61]:
+          - list [ref=e62]:
+            - listitem [ref=e63]:
+              - link "Administration" [ref=e64] [cursor=pointer]:
+                - /url: /admin
+            - listitem [ref=e65]:
+              - generic [ref=e66]: /
+              - link "Artistes" [ref=e67] [cursor=pointer]:
+                - /url: /admin/artists
+            - listitem [ref=e68]:
+              - generic [ref=e69]: /
+              - generic [ref=e70]: Nouvel artiste
+        - heading "Nouvel artiste" [level=1] [ref=e71]
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - heading "Informations générales" [level=3] [ref=e75]
+            - generic [ref=e76]:
+              - generic [ref=e77]:
+                - generic [ref=e78]:
+                  - text: Nom
+                  - generic [ref=e79]: "*"
+                - textbox "Nom *" [ref=e80]: CV Test Artist 075114
+              - generic [ref=e81]:
+                - generic [ref=e83]: Nationalité *
+                - generic [ref=e84]:
+                  - button "EN" [ref=e85]
+                  - button "FR" [ref=e86]
+                  - button "ZH" [ref=e87]
+                - textbox [ref=e89]: French
+              - generic [ref=e90]:
+                - generic [ref=e91]:
+                  - generic [ref=e92]: Biographie *
+                  - button [ref=e93]:
+                    - img [ref=e94]
+                - generic [ref=e96]:
+                  - button "EN" [ref=e97]
+                  - button "FR" [ref=e98]
+                  - button "ZH" [ref=e99]
+                - generic [ref=e101]:
+                  - generic [ref=e102]:
+                    - button [ref=e103]:
+                      - img [ref=e104]
+                    - button [ref=e106]:
+                      - img [ref=e107]
+                    - button [ref=e109]:
+                      - img [ref=e110]
+                    - button [ref=e114]:
+                      - img [ref=e115]
+                    - button [disabled] [ref=e118]:
+                      - img [ref=e119]
+                  - textbox [ref=e124]:
+                    - paragraph [ref=e125]: Test bio for CV management.
+              - generic [ref=e126]:
+                - generic [ref=e127]:
+                  - text: Image
+                  - generic [ref=e128]: "*"
+                - generic [ref=e129]:
+                  - generic [ref=e130]:
+                    - button "Upload" [ref=e131]:
+                      - img [ref=e132]
+                      - text: Upload
+                    - button "URL" [ref=e135]:
+                      - img [ref=e136]
+                      - text: URL
+                  - generic [ref=e139] [cursor=pointer]:
+                    - img [ref=e140]
+                    - paragraph [ref=e143]: Glissez une image ici ou cliquez pour parcourir
+                    - paragraph [ref=e144]: JPG, PNG, WebP, GIF - Max 10 MB
+                  - paragraph [ref=e145]: Image requise
+          - generic [ref=e146]:
+            - heading "Paramètres d'affichage" [level=3] [ref=e148]
+            - generic [ref=e150]:
+              - generic [ref=e151]:
+                - generic [ref=e152]: Ordre d'affichage
+                - spinbutton "Ordre d'affichage" [ref=e153]: "0"
+              - generic [ref=e155]:
+                - switch "Visible" [checked] [ref=e156]
+                - checkbox [checked]
+                - generic [ref=e157]: Visible
+          - generic [ref=e158]:
+            - heading "CV / Historique d'expositions" [level=3] [ref=e160]
+            - generic [ref=e162]:
+              - generic [ref=e163]:
+                - generic [ref=e164]: Expositions personnelles
+                - generic [ref=e166]:
+                  - spinbutton [ref=e168]: "2024"
+                  - generic [ref=e169]:
+                    - textbox "Expositions personnelles (EN)" [active] [ref=e170]: Paris Art Show 2024
+                    - textbox "Expositions personnelles (FR)" [ref=e171]
+                    - textbox "Expositions personnelles (ZH)" [ref=e172]
+                  - button [ref=e173]:
+                    - img [ref=e174]
+                - button "Ajouter" [ref=e177]:
+                  - img [ref=e178]
+                  - text: Ajouter
+              - generic [ref=e179]:
+                - generic [ref=e181]: Expositions collectives
+                - generic [ref=e183]:
+                  - spinbutton [ref=e185]
+                  - generic [ref=e186]:
+                    - textbox "Expositions collectives (EN)" [ref=e187]
+                    - textbox "Expositions collectives (FR)" [ref=e188]
+                    - textbox "Expositions collectives (ZH)" [ref=e189]
+                  - button [ref=e190]:
+                    - img [ref=e191]
+                - button "Ajouter" [ref=e194]:
+                  - img [ref=e195]
+                  - text: Ajouter
+              - generic [ref=e196]:
+                - generic [ref=e198]: Foires d'art
+                - generic [ref=e200]:
+                  - spinbutton [ref=e202]
+                  - generic [ref=e203]:
+                    - textbox "Foires d'art (EN)" [ref=e204]
+                    - textbox "Foires d'art (FR)" [ref=e205]
+                    - textbox "Foires d'art (ZH)" [ref=e206]
+                  - button [ref=e207]:
+                    - img [ref=e208]
+                - button "Ajouter" [ref=e211]:
+                  - img [ref=e212]
+                  - text: Ajouter
+              - generic [ref=e213]:
+                - generic [ref=e215]: Résidences
+                - generic [ref=e217]:
+                  - spinbutton [ref=e219]
+                  - generic [ref=e220]:
+                    - textbox "Résidences (EN)" [ref=e221]
+                    - textbox "Résidences (FR)" [ref=e222]
+                    - textbox "Résidences (ZH)" [ref=e223]
+                  - button [ref=e224]:
+                    - img [ref=e225]
+                - button "Ajouter" [ref=e228]:
+                  - img [ref=e229]
+                  - text: Ajouter
+              - generic [ref=e230]:
+                - generic [ref=e232]: Prix et distinctions
+                - generic [ref=e234]:
+                  - spinbutton [ref=e236]
+                  - generic [ref=e237]:
+                    - textbox "Prix et distinctions (EN)" [ref=e238]
+                    - textbox "Prix et distinctions (FR)" [ref=e239]
+                    - textbox "Prix et distinctions (ZH)" [ref=e240]
+                  - button [ref=e241]:
+                    - img [ref=e242]
+                - button "Ajouter" [ref=e245]:
+                  - img [ref=e246]
+                  - text: Ajouter
+          - generic [ref=e247]:
+            - heading "Collections" [level=3] [ref=e249]
+            - generic [ref=e250]:
+              - generic [ref=e252]:
+                - generic [ref=e253]:
+                  - textbox "Collection (EN)" [ref=e254]
+                  - textbox "Collection (FR)" [ref=e255]
+                  - textbox "Collection (ZH)" [ref=e256]
+                - button [ref=e257]:
+                  - img [ref=e258]
+              - button "Ajouter une collection" [ref=e261]:
+                - img [ref=e262]
+                - text: Ajouter une collection
+          - button "Enregistrer" [ref=e264]
+    - region "Notifications alt+T"
+  - alert [ref=e265]
+```

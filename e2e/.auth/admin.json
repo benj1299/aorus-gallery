@@ -1,13 +1,13 @@
 {
   "cookies": [
     {
-      "name": "better-auth.session_token",
-      "value": "IqThNDG5246itWplnfVLIRZ1vcMC6Xkb.9I9WGrFKdQtPrWcDzP%2Fs7IF7BRvNH%2BY6qdGrm5VXhe8%3D",
-      "domain": "localhost",
+      "name": "__Secure-better-auth.session_token",
+      "value": "ido6GArwj2ggeQqIJvL1PPwNweA7FUlO.hYm6kXGeJn6nsbcL8%2Fyb6P9hWdV3qTMFWS5zHlWxcJk%3D",
+      "domain": "aorus-gallery.vercel.app",
       "path": "/",
-      "expires": 1775675500.017735,
+      "expires": 1775768874.371687,
       "httpOnly": true,
-      "secure": false,
+      "secure": true,
       "sameSite": "Lax"
     }
   ],
