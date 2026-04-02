@@ -1,6 +1,8 @@
 import { prisma } from '@/lib/db';
 import { MessagesListClient } from './client';
 
+export const dynamic = 'force-dynamic';
+
 async function getContactSubmissions() {
   const raw = await prisma.contactSubmission.findMany({
     orderBy: { createdAt: 'desc' },
