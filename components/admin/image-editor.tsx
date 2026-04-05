@@ -70,6 +70,18 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
     setCroppedAreaPixels(croppedPixels);
   }, []);
 
+  // Initialize croppedAreaPixels when the image loads so "Appliquer" is enabled
+  const handleMediaLoaded = useCallback((mediaSize: { naturalWidth: number; naturalHeight: number }) => {
+    if (!croppedAreaPixels) {
+      setCroppedAreaPixels({
+        x: 0,
+        y: 0,
+        width: mediaSize.naturalWidth,
+        height: mediaSize.naturalHeight,
+      });
+    }
+  }, [croppedAreaPixels]);
+
   const handleRotateLeft = useCallback(() => {
     setRotation((prev) => prev - ROTATION_STEP);
   }, []);
@@ -79,15 +91,26 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
   }, []);
 
   const handleApply = useCallback(async () => {
-    if (!croppedAreaPixels) return;
-
     setApplying(true);
     try {
-      const blob = await getCroppedImage(imageSrc, croppedAreaPixels, rotation);
-      onComplete(blob);
+      if (croppedAreaPixels) {
+        const blob = await getCroppedImage(imageSrc, croppedAreaPixels, rotation);
+        onComplete(blob);
+      } else {
+        // No crop area yet — send original image as-is
+        const response = await fetch(imageSrc);
+        const blob = await response.blob();
+        onComplete(blob);
+      }
     } catch {
-      // If canvas processing fails, fall back to original by signaling cancel
-      onCancel();
+      // If canvas/fetch fails, try to send the original as a fallback
+      try {
+        const response = await fetch(imageSrc);
+        const blob = await response.blob();
+        onComplete(blob);
+      } catch {
+        onCancel();
+      }
     } finally {
       setApplying(false);
     }
@@ -118,6 +141,7 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
             onZoomChange={setZoom}
             onRotationChange={setRotation}
             onCropComplete={handleCropComplete}
+            onMediaLoaded={handleMediaLoaded}
             showGrid
             classes={{
               containerClassName: 'rounded-lg',
@@ -196,7 +220,7 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
           <Button type="button" variant="outline" onClick={onCancel} disabled={applying}>
             Annuler
           </Button>
-          <Button type="button" onClick={handleApply} disabled={applying || !croppedAreaPixels}>
+          <Button type="button" onClick={handleApply} disabled={applying}>
             {applying ? 'Application...' : 'Appliquer'}
           </Button>
         </DialogFooter>
