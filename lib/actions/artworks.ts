@@ -117,8 +117,11 @@ export async function deleteArtwork(id: string) {
   revalidateEntity('/admin/artworks', ['/artists', '']);
 }
 
+const ARTWORK_TOGGLE_FIELDS = ['visible', 'featuredHome', 'showPrice', 'sold'] as const;
+
 export async function toggleArtworkField(id: string, field: 'visible' | 'featuredHome' | 'showPrice' | 'sold') {
   await requireAuth();
+  if (!(ARTWORK_TOGGLE_FIELDS as readonly string[]).includes(field)) throw new Error('Invalid field');
   const current = await db.artwork.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
   await db.artwork.update({ where: { id }, data: { [field]: !current[field] } });
   revalidateEntity('/admin/artworks', ['/artists', '']);

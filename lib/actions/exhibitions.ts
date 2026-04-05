@@ -149,8 +149,11 @@ export async function deleteExhibition(id: string) {
   revalidateEntity('/admin/exhibitions', ['/exhibitions']);
 }
 
+const EXHIBITION_TOGGLE_FIELDS = ['visible'] as const;
+
 export async function toggleExhibitionField(id: string, field: 'visible') {
   await requireAuth();
+  if (!(EXHIBITION_TOGGLE_FIELDS as readonly string[]).includes(field)) throw new Error('Invalid field');
   const current = await db.galleryExhibition.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
   await db.galleryExhibition.update({ where: { id }, data: { [field]: !current[field] } });
   revalidateEntity('/admin/exhibitions', ['/exhibitions']);

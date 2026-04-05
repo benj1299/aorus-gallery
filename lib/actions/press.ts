@@ -91,8 +91,11 @@ export async function deletePressArticle(id: string) {
   revalidateEntity('/admin/press', ['/press']);
 }
 
+const PRESS_TOGGLE_FIELDS = ['visible'] as const;
+
 export async function togglePressField(id: string, field: 'visible') {
   await requireAuth();
+  if (!(PRESS_TOGGLE_FIELDS as readonly string[]).includes(field)) throw new Error('Invalid field');
   const current = await db.pressArticle.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
   await db.pressArticle.update({ where: { id }, data: { [field]: !current[field] } });
   revalidateEntity('/admin/press', ['/press']);

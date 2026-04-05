@@ -89,7 +89,7 @@ export async function getArtworkBySlugForFrontend(slug: string, locale: Locale =
     medium: artwork.medium ? resolveTranslation(artwork.medium, locale) : null,
     dimensions: artwork.dimensions,
     year: artwork.year,
-    price: artwork.price ? Number(artwork.price) : null,
+    price: artwork.showPrice && artwork.price ? Number(artwork.price) : null,
     currency: artwork.currency,
     showPrice: artwork.showPrice,
     sold: artwork.sold,

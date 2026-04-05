@@ -131,8 +131,11 @@ export async function deleteArtist(id: string) {
   revalidateEntity('/admin/artists', ['/artists', '']);
 }
 
+const ARTIST_TOGGLE_FIELDS = ['visible'] as const;
+
 export async function toggleArtistField(id: string, field: 'visible') {
   await requireAuth();
+  if (!(ARTIST_TOGGLE_FIELDS as readonly string[]).includes(field)) throw new Error('Invalid field');
   const current = await db.artist.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
   await db.artist.update({ where: { id }, data: { [field]: !current[field] } });
   revalidateEntity('/admin/artists', ['/artists', '']);
