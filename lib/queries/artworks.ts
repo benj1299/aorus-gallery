@@ -46,3 +46,65 @@ export async function getArtworkById(id: string) {
     include: { artist: { select: { name: true, slug: true } } },
   });
 }
+
+/** Returns a single artwork by slug with artist info and adjacent artworks for navigation */
+export async function getArtworkBySlugForFrontend(slug: string, locale: Locale = 'en') {
+  const artwork = await db.artwork.findUnique({
+    where: { slug, visible: true },
+    include: {
+      artist: {
+        select: { name: true, slug: true, id: true },
+      },
+    },
+  });
+
+  if (!artwork) return null;
+
+  // Fetch adjacent artworks (prev/next by sortOrder within same artist)
+  const [prevArtwork, nextArtwork] = await Promise.all([
+    db.artwork.findFirst({
+      where: {
+        artistId: artwork.artistId,
+        visible: true,
+        sortOrder: { lt: artwork.sortOrder },
+      },
+      orderBy: { sortOrder: 'desc' },
+      select: { slug: true, title: true },
+    }),
+    db.artwork.findFirst({
+      where: {
+        artistId: artwork.artistId,
+        visible: true,
+        sortOrder: { gt: artwork.sortOrder },
+      },
+      orderBy: { sortOrder: 'asc' },
+      select: { slug: true, title: true },
+    }),
+  ]);
+
+  return {
+    id: artwork.id,
+    slug: artwork.slug,
+    title: resolveTranslation(artwork.title, locale),
+    medium: artwork.medium ? resolveTranslation(artwork.medium, locale) : null,
+    dimensions: artwork.dimensions,
+    year: artwork.year,
+    price: artwork.price ? Number(artwork.price) : null,
+    currency: artwork.currency,
+    showPrice: artwork.showPrice,
+    sold: artwork.sold,
+    imageUrl: artwork.imageUrl,
+    images: artwork.images,
+    artist: {
+      id: artwork.artist.id,
+      name: artwork.artist.name,
+      slug: artwork.artist.slug,
+    },
+    prevArtwork: prevArtwork
+      ? { slug: prevArtwork.slug, title: resolveTranslation(prevArtwork.title, locale) }
+      : null,
+    nextArtwork: nextArtwork
+      ? { slug: nextArtwork.slug, title: resolveTranslation(nextArtwork.title, locale) }
+      : null,
+  };
+}

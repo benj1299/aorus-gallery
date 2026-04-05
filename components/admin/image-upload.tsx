@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
-import { Upload, X, Link as LinkIcon, Image as ImageIcon } from 'lucide-react';
+import { Upload, X, Link as LinkIcon } from 'lucide-react';
+import { ImageEditor } from '@/components/admin/image-editor';
 
 interface ImageUploadProps {
   name: string;
@@ -21,22 +22,36 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState('');
   const [dragOver, setDragOver] = useState(false);
+  const [editorSrc, setEditorSrc] = useState('');
+  const [showEditor, setShowEditor] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const uploadFile = useCallback(async (file: File) => {
+  const validateFile = useCallback((file: File): boolean => {
     setError('');
 
     if (file.size > MAX_SIZE) {
       setError('Fichier trop lourd (max 10 MB)');
-      return;
+      return false;
     }
 
     const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
     if (!allowedTypes.includes(file.type)) {
       setError('Format non supporté (JPG, PNG, WebP, GIF)');
-      return;
+      return false;
     }
 
+    return true;
+  }, []);
+
+  const openEditor = useCallback((file: File) => {
+    if (!validateFile(file)) return;
+
+    const objectUrl = URL.createObjectURL(file);
+    setEditorSrc(objectUrl);
+    setShowEditor(true);
+  }, [validateFile]);
+
+  const uploadFile = useCallback(async (file: File) => {
     setUploading(true);
     setProgress(10);
 
@@ -70,14 +85,31 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
     }
   }, []);
 
+  const handleEditorComplete = useCallback((blob: Blob) => {
+    setShowEditor(false);
+    // Revoke the object URL to free memory
+    if (editorSrc) URL.revokeObjectURL(editorSrc);
+    setEditorSrc('');
+
+    const croppedFile = new File([blob], 'cropped-image.png', { type: 'image/png' });
+    uploadFile(croppedFile);
+  }, [editorSrc, uploadFile]);
+
+  const handleEditorCancel = useCallback(() => {
+    setShowEditor(false);
+    if (editorSrc) URL.revokeObjectURL(editorSrc);
+    setEditorSrc('');
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  }, [editorSrc]);
+
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
       e.preventDefault();
       setDragOver(false);
       const file = e.dataTransfer.files[0];
-      if (file) uploadFile(file);
+      if (file) openEditor(file);
     },
-    [uploadFile]
+    [openEditor]
   );
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -93,9 +125,9 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
   const handleFileSelect = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
-      if (file) uploadFile(file);
+      if (file) openEditor(file);
     },
-    [uploadFile]
+    [openEditor]
   );
 
   const handleRemove = useCallback(() => {
@@ -226,6 +258,14 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
       {required && !currentUrl && (
         <p className="text-sm text-red-500">Image requise</p>
       )}
+
+      {/* Image editor modal */}
+      <ImageEditor
+        open={showEditor}
+        imageSrc={editorSrc}
+        onComplete={handleEditorComplete}
+        onCancel={handleEditorCancel}
+      />
     </div>
   );
 }

@@ -19,6 +19,7 @@ const artworkSchema = z.object({
   price: z.coerce.number().optional().nullable(),
   currency: z.string().default('EUR'),
   imageUrl: httpsUrl,
+  images: z.array(z.string().url()).optional().default([]),
   visible: z.coerce.boolean().default(true),
   sortOrder: z.coerce.number().int().default(0),
   featuredHome: z.coerce.boolean().default(false),
@@ -29,6 +30,8 @@ const artworkSchema = z.object({
 export async function createArtwork(formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
+  const images = formData.getAll('images').map((v) => v.toString()).filter(Boolean);
+
   const raw = {
     title: extractTranslatable(formData, 'title'),
     artistId: formData.get('artistId')?.toString() ?? '',
@@ -38,6 +41,7 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
     price: formData.get('price')?.toString() ?? '',
     currency: formData.get('currency')?.toString() ?? 'EUR',
     imageUrl: formData.get('imageUrl')?.toString() ?? '',
+    images,
     visible: formData.get('visible')?.toString() ?? 'false',
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
     featuredHome: formData.get('featuredHome')?.toString() ?? 'false',
@@ -70,6 +74,8 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
 export async function updateArtwork(id: string, formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
+  const images = formData.getAll('images').map((v) => v.toString()).filter(Boolean);
+
   const raw = {
     title: extractTranslatable(formData, 'title'),
     artistId: formData.get('artistId')?.toString() ?? '',
@@ -79,6 +85,7 @@ export async function updateArtwork(id: string, formData: FormData): Promise<{ e
     price: formData.get('price')?.toString() ?? '',
     currency: formData.get('currency')?.toString() ?? 'EUR',
     imageUrl: formData.get('imageUrl')?.toString() ?? '',
+    images,
     visible: formData.get('visible')?.toString() ?? 'false',
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
     featuredHome: formData.get('featuredHome')?.toString() ?? 'false',
@@ -107,5 +114,12 @@ export async function updateArtwork(id: string, formData: FormData): Promise<{ e
 export async function deleteArtwork(id: string) {
   await requireAuth();
   await db.artwork.delete({ where: { id } });
+  revalidateEntity('/admin/artworks', ['/artists', '']);
+}
+
+export async function toggleArtworkField(id: string, field: 'visible' | 'featuredHome' | 'showPrice' | 'sold') {
+  await requireAuth();
+  const current = await db.artwork.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
+  await db.artwork.update({ where: { id }, data: { [field]: !current[field] } });
   revalidateEntity('/admin/artworks', ['/artists', '']);
 }

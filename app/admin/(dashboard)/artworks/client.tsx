@@ -1,9 +1,14 @@
 'use client';
 
+import { useState, useMemo } from 'react';
 import { AdminTable } from '@/components/admin/admin-table';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { deleteArtwork } from '@/lib/actions/artworks';
+import { deleteArtwork, toggleArtworkField } from '@/lib/actions/artworks';
+import { QuickToggle } from '@/components/admin/quick-toggle';
+import { ChevronDown } from 'lucide-react';
+
+type Artist = { id: string; name: string };
 
 type Artwork = {
   id: string;
@@ -17,6 +22,7 @@ type Artwork = {
   visible: boolean;
   featuredHome: boolean;
   sold: boolean;
+  artistId: string;
   artist: { name: string; slug: string };
 };
 
@@ -73,31 +79,60 @@ const columns = [
     key: 'visible',
     label: 'Statut',
     render: (aw: Artwork) => (
-      <div className="flex gap-1">
-        {aw.visible
-          ? <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Visible</span>
-          : <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">Masqué</span>
-        }
-        {aw.featuredHome && <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">En avant</span>}
-        {aw.sold && <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Vendu</span>}
+      <div className="flex gap-2">
+        <QuickToggle id={aw.id} field="visible" checked={aw.visible} action={toggleArtworkField} label="Visible" />
+        <QuickToggle id={aw.id} field="featuredHome" checked={aw.featuredHome} action={toggleArtworkField} label="En avant" />
+        <QuickToggle id={aw.id} field="sold" checked={aw.sold} action={toggleArtworkField} label="Vendu" />
       </div>
     ),
   },
 ];
 
-export function ArtworksListClient({ artworks }: { artworks: Artwork[] }) {
+export function ArtworksListClient({
+  artworks,
+  artists,
+}: {
+  artworks: Artwork[];
+  artists: Artist[];
+}) {
+  const [artistFilter, setArtistFilter] = useState<string>('');
+
+  const filtered = useMemo(
+    () => (artistFilter ? artworks.filter((aw) => aw.artistId === artistFilter) : artworks),
+    [artworks, artistFilter],
+  );
+
   return (
-    <AdminTable
-      title="Œuvres"
-      data={artworks}
-      columns={columns}
-      searchKeys={['title', 'artist']}
-      searchPlaceholder="Rechercher une œuvre..."
-      newHref="/admin/artworks/new"
-      newLabel="Nouvelle œuvre"
-      editHref={(aw) => `/admin/artworks/${aw.id}`}
-      deleteAction={deleteArtwork}
-      getId={(aw) => aw.id}
-    />
+    <div>
+      <div className="mb-4 flex items-center gap-3">
+        <div className="relative">
+          <select
+            value={artistFilter}
+            onChange={(e) => setArtistFilter(e.target.value)}
+            className="w-56 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 appearance-none pr-10 cursor-pointer focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 transition-colors"
+          >
+            <option value="">Tous les artistes</option>
+            {artists.map((a) => (
+              <option key={a.id} value={a.id}>
+                {a.name}
+              </option>
+            ))}
+          </select>
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+        </div>
+      </div>
+      <AdminTable
+        title="Œuvres"
+        data={filtered}
+        columns={columns}
+        searchKeys={['title', 'artist']}
+        searchPlaceholder="Rechercher une œuvre..."
+        newHref="/admin/artworks/new"
+        newLabel="Nouvelle œuvre"
+        editHref={(aw) => `/admin/artworks/${aw.id}`}
+        deleteAction={deleteArtwork}
+        getId={(aw) => aw.id}
+      />
+    </div>
   );
 }

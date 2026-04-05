@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Target, Clock, Globe } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { CTAStrip } from '@/components/CTAStrip';
+import { AdaptiveImage } from '@/components/ui/adaptive-image';
 
 const valueIcons = [Target, Clock, Globe];
 
@@ -149,14 +150,13 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
                   transition={{ duration: 0.8, delay: index * 0.08 }}
                   className="group"
                 >
-                  <Link href={`/artists/${artwork.artistSlug}`}>
+                  <Link href={`/artworks/${artwork.slug}`}>
                     <div className="aspect-[4/5] relative overflow-hidden">
-                      <Image
+                      <AdaptiveImage
                         src={artwork.imageUrl}
                         alt={artwork.title}
-                        fill
                         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/30 transition-colors duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
                         <div>

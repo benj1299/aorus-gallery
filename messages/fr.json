@@ -149,6 +149,15 @@
       "cv": "Curriculum vitae complet disponible sur demande."
     }
   },
+  "artwork": {
+    "priceOnRequest": "Prix sur demande",
+    "sold": "Vendu",
+    "inquire": "Se renseigner",
+    "inquireAbout": "Interessé par cette oeuvre ?",
+    "contactUs": "Nous contacter",
+    "details": "Détails",
+    "detail": "détail"
+  },
   "press": {
     "hero": {
       "eyebrow": "Médias",

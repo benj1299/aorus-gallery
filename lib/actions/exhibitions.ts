@@ -148,3 +148,10 @@ export async function deleteExhibition(id: string) {
   await db.galleryExhibition.delete({ where: { id } });
   revalidateEntity('/admin/exhibitions', ['/exhibitions']);
 }
+
+export async function toggleExhibitionField(id: string, field: 'visible') {
+  await requireAuth();
+  const current = await db.galleryExhibition.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
+  await db.galleryExhibition.update({ where: { id }, data: { [field]: !current[field] } });
+  revalidateEntity('/admin/exhibitions', ['/exhibitions']);
+}

@@ -42,6 +42,7 @@ export default async function EditArtworkPage({ params }: Props) {
           price: artwork.price ? Number(artwork.price) : null,
           currency: artwork.currency,
           imageUrl: artwork.imageUrl,
+          images: artwork.images,
           sortOrder: artwork.sortOrder,
           visible: artwork.visible,
           featuredHome: artwork.featuredHome,

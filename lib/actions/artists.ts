@@ -130,3 +130,10 @@ export async function deleteArtist(id: string) {
   await db.artist.delete({ where: { id } });
   revalidateEntity('/admin/artists', ['/artists', '']);
 }
+
+export async function toggleArtistField(id: string, field: 'visible') {
+  await requireAuth();
+  const current = await db.artist.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
+  await db.artist.update({ where: { id }, data: { [field]: !current[field] } });
+  revalidateEntity('/admin/artists', ['/artists', '']);
+}

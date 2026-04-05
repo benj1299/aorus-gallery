@@ -149,6 +149,15 @@
       "cv": "Full curriculum vitae available upon request."
     }
   },
+  "artwork": {
+    "priceOnRequest": "Price on request",
+    "sold": "Sold",
+    "inquire": "Inquire",
+    "inquireAbout": "Interested in this work?",
+    "contactUs": "Contact Us",
+    "details": "Details",
+    "detail": "detail"
+  },
   "press": {
     "hero": {
       "eyebrow": "Media",

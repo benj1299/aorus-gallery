@@ -4,6 +4,7 @@ import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
 import { FormSelect } from './form-select';
 import { ImageUpload } from './image-upload';
+import { MultiImageUpload } from './multi-image-upload';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -22,6 +23,7 @@ interface ArtworkFormProps {
     price?: number | null;
     currency?: string;
     imageUrl?: string;
+    images?: string[];
     sortOrder?: number;
     visible?: boolean;
     featuredHome?: boolean;
@@ -113,6 +115,11 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
             <FormSwitch name="showPrice" label="Afficher le prix" defaultChecked={defaultValues.showPrice ?? false} />
             <FormSwitch name="sold" label="Vendu" defaultChecked={defaultValues.sold ?? false} />
           </div>
+      </FormCard>
+
+      <FormCard title="Images contextuelles">
+          <p className="text-sm text-gray-500">Photos d'installation, vues de contexte ou details de l'oeuvre.</p>
+          <MultiImageUpload name="images" defaultValue={defaultValues?.images} maxImages={5} />
       </FormCard>
 
       <div className="flex justify-end pt-6 border-t border-gray-100">

@@ -2,7 +2,8 @@
 
 import { AdminTable } from '@/components/admin/admin-table';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
-import { deleteExhibition } from '@/lib/actions/exhibitions';
+import { deleteExhibition, toggleExhibitionField } from '@/lib/actions/exhibitions';
+import { QuickToggle } from '@/components/admin/quick-toggle';
 import { Eye, FileDown } from 'lucide-react';
 
 type Exhibition = {
@@ -77,9 +78,7 @@ const columns = [
     key: 'visible',
     label: 'Visible',
     render: (e: Exhibition) => (
-      e.visible
-        ? <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Visible</span>
-        : <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">Masqué</span>
+      <QuickToggle id={e.id} field="visible" checked={e.visible} action={toggleExhibitionField} label="Visible" />
     ),
   },
 ];

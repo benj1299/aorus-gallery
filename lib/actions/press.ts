@@ -90,3 +90,10 @@ export async function deletePressArticle(id: string) {
   await db.pressArticle.delete({ where: { id } });
   revalidateEntity('/admin/press', ['/press']);
 }
+
+export async function togglePressField(id: string, field: 'visible') {
+  await requireAuth();
+  const current = await db.pressArticle.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
+  await db.pressArticle.update({ where: { id }, data: { [field]: !current[field] } });
+  revalidateEntity('/admin/press', ['/press']);
+}

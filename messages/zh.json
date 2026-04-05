@@ -149,6 +149,15 @@
       "cv": "完整履歷可應要求提供。"
     }
   },
+  "artwork": {
+    "priceOnRequest": "價格請洽詢",
+    "sold": "已售出",
+    "inquire": "諮詢",
+    "inquireAbout": "對這件作品感興趣？",
+    "contactUs": "聯繫我們",
+    "details": "細節",
+    "detail": "細節"
+  },
   "press": {
     "hero": {
       "eyebrow": "媒體",
