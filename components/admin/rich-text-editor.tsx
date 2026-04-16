@@ -69,7 +69,7 @@ export function RichTextEditor({ name, defaultValue = '', placeholder }: RichTex
           margin-bottom: 0.5em;
         }
         .tiptap-editor .ProseMirror a {
-          color: #4BAF91;
+          color: #4A7C6F;
           text-decoration: underline;
         }
         .tiptap-editor .ProseMirror strong {

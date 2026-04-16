@@ -168,7 +168,7 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
                 transition={{ duration: 0.6, delay: index * 0.05 }}
               >
                 <Link href={`/artworks/${artwork.slug}`} className="group block">
-                  <div className="aspect-square relative overflow-hidden bg-blanc-muted">
+                  <div className="aspect-[3/4] relative overflow-hidden bg-blanc-muted">
                     <AdaptiveImage
                       src={artwork.imageUrl}
                       alt={artwork.title}

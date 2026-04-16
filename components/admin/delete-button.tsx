@@ -6,7 +6,7 @@ import { Trash2, X, Check } from 'lucide-react';
 
 interface DeleteButtonProps {
   id: string;
-  action: (id: string) => Promise<void>;
+  action: (id: string) => Promise<void | { error: string }>;
 }
 
 export function DeleteButton({ id, action }: DeleteButtonProps) {

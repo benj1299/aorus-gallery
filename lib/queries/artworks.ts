@@ -6,7 +6,7 @@ export async function getFeaturedArtworks(locale: Locale = 'en') {
   const artworks = await db.artwork.findMany({
     where: { featuredHome: true, visible: true },
     orderBy: { sortOrder: 'asc' },
-    take: 6,
+    take: 10,
     include: { artist: { select: { name: true, slug: true } } },
   });
   return artworks.map((aw) => ({

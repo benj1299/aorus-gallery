@@ -134,44 +134,54 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
         initial={{ opacity: 0 }}
         transition={{ duration: 1 }}
         viewportMargin="-100px"
+        container={false}
       >
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 px-6 md:px-12 lg:px-20">
           <h2 className="title-section text-noir">{t('gallery.title')}</h2>
         </div>
         {featuredArtworks.length > 0 ? (
           <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
-              {featuredArtworks.slice(0, 6).map((artwork, index) => (
-                <motion.div
-                  key={artwork.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.08 }}
-                  className="group"
-                >
-                  <Link href={`/artworks/${artwork.slug}`}>
-                    <div className="aspect-[4/5] relative overflow-hidden">
-                      <AdaptiveImage
-                        src={artwork.imageUrl}
-                        alt={artwork.title}
-                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                        className="transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/30 transition-colors duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
-                        <div>
-                          <p className="font-display text-lg text-blanc tracking-wide">{artwork.title}</p>
-                          <p className="text-blanc/70 text-sm mt-1">{artwork.artistName}</p>
+            <div className="relative">
+              {/* Left fade */}
+              <div className="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-blanc to-transparent z-10 pointer-events-none" />
+              {/* Right fade */}
+              <div className="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-blanc to-transparent z-10 pointer-events-none" />
+
+              <div
+                className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth px-6 md:px-12 lg:px-20"
+              >
+                {featuredArtworks.slice(0, 10).map((artwork, index) => (
+                  <motion.div
+                    key={artwork.id}
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: index * 0.06 }}
+                    className="group snap-start shrink-0 w-[260px] md:w-[300px]"
+                  >
+                    <Link href={`/artworks/${artwork.slug}`}>
+                      <div className="aspect-[4/5] relative overflow-hidden">
+                        <AdaptiveImage
+                          src={artwork.imageUrl}
+                          alt={artwork.title}
+                          sizes="300px"
+                          className="transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/30 transition-colors duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
+                          <div>
+                            <p className="font-display text-lg text-blanc tracking-wide">{artwork.title}</p>
+                            <p className="text-blanc/70 text-sm mt-1">{artwork.artistName}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="mt-4">
-                      <p className="font-display text-base text-noir tracking-wide">{artwork.title}</p>
-                      <p className="text-noir/50 text-sm tracking-wide mt-1">{artwork.artistName}</p>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+                      <div className="mt-4">
+                        <p className="font-display text-base text-noir tracking-wide">{artwork.title}</p>
+                        <p className="text-noir/50 text-sm tracking-wide mt-1">{artwork.artistName}</p>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
             </div>
             <div className="text-center mt-16">
               <Link
@@ -183,7 +193,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 px-6 md:px-12 lg:px-20">
             {featuredArtists.map((artist, index) => (
               <motion.div
                 key={artist.id}
@@ -267,7 +277,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
               transition={{ duration: 0.8, delay: 0.1 * (index + 1) }}
               className="text-center px-6 py-10"
             >
-              {(() => { const Icon = valueIcons[index]; return <Icon className="w-8 h-8 mx-auto mb-6 stroke-[1.5]" style={{ color: '#2D7A5E' }} />; })()}
+              {(() => { const Icon = valueIcons[index]; return <Icon className="w-8 h-8 mx-auto mb-6 stroke-[1.5]" style={{ color: '#4A7C6F' }} />; })()}
               <h3 className="font-display text-xl text-noir mb-4 tracking-wide">
                 {t(`values.items.${index}.title`)}
               </h3>

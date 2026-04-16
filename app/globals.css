@@ -19,8 +19,8 @@
   --color-blanc-muted: #F8F8F8;
 
   /* Jade accent */
-  --color-jade: #4BAF91;
-  --color-jade-dark: #326857;
+  --color-jade: #4A7C6F;
+  --color-jade-dark: #3A6258;
 
   /* Stone (muted text) */
   --color-stone: #6E6E6E;
@@ -29,8 +29,8 @@
   --color-hairline: #E6E6E6;
 
   /* Or → mapped to Jade */
-  --color-or: #4BAF91;
-  --color-or-light: #326857;
+  --color-or: #4A7C6F;
+  --color-or-light: #3A6258;
 
   /* Text colors */
   --color-text-light: #FAFAFA;
@@ -110,16 +110,16 @@
   --secondary-foreground: #0B0B0B;
   --muted: #111111;
   --muted-foreground: #6E6E6E;
-  --accent: #4BAF91;
+  --accent: #4A7C6F;
   --accent-foreground: #FAFAFA;
   --destructive: #DC2626;
   --border: var(--color-hairline);
   --input: var(--color-hairline);
-  --ring: #4BAF91;
+  --ring: #4A7C6F;
   --chart-1: #0B0B0B;
   --chart-2: #FAFAFA;
   --chart-3: #333333;
-  --chart-4: #4BAF91;
+  --chart-4: #4A7C6F;
   --chart-5: #6E6E6E;
   --sidebar: #0B0B0B;
   --sidebar-foreground: #FAFAFA;
@@ -128,7 +128,7 @@
   --sidebar-accent: #111111;
   --sidebar-accent-foreground: #FAFAFA;
   --sidebar-border: var(--color-hairline);
-  --sidebar-ring: #4BAF91;
+  --sidebar-ring: #4A7C6F;
 }
 
 @layer base {
@@ -180,7 +180,7 @@
   }
 
   ::selection {
-    background-color: rgba(75, 175, 145, 0.2);
+    background-color: rgba(74, 124, 111, 0.2);
     color: #0B0B0B;
   }
 
@@ -445,21 +445,21 @@
 
   .divider-gold {
     @apply w-20 h-px;
-    background: linear-gradient(90deg, transparent 0%, #4BAF91 30%, #4BAF91 70%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, #4A7C6F 30%, #4A7C6F 70%, transparent 100%);
     max-width: 24px;
     width: 24px;
   }
 
   .divider-gold-wide {
     @apply h-px;
-    background: linear-gradient(90deg, transparent 0%, #4BAF91 30%, #4BAF91 70%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, #4A7C6F 30%, #4A7C6F 70%, transparent 100%);
     width: 40px;
     max-width: 40px;
   }
 
   .divider-vertical {
     @apply w-px h-20;
-    background: linear-gradient(180deg, transparent 0%, #4BAF91 50%, transparent 100%);
+    background: linear-gradient(180deg, transparent 0%, #4A7C6F 50%, transparent 100%);
   }
 
   /* ===== GRID LAYOUTS ===== */
@@ -564,17 +564,17 @@
   /* Color utilities */
   .text-blanc { color: #FAFAFA; }
   .text-noir { color: #0B0B0B; }
-  .text-or { color: #2D7A5E; }
-  .text-jade { color: #2D7A5E; }
+  .text-or { color: #4A7C6F; }
+  .text-jade { color: #4A7C6F; }
   .text-stone { color: #6E6E6E; }
   .bg-blanc { background-color: #FAFAFA; }
   .bg-noir { background-color: #0B0B0B; }
-  .bg-or { background-color: #4BAF91; }
-  .bg-jade { background-color: #4BAF91; }
+  .bg-or { background-color: #4A7C6F; }
+  .bg-jade { background-color: #4A7C6F; }
   .border-blanc { border-color: #FAFAFA; }
   .border-noir { border-color: #0B0B0B; }
-  .border-or { border-color: #4BAF91; }
-  .border-jade { border-color: #4BAF91; }
+  .border-or { border-color: #4A7C6F; }
+  .border-jade { border-color: #4A7C6F; }
   .border-hairline { border-color: #E6E6E6; }
 
   /* Premium tracking */
@@ -598,6 +598,15 @@
 
   .animate-scale-in {
     animation: scaleIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 
   /* Stagger delays */

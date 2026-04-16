@@ -180,7 +180,7 @@ export function Header({ showExhibitions = true }: { showExhibitions?: boolean }
                       {isActive(item.href) && (
                         <span
                           className="absolute left-0 right-0 -bottom-1 h-px"
-                          style={{ backgroundColor: '#4BAF91' }}
+                          style={{ backgroundColor: '#4A7C6F' }}
                         />
                       )}
                     </Link>
@@ -194,7 +194,7 @@ export function Header({ showExhibitions = true }: { showExhibitions?: boolean }
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="h-px my-10"
-                style={{ backgroundColor: 'rgba(75, 175, 145, 0.4)', width: '64px' }}
+                style={{ backgroundColor: 'rgba(74, 124, 111, 0.4)', width: '64px' }}
               />
 
               {/* Language Switcher */}

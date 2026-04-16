@@ -4,13 +4,14 @@ import { useState } from 'react';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
 import { ImageUpload } from './image-upload';
+import { CVEntriesForm } from './cv-entries-form';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { LOCALES } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Plus, X } from 'lucide-react';
 import { FormCard } from './form-card';
-import { AdminForm } from './form-wrapper';
+import { FormLayout } from './form-layout';
 
 interface CVEntry {
   type: string;
@@ -50,14 +51,6 @@ interface ColItem {
   value: TranslatableField;
 }
 
-const CV_TYPES = [
-  { key: 'SOLO_SHOW', label: 'Expositions personnelles' },
-  { key: 'GROUP_SHOW', label: 'Expositions collectives' },
-  { key: 'ART_FAIR', label: "Foires d'art" },
-  { key: 'RESIDENCY', label: "Résidences" },
-  { key: 'AWARD', label: 'Prix et distinctions' },
-] as const;
-
 function filterEntriesByType(entries: CVEntry[] | undefined, type: string): CVItem[] {
   if (!entries) return [];
   return entries
@@ -91,7 +84,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
   ] as const;
 
   return (
-    <AdminForm action={action} className="max-w-4xl space-y-6">
+    <FormLayout action={action}>
       <FormCard title="Informations générales">
           <div>
             <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-1.5">Nom <span className="text-red-500">*</span></Label>
@@ -132,54 +125,11 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
       </FormCard>
 
       <FormCard title="CV / Historique d'expositions">
-        <div className="space-y-6">
-          {cvSections.map((section, sectionIdx) => (
-            <div key={section.key}>
-              {sectionIdx > 0 && <div className="h-px bg-gray-100 mb-4" />}
-              <Label className="text-sm font-medium text-gray-700 mb-2">{section.label}</Label>
-              <div className="space-y-3">
-                {section.items.map((entry, i) => (
-                  <div key={entry.id} className="flex gap-2">
-                    <div className="w-20 shrink-0">
-                      <Input
-                        name={`cv.${section.key}.${i}.year`}
-                        type="number"
-                        defaultValue={entry.year ?? ''}
-                        placeholder="Année"
-                        className="text-center"
-                      />
-                    </div>
-                    <div className="flex-1 space-y-1">
-                      {LOCALES.map((loc) => (
-                        <Input
-                          key={loc}
-                          name={`cv.${section.key}.${i}.${loc}`}
-                          defaultValue={entry.value[loc] ?? ''}
-                          placeholder={`${section.label} (${loc.toUpperCase()})`}
-                        />
-                      ))}
-                    </div>
-                    <button
-                      type="button"
-                      className="self-start mt-1 text-red-400 hover:text-red-600"
-                      onClick={() => section.setItems(section.items.filter((item) => item.id !== entry.id))}
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-              <button
-                type="button"
-                className="mt-2 text-sm text-gray-500 hover:text-gray-900 inline-flex items-center"
-                onClick={() => section.setItems([...section.items, { id: uid(), value: emptyT() }])}
-              >
-                <Plus className="w-3 h-3 mr-1" />
-                Ajouter
-              </button>
-            </div>
-          ))}
-        </div>
+        <CVEntriesForm
+          sections={cvSections}
+          generateId={uid}
+          emptyTranslatable={emptyT}
+        />
       </FormCard>
 
       <FormCard title="Collections">
@@ -216,11 +166,6 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
           </button>
       </FormCard>
 
-      <div className="flex justify-end pt-6 border-t border-gray-100">
-        <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
-          Enregistrer
-        </button>
-      </div>
-    </AdminForm>
+    </FormLayout>
   );
 }

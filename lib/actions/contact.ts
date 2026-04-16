@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { z } from 'zod';
 import { headers } from 'next/headers';
 import { checkRateLimit } from '@/lib/rate-limit';
@@ -34,7 +34,7 @@ export async function submitContactForm(formData: {
     return { error: messages };
   }
 
-  await prisma.contactSubmission.create({ data: result.data });
+  await db.contactSubmission.create({ data: result.data });
 
   return { success: true };
 }

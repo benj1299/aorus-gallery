@@ -1,12 +1,13 @@
 'use server';
 
 import { db } from '@/lib/db-typed';
+import { Prisma } from '@prisma/client';
 import { requireAuth } from '@/lib/auth-utils';
 import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, extractTranslatable, extractTranslatableArray, type TranslatableField } from '@/lib/i18n-content';
-import { httpsUrl } from '@/lib/schemas/common';
+import { httpsUrl, booleanFromString } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 import { sanitizeTranslatable } from '@/lib/sanitize';
 import { parseFormData } from '@/lib/actions/safe-action';
@@ -17,7 +18,7 @@ const artistSchema = z.object({
   bio: translatableSchema,
   imageUrl: httpsUrl,
   sortOrder: z.coerce.number().int().default(0),
-  visible: z.coerce.boolean().default(true),
+  visible: booleanFromString.default(true),
 });
 
 const CV_TYPES = ['SOLO_SHOW', 'GROUP_SHOW', 'ART_FAIR', 'RESIDENCY', 'AWARD'] as const;
@@ -59,23 +60,30 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
   const cvEntries = extractCVEntries(formData);
   const collections = extractTranslatableArray(formData, 'collections');
 
-  await db.artist.create({
-    data: {
-      ...data,
-      slug,
-      exhibitions: {
-        create: cvEntries.map((entry) => ({
-          title: entry.title,
-          type: entry.type as 'SOLO_SHOW' | 'GROUP_SHOW' | 'ART_FAIR' | 'RESIDENCY' | 'AWARD',
-          sortOrder: entry.sortOrder,
-          year: entry.year ?? null,
-        })),
+  try {
+    await db.artist.create({
+      data: {
+        ...data,
+        slug,
+        exhibitions: {
+          create: cvEntries.map((entry) => ({
+            title: entry.title,
+            type: entry.type as 'SOLO_SHOW' | 'GROUP_SHOW' | 'ART_FAIR' | 'RESIDENCY' | 'AWARD',
+            sortOrder: entry.sortOrder,
+            year: entry.year ?? null,
+          })),
+        },
+        collections: {
+          create: collections.map((title, i) => ({ title, sortOrder: i })),
+        },
       },
-      collections: {
-        create: collections.map((title, i) => ({ title, sortOrder: i })),
-      },
-    },
-  });
+    });
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
+      return { error: 'Un élément avec ce nom existe déjà. Veuillez choisir un autre nom.' };
+    }
+    throw e;
+  }
 
   revalidateEntity('/admin/artists', ['/artists', '']);
   redirect('/admin/artists');
@@ -83,6 +91,9 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
 
 export async function updateArtist(id: string, formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
+
+  const existing = await db.artist.findUnique({ where: { id }, select: { id: true } });
+  if (!existing) return { error: 'Élément introuvable' };
 
   const raw = {
     name: formData.get('name')?.toString() ?? '',
@@ -125,18 +136,21 @@ export async function updateArtist(id: string, formData: FormData): Promise<{ er
   redirect('/admin/artists');
 }
 
-export async function deleteArtist(id: string) {
+export async function deleteArtist(id: string): Promise<{ error: string } | void> {
   await requireAuth();
+  const existing = await db.artist.findUnique({ where: { id }, select: { id: true } });
+  if (!existing) return { error: 'Élément introuvable' };
   await db.artist.delete({ where: { id } });
   revalidateEntity('/admin/artists', ['/artists', '']);
 }
 
 const ARTIST_TOGGLE_FIELDS = ['visible'] as const;
 
-export async function toggleArtistField(id: string, field: 'visible') {
+export async function toggleArtistField(id: string, field: 'visible'): Promise<{ error: string } | void> {
   await requireAuth();
   if (!(ARTIST_TOGGLE_FIELDS as readonly string[]).includes(field)) throw new Error('Invalid field');
-  const current = await db.artist.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
+  const current = await db.artist.findUnique({ where: { id }, select: { [field]: true } });
+  if (!current) return { error: 'Élément introuvable' };
   await db.artist.update({ where: { id }, data: { [field]: !current[field] } });
   revalidateEntity('/admin/artists', ['/artists', '']);
 }

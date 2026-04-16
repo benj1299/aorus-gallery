@@ -1,11 +1,13 @@
 'use client';
 
+import { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { CTAStrip } from '@/components/CTAStrip';
 import { AdaptiveImage } from '@/components/ui/adaptive-image';
+import { Lightbox } from '@/components/ui/lightbox';
 
 interface ArtworkData {
   id: string;
@@ -31,6 +33,18 @@ interface ArtworkData {
 
 export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
   const t = useTranslations('artwork');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const allImages = [
+    { src: artwork.imageUrl, alt: artwork.title },
+    ...artwork.images.map((img, i) => ({ src: img, alt: `${artwork.title} — ${i + 1}` })),
+  ];
+
+  const openLightbox = useCallback((index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -64,7 +78,12 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="min-h-[60vh] relative overflow-hidden border border-noir/10"
+            className="min-h-[60vh] max-h-[80vh] relative overflow-hidden border border-noir/10 cursor-zoom-in"
+            onClick={() => openLightbox(0)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter') openLightbox(0); }}
+            aria-label={t('viewFullscreen', { defaultValue: 'View fullscreen' })}
           >
             <AdaptiveImage
               src={artwork.imageUrl}
@@ -146,7 +165,11 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="aspect-square relative overflow-hidden border border-noir/10"
+                className="aspect-[4/3] relative overflow-hidden border border-noir/10 cursor-zoom-in"
+                onClick={() => openLightbox(index + 1)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter') openLightbox(index + 1); }}
               >
                 <AdaptiveImage
                   src={image}
@@ -212,6 +235,15 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
       <CTAStrip
         title={t('inquireAbout')}
         primaryLink={{ href: '/contact', label: t('contactUs') }}
+      />
+
+      {/* Lightbox */}
+      <Lightbox
+        images={allImages}
+        index={lightboxIndex}
+        open={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        onIndexChange={setLightboxIndex}
       />
     </div>
   );

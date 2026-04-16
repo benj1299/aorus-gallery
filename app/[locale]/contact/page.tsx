@@ -15,6 +15,7 @@ import Image from 'next/image';
 import { PageHero } from '@/components/PageHero';
 import { FormField } from '@/components/FormField';
 import { submitContactForm } from '@/lib/actions/contact';
+import { toast } from 'sonner';
 
 const contactSchema = z.object({
   status: z.enum(['collector', 'press', 'institution', 'corporate', 'artist', 'other']),
@@ -55,7 +56,7 @@ export default function ContactPage() {
   const onSubmit = async (data: ContactFormData) => {
     setFormStatus('sending');
     try {
-      await submitContactForm({
+      const result = await submitContactForm({
         status: data.status,
         name: data.name,
         email: data.email,
@@ -63,9 +64,15 @@ export default function ContactPage() {
         interestedIn: data.interestedIn || undefined,
         preferredLanguage: data.preferredLanguage || undefined,
       });
+      if ('error' in result) {
+        setFormStatus('error');
+        toast.error(result.error);
+        return;
+      }
       setFormStatus('success');
     } catch {
       setFormStatus('error');
+      toast.error(t('form.error'));
     }
   };
 

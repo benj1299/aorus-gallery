@@ -1,12 +1,13 @@
 'use server';
 
 import { db } from '@/lib/db-typed';
+import { Prisma } from '@prisma/client';
 import { requireAuth } from '@/lib/auth-utils';
 import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
-import { optionalHttpsUrl, serializeTranslatable } from '@/lib/schemas/common';
+import { optionalHttpsUrl, serializeTranslatable, booleanFromString } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 import { sanitizeTranslatable } from '@/lib/sanitize';
 import { parseFormData } from '@/lib/actions/safe-action';
@@ -20,7 +21,7 @@ const exhibitionSchema = z.object({
   endDate: z.coerce.date().optional().nullable(),
   location: z.string().optional().default(''),
   imageUrl: optionalHttpsUrl,
-  visible: z.coerce.boolean().default(true),
+  visible: booleanFromString.default(true),
   sortOrder: z.coerce.number().int().default(0),
 });
 
@@ -70,23 +71,30 @@ export async function createExhibition(formData: FormData): Promise<{ error: str
   const artistIds = parseArtistIds(formData);
   const artworkIds = parseArtworkIds(formData);
 
-  await db.galleryExhibition.create({
-    data: {
-      title: data.title,
-      description: serializeTranslatable(data.description),
-      slug,
-      type: data.type,
-      status: data.status,
-      startDate: data.startDate ?? null,
-      endDate: data.endDate ?? null,
-      location: data.location || null,
-      imageUrl: data.imageUrl || null,
-      visible: data.visible,
-      sortOrder: data.sortOrder,
-      artists: { create: artistIds.map((id) => ({ artistId: id })) },
-      artworks: { create: artworkIds.map((id) => ({ artworkId: id })) },
-    },
-  });
+  try {
+    await db.galleryExhibition.create({
+      data: {
+        title: data.title,
+        description: serializeTranslatable(data.description),
+        slug,
+        type: data.type,
+        status: data.status,
+        startDate: data.startDate ?? null,
+        endDate: data.endDate ?? null,
+        location: data.location || null,
+        imageUrl: data.imageUrl || null,
+        visible: data.visible,
+        sortOrder: data.sortOrder,
+        artists: { create: artistIds.map((id) => ({ artistId: id })) },
+        artworks: { create: artworkIds.map((id) => ({ artworkId: id })) },
+      },
+    });
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
+      return { error: 'Un élément avec ce nom existe déjà. Veuillez choisir un autre nom.' };
+    }
+    throw e;
+  }
 
   revalidateEntity('/admin/exhibitions', ['/exhibitions']);
   redirect('/admin/exhibitions');
@@ -94,6 +102,9 @@ export async function createExhibition(formData: FormData): Promise<{ error: str
 
 export async function updateExhibition(id: string, formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
+
+  const existing = await db.galleryExhibition.findUnique({ where: { id }, select: { id: true } });
+  if (!existing) return { error: 'Élément introuvable' };
 
   const startDateStr = formData.get('startDate')?.toString() ?? '';
   const endDateStr = formData.get('endDate')?.toString() ?? '';
@@ -143,18 +154,21 @@ export async function updateExhibition(id: string, formData: FormData): Promise<
   redirect('/admin/exhibitions');
 }
 
-export async function deleteExhibition(id: string) {
+export async function deleteExhibition(id: string): Promise<{ error: string } | void> {
   await requireAuth();
+  const existing = await db.galleryExhibition.findUnique({ where: { id }, select: { id: true } });
+  if (!existing) return { error: 'Élément introuvable' };
   await db.galleryExhibition.delete({ where: { id } });
   revalidateEntity('/admin/exhibitions', ['/exhibitions']);
 }
 
 const EXHIBITION_TOGGLE_FIELDS = ['visible'] as const;
 
-export async function toggleExhibitionField(id: string, field: 'visible') {
+export async function toggleExhibitionField(id: string, field: 'visible'): Promise<{ error: string } | void> {
   await requireAuth();
   if (!(EXHIBITION_TOGGLE_FIELDS as readonly string[]).includes(field)) throw new Error('Invalid field');
-  const current = await db.galleryExhibition.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
+  const current = await db.galleryExhibition.findUnique({ where: { id }, select: { [field]: true } });
+  if (!current) return { error: 'Élément introuvable' };
   await db.galleryExhibition.update({ where: { id }, data: { [field]: !current[field] } });
   revalidateEntity('/admin/exhibitions', ['/exhibitions']);
 }

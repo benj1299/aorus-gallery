@@ -1,18 +1,14 @@
-import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { requireAuth } from '@/lib/auth-utils';
 import { AdminSidebar } from '@/components/admin/sidebar';
 import { Toaster } from 'sonner';
 import { prisma } from '@/lib/db';
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  const session = await auth.api.getSession({ headers: await headers() });
+  await requireAuth();
 
-  if (!session) {
-    redirect('/admin/login');
-  }
-
-  const messageCount = await prisma.contactSubmission.count();
+  const messageCount = await prisma.contactSubmission.count({
+    where: { status: 'new' },
+  });
 
   return (
     <div className="flex min-h-screen bg-gray-50">

@@ -19,11 +19,11 @@ export function Footer() {
             >
               contact@orusgallery.com
             </a>
-            <div className="hidden md:block w-px h-4" style={{ backgroundColor: '#4BAF91' }} />
+            <div className="hidden md:block w-px h-4" style={{ backgroundColor: '#4A7C6F' }} />
             <span className="text-sm tracking-[0.08em]" style={{ color: '#6E6E6E' }}>
               {t('appointment')}
             </span>
-            <div className="hidden md:block w-px h-4" style={{ backgroundColor: '#4BAF91' }} />
+            <div className="hidden md:block w-px h-4" style={{ backgroundColor: '#4A7C6F' }} />
             <span className="text-sm tracking-[0.08em]" style={{ color: '#6E6E6E' }}>
               {t('cities')}
             </span>

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
-import { Upload, X, ImagePlus } from 'lucide-react';
+import { useState, useCallback } from 'react';
+import { X, ImagePlus, Upload } from 'lucide-react';
+import { useImageUpload } from '@/lib/hooks/use-image-upload';
 
 interface MultiImageUploadProps {
   name: string;
@@ -9,67 +10,30 @@ interface MultiImageUploadProps {
   maxImages?: number;
 }
 
-const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
-const ACCEPTED_TYPES = '.jpg,.jpeg,.png,.webp,.gif';
-const ALLOWED_MIME = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-
 export function MultiImageUpload({ name, defaultValue = [], maxImages = 5 }: MultiImageUploadProps) {
   const [images, setImages] = useState<string[]>(defaultValue);
-  const [uploading, setUploading] = useState(false);
-  const [error, setError] = useState('');
-  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const {
+    uploading,
+    error,
+    fileInputRef,
+    acceptedTypes,
+    validateFile,
+    uploadFile,
+  } = useImageUpload();
 
   const canAdd = images.length < maxImages;
 
-  const validateFile = useCallback((file: File): boolean => {
-    if (file.size > MAX_SIZE) {
-      setError('Fichier trop lourd (max 10 MB)');
-      return false;
-    }
-    if (!ALLOWED_MIME.includes(file.type)) {
-      setError('Format non support\u00e9 (JPG, PNG, WebP, GIF)');
-      return false;
-    }
-    return true;
-  }, []);
-
-  const uploadFile = useCallback(async (file: File) => {
-    if (!validateFile(file)) return;
-
-    setUploading(true);
-    setError('');
-
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
-        credentials: 'same-origin',
-      });
-
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || 'Erreur lors de l\'upload');
-      }
-
-      const data = await response.json();
-      setImages((prev) => [...prev, data.url]);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur lors de l\'upload');
-    } finally {
-      setUploading(false);
-    }
-  }, [validateFile]);
-
   const handleFileSelect = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
-      if (file) uploadFile(file);
+      if (!file || !validateFile(file)) return;
+
+      const url = await uploadFile(file);
+      if (url) setImages((prev) => [...prev, url]);
       if (fileInputRef.current) fileInputRef.current.value = '';
     },
-    [uploadFile],
+    [validateFile, uploadFile, fileInputRef],
   );
 
   const handleRemove = useCallback((index: number) => {
@@ -137,15 +101,13 @@ export function MultiImageUpload({ name, defaultValue = [], maxImages = 5 }: Mul
       <input
         ref={fileInputRef}
         type="file"
-        accept={ACCEPTED_TYPES}
+        accept={acceptedTypes}
         onChange={handleFileSelect}
         className="hidden"
       />
 
       {/* Error */}
-      {error && (
-        <p className="text-sm text-red-600">{error}</p>
-      )}
+      {error && <p className="text-sm text-red-600">{error}</p>}
     </div>
   );
 }

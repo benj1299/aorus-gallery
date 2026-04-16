@@ -33,8 +33,8 @@ export default async function ExhibitionViewPage({ params }: Props) {
   function statusLabel(status: string) {
     switch (status) {
       case 'CURRENT': return 'En cours';
-      case 'UPCOMING': return 'A venir';
-      default: return 'Passee';
+      case 'UPCOMING': return 'À venir';
+      default: return 'Passée';
     }
   }
 

@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { AdminSearchInput } from './admin-search';
 import { AdminBreadcrumb } from './admin-breadcrumb';
 import { DeleteButton } from './delete-button';
+import { TablePagination } from './table-pagination';
 import { Plus, Pencil, ArrowUpDown } from 'lucide-react';
 
 interface Column<T> {
@@ -25,7 +26,7 @@ interface AdminTableProps<T> {
   newHref?: string;
   newLabel?: string;
   editHref: (item: T) => string;
-  deleteAction?: (id: string) => Promise<void>;
+  deleteAction?: (id: string) => Promise<void | { error: string }>;
   getId: (item: T) => string;
   extraActions?: (item: T) => React.ReactNode;
   itemsPerPage?: number;
@@ -186,32 +187,12 @@ export function AdminTable<T extends Record<string, unknown>>({
         </Table>
       </div>
 
-      <div className="flex items-center justify-between">
-        <p className="text-sm text-gray-500">
-          {sorted.length} resultat{sorted.length !== 1 ? 's' : ''}
-        </p>
-        {totalPages > 1 && (
-          <div className="flex items-center gap-2">
-            <button
-              className="px-3 py-1.5 text-sm bg-white text-gray-700 border border-gray-200 rounded-md hover:bg-gray-50 disabled:opacity-50 transition-colors"
-              disabled={page <= 1}
-              onClick={() => setPage((p) => p - 1)}
-            >
-              Precedent
-            </button>
-            <span className="text-sm text-gray-500">
-              {page} / {totalPages}
-            </span>
-            <button
-              className="px-3 py-1.5 text-sm bg-white text-gray-700 border border-gray-200 rounded-md hover:bg-gray-50 disabled:opacity-50 transition-colors"
-              disabled={page >= totalPages}
-              onClick={() => setPage((p) => p + 1)}
-            >
-              Suivant
-            </button>
-          </div>
-        )}
-      </div>
+      <TablePagination
+        totalItems={sorted.length}
+        totalPages={totalPages}
+        currentPage={page}
+        onPageChange={setPage}
+      />
     </div>
   );
 }

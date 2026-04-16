@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { Toaster } from 'sonner';
 import { cormorant, dmSans, notoSerifTC } from '@/lib/fonts';
 import { getSiteSettings } from '@/lib/queries/settings';
 
@@ -39,6 +40,7 @@ export default async function LocaleLayout({
           <Header showExhibitions={settings.showExhibitions} />
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
+          <Toaster position="bottom-right" />
         </div>
       </NextIntlClientProvider>
     </div>

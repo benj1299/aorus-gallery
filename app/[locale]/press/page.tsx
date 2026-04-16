@@ -5,8 +5,6 @@ import { PressPageClient } from './client';
 import type { Locale } from '@/i18n/routing';
 import { OG_LOCALE, generateAlternates } from '@/lib/seo';
 
-export const dynamic = 'force-dynamic';
-
 interface Props {
   params: Promise<{ locale: string }>;
 }

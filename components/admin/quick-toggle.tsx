@@ -7,7 +7,7 @@ interface QuickToggleProps<F extends string = string> {
   id: string;
   field: F;
   checked: boolean;
-  action: (id: string, field: F) => Promise<void>;
+  action: (id: string, field: F) => Promise<void | { error: string }>;
   label?: string;
 }
 
@@ -24,7 +24,7 @@ export function QuickToggle<F extends string = string>({ id, field, checked, act
         checked={checked}
         disabled={isPending}
         onCheckedChange={() => {
-          startTransition(() => action(id, field));
+          startTransition(async () => { await action(id, field); });
         }}
       />
       {label && <span className="text-xs text-gray-600 select-none">{label}</span>}

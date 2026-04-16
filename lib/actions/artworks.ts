@@ -1,12 +1,13 @@
 'use server';
 
 import { db } from '@/lib/db-typed';
+import { Prisma } from '@prisma/client';
 import { requireAuth } from '@/lib/auth-utils';
 import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
-import { httpsUrl, serializeTranslatable } from '@/lib/schemas/common';
+import { httpsUrl, serializeTranslatable, booleanFromString } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 import { parseFormData } from '@/lib/actions/safe-action';
 
@@ -20,11 +21,11 @@ const artworkSchema = z.object({
   currency: z.string().default('EUR'),
   imageUrl: httpsUrl,
   images: z.array(z.string().url()).optional().default([]),
-  visible: z.coerce.boolean().default(true),
+  visible: booleanFromString.default(true),
   sortOrder: z.coerce.number().int().default(0),
-  featuredHome: z.coerce.boolean().default(false),
-  showPrice: z.coerce.boolean().default(false),
-  sold: z.coerce.boolean().default(false),
+  featuredHome: booleanFromString.default(false),
+  showPrice: booleanFromString.default(false),
+  sold: booleanFromString.default(false),
 });
 
 export async function createArtwork(formData: FormData): Promise<{ error: string } | void> {
@@ -56,16 +57,23 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
   const artistSlug = artist?.slug ?? 'unknown';
   const slug = slugify(artistSlug + '-' + data.title.en);
 
-  await db.artwork.create({
-    data: {
-      ...data,
-      slug,
-      medium: serializeTranslatable(data.medium),
-      dimensions: data.dimensions || null,
-      price: data.price ?? null,
-      year: data.year ?? null,
-    },
-  });
+  try {
+    await db.artwork.create({
+      data: {
+        ...data,
+        slug,
+        medium: serializeTranslatable(data.medium),
+        dimensions: data.dimensions || null,
+        price: data.price ?? null,
+        year: data.year ?? null,
+      },
+    });
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
+      return { error: 'Un élément avec ce nom existe déjà. Veuillez choisir un autre nom.' };
+    }
+    throw e;
+  }
 
   revalidateEntity('/admin/artworks', ['/artists', '']);
   redirect('/admin/artworks');
@@ -73,6 +81,9 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
 
 export async function updateArtwork(id: string, formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
+
+  const existing = await db.artwork.findUnique({ where: { id }, select: { id: true } });
+  if (!existing) return { error: 'Élément introuvable' };
 
   const images = formData.getAll('images').map((v) => v.toString()).filter(Boolean);
 
@@ -111,18 +122,21 @@ export async function updateArtwork(id: string, formData: FormData): Promise<{ e
   redirect('/admin/artworks');
 }
 
-export async function deleteArtwork(id: string) {
+export async function deleteArtwork(id: string): Promise<{ error: string } | void> {
   await requireAuth();
+  const existing = await db.artwork.findUnique({ where: { id }, select: { id: true } });
+  if (!existing) return { error: 'Élément introuvable' };
   await db.artwork.delete({ where: { id } });
   revalidateEntity('/admin/artworks', ['/artists', '']);
 }
 
 const ARTWORK_TOGGLE_FIELDS = ['visible', 'featuredHome', 'showPrice', 'sold'] as const;
 
-export async function toggleArtworkField(id: string, field: 'visible' | 'featuredHome' | 'showPrice' | 'sold') {
+export async function toggleArtworkField(id: string, field: 'visible' | 'featuredHome' | 'showPrice' | 'sold'): Promise<{ error: string } | void> {
   await requireAuth();
   if (!(ARTWORK_TOGGLE_FIELDS as readonly string[]).includes(field)) throw new Error('Invalid field');
-  const current = await db.artwork.findUniqueOrThrow({ where: { id }, select: { [field]: true } });
+  const current = await db.artwork.findUnique({ where: { id }, select: { [field]: true } });
+  if (!current) return { error: 'Élément introuvable' };
   await db.artwork.update({ where: { id }, data: { [field]: !current[field] } });
   revalidateEntity('/admin/artworks', ['/artists', '']);
 }

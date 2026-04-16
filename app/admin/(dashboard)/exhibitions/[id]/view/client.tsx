@@ -92,7 +92,7 @@ export function ExhibitionViewClient({ exhibition }: { exhibition: ExhibitionDat
               {exhibition.location && (
                 <p className="text-sm text-gray-500 mb-4">{exhibition.location}</p>
               )}
-              <div className="w-16 h-px mb-6" style={{ backgroundColor: '#4BAF91' }} />
+              <div className="w-16 h-px mb-6" style={{ backgroundColor: '#4A7C6F' }} />
               {exhibition.description && (
                 <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-line">{exhibition.description}</p>
               )}

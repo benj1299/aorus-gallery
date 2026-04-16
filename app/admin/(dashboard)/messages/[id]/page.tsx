@@ -85,13 +85,13 @@ export default async function MessageDetailPage({ params }: Props) {
             </div>
             {message.interestedIn && (
               <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">Interesse par</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">Intéressé par</p>
                 <p className="text-sm text-gray-900 capitalize">{message.interestedIn}</p>
               </div>
             )}
             {message.preferredLanguage && (
               <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">Langue preferee</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">Langue préférée</p>
                 <p className="text-sm text-gray-900 uppercase">{message.preferredLanguage}</p>
               </div>
             )}

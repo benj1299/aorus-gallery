@@ -131,6 +131,7 @@ model Exhibition {
 
   artist Artist @relation(fields: [artistId], references: [id], onDelete: Cascade)
 
+  @@index([artistId])
   @@map("exhibition")
 }
 
@@ -143,6 +144,7 @@ model Collection {
 
   artist Artist @relation(fields: [artistId], references: [id], onDelete: Cascade)
 
+  @@index([artistId])
   @@map("collection")
 }
 
@@ -169,6 +171,7 @@ model Artwork {
   artist             Artist                    @relation(fields: [artistId], references: [id], onDelete: Cascade)
   galleryExhibitions GalleryExhibitionArtwork[]
 
+  @@index([artistId])
   @@map("artwork")
 }
 
@@ -266,6 +269,7 @@ model ContactSubmission {
   preferredLanguage String?
   createdAt         DateTime @default(now())
 
+  @@index([createdAt])
   @@map("contact_submission")
 }
 

@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 import { requireAuth } from '@/lib/auth-utils';
 import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
@@ -11,7 +11,7 @@ export async function updateSiteSettings(formData: FormData) {
   const showExhibitions = formData.get('showExhibitions')?.toString() === 'true';
   const showBanner = formData.get('showBanner')?.toString() === 'true';
 
-  await prisma.siteSettings.upsert({
+  await db.siteSettings.upsert({
     where: { id: 'default' },
     update: { showExhibitions, showBanner },
     create: { id: 'default', showExhibitions, showBanner },

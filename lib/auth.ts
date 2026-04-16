@@ -1,5 +1,6 @@
 import { betterAuth } from 'better-auth';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
+import { admin } from 'better-auth/plugins';
 import { prisma } from './db';
 
 export const auth = betterAuth({
@@ -10,6 +11,11 @@ export const auth = betterAuth({
     enabled: true,
     disableSignUp: true,
   },
+  plugins: [
+    admin({
+      defaultRole: 'user',
+    }),
+  ],
   rateLimit: {
     window: 60,
     max: 5,

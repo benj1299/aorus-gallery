@@ -9,7 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { FormCard } from './form-card';
-import { AdminForm } from './form-wrapper';
+import { FormLayout } from './form-layout';
 
 interface ExhibitionFormProps {
   action: (formData: FormData) => Promise<{ error: string } | void>;
@@ -45,7 +45,7 @@ const STATUS_OPTIONS = [
 
 export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }: ExhibitionFormProps) {
   return (
-    <AdminForm action={action} className="max-w-4xl space-y-6">
+    <FormLayout action={action}>
       <FormCard title="Détails de l'exposition">
           <TranslatableInput
             name="title"
@@ -160,11 +160,6 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
           </div>
       </FormCard>
 
-      <div className="flex justify-end pt-6 border-t border-gray-100">
-        <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
-          Enregistrer
-        </button>
-      </div>
-    </AdminForm>
+    </FormLayout>
   );
 }

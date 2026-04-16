@@ -35,7 +35,7 @@ export function LanguageSwitcher() {
             {locale === loc && (
               <span
                 className="absolute left-0 right-0 -bottom-px h-px"
-                style={{ backgroundColor: '#4BAF91' }}
+                style={{ backgroundColor: '#4A7C6F' }}
               />
             )}
           </button>

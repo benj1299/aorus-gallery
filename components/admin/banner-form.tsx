@@ -7,7 +7,7 @@ import type { TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { FormCard } from './form-card';
-import { AdminForm } from './form-wrapper';
+import { FormLayout } from './form-layout';
 
 interface BannerFormProps {
   action: (formData: FormData) => Promise<{ error: string } | void>;
@@ -22,7 +22,7 @@ interface BannerFormProps {
 
 export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
   return (
-    <AdminForm action={action} className="max-w-4xl space-y-6">
+    <FormLayout action={action}>
       <FormCard title="Contenu de la bannière">
           <TranslatableInput
             name="title"
@@ -54,11 +54,6 @@ export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
           <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? false} />
       </FormCard>
 
-      <div className="flex justify-end pt-6 border-t border-gray-100">
-        <button type="submit" className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
-          Enregistrer
-        </button>
-      </div>
-    </AdminForm>
+    </FormLayout>
   );
 }

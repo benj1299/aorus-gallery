@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { Upload, X, Link as LinkIcon } from 'lucide-react';
 import { ImageEditor } from '@/components/admin/image-editor';
+import { useImageUpload } from '@/lib/hooks/use-image-upload';
 
 interface ImageUploadProps {
   name: string;
@@ -10,97 +11,34 @@ interface ImageUploadProps {
   required?: boolean;
 }
 
-const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
-const ACCEPTED_TYPES = '.jpg,.jpeg,.png,.webp,.gif';
-
 type Tab = 'upload' | 'url';
 
 export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) {
   const [tab, setTab] = useState<Tab>(defaultValue ? 'url' : 'upload');
   const [currentUrl, setCurrentUrl] = useState(defaultValue ?? '');
-  const [uploading, setUploading] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [error, setError] = useState('');
   const [dragOver, setDragOver] = useState(false);
-  const [editorSrc, setEditorSrc] = useState('');
-  const [showEditor, setShowEditor] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const validateFile = useCallback((file: File): boolean => {
-    setError('');
+  const {
+    uploading,
+    progress,
+    error,
+    fileInputRef,
+    acceptedTypes,
+    openEditor,
+    showEditor,
+    editorSrc,
+    handleEditorCancel,
+    handleEditorComplete,
+  } = useImageUpload();
 
-    if (file.size > MAX_SIZE) {
-      setError('Fichier trop lourd (max 10 MB)');
-      return false;
-    }
+  const onEditorComplete = useCallback(async (blob: Blob) => {
+    const url = await handleEditorComplete(blob);
+    if (url) setCurrentUrl(url);
+  }, [handleEditorComplete]);
 
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-    if (!allowedTypes.includes(file.type)) {
-      setError('Format non supporté (JPG, PNG, WebP, GIF)');
-      return false;
-    }
-
-    return true;
-  }, []);
-
-  const openEditor = useCallback((file: File) => {
-    if (!validateFile(file)) return;
-
-    const objectUrl = URL.createObjectURL(file);
-    setEditorSrc(objectUrl);
-    setShowEditor(true);
-  }, [validateFile]);
-
-  const uploadFile = useCallback(async (file: File) => {
-    setUploading(true);
-    setProgress(10);
-
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-
-      setProgress(30);
-
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
-        credentials: 'same-origin',
-      });
-
-      setProgress(80);
-
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || 'Erreur lors de l\'upload');
-      }
-
-      const data = await response.json();
-      setProgress(100);
-      setCurrentUrl(data.url);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur lors de l\'upload');
-    } finally {
-      setUploading(false);
-      setProgress(0);
-    }
-  }, []);
-
-  const handleEditorComplete = useCallback((blob: Blob) => {
-    setShowEditor(false);
-    // Revoke the object URL to free memory
-    if (editorSrc) URL.revokeObjectURL(editorSrc);
-    setEditorSrc('');
-
-    const croppedFile = new File([blob], 'cropped-image.png', { type: 'image/png' });
-    uploadFile(croppedFile);
-  }, [editorSrc, uploadFile]);
-
-  const handleEditorCancel = useCallback(() => {
-    setShowEditor(false);
-    if (editorSrc) URL.revokeObjectURL(editorSrc);
-    setEditorSrc('');
-    if (fileInputRef.current) fileInputRef.current.value = '';
-  }, [editorSrc]);
+  const onEditorCancel = useCallback(() => {
+    handleEditorCancel();
+  }, [handleEditorCancel]);
 
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
@@ -112,16 +50,6 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
     [openEditor]
   );
 
-  const handleDragOver = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    setDragOver(true);
-  }, []);
-
-  const handleDragLeave = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    setDragOver(false);
-  }, []);
-
   const handleFileSelect = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
@@ -132,11 +60,8 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
 
   const handleRemove = useCallback(() => {
     setCurrentUrl('');
-    setError('');
     if (fileInputRef.current) fileInputRef.current.value = '';
-  }, []);
-
-  const hasPreview = currentUrl && !currentUrl.startsWith('data:') ? true : currentUrl ? true : false;
+  }, [fileInputRef]);
 
   return (
     <div className="space-y-3">
@@ -174,8 +99,8 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
       {tab === 'upload' && !currentUrl && (
         <div
           onDrop={handleDrop}
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
+          onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+          onDragLeave={(e) => { e.preventDefault(); setDragOver(false); }}
           onClick={() => fileInputRef.current?.click()}
           className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
             dragOver
@@ -192,7 +117,7 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
           <input
             ref={fileInputRef}
             type="file"
-            accept={ACCEPTED_TYPES}
+            accept={acceptedTypes}
             onChange={handleFileSelect}
             className="hidden"
           />
@@ -230,13 +155,8 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
           <div className="h-48 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden">
             <img
               src={currentUrl}
-              alt="Aperçu"
+              alt="Aper\u00e7u"
               className="w-full h-full object-cover"
-              onError={() => {
-                if (tab === 'url') {
-                  setError('Impossible de charger l\'image');
-                }
-              }}
             />
           </div>
           <button
@@ -250,21 +170,17 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
       )}
 
       {/* Error */}
-      {error && (
-        <p className="text-sm text-red-600">{error}</p>
-      )}
+      {error && <p className="text-sm text-red-600">{error}</p>}
 
       {/* Required hint */}
-      {required && !currentUrl && (
-        <p className="text-sm text-red-500">Image requise</p>
-      )}
+      {required && !currentUrl && <p className="text-sm text-red-500">Image requise</p>}
 
       {/* Image editor modal */}
       <ImageEditor
         open={showEditor}
         imageSrc={editorSrc}
-        onComplete={handleEditorComplete}
-        onCancel={handleEditorCancel}
+        onComplete={onEditorComplete}
+        onCancel={onEditorCancel}
       />
     </div>
   );
