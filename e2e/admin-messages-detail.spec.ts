@@ -13,7 +13,7 @@ test.describe('Messages Detail', () => {
     }
 
     // Click the eye icon (title="Voir le message" or similar)
-    await rows.first().locator('a[title*="Voir"]').click();
+    await rows.first().locator('a[data-testid="view-btn"]').click();
 
     // Verify detail page shows content
     await expect(page.locator('h1')).toBeVisible();
@@ -51,7 +51,7 @@ test.describe('Messages Detail', () => {
 
     // Step 3: Click the view link on that row
     const row = page.locator('tbody tr', { hasText: uniqueName });
-    await row.locator('a[title*="Voir"]').click();
+    await row.locator('a[data-testid="view-btn"]').click();
 
     // Step 4: Verify we're on the detail page
     await expect(page.locator('h1')).toBeVisible({ timeout: 10000 });

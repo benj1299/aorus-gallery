@@ -63,6 +63,7 @@ export function Lightbox({ images, index, open, onClose, onIndexChange }: Lightb
           <div
             className="absolute inset-0 bg-noir/95"
             onClick={onClose}
+            data-testid="lightbox-overlay"
           />
 
           {/* Close button */}
@@ -70,13 +71,17 @@ export function Lightbox({ images, index, open, onClose, onIndexChange }: Lightb
             onClick={onClose}
             className="absolute top-6 right-6 z-10 w-10 h-10 flex items-center justify-center text-blanc/70 hover:text-blanc transition-colors"
             aria-label="Close"
+            data-testid="lightbox-close"
           >
             <X className="w-6 h-6" />
           </button>
 
           {/* Counter */}
           {hasMultiple && (
-            <div className="absolute top-6 left-6 z-10 text-blanc/50 text-sm tracking-[0.1em] font-medium">
+            <div
+              className="absolute top-6 left-6 z-10 text-blanc/50 text-sm tracking-[0.1em] font-medium"
+              data-testid="lightbox-counter"
+            >
               {index + 1} / {images.length}
             </div>
           )}
@@ -87,6 +92,7 @@ export function Lightbox({ images, index, open, onClose, onIndexChange }: Lightb
               onClick={goPrev}
               className="absolute left-4 md:left-8 z-10 w-12 h-12 flex items-center justify-center text-blanc/50 hover:text-blanc transition-colors"
               aria-label="Previous image"
+              data-testid="lightbox-prev"
             >
               <ChevronLeft className="w-8 h-8" />
             </button>
@@ -117,6 +123,7 @@ export function Lightbox({ images, index, open, onClose, onIndexChange }: Lightb
               onClick={goNext}
               className="absolute right-4 md:right-8 z-10 w-12 h-12 flex items-center justify-center text-blanc/50 hover:text-blanc transition-colors"
               aria-label="Next image"
+              data-testid="lightbox-next"
             >
               <ChevronRight className="w-8 h-8" />
             </button>

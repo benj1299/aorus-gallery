@@ -23,7 +23,6 @@ test.describe('Admin Settings', () => {
 
     // Wait for the page to fully settle
     await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(1000);
 
     // Verify exhibitions link visible on public site
     await page.goto('/fr', { waitUntil: 'networkidle' });
@@ -45,7 +44,6 @@ test.describe('Admin Settings', () => {
     ]);
 
     await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(1000);
 
     await page.goto('/fr', { waitUntil: 'networkidle' });
     await expect(page.locator('header').getByText('Expositions')).not.toBeVisible({ timeout: 5000 });

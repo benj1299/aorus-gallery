@@ -16,6 +16,7 @@ export function FormLayout({ action, children, submitLabel = 'Enregistrer' }: Fo
         <button
           type="submit"
           className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
+          data-testid="form-submit"
         >
           {submitLabel}
         </button>

@@ -14,7 +14,8 @@ test.describe('Admin Pagination', () => {
     const nextButton = page.locator('button', { hasText: 'Suivant' });
     await expect(nextButton).toBeVisible();
     await nextButton.click();
-    await page.waitForTimeout(500);
+    // Wait for the table to re-render after pagination
+    await page.waitForLoadState('networkidle');
 
     const secondPageCount = await rows.count();
     expect(secondPageCount).toBeGreaterThanOrEqual(1);

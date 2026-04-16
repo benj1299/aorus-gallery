@@ -30,9 +30,9 @@ test.describe('ISR Revalidation', () => {
     // Cleanup
     await page.goto('/admin/artists');
     const row = page.locator('tr', { hasText: name });
-    await row.locator('[title="Supprimer"]').click();
-    await row.locator('[title="Confirmer"]').click();
-    await page.waitForTimeout(3000);
+    await row.locator('[data-testid="delete-btn"]').click();
+    await row.locator('[data-testid="delete-confirm"]').click();
+    await expect(row).not.toBeVisible({ timeout: 10000 });
   });
 
   test('new press article appears on public page', async ({ page }) => {
@@ -66,8 +66,8 @@ test.describe('ISR Revalidation', () => {
     // Cleanup
     await page.goto('/admin/press');
     const row = page.locator('tr', { hasText: title });
-    await row.locator('[title="Supprimer"]').click();
-    await row.locator('[title="Confirmer"]').click();
-    await page.waitForTimeout(3000);
+    await row.locator('[data-testid="delete-btn"]').click();
+    await row.locator('[data-testid="delete-confirm"]').click();
+    await expect(row).not.toBeVisible({ timeout: 10000 });
   });
 });

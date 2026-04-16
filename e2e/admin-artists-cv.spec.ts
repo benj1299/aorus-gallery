@@ -6,16 +6,16 @@ const ARTIST_NAME = 'CV Test Artist E2E';
 async function cleanupTestArtist(page: Page) {
   await page.goto('/admin/artists');
   await page.locator('input[placeholder*="Rechercher"]').fill(ARTIST_NAME);
-  await page.waitForTimeout(500);
+  await page.waitForLoadState('networkidle');
   // Delete all matching rows
   let row = page.locator('tr', { hasText: ARTIST_NAME });
   while (await row.count() > 0) {
-    await row.first().locator('[title="Supprimer"]').click();
-    await row.first().locator('[title="Confirmer"]').click();
-    await page.waitForTimeout(2000);
+    await row.first().locator('[data-testid="delete-btn"]').click();
+    await row.first().locator('[data-testid="delete-confirm"]').click();
+    await expect(row.first()).not.toBeVisible({ timeout: 10000 });
     await page.reload();
     await page.locator('input[placeholder*="Rechercher"]').fill(ARTIST_NAME);
-    await page.waitForTimeout(500);
+    await page.waitForLoadState('networkidle');
     row = page.locator('tr', { hasText: ARTIST_NAME });
   }
 }
@@ -69,7 +69,7 @@ test.describe('Artist CV Management', () => {
 
     // === STEP 2: Open edit, verify years are loaded from DB ===
     const row = page.locator('tr', { hasText: ARTIST_NAME });
-    await row.locator('[title="Modifier"]').click();
+    await row.locator('[data-testid="edit-btn"]').click();
     await expect(page.locator('h1')).toBeVisible();
 
     await expect(page.locator('input[name="cv.SOLO_SHOW.0.year"]')).toHaveValue('2024');
@@ -83,7 +83,7 @@ test.describe('Artist CV Management', () => {
     await page.locator('input[placeholder*="Rechercher"]').fill(ARTIST_NAME);
     const row2 = page.locator('tr', { hasText: ARTIST_NAME });
     await expect(row2).toBeVisible();
-    await row2.locator('[title="Modifier"]').click();
+    await row2.locator('[data-testid="edit-btn"]').click();
 
     // Years must survive the round-trip (this was the bug: updateArtist was dropping year)
     await expect(page.locator('input[name="cv.SOLO_SHOW.0.year"]')).toHaveValue('2024');
@@ -107,7 +107,7 @@ test.describe('Artist CV Management', () => {
     await page.locator('input[placeholder*="Rechercher"]').fill(ARTIST_NAME);
     const row3 = page.locator('tr', { hasText: ARTIST_NAME });
     await expect(row3).toBeVisible();
-    await row3.locator('[title="Modifier"]').click();
+    await row3.locator('[data-testid="edit-btn"]').click();
 
     await expect(page.locator('input[name*="cv.SOLO_SHOW"][name$=".year"]')).toHaveCount(2);
     await expect(page.locator('input[name="cv.SOLO_SHOW.0.en"]')).toHaveValue('Paris Art Show 2024');
@@ -117,7 +117,7 @@ test.describe('Artist CV Management', () => {
   test('frontend displays CV with years sorted descending', async ({ page }) => {
     await page.goto('/admin/artists');
     await page.locator('input[placeholder*="Rechercher"]').fill(ARTIST_NAME);
-    await page.waitForTimeout(500);
+    await page.waitForLoadState('networkidle');
     const row = page.locator('tr', { hasText: ARTIST_NAME });
 
     if (await row.count() === 0) {
@@ -125,7 +125,7 @@ test.describe('Artist CV Management', () => {
       return;
     }
 
-    const viewLink = row.locator('a[title="Voir la page publique"]');
+    const viewLink = row.locator('a[data-testid="view-btn"]');
     if (await viewLink.count() === 0) {
       test.skip();
       return;

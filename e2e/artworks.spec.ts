@@ -39,7 +39,7 @@ test.describe('Artworks CRUD', () => {
     await page.goto('/admin/artworks');
 
     const row = page.locator('tr', { hasText: 'Test Artwork E2E' });
-    await row.locator('[title="Modifier"]').click();
+    await row.locator('[data-testid="edit-btn"]').click();
 
     const titleInput = page.locator('input[name="title.en"]');
     await titleInput.clear();
@@ -55,12 +55,10 @@ test.describe('Artworks CRUD', () => {
     await page.goto('/admin/artworks');
 
     const row = page.locator('tr', { hasText: 'Test Artwork Updated' });
-    await row.locator('[title="Supprimer"]').click();
-    await row.locator('[title="Confirmer"]').click();
+    await row.locator('[data-testid="delete-btn"]').click();
+    await row.locator('[data-testid="delete-confirm"]').click();
 
-    await page.waitForTimeout(3000);
-    await page.reload();
-    await expect(page.getByText('Test Artwork Updated')).not.toBeVisible();
+    await expect(row).not.toBeVisible({ timeout: 10000 });
   });
 
   test('artwork flags persist after edit', async ({ page }) => {
@@ -91,7 +89,7 @@ test.describe('Artworks CRUD', () => {
 
     // Edit and verify flag persisted
     const row = page.locator('tr', { hasText: title });
-    await row.locator('[title="Modifier"]').click();
+    await row.locator('[data-testid="edit-btn"]').click();
 
     // Check sold switch state
     const editSoldSwitch = page.locator('button[role="switch"]#sold');
@@ -103,8 +101,8 @@ test.describe('Artworks CRUD', () => {
     // Cleanup
     await page.goto('/admin/artworks');
     const cleanupRow = page.locator('tr', { hasText: title });
-    await cleanupRow.locator('[title="Supprimer"]').click();
-    await cleanupRow.locator('[title="Confirmer"]').click();
-    await page.waitForTimeout(3000);
+    await cleanupRow.locator('[data-testid="delete-btn"]').click();
+    await cleanupRow.locator('[data-testid="delete-confirm"]').click();
+    await expect(cleanupRow).not.toBeVisible({ timeout: 10000 });
   });
 });

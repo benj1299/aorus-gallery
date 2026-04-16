@@ -31,6 +31,7 @@ export function DeleteButton({ id, action }: DeleteButtonProps) {
           className="h-8 w-8 inline-flex items-center justify-center rounded-md bg-red-600 text-white transition-colors"
           onClick={handleDelete}
           title="Confirmer"
+          data-testid="delete-confirm"
         >
           <Check className="h-4 w-4" />
         </button>
@@ -50,6 +51,7 @@ export function DeleteButton({ id, action }: DeleteButtonProps) {
       className="h-8 w-8 inline-flex items-center justify-center rounded-md text-red-400 hover:text-red-600 hover:bg-red-50 transition-colors"
       onClick={() => setConfirming(true)}
       title="Supprimer"
+      data-testid="delete-btn"
     >
       <Trash2 className="h-4 w-4" />
     </button>

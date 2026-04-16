@@ -31,7 +31,7 @@ test.describe('Auto Slug Generation', () => {
 
     // Click Edit to verify slug was auto-generated
     const artistRow = page.locator('tr', { hasText: artistName });
-    await artistRow.locator('[title="Modifier"]').click();
+    await artistRow.locator('[data-testid="edit-btn"]').click();
     await expect(page.locator('h1')).toBeVisible();
 
     // The URL contains the auto-generated ID (UUID)
@@ -40,11 +40,9 @@ test.describe('Auto Slug Generation', () => {
     // Clean up: delete the test artist
     await page.goto('/admin/artists');
     const cleanupRow = page.locator('tr', { hasText: artistName });
-    await cleanupRow.locator('[title="Supprimer"]').click();
-    await cleanupRow.locator('[title="Confirmer"]').click();
-    await page.waitForTimeout(3000);
-    await page.reload();
-    await expect(page.getByText(artistName)).not.toBeVisible();
+    await cleanupRow.locator('[data-testid="delete-btn"]').click();
+    await cleanupRow.locator('[data-testid="delete-confirm"]').click();
+    await expect(cleanupRow).not.toBeVisible({ timeout: 10000 });
   });
 
   test('artwork slug is auto-generated', async ({ page }) => {
@@ -77,10 +75,8 @@ test.describe('Auto Slug Generation', () => {
 
     // Clean up: delete the artwork
     const artworkRow = page.locator('tr', { hasText: artworkTitle });
-    await artworkRow.locator('[title="Supprimer"]').click();
-    await artworkRow.locator('[title="Confirmer"]').click();
-    await page.waitForTimeout(3000);
-    await page.reload();
-    await expect(page.getByText(artworkTitle)).not.toBeVisible();
+    await artworkRow.locator('[data-testid="delete-btn"]').click();
+    await artworkRow.locator('[data-testid="delete-confirm"]').click();
+    await expect(artworkRow).not.toBeVisible({ timeout: 10000 });
   });
 });

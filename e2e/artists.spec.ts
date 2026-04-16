@@ -39,9 +39,9 @@ test.describe('Artists CRUD', () => {
   test('edit artist', async ({ page }) => {
     await page.goto('/admin/artists');
 
-    // Find Test Artist row and click Edit (pencil icon with title="Modifier")
+    // Find Test Artist row and click Edit
     const row = page.locator('tr', { hasText: 'Test Artist' });
-    await row.locator('[title="Modifier"]').click();
+    await row.locator('[data-testid="edit-btn"]').click();
 
     await expect(page.locator('h1')).toBeVisible();
 
@@ -60,14 +60,12 @@ test.describe('Artists CRUD', () => {
     await page.goto('/admin/artists');
 
     const row = page.locator('tr', { hasText: 'Test Artist Updated' });
-    await row.locator('[title="Supprimer"]').click();
+    await row.locator('[data-testid="delete-btn"]').click();
 
-    // Confirm deletion (check icon with title="Confirmer")
-    await row.locator('[title="Confirmer"]').click();
+    // Confirm deletion
+    await row.locator('[data-testid="delete-confirm"]').click();
 
-    // Wait for server action + refresh
-    await page.waitForTimeout(3000);
-    await page.reload();
-    await expect(page.getByText('Test Artist Updated')).not.toBeVisible();
+    // Wait for server action to complete — row should disappear
+    await expect(row).not.toBeVisible({ timeout: 10000 });
   });
 });

@@ -15,20 +15,14 @@ test.describe('Admin Quick Toggles', () => {
 
     const initialState = await visibleToggle.getAttribute('data-state');
 
-    // Click to toggle
+    // Click to toggle — wait for data-state to change
+    const expectedState = initialState === 'checked' ? 'unchecked' : 'checked';
     await visibleToggle.click();
-    await page.waitForTimeout(1500);
-
-    // State should have changed
-    const newState = await visibleToggle.getAttribute('data-state');
-    expect(newState).not.toBe(initialState);
+    await expect(visibleToggle).toHaveAttribute('data-state', expectedState, { timeout: 10000 });
 
     // Toggle back to restore original state
     await visibleToggle.click();
-    await page.waitForTimeout(1500);
-
-    const restoredState = await visibleToggle.getAttribute('data-state');
-    expect(restoredState).toBe(initialState);
+    await expect(visibleToggle).toHaveAttribute('data-state', initialState!, { timeout: 10000 });
   });
 
   test('toggle featured switch works', async ({ page }) => {
@@ -42,15 +36,13 @@ test.describe('Admin Quick Toggles', () => {
     await expect(featuredToggle).toBeVisible();
 
     const initialState = await featuredToggle.getAttribute('data-state');
+    const expectedState = initialState === 'checked' ? 'unchecked' : 'checked';
     await featuredToggle.click();
-    await page.waitForTimeout(1500);
-
-    const newState = await featuredToggle.getAttribute('data-state');
-    expect(newState).not.toBe(initialState);
+    await expect(featuredToggle).toHaveAttribute('data-state', expectedState, { timeout: 10000 });
 
     // Restore
     await featuredToggle.click();
-    await page.waitForTimeout(1500);
+    await expect(featuredToggle).toHaveAttribute('data-state', initialState!, { timeout: 10000 });
   });
 
   test('toggle sold switch works', async ({ page }) => {
@@ -64,15 +56,13 @@ test.describe('Admin Quick Toggles', () => {
     await expect(soldToggle).toBeVisible();
 
     const initialState = await soldToggle.getAttribute('data-state');
+    const expectedState = initialState === 'checked' ? 'unchecked' : 'checked';
     await soldToggle.click();
-    await page.waitForTimeout(1500);
-
-    const newState = await soldToggle.getAttribute('data-state');
-    expect(newState).not.toBe(initialState);
+    await expect(soldToggle).toHaveAttribute('data-state', expectedState, { timeout: 10000 });
 
     // Restore
     await soldToggle.click();
-    await page.waitForTimeout(1500);
+    await expect(soldToggle).toHaveAttribute('data-state', initialState!, { timeout: 10000 });
   });
 
   test('toggling back restores original state', async ({ page }) => {
@@ -88,16 +78,13 @@ test.describe('Admin Quick Toggles', () => {
     const originalState = await visibleToggle.getAttribute('data-state');
 
     // Toggle on
+    const expectedToggled = originalState === 'checked' ? 'unchecked' : 'checked';
     await visibleToggle.click();
-    await page.waitForTimeout(1500);
-    const toggledState = await visibleToggle.getAttribute('data-state');
-    expect(toggledState).not.toBe(originalState);
+    await expect(visibleToggle).toHaveAttribute('data-state', expectedToggled, { timeout: 10000 });
 
     // Toggle back
     await visibleToggle.click();
-    await page.waitForTimeout(1500);
-    const restoredState = await visibleToggle.getAttribute('data-state');
-    expect(restoredState).toBe(originalState);
+    await expect(visibleToggle).toHaveAttribute('data-state', originalState!, { timeout: 10000 });
   });
 
   test('artists list has visible toggle', async ({ page }) => {

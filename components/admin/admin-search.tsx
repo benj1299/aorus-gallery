@@ -18,6 +18,7 @@ export function AdminSearchInput({ value, onChange, placeholder = 'Rechercher...
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         className="pl-9 bg-white text-gray-900 border-gray-300"
+        data-testid="table-search"
       />
     </div>
   );

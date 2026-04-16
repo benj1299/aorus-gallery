@@ -117,6 +117,7 @@ export function AdminTable<T extends Record<string, unknown>>({
         {newHref && (
           <Link
             href={newHref}
+            data-testid="new-btn"
             className="inline-flex items-center gap-1 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
           >
             <Plus className="w-4 h-4" />
@@ -152,7 +153,7 @@ export function AdminTable<T extends Record<string, unknown>>({
           </TableHeader>
           <TableBody>
             {paginated.map((item) => (
-              <TableRow key={getId(item)}>
+              <TableRow key={getId(item)} data-testid="table-row">
                 {columns.map((col) => (
                   <TableCell key={col.key} className="text-gray-900 text-sm">{col.render(item)}</TableCell>
                 ))}
@@ -163,6 +164,7 @@ export function AdminTable<T extends Record<string, unknown>>({
                       href={editHref(item)}
                       className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
                       title="Modifier"
+                      data-testid="edit-btn"
                     >
                       <Pencil className="h-4 w-4" />
                     </a>

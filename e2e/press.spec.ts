@@ -39,7 +39,7 @@ test.describe('Press CRUD', () => {
     await page.goto('/admin/press');
 
     const row = page.locator('tr', { hasText: 'Test Press Article E2E' });
-    await row.locator('[title="Modifier"]').click();
+    await row.locator('[data-testid="edit-btn"]').click();
 
     const titleInput = page.locator('input[name="title.en"]');
     await titleInput.clear();
@@ -55,11 +55,9 @@ test.describe('Press CRUD', () => {
     await page.goto('/admin/press');
 
     const row = page.locator('tr', { hasText: 'Test Press Updated' });
-    await row.locator('[title="Supprimer"]').click();
-    await row.locator('[title="Confirmer"]').click();
+    await row.locator('[data-testid="delete-btn"]').click();
+    await row.locator('[data-testid="delete-confirm"]').click();
 
-    await page.waitForTimeout(3000);
-    await page.reload();
-    await expect(page.getByText('Test Press Updated')).not.toBeVisible();
+    await expect(row).not.toBeVisible({ timeout: 10000 });
   });
 });

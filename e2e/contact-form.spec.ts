@@ -59,7 +59,7 @@ test.describe('Contact Form', () => {
     await expect(page.getByText(xssName)).toBeVisible({ timeout: 10000 });
 
     const row = page.locator('tbody tr', { hasText: xssName });
-    await row.locator('a[title*="Voir"]').click();
+    await row.locator('a[data-testid="view-btn"]').click();
     await expect(page.locator('h1')).toBeVisible({ timeout: 10000 });
 
     // Verify no XSS executed — the script tag should be rendered as safe text

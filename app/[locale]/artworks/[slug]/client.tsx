@@ -84,6 +84,7 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
             tabIndex={0}
             onKeyDown={(e) => { if (e.key === 'Enter') openLightbox(0); }}
             aria-label={t('viewFullscreen', { defaultValue: 'View fullscreen' })}
+            data-testid="artwork-main-image"
           >
             <AdaptiveImage
               src={artwork.imageUrl}

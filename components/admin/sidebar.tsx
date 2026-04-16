@@ -48,6 +48,7 @@ export function AdminSidebar({ messageCount = 0 }: AdminSidebarProps) {
             <Link
               key={item.href}
               href={item.href}
+              data-testid={`nav-${item.href === '/admin' ? 'dashboard' : item.href.replace('/admin/', '')}`}
               className={
                 isActive
                   ? 'flex items-center w-full gap-3 h-10 px-3 bg-gray-100 text-gray-900 border-l-2 border-emerald-600 rounded-r-md font-medium text-sm'

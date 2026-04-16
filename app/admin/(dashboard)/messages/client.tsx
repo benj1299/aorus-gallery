@@ -49,7 +49,8 @@ const columns = [
     render: (s: ContactSubmission) => (
       <a href={`/admin/messages/${s.id}`}
          className="inline-flex items-center justify-center h-7 w-7 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded transition-colors"
-         title="Voir le message">
+         title="Voir le message"
+         data-testid="view-btn">
         <Eye className="h-3.5 w-3.5" />
       </a>
     ),

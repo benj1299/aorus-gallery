@@ -13,7 +13,8 @@ test.describe('Server Actions Auth Bypass', () => {
     await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 
     // Should NOT redirect to /admin/artists (the success path)
-    await page.waitForTimeout(3000);
+    // Wait for any potential navigation to settle, then assert we stayed on the form
+    await page.waitForLoadState('networkidle');
     expect(page.url()).not.toMatch(/\/admin\/artists$/);
   });
 
@@ -25,7 +26,7 @@ test.describe('Server Actions Auth Bypass', () => {
 
     await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 
-    await page.waitForTimeout(3000);
+    await page.waitForLoadState('networkidle');
     // Should not successfully save — either error or redirect to login
     // The page should NOT still show the settings form working normally
   });

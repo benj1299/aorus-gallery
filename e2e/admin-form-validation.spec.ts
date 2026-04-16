@@ -13,7 +13,7 @@ test.describe('Form Validation', () => {
     await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 
     // Should NOT redirect to /admin/artists
-    await page.waitForTimeout(2000);
+    await page.waitForLoadState('networkidle');
     expect(page.url()).toContain('/admin/artists/new');
   });
 
@@ -29,7 +29,7 @@ test.describe('Form Validation', () => {
 
     await page.evaluate(() => document.querySelector('form')?.requestSubmit());
 
-    await page.waitForTimeout(2000);
+    await page.waitForLoadState('networkidle');
     expect(page.url()).toContain('/admin/artworks/new');
   });
 
@@ -39,7 +39,7 @@ test.describe('Form Validation', () => {
 
     // Don't fill title, just submit
     await page.evaluate(() => document.querySelector('form')?.requestSubmit());
-    await page.waitForTimeout(2000);
+    await page.waitForLoadState('networkidle');
     expect(page.url()).toContain('/admin/exhibitions/new');
   });
 
@@ -50,7 +50,7 @@ test.describe('Form Validation', () => {
     // Fill title but skip required publication and publishedAt fields
     await page.locator('input[name="title.en"]').fill('Test Press');
     await page.evaluate(() => document.querySelector('form')?.requestSubmit());
-    await page.waitForTimeout(2000);
+    await page.waitForLoadState('networkidle');
     expect(page.url()).toContain('/admin/press/new');
   });
 
@@ -64,7 +64,7 @@ test.describe('Form Validation', () => {
     );
 
     await page.evaluate(() => document.querySelector('form')?.requestSubmit());
-    await page.waitForTimeout(2000);
+    await page.waitForLoadState('networkidle');
 
     // Should stay on banner page (no redirect)
     expect(page.url()).toContain('/admin/banner');

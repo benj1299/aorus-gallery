@@ -100,7 +100,8 @@ export function ExhibitionsListClient({ exhibitions }: { exhibitions: Exhibition
         <>
           <a href="/fr/exhibitions" target="_blank" rel="noopener noreferrer"
              className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
-             title="Voir la page publique">
+             title="Voir la page publique"
+             data-testid="view-btn">
             <Eye className="h-4 w-4" />
           </a>
           <a href={`/admin/print/exhibition/${e.id}`} target="_blank" rel="noopener noreferrer"

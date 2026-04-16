@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Print Routes', () => {
   test('artist print page loads', async ({ page }) => {
-    // Get an artist ID from the admin list — edit link has title="Modifier"
+    // Get an artist ID from the admin list
     await page.goto('/admin/artists');
     await expect(page.locator('h1')).toBeVisible();
 
-    const firstEditLink = page.locator('a[title="Modifier"]').first();
+    const firstEditLink = page.locator('a[data-testid="edit-btn"]').first();
     const href = await firstEditLink.getAttribute('href');
     // href is like /admin/artists/some-id
     const id = href?.split('/').pop();
@@ -19,7 +19,7 @@ test.describe('Print Routes', () => {
     await page.goto('/admin/exhibitions');
     await expect(page.locator('h1')).toBeVisible();
 
-    const firstEditLink = page.locator('a[title="Modifier"]').first();
+    const firstEditLink = page.locator('a[data-testid="edit-btn"]').first();
     const href = await firstEditLink.getAttribute('href');
     const id = href?.split('/').pop();
 

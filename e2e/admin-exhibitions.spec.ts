@@ -31,7 +31,7 @@ test.describe('Exhibitions CRUD', () => {
 
     // Edit the exhibition — use icon button with title
     const row = page.locator('tr', { hasText: exhibitionTitle });
-    await row.locator('[title="Modifier"]').click();
+    await row.locator('[data-testid="edit-btn"]').click();
 
     // Change the title
     const titleInput = page.locator('input[name="title.en"]');
@@ -45,12 +45,10 @@ test.describe('Exhibitions CRUD', () => {
 
     // Delete the exhibition
     const updatedRow = page.locator('tr', { hasText: exhibitionTitleUpdated });
-    await updatedRow.locator('[title="Supprimer"]').click();
-    await updatedRow.locator('[title="Confirmer"]').click();
+    await updatedRow.locator('[data-testid="delete-btn"]').click();
+    await updatedRow.locator('[data-testid="delete-confirm"]').click();
 
-    await page.waitForTimeout(3000);
-    await page.reload();
-    await expect(page.getByText(exhibitionTitleUpdated)).not.toBeVisible();
+    await expect(page.locator('tr', { hasText: exhibitionTitleUpdated })).not.toBeVisible({ timeout: 10000 });
   });
 
   test('edit exhibition with artist selection', async ({ page }) => {
@@ -68,7 +66,7 @@ test.describe('Exhibitions CRUD', () => {
 
     // Edit the exhibition
     const row = page.locator('tr', { hasText: title });
-    await row.locator('[title="Modifier"]').click();
+    await row.locator('[data-testid="edit-btn"]').click();
 
     // Check if artist checkboxes exist (Radix Checkbox renders as button[role="checkbox"])
     const checkboxes = page.locator('button[role="checkbox"]');
@@ -86,16 +84,16 @@ test.describe('Exhibitions CRUD', () => {
 
     // Cleanup: delete the exhibition
     const cleanupRow = page.locator('tr', { hasText: title });
-    await cleanupRow.locator('[title="Supprimer"]').click();
-    await cleanupRow.locator('[title="Confirmer"]').click();
-    await page.waitForTimeout(3000);
+    await cleanupRow.locator('[data-testid="delete-btn"]').click();
+    await cleanupRow.locator('[data-testid="delete-confirm"]').click();
+    await expect(page.locator('tr', { hasText: title })).not.toBeVisible({ timeout: 10000 });
   });
 
   test('exhibition view page loads', async ({ page }) => {
     await page.goto('/admin/exhibitions');
 
     // Check if there are any exhibitions with a view link (target="_blank")
-    const viewLinks = page.locator('a[title*="Voir"]');
+    const viewLinks = page.locator('a[data-testid="view-btn"]');
     if (await viewLinks.count() === 0) {
       test.skip();
       return;

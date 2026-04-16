@@ -23,6 +23,7 @@ export function QuickToggle<F extends string = string>({ id, field, checked, act
         size="sm"
         checked={checked}
         disabled={isPending}
+        data-testid={`toggle-${field}`}
         onCheckedChange={() => {
           startTransition(async () => { await action(id, field); });
         }}
