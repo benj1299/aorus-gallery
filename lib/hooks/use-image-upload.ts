@@ -64,7 +64,11 @@ export function useImageUpload(): UseImageUploadReturn {
 
     try {
       const formData = new FormData();
-      formData.append('file', file, fileName);
+      if (fileName) {
+        formData.append('file', file, fileName);
+      } else {
+        formData.append('file', file);
+      }
 
       setProgress(30);
 

@@ -126,13 +126,9 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
               <p className="text-noir/50 text-sm mt-1">{artwork.dimensions}</p>
             )}
 
-            {/* 6. Price */}
+            {/* 6. Status */}
             {artwork.sold ? (
               <p className="text-noir/40 text-xs tracking-[0.1em] uppercase mt-3">{t('sold')}</p>
-            ) : artwork.showPrice && artwork.price ? (
-              <p className="text-noir/70 text-base mt-3">
-                {new Intl.NumberFormat(locale, { style: 'currency', currency: artwork.currency }).format(artwork.price)}
-              </p>
             ) : (
               <p className="text-noir/40 text-xs italic mt-3">{t('priceOnRequest')}</p>
             )}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Switch } from '@/components/ui/switch';
 
 interface FormSwitchProps {
@@ -12,6 +12,11 @@ interface FormSwitchProps {
 
 export function FormSwitch({ name, label, description, defaultChecked = false }: FormSwitchProps) {
   const [checked, setChecked] = useState(defaultChecked);
+
+  useEffect(() => {
+    setChecked(defaultChecked);
+  }, [defaultChecked]);
+
   return (
     <div className="flex items-start gap-3">
       <Switch checked={checked} onCheckedChange={setChecked} id={name} data-testid={`switch-${name}`} className="mt-0.5 data-[state=checked]:bg-emerald-600 data-[state=unchecked]:bg-gray-200" />
