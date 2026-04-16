@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { AdminSearchInput } from './admin-search';
 import { AdminBreadcrumb } from './admin-breadcrumb';
@@ -17,6 +18,15 @@ interface Column<T> {
   getValue?: (item: T) => string | number;
 }
 
+interface ServerPaginationConfig {
+  totalPages: number;
+  currentPage: number;
+  totalItems: number;
+  basePath: string;
+  /** Extra search params to preserve in pagination links (e.g. artistId filter) */
+  searchParams?: Record<string, string>;
+}
+
 interface AdminTableProps<T> {
   title: string;
   data: T[];
@@ -30,6 +40,8 @@ interface AdminTableProps<T> {
   getId: (item: T) => string;
   extraActions?: (item: T) => React.ReactNode;
   itemsPerPage?: number;
+  /** When provided, pagination is handled server-side via URL params */
+  serverPagination?: ServerPaginationConfig;
 }
 
 type SortDir = 'asc' | 'desc';
@@ -39,22 +51,24 @@ export function AdminTable<T extends Record<string, unknown>>({
   data,
   columns,
   searchKeys,
-  searchPlaceholder = 'Rechercher...',
+  searchPlaceholder,
   newHref,
-  newLabel = 'Nouveau',
+  newLabel,
   editHref,
   deleteAction,
   getId,
   extraActions,
   itemsPerPage = 10,
+  serverPagination,
 }: AdminTableProps<T>) {
+  const t = useTranslations('admin.table');
   const [query, setQuery] = useState('');
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDir, setSortDir] = useState<SortDir>('asc');
-  const [page, setPage] = useState(1);
+  const [clientPage, setClientPage] = useState(1);
 
   useEffect(() => {
-    setPage(1);
+    setClientPage(1);
   }, [query]);
 
   const filtered = useMemo(() => {
@@ -94,8 +108,17 @@ export function AdminTable<T extends Record<string, unknown>>({
     });
   }, [filtered, sortKey, sortDir, columns]);
 
-  const totalPages = Math.max(1, Math.ceil(sorted.length / itemsPerPage));
-  const paginated = sorted.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+  // In server-side mode, data is already paginated — display all items passed in
+  // In client-side mode, paginate locally
+  const isServerSide = !!serverPagination;
+  const totalPages = isServerSide
+    ? serverPagination.totalPages
+    : Math.max(1, Math.ceil(sorted.length / itemsPerPage));
+  const currentPage = isServerSide ? serverPagination.currentPage : clientPage;
+  const displayItems = isServerSide
+    ? sorted
+    : sorted.slice((clientPage - 1) * itemsPerPage, clientPage * itemsPerPage);
+  const totalItems = isServerSide ? serverPagination.totalItems : sorted.length;
 
   const handleSort = (key: string) => {
     if (sortKey === key) {
@@ -126,7 +149,7 @@ export function AdminTable<T extends Record<string, unknown>>({
         )}
       </div>
 
-      <AdminSearchInput value={query} onChange={setQuery} placeholder={searchPlaceholder} />
+      <AdminSearchInput value={query} onChange={setQuery} placeholder={searchPlaceholder ?? t('search')} />
 
       <div className="rounded-lg border border-gray-200 bg-white overflow-hidden">
         <Table>
@@ -148,11 +171,11 @@ export function AdminTable<T extends Record<string, unknown>>({
                   )}
                 </TableHead>
               ))}
-              <TableHead className="text-right text-gray-500 font-medium text-xs uppercase bg-gray-50">Actions</TableHead>
+              <TableHead className="text-right text-gray-500 font-medium text-xs uppercase bg-gray-50">{t('actions')}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {paginated.map((item) => (
+            {displayItems.map((item) => (
               <TableRow key={getId(item)} data-testid="table-row">
                 {columns.map((col) => (
                   <TableCell key={col.key} className="text-gray-900 text-sm">{col.render(item)}</TableCell>
@@ -163,7 +186,7 @@ export function AdminTable<T extends Record<string, unknown>>({
                     <a
                       href={editHref(item)}
                       className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
-                      title="Modifier"
+                      title={t('edit')}
                       data-testid="edit-btn"
                     >
                       <Pencil className="h-4 w-4" />
@@ -178,10 +201,10 @@ export function AdminTable<T extends Record<string, unknown>>({
                 </TableCell>
               </TableRow>
             ))}
-            {paginated.length === 0 && (
+            {displayItems.length === 0 && (
               <TableRow>
                 <TableCell colSpan={totalColumns} className="h-24 text-center text-gray-500">
-                  Aucun element pour le moment.
+                  {t('noItems')}
                 </TableCell>
               </TableRow>
             )}
@@ -189,12 +212,23 @@ export function AdminTable<T extends Record<string, unknown>>({
         </Table>
       </div>
 
-      <TablePagination
-        totalItems={sorted.length}
-        totalPages={totalPages}
-        currentPage={page}
-        onPageChange={setPage}
-      />
+      {isServerSide ? (
+        <TablePagination
+          serverSide
+          totalItems={totalItems}
+          totalPages={totalPages}
+          currentPage={currentPage}
+          basePath={serverPagination.basePath}
+          searchParams={serverPagination.searchParams}
+        />
+      ) : (
+        <TablePagination
+          totalItems={totalItems}
+          totalPages={totalPages}
+          currentPage={currentPage}
+          onPageChange={setClientPage}
+        />
+      )}
     </div>
   );
 }

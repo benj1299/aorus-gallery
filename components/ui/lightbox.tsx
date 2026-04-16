@@ -4,6 +4,7 @@ import { useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 interface LightboxProps {
   images: { src: string; alt: string }[];
@@ -14,6 +15,7 @@ interface LightboxProps {
 }
 
 export function Lightbox({ images, index, open, onClose, onIndexChange }: LightboxProps) {
+  const t = useTranslations('lightbox');
   const hasMultiple = images.length > 1;
 
   const goPrev = useCallback(() => {
@@ -57,7 +59,7 @@ export function Lightbox({ images, index, open, onClose, onIndexChange }: Lightb
           className="fixed inset-0 z-[100] flex items-center justify-center"
           role="dialog"
           aria-modal="true"
-          aria-label="Image viewer"
+          aria-label={t('viewer')}
         >
           {/* Backdrop */}
           <div
@@ -70,7 +72,7 @@ export function Lightbox({ images, index, open, onClose, onIndexChange }: Lightb
           <button
             onClick={onClose}
             className="absolute top-6 right-6 z-10 w-10 h-10 flex items-center justify-center text-blanc/70 hover:text-blanc transition-colors"
-            aria-label="Close"
+            aria-label={t('close')}
             data-testid="lightbox-close"
           >
             <X className="w-6 h-6" />
@@ -91,7 +93,7 @@ export function Lightbox({ images, index, open, onClose, onIndexChange }: Lightb
             <button
               onClick={goPrev}
               className="absolute left-4 md:left-8 z-10 w-12 h-12 flex items-center justify-center text-blanc/50 hover:text-blanc transition-colors"
-              aria-label="Previous image"
+              aria-label={t('previous')}
               data-testid="lightbox-prev"
             >
               <ChevronLeft className="w-8 h-8" />
@@ -122,7 +124,7 @@ export function Lightbox({ images, index, open, onClose, onIndexChange }: Lightb
             <button
               onClick={goNext}
               className="absolute right-4 md:right-8 z-10 w-12 h-12 flex items-center justify-center text-blanc/50 hover:text-blanc transition-colors"
-              aria-label="Next image"
+              aria-label={t('next')}
               data-testid="lightbox-next"
             >
               <ChevronRight className="w-8 h-8" />

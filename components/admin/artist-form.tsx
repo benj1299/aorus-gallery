@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
 import { ImageUpload } from './image-upload';
@@ -68,6 +69,7 @@ function initCollections(cols: TranslatableField[] | undefined): ColItem[] {
 }
 
 export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
+  const t = useTranslations('admin');
   const [soloShows, setSoloShows] = useState<CVItem[]>(initItems(filterEntriesByType(defaultValues.cvEntries, 'SOLO_SHOW')));
   const [groupShows, setGroupShows] = useState<CVItem[]>(initItems(filterEntriesByType(defaultValues.cvEntries, 'GROUP_SHOW')));
   const [artFairs, setArtFairs] = useState<CVItem[]>(initItems(filterEntriesByType(defaultValues.cvEntries, 'ART_FAIR')));
@@ -76,55 +78,55 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
   const [collections, setCollections] = useState<ColItem[]>(initCollections(defaultValues.collections));
 
   const cvSections = [
-    { key: 'SOLO_SHOW', label: 'Expositions personnelles', items: soloShows, setItems: setSoloShows },
-    { key: 'GROUP_SHOW', label: 'Expositions collectives', items: groupShows, setItems: setGroupShows },
-    { key: 'ART_FAIR', label: "Foires d'art", items: artFairs, setItems: setArtFairs },
-    { key: 'RESIDENCY', label: "Résidences", items: residencies, setItems: setResidencies },
-    { key: 'AWARD', label: 'Prix et distinctions', items: awards, setItems: setAwards },
+    { key: 'SOLO_SHOW', label: t('artists.cvSections.soloShows'), items: soloShows, setItems: setSoloShows },
+    { key: 'GROUP_SHOW', label: t('artists.cvSections.groupShows'), items: groupShows, setItems: setGroupShows },
+    { key: 'ART_FAIR', label: t('artists.cvSections.artFairs'), items: artFairs, setItems: setArtFairs },
+    { key: 'RESIDENCY', label: t('artists.cvSections.residencies'), items: residencies, setItems: setResidencies },
+    { key: 'AWARD', label: t('artists.cvSections.awards'), items: awards, setItems: setAwards },
   ] as const;
 
   return (
     <FormLayout action={action}>
-      <FormCard title="Informations générales">
+      <FormCard title={t('cards.generalInfo')}>
           <div>
-            <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-1.5">Nom <span className="text-red-500">*</span></Label>
+            <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.name')} <span className="text-red-500">*</span></Label>
             <Input id="name" name="name" defaultValue={defaultValues.name} required />
           </div>
 
           <TranslatableInput
             name="nationality"
-            label="Nationalité"
+            label={t('forms.nationality')}
             defaultValue={defaultValues.nationality}
             required
           />
 
           <TranslatableInput
             name="bio"
-            label="Biographie"
+            label={t('forms.biography')}
             defaultValue={defaultValues.bio}
             required
             type="richtext" collapsible
           />
 
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-1.5">Image <span className="text-red-500">*</span></Label>
+            <Label className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.image')} <span className="text-red-500">*</span></Label>
             <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} required />
           </div>
       </FormCard>
 
-      <FormCard title="Paramètres d'affichage">
+      <FormCard title={t('cards.displaySettings')}>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">Ordre d'affichage</Label>
+              <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.sortOrder')}</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
             </div>
             <div className="flex items-end pb-2">
-              <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
+              <FormSwitch name="visible" label={t('forms.visible')} defaultChecked={defaultValues.visible ?? true} />
             </div>
           </div>
       </FormCard>
 
-      <FormCard title="CV / Historique d'expositions">
+      <FormCard title={t('cards.cvHistory')}>
         <CVEntriesForm
           sections={cvSections}
           generateId={uid}
@@ -132,7 +134,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
         />
       </FormCard>
 
-      <FormCard title="Collections">
+      <FormCard title={t('cards.collections')}>
           <div className="space-y-3">
             {collections.map((col, i) => (
               <div key={col.id} className="flex gap-2">
@@ -162,7 +164,7 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
             onClick={() => setCollections([...collections, { id: uid(), value: emptyT() }])}
           >
             <Plus className="w-3 h-3 mr-1" />
-            Ajouter une collection
+            {t('forms.addCollection')}
           </button>
       </FormCard>
 

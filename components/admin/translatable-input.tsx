@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { LOCALES, type TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -28,6 +29,7 @@ export function TranslatableInput({
   placeholder,
   collapsible = false,
 }: TranslatableInputProps) {
+  const tf = useTranslations('admin.forms');
   const [active, setActive] = useState<string>('en');
   const hasContent = defaultValue.en || defaultValue.fr || defaultValue.zh;
   const [collapsed, setCollapsed] = useState(collapsible && !!hasContent);
@@ -57,7 +59,7 @@ export function TranslatableInput({
             className="text-sm text-gray-500 bg-gray-50 rounded-lg px-3 py-2 cursor-pointer hover:bg-gray-100 transition-colors truncate"
             onClick={() => setCollapsed(false)}
           >
-            {preview || <span className="italic text-gray-400">Cliquez pour modifier</span>}
+            {preview || <span className="italic text-gray-400">{tf('clickToEdit')}</span>}
           </div>
           {LOCALES.map((loc) => (
             <input key={loc} type="hidden" name={`${name}.${loc}`} value={defaultValue[loc] ?? ''} />

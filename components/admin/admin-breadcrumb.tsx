@@ -1,16 +1,21 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 interface Props {
   items: { label: string; href?: string }[];
 }
 
 export function AdminBreadcrumb({ items }: Props) {
+  const t = useTranslations('admin.breadcrumb');
+
   return (
     <nav className="text-sm text-gray-500">
       <ol className="flex items-center">
         <li>
           <Link href="/admin" className="text-gray-500 hover:text-gray-900 transition-colors">
-            Administration
+            {t('administration')}
           </Link>
         </li>
         {items.map((item, i) => (

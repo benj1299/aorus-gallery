@@ -20,7 +20,8 @@
     "press": "媒體",
     "contact": "聯繫",
     "cities": "台灣 — 巴黎",
-    "exhibitions": "展覽"
+    "exhibitions": "展覽",
+    "skipToContent": "跳至主要內容"
   },
   "home": {
     "hero": {
@@ -114,7 +115,7 @@
   },
   "artists": {
     "title": "藝術家",
-    "subtitle": "畫廊陣容",
+    "subtitle": "精選新銳與知名藝術家",
     "viewBio": "傳記",
     "viewWorks": "作品",
     "viewCV": "履歷",
@@ -279,9 +280,300 @@
     "governingLawText": "這些條款與細則受法國法律管轄並據此解釋。因使用本網站而產生的任何爭議應由法國巴黎法院專屬管轄。",
     "lastUpdated": "最後更新：2026年3月"
   },
+  "lightbox": {
+    "viewer": "圖片檢視器",
+    "close": "關閉",
+    "previous": "上一張",
+    "next": "下一張"
+  },
   "error": {
     "title": "發生錯誤",
     "description": "發生了意外錯誤。",
     "retry": "重試"
+  },
+  "admin": {
+    "nav": {
+      "title": "ORUS 管理後台",
+      "dashboard": "控制台",
+      "artists": "藝術家",
+      "artworks": "作品",
+      "press": "媒體",
+      "banner": "橫幅",
+      "exhibitions": "展覽",
+      "messages": "訊息",
+      "settings": "設定",
+      "logout": "登出"
+    },
+    "breadcrumb": {
+      "administration": "管理"
+    },
+    "dashboard": {
+      "title": "控制台",
+      "subtitle": "畫廊概覽",
+      "stats": {
+        "artists": "藝術家",
+        "artworks": "作品",
+        "exhibitions": "展覽",
+        "messages": "訊息"
+      },
+      "recentMessages": "最近訊息",
+      "viewAll": "查看全部",
+      "noMessages": "目前沒有訊息。",
+      "quickActions": "快速操作",
+      "newArtist": "新增藝術家",
+      "newArtwork": "新增作品",
+      "newExhibition": "新增展覽"
+    },
+    "forms": {
+      "save": "儲存",
+      "cancel": "取消",
+      "delete": "刪除",
+      "title": "標題",
+      "subtitle": "副標題",
+      "artist": "藝術家",
+      "medium": "媒材",
+      "mediumPlaceholder": "布面油畫",
+      "dimensions": "尺寸",
+      "year": "年份",
+      "price": "價格",
+      "currency": "幣別",
+      "visible": "顯示",
+      "featuredHome": "首頁推薦",
+      "showPrice": "顯示價格",
+      "sold": "已售出",
+      "sortOrder": "排序",
+      "image": "圖片",
+      "imageRequired": "必須上傳圖片",
+      "name": "名稱",
+      "nationality": "國籍",
+      "biography": "傳記",
+      "description": "描述",
+      "location": "地點",
+      "locationPlaceholder": "例如：巴黎，法國",
+      "type": "類型",
+      "status": "狀態",
+      "startDate": "開始日期",
+      "endDate": "結束日期",
+      "publication": "出版物",
+      "publishedAt": "發表日期",
+      "articleUrl": "文章連結",
+      "excerpt": "摘要",
+      "linkUrl": "連結網址",
+      "selectArtist": "選擇藝術家...",
+      "select": "選擇...",
+      "clickToEdit": "點擊編輯",
+      "addCollection": "新增收藏",
+      "add": "新增",
+      "email": "電子郵件",
+      "password": "密碼"
+    },
+    "cards": {
+      "artworkDetails": "作品詳情",
+      "pricing": "定價",
+      "mediaDisplay": "媒體與顯示",
+      "contextImages": "情境圖片",
+      "contextImagesDescription": "安裝照片、情境圖或作品細節。",
+      "generalInfo": "基本資料",
+      "displaySettings": "顯示設定",
+      "cvHistory": "履歷 / 展覽歷史",
+      "collections": "收藏",
+      "exhibitionDetails": "展覽詳情",
+      "classificationSchedule": "分類與日程",
+      "media": "媒體",
+      "artistsAndArtworks": "藝術家與作品",
+      "bannerContent": "橫幅內容",
+      "mediaAndLink": "媒體與連結",
+      "display": "顯示",
+      "articleDetails": "文章詳情",
+      "linksAndMedia": "連結與媒體",
+      "content": "內容",
+      "publicPages": "公開頁面"
+    },
+    "table": {
+      "actions": "操作",
+      "edit": "編輯",
+      "confirmDelete": "確認",
+      "cancelDelete": "取消",
+      "delete": "刪除",
+      "noItems": "目前沒有項目。",
+      "results_one": "{count} 個結果",
+      "results_other": "{count} 個結果",
+      "previous": "上一頁",
+      "next": "下一頁",
+      "search": "搜尋...",
+      "viewPublicPage": "查看公開頁面",
+      "artistSheet": "藝術家資料 (PDF)",
+      "pressKit": "媒體資料包 (PDF)",
+      "viewMessage": "查看訊息"
+    },
+    "artists": {
+      "title": "藝術家",
+      "searchPlaceholder": "搜尋藝術家...",
+      "newArtist": "新增藝術家",
+      "columns": {
+        "artist": "藝術家",
+        "nationality": "國籍",
+        "artworks": "作品",
+        "status": "狀態"
+      },
+      "cvSections": {
+        "soloShows": "個展",
+        "groupShows": "聯展",
+        "artFairs": "藝博會",
+        "residencies": "駐村",
+        "awards": "獎項與榮譽"
+      }
+    },
+    "artworks": {
+      "title": "作品",
+      "searchPlaceholder": "搜尋作品...",
+      "newArtwork": "新增作品",
+      "allArtists": "所有藝術家",
+      "columns": {
+        "artwork": "作品",
+        "artist": "藝術家",
+        "medium": "媒材",
+        "price": "價格",
+        "status": "狀態"
+      },
+      "toggles": {
+        "visible": "顯示",
+        "featured": "推薦",
+        "price": "價格",
+        "sold": "已售出"
+      }
+    },
+    "exhibitions": {
+      "title": "展覽",
+      "searchPlaceholder": "搜尋展覽...",
+      "newExhibition": "新增展覽",
+      "columns": {
+        "title": "標題",
+        "type": "類型",
+        "status": "狀態",
+        "artists": "藝術家",
+        "visible": "顯示"
+      },
+      "types": {
+        "exhibition": "展覽",
+        "artFair": "藝博會",
+        "offsite": "場外展"
+      },
+      "statuses": {
+        "current": "展出中",
+        "upcoming": "即將展出",
+        "past": "已結束"
+      },
+      "noArtists": "沒有可用的藝術家",
+      "noArtworks": "沒有可用的作品"
+    },
+    "press": {
+      "title": "新聞報導",
+      "searchPlaceholder": "搜尋文章...",
+      "newArticle": "新增文章",
+      "columns": {
+        "title": "標題",
+        "publication": "出版物",
+        "date": "日期",
+        "visible": "顯示"
+      }
+    },
+    "messages": {
+      "title": "聯繫訊息",
+      "searchPlaceholder": "搜尋訊息...",
+      "columns": {
+        "status": "狀態",
+        "name": "姓名",
+        "email": "電子郵件",
+        "message": "訊息",
+        "date": "日期"
+      },
+      "detail": {
+        "messageFrom": "{name} 的訊息",
+        "back": "返回",
+        "deleteConfirm": "確認刪除？",
+        "yes": "是",
+        "no": "否",
+        "statusLabel": "狀態",
+        "nameLabel": "姓名",
+        "emailLabel": "電子郵件",
+        "interestedIn": "感興趣的",
+        "preferredLanguage": "偏好語言",
+        "messageLabel": "訊息"
+      },
+      "statuses": {
+        "collector": "藏家",
+        "press": "媒體",
+        "institution": "機構",
+        "corporate": "企業",
+        "artist": "藝術家"
+      }
+    },
+    "settings": {
+      "title": "網站設定",
+      "showExhibitions": "顯示展覽頁面",
+      "showExhibitionsDesc": "在導航選單中顯示展覽連結",
+      "showBanner": "顯示首頁橫幅",
+      "showBannerDesc": "在首頁（英雄區下方）顯示視覺橫幅"
+    },
+    "upload": {
+      "upload": "上傳",
+      "url": "網址",
+      "dragOrClick": "將圖片拖放至此或",
+      "clickToBrowse": "點擊瀏覽",
+      "formats": "JPG、PNG、WebP、GIF - 最大 10 MB",
+      "uploading": "上傳中...",
+      "preview": "預覽",
+      "addImage": "新增圖片",
+      "fileTooLarge": "檔案過大（最大 10 MB）",
+      "unsupportedFormat": "不支援的格式（JPG、PNG、WebP、GIF）",
+      "uploadError": "上傳錯誤"
+    },
+    "imageEditor": {
+      "title": "裁剪圖片",
+      "description": "在上傳前調整裁剪、旋轉和縮放。",
+      "ratio": "比例：",
+      "free": "自由",
+      "apply": "套用",
+      "applying": "套用中...",
+      "cancel": "取消",
+      "rotateLeft": "旋轉 -90°",
+      "rotateRight": "旋轉 +90°"
+    },
+    "print": {
+      "backToArtists": "返回藝術家",
+      "backToExhibitions": "返回展覽",
+      "exportPdf": "匯出為 PDF",
+      "biography": "Biography",
+      "selectedWorks": "Selected Works",
+      "curriculumVitae": "Curriculum Vitae",
+      "collections": "Collections",
+      "byAppointmentOnly": "By appointment only",
+      "participatingArtists": "參展藝術家",
+      "exhibitedWorks": "展出作品",
+      "byAppointmentOnlyFr": "僅限預約",
+      "cvSections": {
+        "soloShows": "Solo Exhibitions",
+        "groupShows": "Group Exhibitions",
+        "artFairs": "Art Fairs",
+        "residencies": "Residencies",
+        "awards": "Awards & Prizes"
+      }
+    },
+    "login": {
+      "title": "ORUS 管理後台",
+      "subtitle": "登入以管理內容",
+      "email": "電子郵件",
+      "password": "密碼",
+      "submit": "登入",
+      "loading": "登入中...",
+      "invalidCredentials": "憑證無效",
+      "genericError": "發生錯誤"
+    },
+    "error": {
+      "title": "發生錯誤",
+      "defaultMessage": "未預期的錯誤",
+      "retry": "重試"
+    }
   }
 }

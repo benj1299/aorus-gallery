@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Header } from '@/components/Header';
@@ -28,6 +28,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const messages = await getMessages();
+  const t = await getTranslations({ locale, namespace: 'nav' });
   const settings = await getSiteSettings();
 
   return (
@@ -35,7 +36,7 @@ export default async function LocaleLayout({
       <NextIntlClientProvider messages={messages}>
         <div className="min-h-screen flex flex-col bg-blanc" lang={locale}>
           <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-noir focus:text-blanc focus:text-sm">
-            Skip to content
+            {t('skipToContent')}
           </a>
           <Header showExhibitions={settings.showExhibitions} />
           <main id="main-content" className="flex-1">{children}</main>

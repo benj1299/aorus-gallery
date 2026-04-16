@@ -20,7 +20,8 @@
     "press": "Press",
     "contact": "Contact",
     "cities": "Taipei — Paris",
-    "exhibitions": "Exhibitions"
+    "exhibitions": "Exhibitions",
+    "skipToContent": "Skip to content"
   },
   "home": {
     "hero": {
@@ -279,9 +280,300 @@
     "governingLawText": "These terms and conditions are governed by and construed in accordance with French law. Any disputes arising from the use of this website shall be subject to the exclusive jurisdiction of the courts of Paris, France.",
     "lastUpdated": "Last updated: March 2026"
   },
+  "lightbox": {
+    "viewer": "Image viewer",
+    "close": "Close",
+    "previous": "Previous image",
+    "next": "Next image"
+  },
   "error": {
     "title": "Something went wrong",
     "description": "An unexpected error occurred.",
     "retry": "Try again"
+  },
+  "admin": {
+    "nav": {
+      "title": "ORUS Admin",
+      "dashboard": "Dashboard",
+      "artists": "Artists",
+      "artworks": "Artworks",
+      "press": "Press",
+      "banner": "Banner",
+      "exhibitions": "Exhibitions",
+      "messages": "Messages",
+      "settings": "Settings",
+      "logout": "Logout"
+    },
+    "breadcrumb": {
+      "administration": "Administration"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Overview of your gallery",
+      "stats": {
+        "artists": "Artists",
+        "artworks": "Artworks",
+        "exhibitions": "Exhibitions",
+        "messages": "Messages"
+      },
+      "recentMessages": "Recent messages",
+      "viewAll": "View all",
+      "noMessages": "No messages yet.",
+      "quickActions": "Quick actions",
+      "newArtist": "New artist",
+      "newArtwork": "New artwork",
+      "newExhibition": "New exhibition"
+    },
+    "forms": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "artist": "Artist",
+      "medium": "Medium",
+      "mediumPlaceholder": "Oil on canvas",
+      "dimensions": "Dimensions",
+      "year": "Year",
+      "price": "Price",
+      "currency": "Currency",
+      "visible": "Visible",
+      "featuredHome": "Featured on homepage",
+      "showPrice": "Show price",
+      "sold": "Sold",
+      "sortOrder": "Sort order",
+      "image": "Image",
+      "imageRequired": "Image required",
+      "name": "Name",
+      "nationality": "Nationality",
+      "biography": "Biography",
+      "description": "Description",
+      "location": "Location",
+      "locationPlaceholder": "e.g. Paris, France",
+      "type": "Type",
+      "status": "Status",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "publication": "Publication",
+      "publishedAt": "Publication date",
+      "articleUrl": "Article URL",
+      "excerpt": "Excerpt",
+      "linkUrl": "Link URL",
+      "selectArtist": "Select an artist...",
+      "select": "Select...",
+      "clickToEdit": "Click to edit",
+      "addCollection": "Add a collection",
+      "add": "Add",
+      "email": "Email",
+      "password": "Password"
+    },
+    "cards": {
+      "artworkDetails": "Artwork details",
+      "pricing": "Pricing",
+      "mediaDisplay": "Media & display",
+      "contextImages": "Context images",
+      "contextImagesDescription": "Installation shots, context views or detail shots.",
+      "generalInfo": "General information",
+      "displaySettings": "Display settings",
+      "cvHistory": "CV / Exhibition history",
+      "collections": "Collections",
+      "exhibitionDetails": "Exhibition details",
+      "classificationSchedule": "Classification & schedule",
+      "media": "Media",
+      "artistsAndArtworks": "Artists & artworks",
+      "bannerContent": "Banner content",
+      "mediaAndLink": "Media & link",
+      "display": "Display",
+      "articleDetails": "Article details",
+      "linksAndMedia": "Links & media",
+      "content": "Content",
+      "publicPages": "Public pages"
+    },
+    "table": {
+      "actions": "Actions",
+      "edit": "Edit",
+      "confirmDelete": "Confirm",
+      "cancelDelete": "Cancel",
+      "delete": "Delete",
+      "noItems": "No items yet.",
+      "results_one": "{count} result",
+      "results_other": "{count} results",
+      "previous": "Previous",
+      "next": "Next",
+      "search": "Search...",
+      "viewPublicPage": "View public page",
+      "artistSheet": "Artist sheet (PDF)",
+      "pressKit": "Press kit (PDF)",
+      "viewMessage": "View message"
+    },
+    "artists": {
+      "title": "Artists",
+      "searchPlaceholder": "Search for an artist...",
+      "newArtist": "New artist",
+      "columns": {
+        "artist": "Artist",
+        "nationality": "Nationality",
+        "artworks": "Artworks",
+        "status": "Status"
+      },
+      "cvSections": {
+        "soloShows": "Solo exhibitions",
+        "groupShows": "Group exhibitions",
+        "artFairs": "Art fairs",
+        "residencies": "Residencies",
+        "awards": "Awards & prizes"
+      }
+    },
+    "artworks": {
+      "title": "Artworks",
+      "searchPlaceholder": "Search for an artwork...",
+      "newArtwork": "New artwork",
+      "allArtists": "All artists",
+      "columns": {
+        "artwork": "Artwork",
+        "artist": "Artist",
+        "medium": "Medium",
+        "price": "Price",
+        "status": "Status"
+      },
+      "toggles": {
+        "visible": "Visible",
+        "featured": "Featured",
+        "price": "Price",
+        "sold": "Sold"
+      }
+    },
+    "exhibitions": {
+      "title": "Exhibitions",
+      "searchPlaceholder": "Search for an exhibition...",
+      "newExhibition": "New exhibition",
+      "columns": {
+        "title": "Title",
+        "type": "Type",
+        "status": "Status",
+        "artists": "Artists",
+        "visible": "Visible"
+      },
+      "types": {
+        "exhibition": "Exhibition",
+        "artFair": "Art fair",
+        "offsite": "Off-site"
+      },
+      "statuses": {
+        "current": "Current",
+        "upcoming": "Upcoming",
+        "past": "Past"
+      },
+      "noArtists": "No artists available",
+      "noArtworks": "No artworks available"
+    },
+    "press": {
+      "title": "Press articles",
+      "searchPlaceholder": "Search for an article...",
+      "newArticle": "New article",
+      "columns": {
+        "title": "Title",
+        "publication": "Publication",
+        "date": "Date",
+        "visible": "Visible"
+      }
+    },
+    "messages": {
+      "title": "Contact messages",
+      "searchPlaceholder": "Search for a message...",
+      "columns": {
+        "status": "Status",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "date": "Date"
+      },
+      "detail": {
+        "messageFrom": "Message from {name}",
+        "back": "Back",
+        "deleteConfirm": "Delete?",
+        "yes": "Yes",
+        "no": "No",
+        "statusLabel": "Status",
+        "nameLabel": "Name",
+        "emailLabel": "Email",
+        "interestedIn": "Interested in",
+        "preferredLanguage": "Preferred language",
+        "messageLabel": "Message"
+      },
+      "statuses": {
+        "collector": "Collector",
+        "press": "Press",
+        "institution": "Institution",
+        "corporate": "Corporate",
+        "artist": "Artist"
+      }
+    },
+    "settings": {
+      "title": "Site settings",
+      "showExhibitions": "Show Exhibitions page",
+      "showExhibitionsDesc": "Displays the Exhibitions link in the navigation menu",
+      "showBanner": "Show homepage banner",
+      "showBannerDesc": "Displays the visual banner on the homepage (below the hero)"
+    },
+    "upload": {
+      "upload": "Upload",
+      "url": "URL",
+      "dragOrClick": "Drag an image here or",
+      "clickToBrowse": "click to browse",
+      "formats": "JPG, PNG, WebP, GIF - Max 10 MB",
+      "uploading": "Uploading...",
+      "preview": "Preview",
+      "addImage": "Add an image",
+      "fileTooLarge": "File too large (max 10 MB)",
+      "unsupportedFormat": "Unsupported format (JPG, PNG, WebP, GIF)",
+      "uploadError": "Upload error"
+    },
+    "imageEditor": {
+      "title": "Crop image",
+      "description": "Adjust cropping, rotation and zoom before uploading.",
+      "ratio": "Ratio:",
+      "free": "Free",
+      "apply": "Apply",
+      "applying": "Applying...",
+      "cancel": "Cancel",
+      "rotateLeft": "Rotate -90°",
+      "rotateRight": "Rotate +90°"
+    },
+    "print": {
+      "backToArtists": "Back to artists",
+      "backToExhibitions": "Back to exhibitions",
+      "exportPdf": "Export as PDF",
+      "biography": "Biography",
+      "selectedWorks": "Selected Works",
+      "curriculumVitae": "Curriculum Vitae",
+      "collections": "Collections",
+      "byAppointmentOnly": "By appointment only",
+      "participatingArtists": "Participating artists",
+      "exhibitedWorks": "Exhibited works",
+      "byAppointmentOnlyFr": "By appointment only",
+      "cvSections": {
+        "soloShows": "Solo Exhibitions",
+        "groupShows": "Group Exhibitions",
+        "artFairs": "Art Fairs",
+        "residencies": "Residencies",
+        "awards": "Awards & Prizes"
+      }
+    },
+    "login": {
+      "title": "ORUS Admin",
+      "subtitle": "Sign in to manage content",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "loading": "Signing in...",
+      "invalidCredentials": "Invalid credentials",
+      "genericError": "An error occurred"
+    },
+    "error": {
+      "title": "An error occurred",
+      "defaultMessage": "Unexpected error",
+      "retry": "Try again"
+    }
   }
 }

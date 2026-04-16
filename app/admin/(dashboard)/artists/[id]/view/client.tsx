@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { ArrowLeft, Printer } from 'lucide-react';
 
 interface Artwork {
@@ -29,15 +30,17 @@ interface ArtistData {
   artworks: Artwork[];
 }
 
-const cvSectionLabels: Record<string, string> = {
-  soloShows: 'Solo Exhibitions',
-  groupShows: 'Group Exhibitions',
-  artFairs: 'Art Fairs',
-  residencies: 'Residencies',
-  awards: 'Awards & Prizes',
-};
-
 export function ArtistViewClient({ artist }: { artist: ArtistData }) {
+  const t = useTranslations('admin.print');
+
+  const cvSectionLabels: Record<string, string> = {
+    soloShows: t('cvSections.soloShows'),
+    groupShows: t('cvSections.groupShows'),
+    artFairs: t('cvSections.artFairs'),
+    residencies: t('cvSections.residencies'),
+    awards: t('cvSections.awards'),
+  };
+
   const cvSections = Object.entries(artist.cv)
     .filter(([, items]) => items.length > 0)
     .map(([key, items]) => ({ key, label: cvSectionLabels[key] || key, items }));
@@ -57,20 +60,20 @@ export function ArtistViewClient({ artist }: { artist: ArtistData }) {
       <div className="no-print mb-6 flex items-center justify-between">
         <Link href="/admin/artists" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors">
           <ArrowLeft className="h-4 w-4" />
-          Retour aux artistes
+          {t('backToArtists')}
         </Link>
         <button
           onClick={() => window.print()}
           className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
         >
           <Printer className="h-4 w-4" />
-          Exporter en PDF
+          {t('exportPdf')}
         </button>
       </div>
 
       <div className="print-sheet bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
 
-        {/* ── Page 1: Cover ── */}
+        {/* -- Page 1: Cover -- */}
         <div className="px-10 md:px-16 pt-12 pb-10">
           {/* Gallery branding */}
           <div className="flex items-center justify-between mb-16">
@@ -108,11 +111,11 @@ export function ArtistViewClient({ artist }: { artist: ArtistData }) {
           </div>
         </div>
 
-        {/* ── Page 2: Biography ── */}
+        {/* -- Page 2: Biography -- */}
         <div className="px-10 md:px-16 pb-10 print-page-break">
           <div className="border-t pt-10" style={{ borderColor: '#C9A96220' }}>
             <p className="text-xs uppercase tracking-[0.25em] font-medium mb-8" style={{ color: '#4A7C6F' }}>
-              Biography
+              {t('biography')}
             </p>
             <div
               className="text-gray-700 text-sm leading-[1.8] max-w-3xl"
@@ -121,12 +124,12 @@ export function ArtistViewClient({ artist }: { artist: ArtistData }) {
           </div>
         </div>
 
-        {/* ── Page 3: Selected Works ── */}
+        {/* -- Page 3: Selected Works -- */}
         {artist.artworks.length > 0 && (
           <div className="px-10 md:px-16 pb-10 print-page-break">
             <div className="border-t pt-10" style={{ borderColor: '#C9A96220' }}>
               <p className="text-xs uppercase tracking-[0.25em] font-medium mb-10" style={{ color: '#4A7C6F' }}>
-                Selected Works
+                {t('selectedWorks')}
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                 {artist.artworks.slice(0, 9).map((aw, i) => (
@@ -147,12 +150,12 @@ export function ArtistViewClient({ artist }: { artist: ArtistData }) {
           </div>
         )}
 
-        {/* ── Page 4: CV ── */}
+        {/* -- Page 4: CV -- */}
         {cvSections.length > 0 && (
           <div className="px-10 md:px-16 pb-10 print-page-break">
             <div className="border-t pt-10" style={{ borderColor: '#C9A96220' }}>
               <p className="text-xs uppercase tracking-[0.25em] font-medium mb-10" style={{ color: '#4A7C6F' }}>
-                Curriculum Vitae
+                {t('curriculumVitae')}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {cvSections.map(({ key, label, items }) => (
@@ -181,7 +184,7 @@ export function ArtistViewClient({ artist }: { artist: ArtistData }) {
           <div className="px-10 md:px-16 pb-10">
             <div className="border-t pt-10" style={{ borderColor: '#C9A96220' }}>
               <p className="text-xs uppercase tracking-[0.25em] font-medium mb-8" style={{ color: '#4A7C6F' }}>
-                Collections
+                {t('collections')}
               </p>
               <ul className="space-y-2">
                 {artist.collections.map((col, i) => (
@@ -192,7 +195,7 @@ export function ArtistViewClient({ artist }: { artist: ArtistData }) {
           </div>
         )}
 
-        {/* ── Footer ── */}
+        {/* -- Footer -- */}
         <div className="px-10 md:px-16 py-8 border-t" style={{ borderColor: '#C9A96220', backgroundColor: '#FAFAF8' }}>
           <div className="flex items-center justify-between">
             <div>
@@ -209,7 +212,7 @@ export function ArtistViewClient({ artist }: { artist: ArtistData }) {
             <div className="text-right">
               <p className="text-xs text-gray-500">info@orusgallery.com</p>
               <p className="text-xs text-gray-400 mt-1">orusgallery.com</p>
-              <p className="text-xs text-gray-400 mt-0.5">By appointment only</p>
+              <p className="text-xs text-gray-400 mt-0.5">{t('byAppointmentOnly')}</p>
             </div>
           </div>
         </div>

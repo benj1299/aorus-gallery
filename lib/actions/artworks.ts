@@ -6,7 +6,7 @@ import { requireAuth } from '@/lib/auth-utils';
 import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
-import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
+import { translatableSchema, optionalTranslatableSchema, extractTranslatable, type TranslatableField } from '@/lib/i18n-content';
 import { httpsUrl, serializeTranslatable, booleanFromString } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 import { parseFormData } from '@/lib/actions/safe-action';
@@ -15,7 +15,7 @@ const artworkSchema = z.object({
   title: translatableSchema,
   artistId: z.string().min(1),
   medium: optionalTranslatableSchema,
-  dimensions: z.string().optional().default(''),
+  dimensions: z.string().max(200).optional().default(''),
   year: z.coerce.number().int().min(0).optional().nullable(),
   price: z.coerce.number().min(0).optional().nullable(),
   currency: z.string().default('EUR'),
@@ -82,7 +82,10 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
 export async function updateArtwork(id: string, formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
-  const existing = await db.artwork.findUnique({ where: { id }, select: { id: true } });
+  const existing = await db.artwork.findUnique({
+    where: { id },
+    select: { id: true, title: true, artistId: true },
+  });
   if (!existing) return { error: 'Élément introuvable' };
 
   const images = formData.getAll('images').map((v) => v.toString()).filter(Boolean);
@@ -107,16 +110,36 @@ export async function updateArtwork(id: string, formData: FormData): Promise<{ e
   if (!parsed.success) return { error: parsed.error };
   const data = parsed.data;
 
-  await db.artwork.update({
-    where: { id },
-    data: {
-      ...data,
-      medium: serializeTranslatable(data.medium),
-      dimensions: data.dimensions || null,
-      price: data.price ?? null,
-      year: data.year ?? null,
-    },
-  });
+  // Recalculate slug when title or artist changes
+  const existingTitle = existing.title as TranslatableField | null;
+  const titleChanged = data.title.en !== (existingTitle?.en ?? '');
+  const artistChanged = data.artistId !== existing.artistId;
+  let newSlug: string | undefined;
+
+  if (titleChanged || artistChanged) {
+    const artist = await db.artist.findUnique({ where: { id: data.artistId }, select: { slug: true } });
+    const artistSlug = artist?.slug ?? 'unknown';
+    newSlug = slugify(artistSlug + '-' + data.title.en);
+  }
+
+  try {
+    await db.artwork.update({
+      where: { id },
+      data: {
+        ...data,
+        ...(newSlug ? { slug: newSlug } : {}),
+        medium: serializeTranslatable(data.medium),
+        dimensions: data.dimensions || null,
+        price: data.price ?? null,
+        year: data.year ?? null,
+      },
+    });
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
+      return { error: 'Une oeuvre avec ce titre existe déjà. Veuillez choisir un autre titre.' };
+    }
+    throw e;
+  }
 
   revalidateEntity('/admin/artworks', ['/artists', '']);
   redirect('/admin/artworks');

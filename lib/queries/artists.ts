@@ -113,12 +113,37 @@ export async function getArtistBySlugForFrontend(slug: string, locale: Locale = 
   };
 }
 
-/** Get all artists including hidden ones (for admin) */
-export async function getAllArtistsAdmin() {
-  return db.artist.findMany({
-    orderBy: { sortOrder: 'asc' },
-    include: {
-      _count: { select: { artworks: true } },
-    },
-  });
+/** Paginated result shape for admin list pages */
+export interface PaginatedResult<T> {
+  items: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+}
+
+/** Get all artists including hidden ones (for admin) — with server-side pagination */
+export async function getAllArtistsAdmin(
+  page: number = 1,
+  pageSize: number = 20,
+) {
+  const [artists, total] = await Promise.all([
+    db.artist.findMany({
+      orderBy: { sortOrder: 'asc' },
+      include: {
+        _count: { select: { artworks: true } },
+      },
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+    }),
+    db.artist.count(),
+  ]);
+
+  return {
+    items: artists,
+    total,
+    page,
+    pageSize,
+    totalPages: Math.ceil(total / pageSize),
+  };
 }

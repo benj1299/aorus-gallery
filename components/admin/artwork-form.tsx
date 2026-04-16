@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
 import { FormSelect } from './form-select';
@@ -33,54 +34,55 @@ interface ArtworkFormProps {
 }
 
 export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkFormProps) {
+  const t = useTranslations('admin');
   const artistOptions = artists.map((a) => ({ value: a.id, label: a.name }));
 
   return (
     <FormLayout action={action}>
-      <FormCard title="Détails de l'œuvre">
+      <FormCard title={t('cards.artworkDetails')}>
           <TranslatableInput
             name="title"
-            label="Titre"
+            label={t('forms.title')}
             defaultValue={defaultValues.title}
             required
           />
 
           <FormSelect
             name="artistId"
-            label="Artiste"
+            label={t('forms.artist')}
             options={artistOptions}
             defaultValue={defaultValues.artistId}
             required
-            placeholder="Sélectionner un artiste..."
+            placeholder={t('forms.selectArtist')}
           />
 
           <div className="grid grid-cols-2 gap-4">
             <TranslatableInput
               name="medium"
-              label="Technique"
+              label={t('forms.medium')}
               defaultValue={defaultValues.medium}
-              placeholder="Huile sur toile"
+              placeholder={t('forms.mediumPlaceholder')}
             />
             <div>
-              <Label htmlFor="dimensions" className="text-sm font-medium text-gray-700 mb-1.5">Dimensions</Label>
+              <Label htmlFor="dimensions" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.dimensions')}</Label>
               <Input id="dimensions" name="dimensions" defaultValue={defaultValues.dimensions ?? ''} placeholder="120 x 90 cm" />
             </div>
           </div>
       </FormCard>
 
-      <FormCard title="Tarification">
+      <FormCard title={t('cards.pricing')}>
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <Label htmlFor="year" className="text-sm font-medium text-gray-700 mb-1.5">Année</Label>
+              <Label htmlFor="year" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.year')}</Label>
               <Input id="year" name="year" type="number" defaultValue={defaultValues.year ?? ''} />
             </div>
             <div>
-              <Label htmlFor="price" className="text-sm font-medium text-gray-700 mb-1.5">Prix</Label>
+              <Label htmlFor="price" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.price')}</Label>
               <Input id="price" name="price" type="number" step="0.01" defaultValue={defaultValues.price ?? ''} />
             </div>
             <FormSelect
               name="currency"
-              label="Devise"
+              label={t('forms.currency')}
               options={[
                 { value: 'EUR', label: 'EUR' },
                 { value: 'USD', label: 'USD' },
@@ -94,31 +96,31 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
           </div>
       </FormCard>
 
-      <FormCard title="Média et affichage">
+      <FormCard title={t('cards.mediaDisplay')}>
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-1.5">Image <span className="text-red-500">*</span></Label>
+            <Label className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.image')} <span className="text-red-500">*</span></Label>
             <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} required />
           </div>
 
           <div className="h-px bg-gray-100" />
 
           <div>
-            <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">Ordre d'affichage</Label>
+            <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.sortOrder')}</Label>
             <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} className="max-w-32" />
           </div>
 
           <div className="h-px bg-gray-100" />
 
           <div className="flex flex-wrap gap-6">
-            <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
-            <FormSwitch name="featuredHome" label="En avant sur l'accueil" defaultChecked={defaultValues.featuredHome ?? false} />
-            <FormSwitch name="showPrice" label="Afficher le prix" defaultChecked={defaultValues.showPrice ?? false} />
-            <FormSwitch name="sold" label="Vendu" defaultChecked={defaultValues.sold ?? false} />
+            <FormSwitch name="visible" label={t('forms.visible')} defaultChecked={defaultValues.visible ?? true} />
+            <FormSwitch name="featuredHome" label={t('forms.featuredHome')} defaultChecked={defaultValues.featuredHome ?? false} />
+            <FormSwitch name="showPrice" label={t('forms.showPrice')} defaultChecked={defaultValues.showPrice ?? false} />
+            <FormSwitch name="sold" label={t('forms.sold')} defaultChecked={defaultValues.sold ?? false} />
           </div>
       </FormCard>
 
-      <FormCard title="Images contextuelles">
-          <p className="text-sm text-gray-500">Photos d'installation, vues de contexte ou details de l'oeuvre.</p>
+      <FormCard title={t('cards.contextImages')}>
+          <p className="text-sm text-gray-500">{t('cards.contextImagesDescription')}</p>
           <MultiImageUpload name="images" defaultValue={defaultValues?.images} maxImages={5} />
       </FormCard>
 

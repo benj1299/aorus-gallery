@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
+import { getTranslations } from 'next-intl/server';
 import { Users, Image, Calendar, Mail, Plus, ArrowRight } from 'lucide-react';
 
 async function getDashboardData() {
@@ -19,19 +20,20 @@ async function getDashboardData() {
 
 export default async function AdminDashboardPage() {
   const { artistCount, artworkCount, exhibitionCount, messageCount, recentMessages } = await getDashboardData();
+  const t = await getTranslations('admin.dashboard');
 
   const stats = [
-    { label: 'Artistes', count: artistCount, icon: Users, href: '/admin/artists' },
-    { label: 'Œuvres', count: artworkCount, icon: Image, href: '/admin/artworks' },
-    { label: 'Expositions', count: exhibitionCount, icon: Calendar, href: '/admin/exhibitions' },
-    { label: 'Messages', count: messageCount, icon: Mail, href: '/admin/messages' },
+    { label: t('stats.artists'), count: artistCount, icon: Users, href: '/admin/artists' },
+    { label: t('stats.artworks'), count: artworkCount, icon: Image, href: '/admin/artworks' },
+    { label: t('stats.exhibitions'), count: exhibitionCount, icon: Calendar, href: '/admin/exhibitions' },
+    { label: t('stats.messages'), count: messageCount, icon: Mail, href: '/admin/messages' },
   ];
 
   return (
     <div className="space-y-10">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900">Tableau de bord</h1>
-        <p className="text-gray-500 text-sm mt-1">Vue d&apos;ensemble de votre galerie</p>
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900">{t('title')}</h1>
+        <p className="text-gray-500 text-sm mt-1">{t('subtitle')}</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -57,15 +59,15 @@ export default async function AdminDashboardPage() {
 
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-900">Derniers messages</h2>
+          <h2 className="text-lg font-semibold text-gray-900">{t('recentMessages')}</h2>
           <Link href="/admin/messages" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-900 transition-colors">
-            Voir tout
+            {t('viewAll')}
             <ArrowRight className="w-4 h-4 ml-1" />
           </Link>
         </div>
         {recentMessages.length === 0 ? (
           <div className="bg-white rounded-xl border border-gray-200 py-10 text-center text-gray-500">
-            Aucun message pour le moment.
+            {t('noMessages')}
           </div>
         ) : (
           <div className="space-y-3">
@@ -95,19 +97,19 @@ export default async function AdminDashboardPage() {
       </div>
 
       <div>
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">Actions rapides</h2>
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">{t('quickActions')}</h2>
         <div className="flex flex-wrap gap-3">
           <Link href="/admin/artists/new" className="inline-flex items-center justify-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
             <Plus className="w-4 h-4 mr-1" />
-            Nouvel artiste
+            {t('newArtist')}
           </Link>
           <Link href="/admin/artworks/new" className="inline-flex items-center justify-center px-4 py-2 bg-gray-100 text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors">
             <Plus className="w-4 h-4 mr-1" />
-            Nouvelle œuvre
+            {t('newArtwork')}
           </Link>
           <Link href="/admin/exhibitions/new" className="inline-flex items-center justify-center px-4 py-2 bg-gray-100 text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors">
             <Plus className="w-4 h-4 mr-1" />
-            Nouvelle exposition
+            {t('newExhibition')}
           </Link>
         </div>
       </div>

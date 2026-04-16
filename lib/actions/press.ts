@@ -14,7 +14,7 @@ import { parseFormData } from '@/lib/actions/safe-action';
 
 const pressSchema = z.object({
   title: translatableSchema,
-  publication: z.string().min(1),
+  publication: z.string().min(1).max(200),
   publishedAt: z.coerce.date(),
   url: optionalHttpsUrl,
   imageUrl: optionalHttpsUrl,

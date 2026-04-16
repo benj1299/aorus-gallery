@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { LOCALES } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
@@ -30,6 +31,7 @@ interface CVEntriesFormProps {
 // --- Component ---
 
 export function CVEntriesForm({ sections, generateId, emptyTranslatable }: CVEntriesFormProps) {
+  const t = useTranslations('admin.forms');
   return (
     <div className="space-y-6">
       {sections.map((section, sectionIdx) => (
@@ -44,7 +46,7 @@ export function CVEntriesForm({ sections, generateId, emptyTranslatable }: CVEnt
                     name={`cv.${section.key}.${i}.year`}
                     type="number"
                     defaultValue={entry.year ?? ''}
-                    placeholder="Année"
+                    placeholder={t('year')}
                     className="text-center"
                   />
                 </div>
@@ -74,7 +76,7 @@ export function CVEntriesForm({ sections, generateId, emptyTranslatable }: CVEnt
             onClick={() => section.setItems([...section.items, { id: generateId(), value: emptyTranslatable() }])}
           >
             <Plus className="w-3 h-3 mr-1" />
-            Ajouter
+            {t('add')}
           </button>
         </div>
       ))}

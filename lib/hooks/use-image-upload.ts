@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 
 const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
 const ACCEPTED_TYPES = '.jpg,.jpeg,.png,.webp,.gif';
@@ -30,6 +31,7 @@ interface UseImageUploadReturn {
 }
 
 export function useImageUpload(): UseImageUploadReturn {
+  const t = useTranslations('admin.upload');
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState('');
@@ -43,12 +45,12 @@ export function useImageUpload(): UseImageUploadReturn {
     setError('');
 
     if (file.size > MAX_SIZE) {
-      setError('Fichier trop lourd (max 10 MB)');
+      setError(t('fileTooLarge'));
       return false;
     }
 
     if (!ALLOWED_MIME.includes(file.type)) {
-      setError('Format non support\u00e9 (JPG, PNG, WebP, GIF)');
+      setError(t('unsupportedFormat'));
       return false;
     }
 
@@ -76,14 +78,14 @@ export function useImageUpload(): UseImageUploadReturn {
 
       if (!response.ok) {
         const data = await response.json();
-        throw new Error(data.error || 'Erreur lors de l\'upload');
+        throw new Error(data.error || t('uploadError'));
       }
 
       const data = await response.json();
       setProgress(100);
       return data.url as string;
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur lors de l\'upload');
+      setError(err instanceof Error ? err.message : t('uploadError'));
       return null;
     } finally {
       setUploading(false);

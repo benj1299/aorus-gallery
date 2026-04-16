@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Trash2, X, Check } from 'lucide-react';
 
 interface DeleteButtonProps {
@@ -12,6 +13,7 @@ interface DeleteButtonProps {
 export function DeleteButton({ id, action }: DeleteButtonProps) {
   const [confirming, setConfirming] = useState(false);
   const router = useRouter();
+  const t = useTranslations('admin.table');
 
   const handleDelete = async () => {
     try {
@@ -30,7 +32,7 @@ export function DeleteButton({ id, action }: DeleteButtonProps) {
         <button
           className="h-8 w-8 inline-flex items-center justify-center rounded-md bg-red-600 text-white transition-colors"
           onClick={handleDelete}
-          title="Confirmer"
+          title={t('confirmDelete')}
           data-testid="delete-confirm"
         >
           <Check className="h-4 w-4" />
@@ -38,7 +40,7 @@ export function DeleteButton({ id, action }: DeleteButtonProps) {
         <button
           className="h-8 w-8 inline-flex items-center justify-center rounded-md bg-white text-gray-600 border border-gray-200 transition-colors"
           onClick={() => setConfirming(false)}
-          title="Annuler"
+          title={t('cancelDelete')}
         >
           <X className="h-4 w-4" />
         </button>
@@ -50,7 +52,7 @@ export function DeleteButton({ id, action }: DeleteButtonProps) {
     <button
       className="h-8 w-8 inline-flex items-center justify-center rounded-md text-red-400 hover:text-red-600 hover:bg-red-50 transition-colors"
       onClick={() => setConfirming(true)}
-      title="Supprimer"
+      title={t('delete')}
       data-testid="delete-btn"
     >
       <Trash2 className="h-4 w-4" />

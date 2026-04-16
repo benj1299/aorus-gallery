@@ -19,7 +19,7 @@ const exhibitionSchema = z.object({
   status: z.enum(['CURRENT', 'UPCOMING', 'PAST']),
   startDate: z.coerce.date().optional().nullable(),
   endDate: z.coerce.date().optional().nullable(),
-  location: z.string().optional().default(''),
+  location: z.string().max(200).optional().default(''),
   imageUrl: optionalHttpsUrl,
   visible: booleanFromString.default(true),
   sortOrder: z.coerce.number().int().min(0).default(0),
@@ -66,10 +66,28 @@ export async function createExhibition(formData: FormData): Promise<{ error: str
   const parsed = parseFormData(exhibitionSchema, raw);
   if (!parsed.success) return { error: parsed.error };
   const data = parsed.data;
+
+  if (data.startDate && data.endDate && data.endDate < data.startDate) {
+    return { error: 'La date de fin doit être postérieure à la date de début' };
+  }
+
   const slug = slugify(data.title.en);
 
   const artistIds = parseArtistIds(formData);
   const artworkIds = parseArtworkIds(formData);
+
+  if (artistIds.length > 0) {
+    const validArtists = await db.artist.findMany({ where: { id: { in: artistIds } }, select: { id: true } });
+    if (validArtists.length !== artistIds.length) {
+      return { error: 'Un ou plusieurs artistes sélectionnés sont introuvables' };
+    }
+  }
+  if (artworkIds.length > 0) {
+    const validArtworks = await db.artwork.findMany({ where: { id: { in: artworkIds } }, select: { id: true } });
+    if (validArtworks.length !== artworkIds.length) {
+      return { error: 'Une ou plusieurs oeuvres sélectionnées sont introuvables' };
+    }
+  }
 
   try {
     await db.galleryExhibition.create({
@@ -125,8 +143,25 @@ export async function updateExhibition(id: string, formData: FormData): Promise<
   if (!parsed.success) return { error: parsed.error };
   const data = parsed.data;
 
+  if (data.startDate && data.endDate && data.endDate < data.startDate) {
+    return { error: 'La date de fin doit être postérieure à la date de début' };
+  }
+
   const artistIds = parseArtistIds(formData);
   const artworkIds = parseArtworkIds(formData);
+
+  if (artistIds.length > 0) {
+    const validArtists = await db.artist.findMany({ where: { id: { in: artistIds } }, select: { id: true } });
+    if (validArtists.length !== artistIds.length) {
+      return { error: 'Un ou plusieurs artistes sélectionnés sont introuvables' };
+    }
+  }
+  if (artworkIds.length > 0) {
+    const validArtworks = await db.artwork.findMany({ where: { id: { in: artworkIds } }, select: { id: true } });
+    if (validArtworks.length !== artworkIds.length) {
+      return { error: 'Une ou plusieurs oeuvres sélectionnées sont introuvables' };
+    }
+  }
 
   await db.$transaction([
     db.galleryExhibitionArtist.deleteMany({ where: { exhibitionId: id } }),

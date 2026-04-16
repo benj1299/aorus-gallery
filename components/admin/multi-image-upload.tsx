@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { X, ImagePlus, Upload } from 'lucide-react';
 import { useImageUpload } from '@/lib/hooks/use-image-upload';
 
@@ -11,6 +12,7 @@ interface MultiImageUploadProps {
 }
 
 export function MultiImageUpload({ name, defaultValue = [], maxImages = 5 }: MultiImageUploadProps) {
+  const t = useTranslations('admin.upload');
   const [images, setImages] = useState<string[]>(defaultValue);
 
   const {
@@ -87,12 +89,12 @@ export function MultiImageUpload({ name, defaultValue = [], maxImages = 5 }: Mul
           {uploading ? (
             <>
               <Upload className="w-4 h-4 animate-pulse" />
-              Upload en cours...
+              {t('uploading')}
             </>
           ) : (
             <>
               <ImagePlus className="w-4 h-4" />
-              Ajouter une image
+              {t('addImage')}
             </>
           )}
         </button>

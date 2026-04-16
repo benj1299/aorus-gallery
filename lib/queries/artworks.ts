@@ -26,18 +26,46 @@ export async function getArtworksByArtist(artistId: string) {
   });
 }
 
+/** Paginated result shape for admin list pages */
+export interface PaginatedResult<T> {
+  items: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+}
+
 /** Get all artworks for admin with artist name — serializes Decimal to number */
-export async function getAllArtworksAdmin() {
-  const artworks = await db.artwork.findMany({
-    orderBy: [{ artist: { name: 'asc' } }, { sortOrder: 'asc' }],
-    include: {
-      artist: { select: { name: true, slug: true } },
-    },
-  });
-  return artworks.map((aw) => ({
-    ...aw,
-    price: aw.price ? Number(aw.price) : null,
-  }));
+export async function getAllArtworksAdmin(
+  page: number = 1,
+  pageSize: number = 20,
+  artistId?: string,
+) {
+  const where = artistId ? { artistId } : {};
+
+  const [artworks, total] = await Promise.all([
+    db.artwork.findMany({
+      where,
+      orderBy: [{ artist: { name: 'asc' } }, { sortOrder: 'asc' }],
+      include: {
+        artist: { select: { name: true, slug: true } },
+      },
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+    }),
+    db.artwork.count({ where }),
+  ]);
+
+  return {
+    items: artworks.map((aw) => ({
+      ...aw,
+      price: aw.price ? Number(aw.price) : null,
+    })),
+    total,
+    page,
+    pageSize,
+    totalPages: Math.ceil(total / pageSize),
+  };
 }
 
 export async function getArtworkById(id: string) {

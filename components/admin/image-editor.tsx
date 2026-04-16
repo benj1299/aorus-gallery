@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import Cropper from 'react-easy-crop';
 import type { Area, Point } from 'react-easy-crop';
 import { RotateCcw, RotateCw, ZoomIn, ZoomOut } from 'lucide-react';
@@ -26,19 +27,12 @@ interface ImageEditorProps {
 }
 
 interface AspectPreset {
-  label: string;
+  labelKey: string;
+  displayLabel: string;
   value: number | undefined;
 }
 
 // --- Constants ---
-
-const ASPECT_PRESETS: AspectPreset[] = [
-  { label: 'Libre', value: undefined },
-  { label: '1:1', value: 1 },
-  { label: '4:5', value: 4 / 5 },
-  { label: '3:4', value: 3 / 4 },
-  { label: '4:3', value: 4 / 3 },
-];
 
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 5;
@@ -48,12 +42,21 @@ const ROTATION_STEP = 90;
 // --- Component ---
 
 export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEditorProps) {
+  const t = useTranslations('admin.imageEditor');
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [rotation, setRotation] = useState(0);
   const [aspect, setAspect] = useState<number | undefined>(undefined);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null);
   const [applying, setApplying] = useState(false);
+
+  const ASPECT_PRESETS: AspectPreset[] = [
+    { labelKey: 'free', displayLabel: t('free'), value: undefined },
+    { labelKey: '1:1', displayLabel: '1:1', value: 1 },
+    { labelKey: '4:5', displayLabel: '4:5', value: 4 / 5 },
+    { labelKey: '3:4', displayLabel: '3:4', value: 3 / 4 },
+    { labelKey: '4:3', displayLabel: '4:3', value: 4 / 3 },
+  ];
 
   // Reset state when the dialog opens with a new image
   useEffect(() => {
@@ -71,7 +74,7 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
     setCroppedAreaPixels(croppedPixels);
   }, []);
 
-  // Initialize croppedAreaPixels when the image loads so "Appliquer" is enabled
+  // Initialize croppedAreaPixels when the image loads
   const handleMediaLoaded = useCallback((mediaSize: { naturalWidth: number; naturalHeight: number }) => {
     if (!croppedAreaPixels) {
       setCroppedAreaPixels({
@@ -124,9 +127,9 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
         showCloseButton={false}
       >
         <DialogHeader>
-          <DialogTitle>Recadrer l&apos;image</DialogTitle>
+          <DialogTitle>{t('title')}</DialogTitle>
           <DialogDescription>
-            Ajustez le cadrage, la rotation et le zoom avant l&apos;upload.
+            {t('description')}
           </DialogDescription>
         </DialogHeader>
 
@@ -154,16 +157,16 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
         <div className="space-y-4">
           {/* Aspect ratio presets */}
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-sm text-muted-foreground font-medium shrink-0">Ratio :</span>
+            <span className="text-sm text-muted-foreground font-medium shrink-0">{t('ratio')}</span>
             {ASPECT_PRESETS.map((preset) => (
               <Button
-                key={preset.label}
+                key={preset.labelKey}
                 type="button"
                 variant={aspect === preset.value ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setAspect(preset.value)}
               >
-                {preset.label}
+                {preset.displayLabel}
               </Button>
             ))}
           </div>
@@ -189,7 +192,7 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
               variant="outline"
               size="icon-sm"
               onClick={handleRotateLeft}
-              title="Rotation -90°"
+              title={t('rotateLeft')}
             >
               <RotateCcw className="w-4 h-4" />
             </Button>
@@ -206,7 +209,7 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
               variant="outline"
               size="icon-sm"
               onClick={handleRotateRight}
-              title="Rotation +90°"
+              title={t('rotateRight')}
             >
               <RotateCw className="w-4 h-4" />
             </Button>
@@ -219,10 +222,10 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
         {/* Actions */}
         <DialogFooter>
           <Button type="button" variant="outline" onClick={onCancel} disabled={applying}>
-            Annuler
+            {t('cancel')}
           </Button>
           <Button type="button" onClick={handleApply} disabled={applying}>
-            {applying ? 'Application...' : 'Appliquer'}
+            {applying ? t('applying') : t('apply')}
           </Button>
         </DialogFooter>
       </DialogContent>

@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { AdminTable } from '@/components/admin/admin-table';
 import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
@@ -21,97 +22,115 @@ type Artwork = {
   currency: string | null;
   visible: boolean;
   featuredHome: boolean;
+  showPrice: boolean;
   sold: boolean;
   artistId: string;
   artist: { name: string; slug: string };
 };
 
-const columns = [
-  {
-    key: 'title',
-    label: 'Œuvre',
-    sortable: true,
-    getValue: (aw: Artwork) => resolveTranslation(aw.title as TranslatableField, 'fr'),
-    render: (aw: Artwork) => {
-      const t = resolveTranslation(aw.title as TranslatableField, 'fr');
-      return (
-        <div className="flex items-center gap-3">
-          <Avatar className="h-12 w-12 rounded">
-            <AvatarImage src={aw.imageUrl} alt={t} />
-            <AvatarFallback className="rounded">{t.charAt(0)}</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="font-medium text-sm text-gray-900">{t}</p>
-            <p className="text-gray-500 text-xs">{aw.dimensions}</p>
-          </div>
-        </div>
-      );
-    },
-  },
-  {
-    key: 'artist',
-    label: 'Artiste',
-    sortable: true,
-    getValue: (aw: Artwork) => aw.artist.name,
-    render: (aw: Artwork) => <span className="text-sm text-gray-900">{aw.artist.name}</span>,
-  },
-  {
-    key: 'medium',
-    label: 'Technique',
-    render: (aw: Artwork) => (
-      <span className="text-sm text-gray-900">
-        {aw.medium ? resolveTranslation(aw.medium as TranslatableField, 'fr') : '—'}
-      </span>
-    ),
-  },
-  {
-    key: 'price',
-    label: 'Prix',
-    sortable: true,
-    getValue: (aw: Artwork) => aw.price ?? 0,
-    render: (aw: Artwork) => (
-      <span className="text-sm text-gray-900">
-        {aw.price ? `${aw.price} ${aw.currency}` : '—'}
-      </span>
-    ),
-  },
-  {
-    key: 'visible',
-    label: 'Statut',
-    render: (aw: Artwork) => (
-      <div className="flex gap-2">
-        <QuickToggle id={aw.id} field="visible" checked={aw.visible} action={toggleArtworkField} label="Visible" />
-        <QuickToggle id={aw.id} field="featuredHome" checked={aw.featuredHome} action={toggleArtworkField} label="En avant" />
-        <QuickToggle id={aw.id} field="sold" checked={aw.sold} action={toggleArtworkField} label="Vendu" />
-      </div>
-    ),
-  },
-];
+interface ServerPaginationConfig {
+  totalPages: number;
+  currentPage: number;
+  totalItems: number;
+  basePath: string;
+  searchParams?: Record<string, string>;
+}
 
 export function ArtworksListClient({
   artworks,
   artists,
+  currentArtistId,
+  serverPagination,
 }: {
   artworks: Artwork[];
   artists: Artist[];
+  currentArtistId: string;
+  serverPagination: ServerPaginationConfig;
 }) {
-  const [artistFilter, setArtistFilter] = useState<string>('');
+  const router = useRouter();
+  const t = useTranslations('admin');
 
-  const filtered = useMemo(
-    () => (artistFilter ? artworks.filter((aw) => aw.artistId === artistFilter) : artworks),
-    [artworks, artistFilter],
-  );
+  const columns = [
+    {
+      key: 'title',
+      label: t('artworks.columns.artwork'),
+      sortable: true,
+      getValue: (aw: Artwork) => resolveTranslation(aw.title as TranslatableField, 'fr'),
+      render: (aw: Artwork) => {
+        const title = resolveTranslation(aw.title as TranslatableField, 'fr');
+        return (
+          <div className="flex items-center gap-3">
+            <Avatar className="h-12 w-12 rounded">
+              <AvatarImage src={aw.imageUrl} alt={title} />
+              <AvatarFallback className="rounded">{title.charAt(0)}</AvatarFallback>
+            </Avatar>
+            <div>
+              <p className="font-medium text-sm text-gray-900">{title}</p>
+              <p className="text-gray-500 text-xs">{aw.dimensions}</p>
+            </div>
+          </div>
+        );
+      },
+    },
+    {
+      key: 'artist',
+      label: t('artworks.columns.artist'),
+      sortable: true,
+      getValue: (aw: Artwork) => aw.artist.name,
+      render: (aw: Artwork) => <span className="text-sm text-gray-900">{aw.artist.name}</span>,
+    },
+    {
+      key: 'medium',
+      label: t('artworks.columns.medium'),
+      render: (aw: Artwork) => (
+        <span className="text-sm text-gray-900">
+          {aw.medium ? resolveTranslation(aw.medium as TranslatableField, 'fr') : '\u2014'}
+        </span>
+      ),
+    },
+    {
+      key: 'price',
+      label: t('artworks.columns.price'),
+      sortable: true,
+      getValue: (aw: Artwork) => aw.price ?? 0,
+      render: (aw: Artwork) => (
+        <span className="text-sm text-gray-900">
+          {aw.price ? `${aw.price} ${aw.currency}` : '\u2014'}
+        </span>
+      ),
+    },
+    {
+      key: 'visible',
+      label: t('artworks.columns.status'),
+      render: (aw: Artwork) => (
+        <div className="flex gap-2">
+          <QuickToggle id={aw.id} field="visible" checked={aw.visible} action={toggleArtworkField} label={t('artworks.toggles.visible')} />
+          <QuickToggle id={aw.id} field="featuredHome" checked={aw.featuredHome} action={toggleArtworkField} label={t('artworks.toggles.featured')} />
+          <QuickToggle id={aw.id} field="showPrice" checked={aw.showPrice} action={toggleArtworkField} label={t('artworks.toggles.price')} />
+          <QuickToggle id={aw.id} field="sold" checked={aw.sold} action={toggleArtworkField} label={t('artworks.toggles.sold')} />
+        </div>
+      ),
+    },
+  ];
+
+  const handleArtistFilterChange = (artistId: string) => {
+    const params = new URLSearchParams();
+    if (artistId) params.set('artistId', artistId);
+    // Reset to page 1 when changing filter
+    params.set('page', '1');
+    router.push(`/admin/artworks?${params.toString()}`);
+  };
 
   return (
     <div>
       <div className="mb-4 flex items-center gap-3">
         <div className="relative">
           <select
-            value={artistFilter}
-            onChange={(e) => setArtistFilter(e.target.value)}
+            value={currentArtistId}
+            onChange={(e) => handleArtistFilterChange(e.target.value)}
             className="w-56 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 appearance-none pr-10 cursor-pointer focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 transition-colors"
           >
-            <option value="">Tous les artistes</option>
+            <option value="">{t('artworks.allArtists')}</option>
             {artists.map((a) => (
               <option key={a.id} value={a.id}>
                 {a.name}
@@ -122,16 +141,17 @@ export function ArtworksListClient({
         </div>
       </div>
       <AdminTable
-        title="Œuvres"
-        data={filtered}
+        title={t('artworks.title')}
+        data={artworks}
         columns={columns}
         searchKeys={['title', 'artist']}
-        searchPlaceholder="Rechercher une œuvre..."
+        searchPlaceholder={t('artworks.searchPlaceholder')}
         newHref="/admin/artworks/new"
-        newLabel="Nouvelle œuvre"
+        newLabel={t('artworks.newArtwork')}
         editHref={(aw) => `/admin/artworks/${aw.id}`}
         deleteAction={deleteArtwork}
         getId={(aw) => aw.id}
+        serverPagination={serverPagination}
       />
     </div>
   );

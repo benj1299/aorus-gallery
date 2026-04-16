@@ -5,12 +5,15 @@ import { z } from 'zod';
 import { headers } from 'next/headers';
 import { checkRateLimit } from '@/lib/rate-limit';
 
+const CONTACT_STATUS_VALUES = ['collector', 'press', 'institution', 'corporate', 'artist', 'other'] as const;
+const INTERESTED_IN_VALUES = ['artist', 'work', 'advisory', 'event'] as const;
+
 const contactSchema = z.object({
-  status: z.string().min(1),
-  name: z.string().min(2),
+  status: z.enum(CONTACT_STATUS_VALUES),
+  name: z.string().min(2).max(200),
   email: z.string().email(),
-  message: z.string().min(10),
-  interestedIn: z.string().optional(),
+  message: z.string().min(10).max(2000),
+  interestedIn: z.enum(INTERESTED_IN_VALUES).optional().or(z.literal('')),
   preferredLanguage: z.string().optional(),
 });
 

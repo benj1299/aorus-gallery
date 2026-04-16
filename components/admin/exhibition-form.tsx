@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
 import { FormSelect } from './form-select';
@@ -31,54 +32,56 @@ interface ExhibitionFormProps {
   };
 }
 
-const TYPE_OPTIONS = [
-  { value: 'EXHIBITION', label: 'Exposition' },
-  { value: 'ART_FAIR', label: "Foire d'art" },
-  { value: 'OFFSITE', label: 'Hors les murs' },
-];
-
-const STATUS_OPTIONS = [
-  { value: 'CURRENT', label: 'En cours' },
-  { value: 'UPCOMING', label: 'À venir' },
-  { value: 'PAST', label: 'Passée' },
-];
-
 export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }: ExhibitionFormProps) {
+  const t = useTranslations('admin');
+
+  const TYPE_OPTIONS = [
+    { value: 'EXHIBITION', label: t('exhibitions.types.exhibition') },
+    { value: 'ART_FAIR', label: t('exhibitions.types.artFair') },
+    { value: 'OFFSITE', label: t('exhibitions.types.offsite') },
+  ];
+
+  const STATUS_OPTIONS = [
+    { value: 'CURRENT', label: t('exhibitions.statuses.current') },
+    { value: 'UPCOMING', label: t('exhibitions.statuses.upcoming') },
+    { value: 'PAST', label: t('exhibitions.statuses.past') },
+  ];
+
   return (
     <FormLayout action={action}>
-      <FormCard title="Détails de l'exposition">
+      <FormCard title={t('cards.exhibitionDetails')}>
           <TranslatableInput
             name="title"
-            label="Titre"
+            label={t('forms.title')}
             defaultValue={defaultValues.title}
             required
           />
 
           <TranslatableInput
             name="description"
-            label="Description"
+            label={t('forms.description')}
             defaultValue={defaultValues.description}
             type="richtext" collapsible
           />
 
           <div>
-            <Label htmlFor="location" className="text-sm font-medium text-gray-700 mb-1.5">Lieu</Label>
-            <Input id="location" name="location" defaultValue={defaultValues.location} placeholder="ex. Paris, France" />
+            <Label htmlFor="location" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.location')}</Label>
+            <Input id="location" name="location" defaultValue={defaultValues.location} placeholder={t('forms.locationPlaceholder')} />
           </div>
       </FormCard>
 
-      <FormCard title="Classification et calendrier">
+      <FormCard title={t('cards.classificationSchedule')}>
           <div className="grid grid-cols-2 gap-4">
             <FormSelect
               name="type"
-              label="Type"
+              label={t('forms.type')}
               options={TYPE_OPTIONS}
               defaultValue={defaultValues.type ?? 'EXHIBITION'}
               required
             />
             <FormSelect
               name="status"
-              label="Statut"
+              label={t('forms.status')}
               options={STATUS_OPTIONS}
               defaultValue={defaultValues.status ?? 'UPCOMING'}
               required
@@ -87,26 +90,26 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="startDate" className="text-sm font-medium text-gray-700 mb-1.5">Date de début</Label>
+              <Label htmlFor="startDate" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.startDate')}</Label>
               <Input id="startDate" name="startDate" type="date" defaultValue={defaultValues.startDate} />
             </div>
             <div>
-              <Label htmlFor="endDate" className="text-sm font-medium text-gray-700 mb-1.5">Date de fin</Label>
+              <Label htmlFor="endDate" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.endDate')}</Label>
               <Input id="endDate" name="endDate" type="date" defaultValue={defaultValues.endDate} />
             </div>
           </div>
       </FormCard>
 
-      <FormCard title="Média">
+      <FormCard title={t('cards.media')}>
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-1.5">Image</Label>
+            <Label className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.image')}</Label>
             <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} />
           </div>
       </FormCard>
 
-      <FormCard title="Artistes et œuvres">
+      <FormCard title={t('cards.artistsAndArtworks')}>
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-2">Artistes</Label>
+            <Label className="text-sm font-medium text-gray-700 mb-2">{t('artists.title')}</Label>
             <div className="border border-gray-200 rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
               {artists.map((artist) => (
                 <div key={artist.id} className="flex items-center gap-2">
@@ -120,7 +123,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
                 </div>
               ))}
               {artists.length === 0 && (
-                <p className="text-gray-500 text-sm">Aucun artiste disponible</p>
+                <p className="text-gray-500 text-sm">{t('exhibitions.noArtists')}</p>
               )}
             </div>
           </div>
@@ -128,7 +131,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
           <div className="h-px bg-gray-100" />
 
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-2">{'Œuvres'}</Label>
+            <Label className="text-sm font-medium text-gray-700 mb-2">{t('artworks.title')}</Label>
             <div className="border border-gray-200 rounded-md p-3 max-h-48 overflow-y-auto space-y-2">
               {artworks.map((artwork) => (
                 <div key={artwork.id} className="flex items-center gap-2">
@@ -142,20 +145,20 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
                 </div>
               ))}
               {artworks.length === 0 && (
-                <p className="text-gray-500 text-sm">Aucune {'œuvre'} disponible</p>
+                <p className="text-gray-500 text-sm">{t('exhibitions.noArtworks')}</p>
               )}
             </div>
           </div>
       </FormCard>
 
-      <FormCard title="Paramètres d'affichage">
+      <FormCard title={t('cards.displaySettings')}>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">Ordre d'affichage</Label>
+              <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.sortOrder')}</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />
             </div>
             <div className="flex items-end pb-2">
-              <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? true} />
+              <FormSwitch name="visible" label={t('forms.visible')} defaultChecked={defaultValues.visible ?? true} />
             </div>
           </div>
       </FormCard>

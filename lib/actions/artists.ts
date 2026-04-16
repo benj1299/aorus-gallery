@@ -13,7 +13,7 @@ import { sanitizeTranslatable } from '@/lib/sanitize';
 import { parseFormData } from '@/lib/actions/safe-action';
 
 const artistSchema = z.object({
-  name: z.string().min(1),
+  name: z.string().min(1).max(200),
   nationality: translatableSchema,
   bio: translatableSchema,
   imageUrl: httpsUrl,
@@ -28,13 +28,19 @@ function extractCVEntries(formData: FormData): { title: TranslatableField; type:
   for (const cvType of CV_TYPES) {
     const entries = extractTranslatableArray(formData, `cv.${cvType}`);
     entries.forEach((title, i) => {
+      // Skip entries with empty English title (required locale)
+      if (!title.en.trim()) return;
+
       const yearStr = formData.get(`cv.${cvType}.${i}.year`)?.toString();
       const year = yearStr ? parseInt(yearStr, 10) : undefined;
+      // Discard year outside reasonable range
+      const validYear = year && !isNaN(year) && year >= 1900 && year <= 2100 ? year : undefined;
+
       allEntries.push({
         title,
         type: cvType,
         sortOrder: allEntries.length,
-        year: year && !isNaN(year) ? year : undefined,
+        year: validYear,
       });
     });
   }
@@ -92,7 +98,7 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
 export async function updateArtist(id: string, formData: FormData): Promise<{ error: string } | void> {
   await requireAuth();
 
-  const existing = await db.artist.findUnique({ where: { id }, select: { id: true } });
+  const existing = await db.artist.findUnique({ where: { id }, select: { id: true, name: true } });
   if (!existing) return { error: 'Élément introuvable' };
 
   const raw = {
@@ -110,27 +116,39 @@ export async function updateArtist(id: string, formData: FormData): Promise<{ er
   const cvEntries = extractCVEntries(formData);
   const collections = extractTranslatableArray(formData, 'collections');
 
-  await db.$transaction([
-    db.exhibition.deleteMany({ where: { artistId: id } }),
-    db.collection.deleteMany({ where: { artistId: id } }),
-    db.artist.update({
-      where: { id },
-      data: {
-        ...data,
-        exhibitions: {
-          create: cvEntries.map((entry) => ({
-            title: entry.title,
-            type: entry.type as 'SOLO_SHOW' | 'GROUP_SHOW' | 'ART_FAIR' | 'RESIDENCY' | 'AWARD',
-            sortOrder: entry.sortOrder,
-            year: entry.year ?? null,
-          })),
+  // Recalculate slug when name changes
+  const nameChanged = data.name !== existing.name;
+  const newSlug = nameChanged ? slugify(data.name) : undefined;
+
+  try {
+    await db.$transaction([
+      db.exhibition.deleteMany({ where: { artistId: id } }),
+      db.collection.deleteMany({ where: { artistId: id } }),
+      db.artist.update({
+        where: { id },
+        data: {
+          ...data,
+          ...(newSlug ? { slug: newSlug } : {}),
+          exhibitions: {
+            create: cvEntries.map((entry) => ({
+              title: entry.title,
+              type: entry.type as 'SOLO_SHOW' | 'GROUP_SHOW' | 'ART_FAIR' | 'RESIDENCY' | 'AWARD',
+              sortOrder: entry.sortOrder,
+              year: entry.year ?? null,
+            })),
+          },
+          collections: {
+            create: collections.map((title, i) => ({ title, sortOrder: i })),
+          },
         },
-        collections: {
-          create: collections.map((title, i) => ({ title, sortOrder: i })),
-        },
-      },
-    }),
-  ]);
+      }),
+    ]);
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
+      return { error: 'Un artiste avec ce nom existe déjà. Veuillez choisir un autre nom.' };
+    }
+    throw e;
+  }
 
   revalidateEntity('/admin/artists', ['/artists', '']);
   redirect('/admin/artists');

@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
 import { ImageUpload } from './image-upload';
@@ -21,37 +22,39 @@ interface BannerFormProps {
 }
 
 export function BannerForm({ action, defaultValues = {} }: BannerFormProps) {
+  const t = useTranslations('admin');
+
   return (
     <FormLayout action={action}>
-      <FormCard title="Contenu de la bannière">
+      <FormCard title={t('cards.bannerContent')}>
           <TranslatableInput
             name="title"
-            label="Titre"
+            label={t('forms.title')}
             defaultValue={defaultValues.title}
             required
           />
 
           <TranslatableInput
             name="subtitle"
-            label="Sous-titre"
+            label={t('forms.subtitle')}
             defaultValue={defaultValues.subtitle ?? undefined}
           />
       </FormCard>
 
-      <FormCard title="Média et lien">
+      <FormCard title={t('cards.mediaAndLink')}>
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-1.5">Image <span className="text-red-500">*</span></Label>
+            <Label className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.image')} <span className="text-red-500">*</span></Label>
             <ImageUpload name="imageUrl" defaultValue={defaultValues?.imageUrl} required />
           </div>
 
           <div>
-            <Label htmlFor="linkUrl" className="text-sm font-medium text-gray-700 mb-1.5">URL du lien</Label>
+            <Label htmlFor="linkUrl" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.linkUrl')}</Label>
             <Input id="linkUrl" name="linkUrl" defaultValue={defaultValues.linkUrl ?? ''} type="url" placeholder="https://..." />
           </div>
       </FormCard>
 
-      <FormCard title="Affichage">
-          <FormSwitch name="visible" label="Visible" defaultChecked={defaultValues.visible ?? false} />
+      <FormCard title={t('cards.display')}>
+          <FormSwitch name="visible" label={t('forms.visible')} defaultChecked={defaultValues.visible ?? false} />
       </FormCard>
 
     </FormLayout>

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { ArrowLeft, Printer } from 'lucide-react';
 
 interface ArtistData {
@@ -35,6 +36,7 @@ interface ExhibitionData {
 }
 
 export function ExhibitionViewClient({ exhibition }: { exhibition: ExhibitionData }) {
+  const t = useTranslations('admin.print');
   const dateRange = [exhibition.startDate, exhibition.endDate].filter(Boolean).join(' - ');
 
   return (
@@ -51,14 +53,14 @@ export function ExhibitionViewClient({ exhibition }: { exhibition: ExhibitionDat
       <div className="no-print mb-6 flex items-center justify-between">
         <Link href="/admin/exhibitions" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors">
           <ArrowLeft className="h-4 w-4" />
-          Retour aux expositions
+          {t('backToExhibitions')}
         </Link>
         <button
           onClick={() => window.print()}
           className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
         >
           <Printer className="h-4 w-4" />
-          Exporter en PDF
+          {t('exportPdf')}
         </button>
       </div>
 
@@ -105,7 +107,7 @@ export function ExhibitionViewClient({ exhibition }: { exhibition: ExhibitionDat
           <div className="px-8 md:px-12 pb-8">
             <div className="border-t border-gray-100 pt-8">
               <h2 className="text-xs uppercase tracking-widest text-gray-400 mb-6" style={{ letterSpacing: '0.2em' }}>
-                Artistes participants
+                {t('participatingArtists')}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {exhibition.artists.map((artist, i) => (
@@ -132,7 +134,7 @@ export function ExhibitionViewClient({ exhibition }: { exhibition: ExhibitionDat
           <div className="px-8 md:px-12 pb-8">
             <div className="border-t border-gray-100 pt-8">
               <h2 className="text-xs uppercase tracking-widest text-gray-400 mb-6" style={{ letterSpacing: '0.2em' }}>
-                Oeuvres exposees
+                {t('exhibitedWorks')}
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                 {exhibition.artworks.map((aw, i) => (
@@ -164,7 +166,7 @@ export function ExhibitionViewClient({ exhibition }: { exhibition: ExhibitionDat
             </div>
             <div className="text-right">
               <p className="text-xs text-gray-500">contact@orusgallery.com</p>
-              <p className="text-xs text-gray-400 mt-0.5">Sur rendez-vous uniquement</p>
+              <p className="text-xs text-gray-400 mt-0.5">{t('byAppointmentOnlyFr')}</p>
             </div>
           </div>
         </div>

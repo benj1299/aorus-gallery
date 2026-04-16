@@ -1,6 +1,7 @@
 'use client';
 
 import { AdminForm } from './form-wrapper';
+import { useTranslations } from 'next-intl';
 
 interface FormLayoutProps {
   action: (formData: FormData) => Promise<{ error: string } | void>;
@@ -8,7 +9,10 @@ interface FormLayoutProps {
   submitLabel?: string;
 }
 
-export function FormLayout({ action, children, submitLabel = 'Enregistrer' }: FormLayoutProps) {
+export function FormLayout({ action, children, submitLabel }: FormLayoutProps) {
+  const t = useTranslations('admin.forms');
+  const label = submitLabel ?? t('save');
+
   return (
     <AdminForm action={action} className="max-w-4xl space-y-6">
       {children}
@@ -18,7 +22,7 @@ export function FormLayout({ action, children, submitLabel = 'Enregistrer' }: Fo
           className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
           data-testid="form-submit"
         >
-          {submitLabel}
+          {label}
         </button>
       </div>
     </AdminForm>

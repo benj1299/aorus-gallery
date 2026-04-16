@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { Upload, X, Link as LinkIcon } from 'lucide-react';
 import { ImageEditor } from '@/components/admin/image-editor';
 import { useImageUpload } from '@/lib/hooks/use-image-upload';
@@ -14,6 +15,7 @@ interface ImageUploadProps {
 type Tab = 'upload' | 'url';
 
 export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) {
+  const t = useTranslations('admin.upload');
   const [tab, setTab] = useState<Tab>(defaultValue ? 'url' : 'upload');
   const [currentUrl, setCurrentUrl] = useState(defaultValue ?? '');
   const [dragOver, setDragOver] = useState(false);
@@ -79,7 +81,7 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
           }`}
         >
           <Upload className="w-3.5 h-3.5" />
-          Upload
+          {t('upload')}
         </button>
         <button
           type="button"
@@ -91,7 +93,7 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
           }`}
         >
           <LinkIcon className="w-3.5 h-3.5" />
-          URL
+          {t('url')}
         </button>
       </div>
 
@@ -110,10 +112,10 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
         >
           <Upload className="w-8 h-8 text-gray-400 mx-auto mb-3" />
           <p className="text-sm text-gray-500">
-            Glissez une image ici ou{' '}
-            <span className="text-gray-700 font-medium">cliquez pour parcourir</span>
+            {t('dragOrClick')}{' '}
+            <span className="text-gray-700 font-medium">{t('clickToBrowse')}</span>
           </p>
-          <p className="text-xs text-gray-400 mt-1">JPG, PNG, WebP, GIF - Max 10 MB</p>
+          <p className="text-xs text-gray-400 mt-1">{t('formats')}</p>
           <input
             ref={fileInputRef}
             type="file"
@@ -133,7 +135,7 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
               style={{ width: `${progress}%` }}
             />
           </div>
-          <p className="text-xs text-gray-500">Upload en cours...</p>
+          <p className="text-xs text-gray-500">{t('uploading')}</p>
         </div>
       )}
 
@@ -155,7 +157,7 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
           <div className="h-48 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden">
             <img
               src={currentUrl}
-              alt="Aper\u00e7u"
+              alt={t('preview')}
               className="w-full h-full object-cover"
             />
           </div>
@@ -173,7 +175,7 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
       {error && <p className="text-sm text-red-600">{error}</p>}
 
       {/* Required hint */}
-      {required && !currentUrl && <p className="text-sm text-red-500">Image requise</p>}
+      {required && !currentUrl && <p className="text-sm text-red-500">{t('imageRequired')}</p>}
 
       {/* Image editor modal */}
       <ImageEditor

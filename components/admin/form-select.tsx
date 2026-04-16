@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { ChevronDown } from 'lucide-react';
 import { inputStyles, labelStyles } from './form-styles';
 
@@ -13,6 +14,7 @@ interface FormSelectProps {
 }
 
 export function FormSelect({ name, label, options, defaultValue, required, placeholder }: FormSelectProps) {
+  const t = useTranslations('admin.forms');
   return (
     <div>
       <label className={labelStyles}>
@@ -26,7 +28,7 @@ export function FormSelect({ name, label, options, defaultValue, required, place
           className={`${inputStyles} appearance-none pr-10 cursor-pointer`}
         >
           <option value="" disabled>
-            {placeholder || 'Sélectionner...'}
+            {placeholder || t('select')}
           </option>
           {options.map((opt) => (
             <option key={opt.value} value={opt.value}>
