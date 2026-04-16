@@ -278,5 +278,10 @@
     "governingLaw": "Governing Law",
     "governingLawText": "These terms and conditions are governed by and construed in accordance with French law. Any disputes arising from the use of this website shall be subject to the exclusive jurisdiction of the courts of Paris, France.",
     "lastUpdated": "Last updated: March 2026"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred.",
+    "retry": "Try again"
   }
 }

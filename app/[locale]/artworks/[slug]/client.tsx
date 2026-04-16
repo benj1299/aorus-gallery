@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import { AnimatedSection } from '@/components/AnimatedSection';
@@ -33,6 +33,7 @@ interface ArtworkData {
 
 export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
   const t = useTranslations('artwork');
+  const locale = useLocale();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
@@ -130,7 +131,7 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
               <p className="text-noir/40 text-xs tracking-[0.1em] uppercase mt-3">{t('sold')}</p>
             ) : artwork.showPrice && artwork.price ? (
               <p className="text-noir/70 text-base mt-3">
-                {new Intl.NumberFormat('en', { style: 'currency', currency: artwork.currency }).format(artwork.price)}
+                {new Intl.NumberFormat(locale, { style: 'currency', currency: artwork.currency }).format(artwork.price)}
               </p>
             ) : (
               <p className="text-noir/40 text-xs italic mt-3">{t('priceOnRequest')}</p>

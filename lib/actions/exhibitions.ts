@@ -22,7 +22,7 @@ const exhibitionSchema = z.object({
   location: z.string().optional().default(''),
   imageUrl: optionalHttpsUrl,
   visible: booleanFromString.default(true),
-  sortOrder: z.coerce.number().int().default(0),
+  sortOrder: z.coerce.number().int().min(0).default(0),
 });
 
 function parseArtistIds(formData: FormData): string[] {

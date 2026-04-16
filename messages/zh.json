@@ -278,5 +278,10 @@
     "governingLaw": "適用法律",
     "governingLawText": "這些條款與細則受法國法律管轄並據此解釋。因使用本網站而產生的任何爭議應由法國巴黎法院專屬管轄。",
     "lastUpdated": "最後更新：2026年3月"
+  },
+  "error": {
+    "title": "發生錯誤",
+    "description": "發生了意外錯誤。",
+    "retry": "重試"
   }
 }

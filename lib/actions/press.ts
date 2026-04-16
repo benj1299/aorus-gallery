@@ -20,7 +20,7 @@ const pressSchema = z.object({
   imageUrl: optionalHttpsUrl,
   excerpt: optionalTranslatableSchema,
   visible: booleanFromString.default(true),
-  sortOrder: z.coerce.number().int().default(0),
+  sortOrder: z.coerce.number().int().min(0).default(0),
 });
 
 export async function createPressArticle(formData: FormData): Promise<{ error: string } | void> {

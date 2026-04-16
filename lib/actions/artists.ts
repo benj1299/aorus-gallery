@@ -17,7 +17,7 @@ const artistSchema = z.object({
   nationality: translatableSchema,
   bio: translatableSchema,
   imageUrl: httpsUrl,
-  sortOrder: z.coerce.number().int().default(0),
+  sortOrder: z.coerce.number().int().min(0).default(0),
   visible: booleanFromString.default(true),
 });
 
