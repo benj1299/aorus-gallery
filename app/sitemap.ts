@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { prisma } from '@/lib/db';
 
-const BASE_URL = 'https://aorus-gallery.vercel.app';
+const BASE_URL = 'https://www.orusgallery.com';
 const locales = ['en', 'fr', 'zh'];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

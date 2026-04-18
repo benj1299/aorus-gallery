@@ -222,7 +222,8 @@ export default function ContactPage() {
                     <FormField label={t('form.email')} id="email" required error={errors.email?.message}>
                       <input
                         id="email"
-                        type="email"
+                        type="text"
+                        inputMode="email"
                         {...register('email')}
                         className={inputClassName}
                         placeholder="your@email.com"

@@ -14,8 +14,8 @@ export default async function MessageDetailPage({ params }: Props) {
   const message = await prisma.contactSubmission.findUnique({ where: { id } });
   if (!message) notFound();
 
-  const t = await getTranslations('admin.messages');
-  const ts = await getTranslations('admin.messages.statuses');
+  const t = await getTranslations({ locale: 'fr', namespace: 'admin.messages' });
+  const ts = await getTranslations({ locale: 'fr', namespace: 'admin.messages.statuses' });
 
   const createdAt = message.createdAt.toLocaleDateString('fr-FR', {
     year: 'numeric',

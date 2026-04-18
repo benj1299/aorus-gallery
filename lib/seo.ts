@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://aorus-gallery.vercel.app';
+export const BASE_URL = 'https://www.orusgallery.com';
 
 export const OG_LOCALE: Record<string, string> = { en: 'en_US', fr: 'fr_FR', zh: 'zh_TW' };
 

@@ -291,6 +291,11 @@
     "description": "發生了意外錯誤。",
     "retry": "重試"
   },
+  "notFound": {
+    "title": "頁面未找到",
+    "description": "您查找的頁面不存在或已被移動。",
+    "backHome": "返回首頁"
+  },
   "admin": {
     "nav": {
       "title": "ORUS 管理後台",

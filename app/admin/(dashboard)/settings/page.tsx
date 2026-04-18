@@ -6,9 +6,9 @@ import { AdminBreadcrumb } from '@/components/admin/admin-breadcrumb';
 
 export default async function SettingsPage() {
   const settings = await getSiteSettings();
-  const t = await getTranslations('admin.settings');
-  const tf = await getTranslations('admin.forms');
-  const tc = await getTranslations('admin.cards');
+  const t = await getTranslations({ locale: 'fr', namespace: 'admin.settings' });
+  const tf = await getTranslations({ locale: 'fr', namespace: 'admin.forms' });
+  const tc = await getTranslations({ locale: 'fr', namespace: 'admin.cards' });
 
   return (
     <div className="space-y-6">

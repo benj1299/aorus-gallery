@@ -291,6 +291,11 @@
     "description": "Une erreur inattendue s'est produite.",
     "retry": "Réessayer"
   },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
+  },
   "admin": {
     "nav": {
       "title": "Administration ORUS",

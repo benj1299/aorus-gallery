@@ -20,7 +20,7 @@ async function getDashboardData() {
 
 export default async function AdminDashboardPage() {
   const { artistCount, artworkCount, exhibitionCount, messageCount, recentMessages } = await getDashboardData();
-  const t = await getTranslations('admin.dashboard');
+  const t = await getTranslations({ locale: 'fr', namespace: 'admin.dashboard' });
 
   const stats = [
     { label: t('stats.artists'), count: artistCount, icon: Users, href: '/admin/artists' },

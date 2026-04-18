@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://aorus-gallery.vercel.app'),
+  metadataBase: new URL('https://www.orusgallery.com'),
   title: 'ORUS Gallery | Contemporary Art | Taiwan',
   description:
     'ORUS Gallery represents international contemporary artists for Asian and global collectors. Origin + Us: where art meets identity. Based in Taiwan with connections to Paris.',
