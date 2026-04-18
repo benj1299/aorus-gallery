@@ -14,7 +14,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id, locale } = await params;
   const artist = await getArtistBySlugForFrontend(id, locale as Locale);
-  if (!artist) return { title: 'Artist Not Found' };
+  if (!artist) notFound();
   const description = artist.bio ? stripHtml(artist.bio).slice(0, 160) : `${artist.name} at ORUS Gallery`;
   return {
     title: `${artist.name} | ORUS Gallery`,

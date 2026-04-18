@@ -13,7 +13,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
   const artwork = await getArtworkBySlugForFrontend(slug, locale as Locale);
-  if (!artwork) return { title: 'Artwork Not Found' };
+  if (!artwork) notFound();
 
   const title = `${artwork.artist.name} — ${artwork.title} | ORUS Gallery`;
   const descriptionParts = [artwork.title];
