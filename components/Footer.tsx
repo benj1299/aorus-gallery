@@ -38,6 +38,14 @@ export function Footer() {
               {t('copyright')}
             </span>
             <span className="hidden md:inline">&middot;</span>
+            <Link href="/collectors" className="hover:text-noir transition-colors duration-300">
+              {t('collectors')}
+            </Link>
+            <span className="hidden md:inline">&middot;</span>
+            <Link href="/press-kit" className="hover:text-noir transition-colors duration-300">
+              {t('pressKit')}
+            </Link>
+            <span className="hidden md:inline">&middot;</span>
             <Link href="/privacy" className="hover:text-noir transition-colors duration-300">
               {t('privacy')}
             </Link>

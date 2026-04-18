@@ -242,7 +242,14 @@
       "past": "過往展覽"
     },
     "noExhibitions": "目前沒有展覽",
-    "cta": "聯繫我們"
+    "cta": "聯繫我們",
+    "artist": "藝術家",
+    "artists": "藝術家",
+    "participatingArtists": "參展藝術家",
+    "works": "作品",
+    "exhibitedWorks": "展出作品",
+    "inquire": "查詢此展覽",
+    "contactUs": "聯繫我們"
   },
   "footer": {
     "tagline": "Origin + Us — 藝術與身份的交匯",
@@ -253,7 +260,9 @@
     "rights": "版權所有",
     "appointment": "僅限預約",
     "cities": "台北 / 巴黎",
-    "terms": "條款與細則"
+    "terms": "條款與細則",
+    "collectors": "致藏家",
+    "pressKit": "媒體資料"
   },
   "legal": {
     "privacyTitle": "隱私政策",
@@ -295,6 +304,73 @@
     "title": "頁面未找到",
     "description": "您查找的頁面不存在或已被移動。",
     "backHome": "返回首頁"
+  },
+  "collectors": {
+    "metaDescription": "ORUS Gallery 為藏家提供私密且嚴謹的藝術顧問服務，協助建構巴黎與台北之間的國際當代藝術收藏。",
+    "eyebrow": "致藏家",
+    "title": "時間中的關係",
+    "intro": "在 ORUS Gallery，我們不只是銷售作品。我們協助建構具有連貫性的收藏。每一個推薦都尊重藏家的歷程與藝術家的發展軌跡。",
+    "advisory": {
+      "title": "私人顧問",
+      "text": "從初次交流到長期收藏策略的個人化陪伴。涵蓋收購、來源考證、裱框、物流與檔案管理。"
+    },
+    "curation": {
+      "title": "策展意圖",
+      "text": "我們只與超越潮流、具備連貫實踐的藝術家合作。我們推薦的每件作品都在收藏的敘事中有其精準位置。"
+    },
+    "access": {
+      "title": "優先通路",
+      "text": "新作品公開發布前優先觀賞、工作室拜訪邀請、以及在巴黎與台北藝博會期間與藝術家會面。"
+    },
+    "approach": {
+      "eyebrow": "我們的方法",
+      "title": "連貫性不是展示出來的，而是建構出來的。",
+      "text1": "我們花時間理解是什麼打動了一位藏家——他的疑問、參照、敏感度。唯有如此，我們才能提出同時呼應藏家視角與我們所信任的藝術家的作品。",
+      "text2": "與 ORUS 共同建構的收藏，不是作品的堆積。它是一條年復一年堅守的線索——在文化之間、世代之間、沉默之間。"
+    },
+    "cta": {
+      "title": "開始一段對話",
+      "text": "我們協助建構的每一份收藏都始於首次交流。告訴我們什麼打動了您，我們接手後續。",
+      "button": "聯繫我們"
+    }
+  },
+  "pressKit": {
+    "metaDescription": "ORUS Gallery 官方媒體資料——台北與巴黎之間的當代藝術畫廊。標誌、新聞稿、媒體聯繫。",
+    "eyebrow": "媒體資料",
+    "title": "ORUS Gallery",
+    "intro": "由 Victor Jouaneau 在台北與巴黎之間創立，ORUS Gallery 代理一批探索親密、記憶與身份議題的國際當代藝術家。",
+    "about": {
+      "eyebrow": "關於",
+      "title": "Origin + Us",
+      "text1": "ORUS Gallery 建立於一個信念之上：最私密的藝術也是最普世的。畫廊立足於台北與巴黎之間，在亞洲與西方當代藝術場景之間架起橋樑。",
+      "text2": "畫廊與數量刻意精簡的藝術家合作。我們呈現的每件作品都是一種強烈、連貫且能與不同文化語境對話的創作實踐的一部分。",
+      "text3": "創辦人 Victor Jouaneau 擁有在拍賣行、巴黎畫廊與新興亞洲藝術市場之間累積多年的國際策展視野。"
+    },
+    "facts": {
+      "founded": "創立",
+      "locations": "據點",
+      "artists": "藝術家",
+      "continents": "大洲"
+    },
+    "assets": {
+      "eyebrow": "下載",
+      "title": "媒體資源",
+      "download": "下載",
+      "logo": {
+        "title": "標誌",
+        "description": "高解析度標誌，供編輯使用"
+      },
+      "colors": {
+        "title": "品牌色彩",
+        "description": "設計與編輯用官方色票"
+      }
+    },
+    "contact": {
+      "eyebrow": "媒體聯繫",
+      "title": "所有編輯相關查詢",
+      "text": "關於採訪邀約、高解析度圖像、藝術家簡歷或展覽報導，請直接聯繫我們的媒體團隊。",
+      "button": "一般聯繫"
+    }
   },
   "admin": {
     "nav": {

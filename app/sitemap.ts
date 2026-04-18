@@ -5,7 +5,7 @@ const BASE_URL = 'https://www.orusgallery.com';
 const locales = ['en', 'fr', 'zh'];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticPages = ['', '/about', '/artists', '/press', '/contact', '/exhibitions'];
+  const staticPages = ['', '/about', '/artists', '/press', '/contact', '/exhibitions', '/collectors', '/press-kit'];
 
   const entries: MetadataRoute.Sitemap = [];
 

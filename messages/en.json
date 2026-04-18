@@ -242,7 +242,14 @@
       "past": "Past"
     },
     "noExhibitions": "No exhibitions to display",
-    "cta": "Contact Us"
+    "cta": "Contact Us",
+    "artist": "Artist",
+    "artists": "Artists",
+    "participatingArtists": "Participating Artists",
+    "works": "Works",
+    "exhibitedWorks": "Exhibited Works",
+    "inquire": "Inquire about this exhibition",
+    "contactUs": "Contact Us"
   },
   "footer": {
     "tagline": "Origin + Us — Where art meets identity",
@@ -253,7 +260,9 @@
     "rights": "All rights reserved",
     "appointment": "By appointment only",
     "cities": "Taipei / Paris",
-    "terms": "Terms & Conditions"
+    "terms": "Terms & Conditions",
+    "collectors": "For Collectors",
+    "pressKit": "Press Kit"
   },
   "legal": {
     "privacyTitle": "Privacy Policy",
@@ -295,6 +304,73 @@
     "title": "Page not found",
     "description": "The page you are looking for does not exist or has been moved.",
     "backHome": "Back to home"
+  },
+  "collectors": {
+    "metaDescription": "ORUS Gallery provides a discreet, rigorous art advisory for collectors building international contemporary art collections between Paris and Taipei.",
+    "eyebrow": "For Collectors",
+    "title": "A Relationship Over Time",
+    "intro": "At ORUS Gallery, we don't sell artworks. We help build collections that hold a line. Each recommendation is made with the collector's journey and the artist's trajectory in mind.",
+    "advisory": {
+      "title": "Private Advisory",
+      "text": "Personalised guidance from initial conversations to long-term collection strategy. Acquisition, provenance, framing, shipping, and archive management."
+    },
+    "curation": {
+      "title": "Curatorial Intent",
+      "text": "We only work with artists whose practice holds coherence beyond trends. Each work we propose fits a precise place within a collection's narrative."
+    },
+    "access": {
+      "title": "Exclusive Access",
+      "text": "Preview of new works before public release, invitations to studio visits, and introductions to artists during fairs in Paris and Taipei."
+    },
+    "approach": {
+      "eyebrow": "Our Approach",
+      "title": "Coherence is not displayed. It is built.",
+      "text1": "We take the time to understand what moves a collector — the questions, the references, the sensibilities. Only then do we propose works that resonate with both the collector's gaze and the artists we trust.",
+      "text2": "A collection built with ORUS is not an accumulation of pieces. It is a held line, year after year, between cultures, between generations, between silences."
+    },
+    "cta": {
+      "title": "Begin a Conversation",
+      "text": "Every collection we help build starts with a first exchange. Share what you are drawn to, and we will take it from there.",
+      "button": "Contact Us"
+    }
+  },
+  "pressKit": {
+    "metaDescription": "Official press kit for ORUS Gallery — contemporary art gallery between Taipei and Paris. Download the logo, read the press release, and get in touch.",
+    "eyebrow": "Press Kit",
+    "title": "ORUS Gallery",
+    "intro": "Founded between Taipei and Paris by Victor Jouaneau, ORUS Gallery represents a selection of international contemporary artists whose practice explores intimacy, memory, and identity.",
+    "about": {
+      "eyebrow": "About",
+      "title": "Origin + Us",
+      "text1": "ORUS Gallery was founded on a conviction: that the most intimate art is also the most universal. Based between Taipei and Paris, we build bridges between Asian and Western contemporary art scenes.",
+      "text2": "The gallery works with a deliberately small number of artists. Each work presented is part of a strong, coherent practice capable of engaging with different cultural contexts.",
+      "text3": "Founder Victor Jouaneau brings an international curatorial vision shaped by years between auction houses, Parisian galleries, and the emerging Asian art market."
+    },
+    "facts": {
+      "founded": "Founded",
+      "locations": "Locations",
+      "artists": "Artists",
+      "continents": "Continents"
+    },
+    "assets": {
+      "eyebrow": "Downloads",
+      "title": "Media Assets",
+      "download": "Download",
+      "logo": {
+        "title": "Logo",
+        "description": "High-resolution logo for editorial use"
+      },
+      "colors": {
+        "title": "Brand Colors",
+        "description": "Official palette for design and editorial"
+      }
+    },
+    "contact": {
+      "eyebrow": "Press Contact",
+      "title": "For Editorial Inquiries",
+      "text": "For interview requests, high-resolution images, artist bios, or exhibition coverage, please reach our press team directly.",
+      "button": "General Contact"
+    }
   },
   "admin": {
     "nav": {

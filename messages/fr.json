@@ -242,7 +242,14 @@
       "past": "Passées"
     },
     "noExhibitions": "Aucune exposition à afficher",
-    "cta": "Nous contacter"
+    "cta": "Nous contacter",
+    "artist": "Artiste",
+    "artists": "Artistes",
+    "participatingArtists": "Artistes participants",
+    "works": "Œuvres",
+    "exhibitedWorks": "Œuvres exposées",
+    "inquire": "Se renseigner sur cette exposition",
+    "contactUs": "Nous contacter"
   },
   "footer": {
     "tagline": "Origin + Us — Là où l'art rencontre l'identité",
@@ -253,7 +260,9 @@
     "rights": "Tous droits réservés",
     "appointment": "Sur rendez-vous uniquement",
     "cities": "Taipei / Paris",
-    "terms": "Conditions générales"
+    "terms": "Conditions générales",
+    "collectors": "Collectionneurs",
+    "pressKit": "Dossier de presse"
   },
   "legal": {
     "privacyTitle": "Politique de confidentialité",
@@ -295,6 +304,73 @@
     "title": "Page introuvable",
     "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
     "backHome": "Retour à l'accueil"
+  },
+  "collectors": {
+    "metaDescription": "ORUS Gallery accompagne les collectionneurs dans la construction de collections d'art contemporain international entre Paris et Taipei. Advisory privée et discrète.",
+    "eyebrow": "Pour les collectionneurs",
+    "title": "Une relation dans le temps",
+    "intro": "Chez ORUS Gallery, nous ne vendons pas des œuvres. Nous aidons à construire des collections qui tiennent une ligne. Chaque recommandation se fait dans le respect du parcours du collectionneur et de la trajectoire de l'artiste.",
+    "advisory": {
+      "title": "Conseil privé",
+      "text": "Un accompagnement personnalisé, des premiers échanges à la stratégie long terme de la collection. Acquisition, provenance, encadrement, logistique et gestion des archives."
+    },
+    "curation": {
+      "title": "Intention curatoriale",
+      "text": "Nous ne travaillons qu'avec des artistes dont la pratique tient au-delà des tendances. Chaque œuvre proposée trouve sa juste place dans le récit d'une collection."
+    },
+    "access": {
+      "title": "Accès privilégié",
+      "text": "Primeur des nouvelles œuvres avant diffusion publique, invitations aux visites d'atelier, et rencontres avec les artistes lors des foires à Paris et Taipei."
+    },
+    "approach": {
+      "eyebrow": "Notre approche",
+      "title": "La cohérence ne s'affiche pas. Elle se construit.",
+      "text1": "Nous prenons le temps de comprendre ce qui anime un collectionneur — les questions, les références, les sensibilités. Ce n'est qu'après que nous proposons des œuvres qui résonnent à la fois avec son regard et avec les artistes en qui nous croyons.",
+      "text2": "Une collection construite avec ORUS n'est pas une accumulation de pièces. C'est une ligne tenue, année après année, entre les cultures, les générations, les silences."
+    },
+    "cta": {
+      "title": "Commencer une conversation",
+      "text": "Chaque collection que nous aidons à construire commence par un premier échange. Partagez ce qui vous touche, nous prenons la suite.",
+      "button": "Nous contacter"
+    }
+  },
+  "pressKit": {
+    "metaDescription": "Dossier de presse officiel d'ORUS Gallery — galerie d'art contemporain entre Taipei et Paris. Logo, communiqué, et contact presse.",
+    "eyebrow": "Dossier de presse",
+    "title": "ORUS Gallery",
+    "intro": "Fondée entre Taipei et Paris par Victor Jouaneau, ORUS Gallery représente une sélection d'artistes contemporains internationaux dont la pratique explore l'intimité, la mémoire et l'identité.",
+    "about": {
+      "eyebrow": "À propos",
+      "title": "Origin + Us",
+      "text1": "ORUS Gallery est née d'une conviction : l'art le plus intime est aussi le plus universel. Implantée entre Taipei et Paris, la galerie crée des ponts entre les scènes d'art contemporain asiatique et occidentale.",
+      "text2": "La galerie travaille avec un nombre volontairement restreint d'artistes. Chaque œuvre présentée s'inscrit dans une pratique forte, cohérente et capable de dialoguer avec des contextes culturels différents.",
+      "text3": "Le fondateur Victor Jouaneau apporte une vision curatoriale internationale façonnée par des années entre maisons de ventes, galeries parisiennes et la scène artistique asiatique émergente."
+    },
+    "facts": {
+      "founded": "Fondation",
+      "locations": "Lieux",
+      "artists": "Artistes",
+      "continents": "Continents"
+    },
+    "assets": {
+      "eyebrow": "Téléchargements",
+      "title": "Ressources média",
+      "download": "Télécharger",
+      "logo": {
+        "title": "Logo",
+        "description": "Logo haute résolution pour usage éditorial"
+      },
+      "colors": {
+        "title": "Couleurs de marque",
+        "description": "Palette officielle pour design et éditorial"
+      }
+    },
+    "contact": {
+      "eyebrow": "Contact presse",
+      "title": "Pour toute demande éditoriale",
+      "text": "Pour les demandes d'interview, les images haute résolution, les biographies d'artistes ou les couvertures d'expositions, contactez directement notre équipe presse.",
+      "button": "Contact général"
+    }
   },
   "admin": {
     "nav": {
