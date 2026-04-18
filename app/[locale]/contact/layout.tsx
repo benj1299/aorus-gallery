@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { OG_LOCALE, generateAlternates } from '@/lib/seo';
+import { BASE_URL, OG_LOCALE, generateAlternates } from '@/lib/seo';
 
 interface Props {
   children: React.ReactNode;
@@ -26,6 +26,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const localBusinessLd = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'ArtGallery'],
+  '@id': `${BASE_URL}#organization`,
+  name: 'ORUS Gallery',
+  url: BASE_URL,
+  logo: `${BASE_URL}/images/gallery/logo.jpeg`,
+  image: `${BASE_URL}/images/gallery/logo.jpeg`,
+  email: 'info@orusgallery.com',
+  priceRange: '$$$$',
+  description: 'Contemporary art gallery bridging Taipei and Paris. Origin + Us.',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    description: 'By appointment only',
+  },
+  address: [
+    { '@type': 'PostalAddress', addressLocality: 'Paris', addressCountry: 'FR' },
+    { '@type': 'PostalAddress', addressLocality: 'Taipei', addressCountry: 'TW' },
+  ],
+};
+
 export default function ContactLayout({ children }: Props) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessLd) }}
+      />
+      {children}
+    </>
+  );
 }

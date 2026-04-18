@@ -42,13 +42,44 @@ export default async function HomePage({ params }: Props) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ArtGallery',
+    '@id': `${BASE_URL}#organization`,
     name: 'ORUS Gallery',
+    alternateName: 'ORUS',
     url: BASE_URL,
-    description: 'Contemporary art gallery between Paris and Taipei',
+    logo: `${BASE_URL}/images/gallery/logo.jpeg`,
+    image: `${BASE_URL}/images/gallery/logo.jpeg`,
+    description: 'Contemporary art gallery bridging Taipei and Paris. Origin + Us.',
+    slogan: 'Origin + Us',
+    email: 'info@orusgallery.com',
+    founder: {
+      '@type': 'Person',
+      name: 'Victor Jouaneau',
+    },
     address: [
       { '@type': 'PostalAddress', addressLocality: 'Paris', addressCountry: 'FR' },
       { '@type': 'PostalAddress', addressLocality: 'Taipei', addressCountry: 'TW' },
     ],
+    location: [
+      {
+        '@type': 'Place',
+        name: 'ORUS Gallery Paris',
+        address: { '@type': 'PostalAddress', addressLocality: 'Paris', addressCountry: 'FR' },
+      },
+      {
+        '@type': 'Place',
+        name: 'ORUS Gallery Taipei',
+        address: { '@type': 'PostalAddress', addressLocality: 'Taipei', addressCountry: 'TW' },
+      },
+    ],
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      description: 'By appointment only',
+    },
+    sameAs: [
+      // To be filled with Victor's social accounts
+      // 'https://www.instagram.com/orusgallery',
+      // 'https://www.artsy.net/partner/orus-gallery',
+    ].filter(Boolean),
   };
 
   return (

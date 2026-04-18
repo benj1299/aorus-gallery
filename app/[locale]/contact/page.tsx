@@ -120,7 +120,7 @@ export default function ContactPage() {
             >
               <div className="aspect-[4/3] relative overflow-hidden mb-10">
                 <Image
-                  src="/images/gallery/Image Contact .png"
+                  src="/images/gallery/image-contact.png"
                   alt="ORUS Gallery"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

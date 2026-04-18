@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db-typed';
 
 const BASE_URL = 'https://www.orusgallery.com';
 const locales = ['en', 'fr', 'zh'];
@@ -20,10 +20,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  const artists = await prisma.artist.findMany({
-    where: { visible: true },
-    select: { slug: true, updatedAt: true },
-  });
+  const [artists, artworks, exhibitions] = await Promise.all([
+    db.artist.findMany({
+      where: { visible: true },
+      select: { slug: true, updatedAt: true },
+    }),
+    db.artwork.findMany({
+      where: { visible: true },
+      select: { slug: true, updatedAt: true },
+    }),
+    db.galleryExhibition.findMany({
+      where: { visible: true },
+      select: { slug: true, updatedAt: true },
+    }),
+  ]);
 
   for (const locale of locales) {
     for (const artist of artists) {
@@ -32,6 +42,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: artist.updatedAt,
         changeFrequency: 'monthly',
         priority: 0.7,
+      });
+    }
+    for (const artwork of artworks) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/artworks/${artwork.slug}`,
+        lastModified: artwork.updatedAt,
+        changeFrequency: 'monthly',
+        priority: 0.6,
+      });
+    }
+    for (const exhibition of exhibitions) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/exhibitions/${exhibition.slug}`,
+        lastModified: exhibition.updatedAt,
+        changeFrequency: 'monthly',
+        priority: 0.6,
       });
     }
   }
