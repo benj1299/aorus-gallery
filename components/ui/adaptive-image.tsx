@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
@@ -23,6 +23,14 @@ function AdaptiveImage({
   containerClassName,
 }: AdaptiveImageProps) {
   const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // Handle cached images: onLoad may not fire if image is already complete by the time we attach the listener
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      setLoaded(true);
+    }
+  }, []);
 
   return (
     <div
@@ -33,12 +41,14 @@ function AdaptiveImage({
       )}
     >
       <Image
+        ref={imgRef}
         src={src}
         alt={alt}
         fill
         priority={priority}
         sizes={sizes}
         onLoad={() => setLoaded(true)}
+        onError={() => setLoaded(true)}
         className={cn(
           'object-contain transition-all duration-700 ease-out',
           loaded ? 'opacity-100 blur-0' : 'opacity-0 blur-sm',
