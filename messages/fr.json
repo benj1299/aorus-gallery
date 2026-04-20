@@ -157,7 +157,8 @@
     "inquireAbout": "Intéressé par cette œuvre ?",
     "contactUs": "Nous contacter",
     "details": "Détails",
-    "detail": "détail"
+    "detail": "détail",
+    "viewFullscreen": "Agrandir"
   },
   "press": {
     "hero": {
@@ -608,7 +609,10 @@
       "addImage": "Ajouter une image",
       "fileTooLarge": "Fichier trop lourd (max 10 MB)",
       "unsupportedFormat": "Format non supporté (JPG, PNG, WebP, GIF)",
-      "uploadError": "Erreur lors de l'upload"
+      "uploadError": "Erreur lors de l'upload",
+      "previewError": "Aperçu indisponible",
+      "remove": "Retirer l'image",
+      "imageRequired": "Image requise"
     },
     "imageEditor": {
       "title": "Recadrer l'image",

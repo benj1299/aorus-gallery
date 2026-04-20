@@ -70,12 +70,8 @@ test.describe('Artwork Detail Page', () => {
 
   test('main image uses object-contain', async ({ page }) => {
     await page.goto(`/en/artworks/${artworkSlug}`);
-    // The main artwork image is rendered by AdaptiveImage inside a min-h-[60vh] container
-    // The image uses fill mode (position:absolute) + fade-in (starts opacity-0), so use toBeAttached instead of toBeVisible
-    const mainImage = page.locator('.min-h-\\[60vh\\] img').first();
+    const mainImage = page.locator('[data-testid="artwork-main-image"] img').first();
     await expect(mainImage).toBeAttached({ timeout: 15000 });
-    // Wait for fade-in to complete
-    await mainImage.waitFor({ state: 'attached', timeout: 15000 });
     const className = await mainImage.getAttribute('class');
     expect(className).toContain('object-contain');
     expect(className).not.toContain('object-cover');

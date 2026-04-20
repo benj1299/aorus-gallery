@@ -157,7 +157,8 @@
     "inquireAbout": "Interested in this work?",
     "contactUs": "Contact Us",
     "details": "Details",
-    "detail": "detail"
+    "detail": "detail",
+    "viewFullscreen": "View fullscreen"
   },
   "press": {
     "hero": {
@@ -608,7 +609,10 @@
       "addImage": "Add an image",
       "fileTooLarge": "File too large (max 10 MB)",
       "unsupportedFormat": "Unsupported format (JPG, PNG, WebP, GIF)",
-      "uploadError": "Upload error"
+      "uploadError": "Upload error",
+      "previewError": "Preview unavailable",
+      "remove": "Remove image",
+      "imageRequired": "Image required"
     },
     "imageEditor": {
       "title": "Crop image",

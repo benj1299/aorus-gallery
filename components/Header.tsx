@@ -56,10 +56,9 @@ export function Header({ showExhibitions = true }: { showExhibitions?: boolean }
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-[#FAFAFA]/95 backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)]'
-            : 'bg-transparent'
+            ? 'bg-[#FAFAFA]/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.08)]'
+            : 'bg-[#FAFAFA]/80 backdrop-blur-sm'
         }`}
-        style={{ height: isScrolled ? undefined : undefined }}
       >
         <nav
           className={`relative container-wide px-edge flex items-center justify-between ${

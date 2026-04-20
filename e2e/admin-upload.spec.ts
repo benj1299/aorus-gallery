@@ -55,4 +55,29 @@ test.describe('Image Upload', () => {
     const val = await page.locator('input[type="hidden"][name="imageUrl"]').inputValue();
     expect(val).toContain('unsplash.com');
   });
+
+  test('preview appears after setting URL', async ({ page }) => {
+    await page.goto('/admin/artists/new');
+    await page.getByText('URL').click();
+    await page.locator('input[type="url"]').fill('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80');
+    const preview = page.locator('[data-testid="image-upload-preview"] img');
+    await expect(preview).toBeVisible({ timeout: 10000 });
+    const src = await preview.getAttribute('src');
+    expect(src).toContain('unsplash.com');
+  });
+
+  test('preview persists on edit page after save', async ({ page }) => {
+    // Navigate to banner admin (existing upsert flow) — if a banner is saved
+    // with an imageUrl, the ImageUpload should show that preview on page load.
+    await page.goto('/admin/banner');
+    await expect(page.locator('h1')).toBeVisible({ timeout: 15000 });
+    const hiddenInput = page.locator('input[type="hidden"][name="imageUrl"]');
+    const initialValue = await hiddenInput.inputValue();
+    if (!initialValue) {
+      test.skip();
+      return;
+    }
+    const preview = page.locator('[data-testid="image-upload-preview"] img');
+    await expect(preview).toBeVisible({ timeout: 10000 });
+  });
 });

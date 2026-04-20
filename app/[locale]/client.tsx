@@ -38,8 +38,57 @@ interface Banner {
 export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { featuredArtworks: FeaturedArtwork[]; featuredArtists: Artist[]; banner: Banner | null }) {
   const t = useTranslations('home');
 
+  const bannerContent = banner ? (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+      className="text-center px-6 max-w-4xl"
+    >
+      <h2 className="font-display text-4xl md:text-6xl lg:text-7xl text-blanc tracking-[0.04em] leading-tight">
+        {banner.title}
+      </h2>
+      {banner.subtitle && (
+        <p className="text-blanc/85 text-base md:text-lg mt-6 tracking-[0.12em] uppercase">
+          {banner.subtitle}
+        </p>
+      )}
+      {banner.linkUrl && (
+        <span className="inline-block mt-10 text-xs tracking-[0.25em] uppercase text-blanc border-b border-blanc/60 pb-1 hover:border-blanc transition-colors">
+          {t('gallery.cta')}
+        </span>
+      )}
+    </motion.div>
+  ) : null;
+
   return (
     <div className="flex flex-col">
+      {banner && (
+        <section
+          className="relative h-screen overflow-hidden"
+          data-testid="home-banner"
+        >
+          <Image
+            src={banner.imageUrl}
+            alt={banner.title}
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-noir/30 via-noir/40 to-noir/60" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            {banner.linkUrl ? (
+              <Link href={banner.linkUrl} aria-label={banner.title}>
+                {bannerContent}
+              </Link>
+            ) : (
+              bannerContent
+            )}
+          </div>
+        </section>
+      )}
+
       {/* ===== BLOCK 1 — HERO ===== */}
       <section className="bg-blanc min-h-screen flex items-center justify-center relative">
         <div className="absolute inset-0">
@@ -51,7 +100,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
               height={700}
               className="w-[60vw] max-w-[700px] opacity-[0.05]"
               aria-hidden="true"
-              priority
+              priority={!banner}
             />
           </div>
         </div>
@@ -106,27 +155,6 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
         </motion.div>
       </section>
 
-      {banner && (
-        <section className="relative h-[70vh] overflow-hidden">
-          <Image src={banner.imageUrl} alt={banner.title} fill sizes="100vw" className="object-cover" />
-          <div className="absolute inset-0 bg-noir/40" />
-          <div className="absolute inset-0 flex items-center justify-center text-center px-6">
-            {banner.linkUrl ? (
-              <Link href={banner.linkUrl}>
-                <div>
-                  <h2 className="font-display text-4xl md:text-6xl text-blanc tracking-wide">{banner.title}</h2>
-                  {banner.subtitle && <p className="text-blanc/80 text-lg mt-4 tracking-wide">{banner.subtitle}</p>}
-                </div>
-              </Link>
-            ) : (
-              <div>
-                <h2 className="font-display text-4xl md:text-6xl text-blanc tracking-wide">{banner.title}</h2>
-                {banner.subtitle && <p className="text-blanc/80 text-lg mt-4 tracking-wide">{banner.subtitle}</p>}
-              </div>
-            )}
-          </div>
-        </section>
-      )}
 
       {/* ===== BLOCK 2 — SELECTION D'OEUVRES ===== */}
       <AnimatedSection

@@ -157,7 +157,8 @@
     "inquireAbout": "對這件作品感興趣？",
     "contactUs": "聯繫我們",
     "details": "細節",
-    "detail": "細節"
+    "detail": "細節",
+    "viewFullscreen": "全屏查看"
   },
   "press": {
     "hero": {
@@ -608,7 +609,10 @@
       "addImage": "新增圖片",
       "fileTooLarge": "檔案過大（最大 10 MB）",
       "unsupportedFormat": "不支援的格式（JPG、PNG、WebP、GIF）",
-      "uploadError": "上傳錯誤"
+      "uploadError": "上傳錯誤",
+      "previewError": "無法顯示預覽",
+      "remove": "移除圖片",
+      "imageRequired": "必須上傳圖片"
     },
     "imageEditor": {
       "title": "裁剪圖片",

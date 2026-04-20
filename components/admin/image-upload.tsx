@@ -19,6 +19,23 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
   const [tab, setTab] = useState<Tab>(defaultValue ? 'url' : 'upload');
   const [currentUrl, setCurrentUrl] = useState(defaultValue ?? '');
   const [dragOver, setDragOver] = useState(false);
+  const [previewError, setPreviewError] = useState(false);
+
+  const [prevDefault, setPrevDefault] = useState(defaultValue ?? '');
+  if ((defaultValue ?? '') !== prevDefault) {
+    setPrevDefault(defaultValue ?? '');
+    if (defaultValue) {
+      setCurrentUrl(defaultValue);
+      setTab('url');
+      setPreviewError(false);
+    }
+  }
+
+  const [prevCurrent, setPrevCurrent] = useState(currentUrl);
+  if (currentUrl !== prevCurrent) {
+    setPrevCurrent(currentUrl);
+    setPreviewError(false);
+  }
 
   const {
     uploading,
@@ -153,18 +170,27 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
 
       {/* Preview */}
       {currentUrl && (
-        <div className="relative w-full max-w-xs">
-          <div className="h-48 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden">
-            <img
-              src={currentUrl}
-              alt={t('preview')}
-              className="w-full h-full object-cover"
-            />
+        <div className="relative w-full max-w-xs" data-testid="image-upload-preview">
+          <div className="h-48 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden flex items-center justify-center">
+            {previewError ? (
+              <div className="flex flex-col items-center gap-2 px-4 text-center">
+                <span className="text-sm text-gray-500">{t('previewError', { defaultValue: 'Aperçu indisponible' })}</span>
+                <span className="text-xs text-gray-400 break-all">{currentUrl}</span>
+              </div>
+            ) : (
+              <img
+                src={currentUrl}
+                alt={t('preview')}
+                onError={() => setPreviewError(true)}
+                className="w-full h-full object-cover"
+              />
+            )}
           </div>
           <button
             type="button"
             onClick={handleRemove}
             className="absolute top-2 right-2 w-7 h-7 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full flex items-center justify-center shadow-sm hover:bg-white transition-colors"
+            aria-label={t('remove', { defaultValue: 'Retirer' })}
           >
             <X className="w-4 h-4 text-gray-600" />
           </button>
