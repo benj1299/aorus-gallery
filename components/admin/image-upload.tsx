@@ -95,10 +95,17 @@ export function ImageUpload({ name, defaultValue, defaultWidth, defaultHeight, r
     if (fileInputRef.current) fileInputRef.current.value = '';
   }, [fileInputRef]);
 
-  // On-demand edit: re-open the editor with the current image for crop/rotate
+  // On-demand edit: re-open the editor with the current image for crop/rotate.
+  // For remote URLs (R2, Unsplash, ...), route through /api/image-proxy so the
+  // browser can draw them into a canvas without hitting CORS taint (R2 does
+  // not serve Access-Control-Allow-Origin by default).
   const openEditorWithCurrent = useCallback(() => {
     if (!currentUrl) return;
-    setEditorImageSrc(currentUrl);
+    const isLocalBlob = currentUrl.startsWith('blob:') || currentUrl.startsWith('data:');
+    const src = isLocalBlob
+      ? currentUrl
+      : `/api/image-proxy?url=${encodeURIComponent(currentUrl)}`;
+    setEditorImageSrc(src);
     setEditorOpen(true);
   }, [currentUrl]);
 

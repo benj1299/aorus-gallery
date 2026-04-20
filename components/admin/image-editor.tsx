@@ -114,18 +114,18 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
   return (
     <Dialog open={open} onOpenChange={(isOpen) => { if (!isOpen) onCancel(); }}>
       <DialogContent
-        className="sm:max-w-2xl max-h-[90vh] flex flex-col bg-white text-gray-900"
+        className="sm:max-w-2xl max-h-[90vh] flex flex-col bg-gray-950 text-white border-white/10"
         showCloseButton={false}
       >
         <DialogHeader>
-          <DialogTitle className="text-gray-900">{t('title')}</DialogTitle>
-          <DialogDescription className="text-gray-600">
+          <DialogTitle className="text-white">{t('title')}</DialogTitle>
+          <DialogDescription className="text-white/60">
             {t('description')}
           </DialogDescription>
         </DialogHeader>
 
         {/* Crop area — only render Cropper when we have a valid image src */}
-        <div className="relative w-full h-80 bg-gray-950 rounded-lg overflow-hidden">
+        <div className="relative w-full h-80 bg-black rounded-lg overflow-hidden">
           {hasValidImage ? (
             <Cropper
               image={imageSrc}
@@ -155,7 +155,7 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
         <div className="space-y-4">
           {/* Zoom control */}
           <div className="flex items-center gap-3">
-            <ZoomOut className="w-4 h-4 text-gray-500 shrink-0" />
+            <ZoomOut className="w-4 h-4 text-white/60 shrink-0" />
             <Slider
               value={[zoom]}
               min={MIN_ZOOM}
@@ -165,7 +165,7 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
               className="flex-1"
               disabled={!hasValidImage}
             />
-            <ZoomIn className="w-4 h-4 text-gray-500 shrink-0" />
+            <ZoomIn className="w-4 h-4 text-white/60 shrink-0" />
           </div>
 
           {/* Rotation control */}
@@ -177,7 +177,7 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
               onClick={handleRotateLeft}
               title={t('rotateLeft')}
               disabled={!hasValidImage}
-              className="text-gray-900 border-gray-300"
+              className="bg-white/10 text-white border-white/20 hover:bg-white/20 hover:text-white"
             >
               <RotateCcw className="w-4 h-4" />
             </Button>
@@ -197,11 +197,11 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
               onClick={handleRotateRight}
               title={t('rotateRight')}
               disabled={!hasValidImage}
-              className="text-gray-900 border-gray-300"
+              className="bg-white/10 text-white border-white/20 hover:bg-white/20 hover:text-white"
             >
               <RotateCw className="w-4 h-4" />
             </Button>
-            <span className="text-xs text-gray-500 w-12 text-right tabular-nums">
+            <span className="text-xs text-white/60 w-12 text-right tabular-nums">
               {rotation}°
             </span>
           </div>
@@ -214,11 +214,18 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
             variant="outline"
             onClick={onCancel}
             disabled={applying}
-            className="text-gray-900 border-gray-300"
+            className="bg-white/10 text-white border-white/20 hover:bg-white/20 hover:text-white"
+            data-testid="image-editor-cancel"
           >
             {t('cancel')}
           </Button>
-          <Button type="button" onClick={handleApply} disabled={applying || !hasValidImage}>
+          <Button
+            type="button"
+            onClick={handleApply}
+            disabled={applying || !hasValidImage}
+            className="bg-white text-gray-950 hover:bg-white/90"
+            data-testid="image-editor-apply"
+          >
             {applying ? t('applying') : t('apply')}
           </Button>
         </DialogFooter>
