@@ -612,18 +612,20 @@
       "uploadError": "上傳錯誤",
       "previewError": "無法顯示預覽",
       "remove": "移除圖片",
-      "imageRequired": "必須上傳圖片"
+      "imageRequired": "必須上傳圖片",
+      "editImage": "裁剪或旋轉"
     },
     "imageEditor": {
       "title": "裁剪圖片",
-      "description": "在上傳前調整裁剪、旋轉和縮放。",
+      "description": "調整裁剪、旋轉和縮放 — 保持不變以保留原始比例。",
       "ratio": "比例：",
       "free": "自由",
       "apply": "套用",
       "applying": "套用中...",
       "cancel": "取消",
       "rotateLeft": "旋轉 -90°",
-      "rotateRight": "旋轉 +90°"
+      "rotateRight": "旋轉 +90°",
+      "noImage": "沒有可編輯的圖片。"
     },
     "print": {
       "backToArtists": "返回藝術家",

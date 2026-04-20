@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { Upload, X, Link as LinkIcon } from 'lucide-react';
+import { Upload, X, Link as LinkIcon, Pencil } from 'lucide-react';
 import { ImageEditor } from '@/components/admin/image-editor';
 import { useImageUpload } from '@/lib/hooks/use-image-upload';
 
@@ -24,6 +24,8 @@ export function ImageUpload({ name, defaultValue, defaultWidth, defaultHeight, r
   const [currentHeight, setCurrentHeight] = useState<number | null>(defaultHeight ?? null);
   const [dragOver, setDragOver] = useState(false);
   const [previewError, setPreviewError] = useState(false);
+  const [editorOpen, setEditorOpen] = useState(false);
+  const [editorImageSrc, setEditorImageSrc] = useState('');
 
   const [prevDefault, setPrevDefault] = useState(defaultValue ?? '');
   if ((defaultValue ?? '') !== prevDefault) {
@@ -49,42 +51,41 @@ export function ImageUpload({ name, defaultValue, defaultWidth, defaultHeight, r
     error,
     fileInputRef,
     acceptedTypes,
-    openEditor,
-    showEditor,
-    editorSrc,
-    handleEditorCancel,
-    handleEditorComplete,
+    validateFile,
+    uploadFile,
   } = useImageUpload();
 
-  const onEditorComplete = useCallback(async (blob: Blob) => {
-    const result = await handleEditorComplete(blob);
-    if (result) {
-      setCurrentUrl(result.url);
-      setCurrentWidth(result.width);
-      setCurrentHeight(result.height);
-    }
-  }, [handleEditorComplete]);
-
-  const onEditorCancel = useCallback(() => {
-    handleEditorCancel();
-  }, [handleEditorCancel]);
+  // Upload a file directly (no editor intermediate step) — this is the new default flow per designer §6.3
+  const uploadDirect = useCallback(
+    async (file: File) => {
+      if (!validateFile(file)) return;
+      const result = await uploadFile(file);
+      if (result) {
+        setCurrentUrl(result.url);
+        setCurrentWidth(result.width);
+        setCurrentHeight(result.height);
+        setTab('url');
+      }
+    },
+    [validateFile, uploadFile],
+  );
 
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
       e.preventDefault();
       setDragOver(false);
       const file = e.dataTransfer.files[0];
-      if (file) openEditor(file);
+      if (file) uploadDirect(file);
     },
-    [openEditor]
+    [uploadDirect],
   );
 
   const handleFileSelect = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
-      if (file) openEditor(file);
+      if (file) uploadDirect(file);
     },
-    [openEditor]
+    [uploadDirect],
   );
 
   const handleRemove = useCallback(() => {
@@ -93,6 +94,33 @@ export function ImageUpload({ name, defaultValue, defaultWidth, defaultHeight, r
     setCurrentHeight(null);
     if (fileInputRef.current) fileInputRef.current.value = '';
   }, [fileInputRef]);
+
+  // On-demand edit: re-open the editor with the current image for crop/rotate
+  const openEditorWithCurrent = useCallback(() => {
+    if (!currentUrl) return;
+    setEditorImageSrc(currentUrl);
+    setEditorOpen(true);
+  }, [currentUrl]);
+
+  const onEditorComplete = useCallback(
+    async (blob: Blob) => {
+      setEditorOpen(false);
+      const file = new File([blob], 'edited-image.png', { type: 'image/png' });
+      const result = await uploadFile(file);
+      if (result) {
+        setCurrentUrl(result.url);
+        setCurrentWidth(result.width);
+        setCurrentHeight(result.height);
+      }
+      setEditorImageSrc('');
+    },
+    [uploadFile],
+  );
+
+  const onEditorCancel = useCallback(() => {
+    setEditorOpen(false);
+    setEditorImageSrc('');
+  }, []);
 
   return (
     <div className="space-y-3">
@@ -217,6 +245,17 @@ export function ImageUpload({ name, defaultValue, defaultWidth, defaultHeight, r
           >
             <X className="w-4 h-4 text-gray-600" />
           </button>
+          {/* Discreet edit link — only visible when there's an image and it's not in error */}
+          {!previewError && (
+            <button
+              type="button"
+              onClick={openEditorWithCurrent}
+              className="mt-2 inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-900 transition-colors underline-offset-2 hover:underline"
+            >
+              <Pencil className="w-3 h-3" />
+              {t('editImage', { defaultValue: 'Recadrer ou faire pivoter' })}
+            </button>
+          )}
         </div>
       )}
 
@@ -226,10 +265,10 @@ export function ImageUpload({ name, defaultValue, defaultWidth, defaultHeight, r
       {/* Required hint */}
       {required && !currentUrl && <p className="text-sm text-red-500">{t('imageRequired')}</p>}
 
-      {/* Image editor modal */}
+      {/* Image editor modal — only rendered when user explicitly requests crop/rotate */}
       <ImageEditor
-        open={showEditor}
-        imageSrc={editorSrc}
+        open={editorOpen}
+        imageSrc={editorImageSrc}
         onComplete={onEditorComplete}
         onCancel={onEditorCancel}
       />

@@ -612,18 +612,20 @@
       "uploadError": "Upload error",
       "previewError": "Preview unavailable",
       "remove": "Remove image",
-      "imageRequired": "Image required"
+      "imageRequired": "Image required",
+      "editImage": "Crop or rotate"
     },
     "imageEditor": {
       "title": "Crop image",
-      "description": "Adjust cropping, rotation and zoom before uploading.",
+      "description": "Adjust cropping, rotation and zoom — leave untouched to preserve the native aspect ratio.",
       "ratio": "Ratio:",
       "free": "Free",
       "apply": "Apply",
       "applying": "Applying...",
       "cancel": "Cancel",
       "rotateLeft": "Rotate -90°",
-      "rotateRight": "Rotate +90°"
+      "rotateRight": "Rotate +90°",
+      "noImage": "No image to edit."
     },
     "print": {
       "backToArtists": "Back to artists",

@@ -612,18 +612,20 @@
       "uploadError": "Erreur lors de l'upload",
       "previewError": "Aperçu indisponible",
       "remove": "Retirer l'image",
-      "imageRequired": "Image requise"
+      "imageRequired": "Image requise",
+      "editImage": "Recadrer ou faire pivoter"
     },
     "imageEditor": {
       "title": "Recadrer l'image",
-      "description": "Ajustez le cadrage, la rotation et le zoom avant l'upload.",
+      "description": "Ajustez le cadrage, la rotation et le zoom — laissez intact pour préserver le format natif.",
       "ratio": "Ratio :",
       "free": "Libre",
       "apply": "Appliquer",
       "applying": "Application...",
       "cancel": "Annuler",
       "rotateLeft": "Rotation -90°",
-      "rotateRight": "Rotation +90°"
+      "rotateRight": "Rotation +90°",
+      "noImage": "Aucune image à éditer."
     },
     "print": {
       "backToArtists": "Retour aux artistes",

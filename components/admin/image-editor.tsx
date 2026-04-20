@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import Cropper from 'react-easy-crop';
 import type { Area, Point } from 'react-easy-crop';
-import { RotateCcw, RotateCw, ZoomIn, ZoomOut } from 'lucide-react';
+import { RotateCcw, RotateCw, ZoomIn, ZoomOut, AlertTriangle } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -26,12 +26,6 @@ interface ImageEditorProps {
   onCancel: () => void;
 }
 
-interface AspectPreset {
-  labelKey: string;
-  displayLabel: string;
-  value: number | undefined;
-}
-
 // --- Constants ---
 
 const MIN_ZOOM = 1;
@@ -40,23 +34,19 @@ const ZOOM_STEP = 0.1;
 const ROTATION_STEP = 90;
 
 // --- Component ---
+//
+// Per designer §6.3: ratio preserved natively — no aspect presets that force
+// the user to crop to preset ratios. The editor exists for OPTIONAL rotation
+// (correcting photos shot in landscape when the artwork is portrait) and
+// optional free-form crop (removing a parasitic background element).
 
 export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEditorProps) {
   const t = useTranslations('admin.imageEditor');
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [rotation, setRotation] = useState(0);
-  const [aspect, setAspect] = useState<number | undefined>(undefined);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null);
   const [applying, setApplying] = useState(false);
-
-  const ASPECT_PRESETS: AspectPreset[] = [
-    { labelKey: 'free', displayLabel: t('free'), value: undefined },
-    { labelKey: '1:1', displayLabel: '1:1', value: 1 },
-    { labelKey: '4:5', displayLabel: '4:5', value: 4 / 5 },
-    { labelKey: '3:4', displayLabel: '3:4', value: 3 / 4 },
-    { labelKey: '4:3', displayLabel: '4:3', value: 4 / 3 },
-  ];
 
   // Reset state when the dialog opens with a new image
   useEffect(() => {
@@ -64,7 +54,6 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
       setCrop({ x: 0, y: 0 });
       setZoom(1);
       setRotation(0);
-      setAspect(undefined);
       setCroppedAreaPixels(null);
       setApplying(false);
     }
@@ -120,60 +109,53 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
     }
   }, [imageSrc, croppedAreaPixels, rotation, onComplete, onCancel]);
 
+  const hasValidImage = !!imageSrc && imageSrc.length > 0;
+
   return (
     <Dialog open={open} onOpenChange={(isOpen) => { if (!isOpen) onCancel(); }}>
       <DialogContent
-        className="sm:max-w-2xl max-h-[90vh] flex flex-col"
+        className="sm:max-w-2xl max-h-[90vh] flex flex-col bg-white text-gray-900"
         showCloseButton={false}
       >
         <DialogHeader>
-          <DialogTitle>{t('title')}</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-gray-900">{t('title')}</DialogTitle>
+          <DialogDescription className="text-gray-600">
             {t('description')}
           </DialogDescription>
         </DialogHeader>
 
-        {/* Crop area */}
+        {/* Crop area — only render Cropper when we have a valid image src */}
         <div className="relative w-full h-80 bg-gray-950 rounded-lg overflow-hidden">
-          <Cropper
-            image={imageSrc}
-            crop={crop}
-            zoom={zoom}
-            rotation={rotation}
-            aspect={aspect ?? 4 / 3}
-            onCropChange={setCrop}
-            onZoomChange={setZoom}
-            onRotationChange={setRotation}
-            onCropComplete={handleCropComplete}
-            onMediaLoaded={handleMediaLoaded}
-            showGrid
-            classes={{
-              containerClassName: 'rounded-lg',
-            }}
-          />
+          {hasValidImage ? (
+            <Cropper
+              image={imageSrc}
+              crop={crop}
+              zoom={zoom}
+              rotation={rotation}
+              aspect={undefined}
+              onCropChange={setCrop}
+              onZoomChange={setZoom}
+              onRotationChange={setRotation}
+              onCropComplete={handleCropComplete}
+              onMediaLoaded={handleMediaLoaded}
+              showGrid
+              classes={{
+                containerClassName: 'rounded-lg',
+              }}
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center text-white/70 text-sm flex-col gap-2">
+              <AlertTriangle className="w-6 h-6 text-amber-400" />
+              {t('noImage', { defaultValue: "Aucune image à éditer." })}
+            </div>
+          )}
         </div>
 
         {/* Controls */}
         <div className="space-y-4">
-          {/* Aspect ratio presets */}
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-sm text-muted-foreground font-medium shrink-0">{t('ratio')}</span>
-            {ASPECT_PRESETS.map((preset) => (
-              <Button
-                key={preset.labelKey}
-                type="button"
-                variant={aspect === preset.value ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => setAspect(preset.value)}
-              >
-                {preset.displayLabel}
-              </Button>
-            ))}
-          </div>
-
           {/* Zoom control */}
           <div className="flex items-center gap-3">
-            <ZoomOut className="w-4 h-4 text-muted-foreground shrink-0" />
+            <ZoomOut className="w-4 h-4 text-gray-500 shrink-0" />
             <Slider
               value={[zoom]}
               min={MIN_ZOOM}
@@ -181,8 +163,9 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
               step={ZOOM_STEP}
               onValueChange={(values: number[]) => setZoom(values[0])}
               className="flex-1"
+              disabled={!hasValidImage}
             />
-            <ZoomIn className="w-4 h-4 text-muted-foreground shrink-0" />
+            <ZoomIn className="w-4 h-4 text-gray-500 shrink-0" />
           </div>
 
           {/* Rotation control */}
@@ -193,6 +176,8 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
               size="icon-sm"
               onClick={handleRotateLeft}
               title={t('rotateLeft')}
+              disabled={!hasValidImage}
+              className="text-gray-900 border-gray-300"
             >
               <RotateCcw className="w-4 h-4" />
             </Button>
@@ -203,6 +188,7 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
               step={1}
               onValueChange={(values: number[]) => setRotation(values[0])}
               className="flex-1"
+              disabled={!hasValidImage}
             />
             <Button
               type="button"
@@ -210,10 +196,12 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
               size="icon-sm"
               onClick={handleRotateRight}
               title={t('rotateRight')}
+              disabled={!hasValidImage}
+              className="text-gray-900 border-gray-300"
             >
               <RotateCw className="w-4 h-4" />
             </Button>
-            <span className="text-xs text-muted-foreground w-12 text-right tabular-nums">
+            <span className="text-xs text-gray-500 w-12 text-right tabular-nums">
               {rotation}°
             </span>
           </div>
@@ -221,10 +209,16 @@ export function ImageEditor({ open, imageSrc, onComplete, onCancel }: ImageEdito
 
         {/* Actions */}
         <DialogFooter>
-          <Button type="button" variant="outline" onClick={onCancel} disabled={applying}>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={onCancel}
+            disabled={applying}
+            className="text-gray-900 border-gray-300"
+          >
             {t('cancel')}
           </Button>
-          <Button type="button" onClick={handleApply} disabled={applying}>
+          <Button type="button" onClick={handleApply} disabled={applying || !hasValidImage}>
             {applying ? t('applying') : t('apply')}
           </Button>
         </DialogFooter>
