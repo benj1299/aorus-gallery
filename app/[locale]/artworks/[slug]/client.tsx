@@ -8,6 +8,7 @@ import { AnimatedSection } from '@/components/AnimatedSection';
 import { CTAStrip } from '@/components/CTAStrip';
 import { AdaptiveImage } from '@/components/ui/adaptive-image';
 import { Lightbox } from '@/components/ui/lightbox';
+import { ArtworkHero } from '@/components/artwork-display';
 
 interface ArtworkData {
   id: string;
@@ -21,7 +22,10 @@ interface ArtworkData {
   showPrice: boolean;
   sold: boolean;
   imageUrl: string;
+  imageWidth: number | null;
+  imageHeight: number | null;
   images: string[];
+  imagesMeta: Array<{ width: number | null; height: number | null; index: number }>;
   artist: {
     id: string;
     name: string;
@@ -38,8 +42,13 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const allImages = [
-    { src: artwork.imageUrl, alt: artwork.title },
-    ...artwork.images.map((img, i) => ({ src: img, alt: `${artwork.title} — ${i + 1}` })),
+    { src: artwork.imageUrl, alt: artwork.title, width: artwork.imageWidth, height: artwork.imageHeight },
+    ...artwork.images.map((img, i) => ({
+      src: img,
+      alt: `${artwork.title} — ${i + 1}`,
+      width: artwork.imagesMeta[i]?.width ?? null,
+      height: artwork.imagesMeta[i]?.height ?? null,
+    })),
   ];
 
   const activeImage = allImages[activeIndex] ?? allImages[0];
@@ -77,28 +86,17 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
             </Link>
           </motion.div>
 
-          {/* Main artwork image */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-[70vh] md:h-[78vh] relative overflow-hidden bg-blanc-muted border border-noir/10 cursor-zoom-in"
+          {/* Main artwork image — ratio natif preserved */}
+          <ArtworkHero
+            key={activeImage.src}
+            src={activeImage.src}
+            alt={activeImage.alt}
+            imageWidth={activeImage.width}
+            imageHeight={activeImage.height}
             onClick={() => openLightbox(activeIndex)}
-            role="button"
-            tabIndex={0}
             onKeyDown={(e) => { if (e.key === 'Enter') openLightbox(activeIndex); }}
-            aria-label={t('viewFullscreen', { defaultValue: 'View fullscreen' })}
-            data-testid="artwork-main-image"
-          >
-            <AdaptiveImage
-              key={activeImage.src}
-              src={activeImage.src}
-              alt={activeImage.alt}
-              priority
-              sizes="100vw"
-              fit="contain"
-            />
-          </motion.div>
+            ariaLabel={t('viewFullscreen', { defaultValue: 'View fullscreen' })}
+          />
 
           {/* Thumbnail strip */}
           {hasMultiple && (
@@ -182,7 +180,7 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
         </div>
       </section>
 
-      {/* Contextual images — horizontal snap carousel */}
+      {/* Contextual images — horizontal snap rail, ratio natif preserved */}
       {artwork.images.length > 0 && (
         <AnimatedSection
           bg="blanc-muted"
@@ -194,34 +192,47 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
           <div className="text-center mb-12 px-6">
             <p className="text-or text-sm tracking-[0.2em] uppercase font-medium">{t('details')}</p>
           </div>
-          <div className="relative">
-            <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-blanc-muted to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-blanc-muted to-transparent z-10 pointer-events-none" />
+          <div style={{ ['--rail-h' as string]: '340px' } as React.CSSProperties}>
             <div
-              className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth px-6 md:px-12 lg:px-20 pb-4"
+              className="relative"
               data-testid="artwork-contextual-carousel"
             >
-              {artwork.images.map((image, index) => (
-                <motion.button
-                  type="button"
-                  key={image}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.05 }}
-                  onClick={() => openLightbox(index + 1)}
-                  className="snap-start shrink-0 w-[80vw] sm:w-[60vw] md:w-[45vw] lg:w-[36vw] aspect-[4/3] relative overflow-hidden border border-noir/10 cursor-zoom-in group"
-                  aria-label={`${t('detail', { defaultValue: 'Detail' })} ${index + 1}`}
-                >
-                  <AdaptiveImage
-                    src={image}
-                    alt={`${artwork.title} — ${t('detail', { defaultValue: 'detail' })} ${index + 1}`}
-                    sizes="(max-width: 768px) 80vw, 40vw"
-                    fit="cover"
-                    className="transition-transform duration-700 group-hover:scale-105"
-                  />
-                </motion.button>
-              ))}
+              <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-blanc-muted to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-blanc-muted to-transparent z-10 pointer-events-none" />
+              <div className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth px-6 md:px-12 lg:px-20 pb-4 cursor-grab active:cursor-grabbing">
+                {artwork.images.map((image, index) => {
+                  const meta = artwork.imagesMeta[index];
+                  const w = meta?.width ?? null;
+                  const h = meta?.height ?? null;
+                  const ratio = w && h ? `${w} / ${h}` : '4 / 3';
+                  return (
+                    <motion.button
+                      type="button"
+                      key={image}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: index * 0.05 }}
+                      onClick={() => openLightbox(index + 1)}
+                      className="snap-start shrink-0 h-[240px] md:h-[300px] lg:h-[340px] bg-blanc-muted border border-noir/10 cursor-zoom-in group"
+                      style={{ aspectRatio: ratio }}
+                      aria-label={`${t('detail', { defaultValue: 'Detail' })} ${index + 1}`}
+                    >
+                      <div className="relative h-full" style={{ aspectRatio: ratio }}>
+                        <AdaptiveImage
+                          src={image}
+                          alt={`${artwork.title} — ${t('detail', { defaultValue: 'detail' })} ${index + 1}`}
+                          sizes="(max-width: 768px) 80vw, 40vw"
+                          fit="native"
+                          width={w}
+                          height={h}
+                          className="transition-transform duration-700 group-hover:scale-[1.02]"
+                        />
+                      </div>
+                    </motion.button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </AnimatedSection>

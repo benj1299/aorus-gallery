@@ -6,7 +6,7 @@ import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { CTAStrip } from '@/components/CTAStrip';
-import { AdaptiveImage } from '@/components/ui/adaptive-image';
+import { ArtworkGrid, type ArtworkMedia } from '@/components/artwork-display';
 
 interface Artwork {
   id: string;
@@ -15,6 +15,8 @@ interface Artwork {
   medium: string | null;
   dimensions: string | null;
   imageUrl: string;
+  imageWidth: number | null;
+  imageHeight: number | null;
   showPrice: boolean;
   price: number | null;
   currency: string;
@@ -158,43 +160,23 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
         </div>
 
         {artist.artworks.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
-            {artist.artworks.map((artwork, index) => (
-              <motion.div
-                key={artwork.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-              >
-                <Link href={`/artworks/${artwork.slug}`} className="group block">
-                  <div className="aspect-[3/4] relative overflow-hidden bg-blanc-muted">
-                    <AdaptiveImage
-                      src={artwork.imageUrl}
-                      alt={artwork.title}
-                      sizes="(max-width: 768px) 50vw, 33vw"
-                      className="transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="mt-4">
-                    <p className="font-display text-base md:text-lg text-noir tracking-wide group-hover:text-jade transition-colors duration-300">
-                      {artwork.title}
-                    </p>
-                    {artwork.medium && (
-                      <p className="text-noir/50 text-xs mt-1.5 leading-relaxed">
-                        {artwork.medium}
-                      </p>
-                    )}
-                    {artwork.dimensions && (
-                      <p className="text-noir/40 text-xs mt-0.5">
-                        {artwork.dimensions}
-                      </p>
-                    )}
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+          <ArtworkGrid
+            items={artist.artworks.map<ArtworkMedia>((artwork) => ({
+              id: artwork.id,
+              title: artwork.title,
+              imageUrl: artwork.imageUrl,
+              imageWidth: artwork.imageWidth,
+              imageHeight: artwork.imageHeight,
+              caption: [artwork.medium, artwork.dimensions].filter(Boolean).join(' — '),
+              href: `/artworks/${artwork.slug}`,
+            }))}
+            columns={{ base: 2, md: 3, lg: 3 }}
+            linkRenderer={(href, children, className) => (
+              <Link href={href} className={className}>
+                {children}
+              </Link>
+            )}
+          />
         ) : (
           <div className="text-center py-16">
             <p className="text-noir/50 text-sm tracking-[0.1em] uppercase">

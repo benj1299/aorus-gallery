@@ -12,7 +12,11 @@ interface AdaptiveImageProps {
   sizes?: string;
   className?: string;
   containerClassName?: string;
-  fit?: 'cover' | 'contain';
+  fit?: 'cover' | 'contain' | 'native';
+  /** Required when fit="native" — the image's true pixel width. */
+  width?: number | null;
+  /** Required when fit="native" — the image's true pixel height. */
+  height?: number | null;
 }
 
 function AdaptiveImage({
@@ -23,6 +27,8 @@ function AdaptiveImage({
   className,
   containerClassName,
   fit = 'cover',
+  width,
+  height,
 }: AdaptiveImageProps) {
   const [errored, setErrored] = useState(false);
   const [prevSrc, setPrevSrc] = useState(src);
@@ -31,12 +37,25 @@ function AdaptiveImage({
     setErrored(false);
   }
 
+  const nativeMode = fit === 'native' && !!width && !!height;
+  const nativeFallback = fit === 'native' && (!width || !height);
+  const imgObjectFit = fit === 'contain' ? 'object-contain' : 'object-cover';
+
+  const containerStyle = nativeMode
+    ? { aspectRatio: `${width} / ${height}` }
+    : undefined;
+
+  const containerAspectFallback = nativeFallback ? 'aspect-[4/5]' : '';
+
   return (
     <div
       className={cn(
-        'relative w-full h-full bg-blanc',
+        'relative w-full bg-blanc',
+        !nativeMode && 'h-full',
+        containerAspectFallback,
         containerClassName,
       )}
+      style={containerStyle}
     >
       {!errored ? (
         <Image
@@ -48,7 +67,7 @@ function AdaptiveImage({
           sizes={sizes}
           onError={() => setErrored(true)}
           className={cn(
-            fit === 'cover' ? 'object-cover' : 'object-contain',
+            imgObjectFit,
             'transition-opacity duration-500 ease-out',
             className,
           )}

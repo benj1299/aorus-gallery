@@ -54,13 +54,15 @@ export async function getArtistsListForFrontend(locale: Locale = 'en') {
   const artists = await db.artist.findMany({
     where: { visible: true },
     orderBy: { sortOrder: 'asc' },
-    select: { slug: true, name: true, nationality: true, imageUrl: true },
+    select: { slug: true, name: true, nationality: true, imageUrl: true, imageWidth: true, imageHeight: true },
   });
   return artists.map((a) => ({
     id: a.slug,
     name: a.name,
     nationality: resolveTranslation(a.nationality, locale),
     image: a.imageUrl,
+    imageWidth: a.imageWidth,
+    imageHeight: a.imageHeight,
   }));
 }
 

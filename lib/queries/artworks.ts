@@ -14,6 +14,8 @@ export async function getFeaturedArtworks(locale: Locale = 'en') {
     slug: aw.slug,
     title: resolveTranslation(aw.title, locale),
     imageUrl: aw.imageUrl,
+    imageWidth: aw.imageWidth,
+    imageHeight: aw.imageHeight,
     artistName: aw.artist.name,
     artistSlug: aw.artist.slug,
   }));
@@ -110,6 +112,10 @@ export async function getArtworkBySlugForFrontend(slug: string, locale: Locale =
     }),
   ]);
 
+  const imagesMeta = Array.isArray(artwork.imagesMeta)
+    ? (artwork.imagesMeta as Array<{ width: number | null; height: number | null }>)
+    : [];
+
   return {
     id: artwork.id,
     slug: artwork.slug,
@@ -122,7 +128,14 @@ export async function getArtworkBySlugForFrontend(slug: string, locale: Locale =
     showPrice: artwork.showPrice,
     sold: artwork.sold,
     imageUrl: artwork.imageUrl,
+    imageWidth: artwork.imageWidth,
+    imageHeight: artwork.imageHeight,
     images: artwork.images,
+    imagesMeta: imagesMeta.map((m, i) => ({
+      width: m?.width ?? null,
+      height: m?.height ?? null,
+      index: i,
+    })),
     artist: {
       id: artwork.artist.id,
       name: artwork.artist.name,

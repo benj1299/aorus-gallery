@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { Target, Clock, Globe } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { CTAStrip } from '@/components/CTAStrip';
-import { AdaptiveImage } from '@/components/ui/adaptive-image';
+import { ArtworkRail, type ArtworkMedia } from '@/components/artwork-display';
 
 const valueIcons = [Target, Clock, Globe];
 
@@ -16,6 +16,8 @@ interface FeaturedArtwork {
   slug: string;
   title: string;
   imageUrl: string;
+  imageWidth: number | null;
+  imageHeight: number | null;
   artistName: string;
   artistSlug: string;
 }
@@ -168,50 +170,25 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
           <h2 className="title-section text-noir">{t('gallery.title')}</h2>
         </div>
         {featuredArtworks.length > 0 ? (
-          <div>
-            <div className="relative">
-              {/* Left fade */}
-              <div className="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-blanc to-transparent z-10 pointer-events-none" />
-              {/* Right fade */}
-              <div className="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-blanc to-transparent z-10 pointer-events-none" />
-
-              <div
-                className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth px-6 md:px-12 lg:px-20"
-              >
-                {featuredArtworks.slice(0, 10).map((artwork, index) => (
-                  <motion.div
-                    key={artwork.id}
-                    initial={{ opacity: 0, x: 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: index * 0.06 }}
-                    className="group snap-start shrink-0 w-[260px] md:w-[300px]"
-                  >
-                    <Link href={`/artworks/${artwork.slug}`}>
-                      <div className="aspect-[4/5] relative overflow-hidden">
-                        <AdaptiveImage
-                          src={artwork.imageUrl}
-                          alt={artwork.title}
-                          sizes="300px"
-                          className="transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/30 transition-colors duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
-                          <div>
-                            <p className="font-display text-lg text-blanc tracking-wide">{artwork.title}</p>
-                            <p className="text-blanc/70 text-sm mt-1">{artwork.artistName}</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="mt-4">
-                        <p className="font-display text-base text-noir tracking-wide">{artwork.title}</p>
-                        <p className="text-noir/50 text-sm tracking-wide mt-1">{artwork.artistName}</p>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            <div className="text-center mt-16">
+          <div style={{ ['--rail-h' as string]: '420px' } as React.CSSProperties}>
+            <ArtworkRail
+              items={featuredArtworks.slice(0, 10).map<ArtworkMedia>((artwork) => ({
+                id: artwork.id,
+                title: artwork.title,
+                imageUrl: artwork.imageUrl,
+                imageWidth: artwork.imageWidth,
+                imageHeight: artwork.imageHeight,
+                caption: artwork.artistName,
+                href: `/artworks/${artwork.slug}`,
+              }))}
+              rowHeightClass="h-[280px] md:h-[360px] lg:h-[420px]"
+              linkRenderer={(href, children, className) => (
+                <Link href={href} className={className}>
+                  {children}
+                </Link>
+              )}
+            />
+            <div className="text-center mt-24">
               <Link
                 href="/artists"
                 className="inline-flex items-center gap-3 text-noir/60 text-sm tracking-[0.1em] uppercase transition-colors duration-300 hover:text-noir"
