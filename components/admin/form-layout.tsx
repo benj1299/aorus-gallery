@@ -39,9 +39,9 @@ export function FormLayout({ action, children, submitLabel }: FormLayoutProps) {
   const label = submitLabel ?? t('save');
 
   return (
-    <AdminForm action={action} className="max-w-4xl space-y-6">
+    <AdminForm action={action} className="max-w-4xl space-y-6 pb-20 md:pb-0">
       {children}
-      <div className="flex justify-end pt-6 border-t border-gray-100">
+      <div className="sticky bottom-0 md:static flex justify-end pt-4 md:pt-6 -mx-4 md:mx-0 px-4 md:px-0 bg-gray-50/95 md:bg-transparent backdrop-blur md:backdrop-blur-0 border-t border-gray-200 md:border-gray-100 z-20">
         <SubmitButton label={label} />
       </div>
     </AdminForm>

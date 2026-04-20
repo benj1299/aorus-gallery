@@ -40,17 +40,27 @@ export function CVEntriesForm({ sections, generateId, emptyTranslatable }: CVEnt
           <Label className="text-sm font-medium text-gray-700 mb-2">{section.label}</Label>
           <div className="space-y-3">
             {section.items.map((entry, i) => (
-              <div key={entry.id} className="flex gap-2">
-                <div className="w-20 shrink-0">
-                  <Input
-                    name={`cv.${section.key}.${i}.year`}
-                    type="number"
-                    defaultValue={entry.year ?? ''}
-                    placeholder={t('year')}
-                    className="text-center"
-                  />
+              <div key={entry.id} className="flex flex-col sm:flex-row gap-2 p-2 sm:p-0 rounded-md sm:rounded-none bg-gray-50 sm:bg-transparent">
+                <div className="flex gap-2 sm:contents">
+                  <div className="w-20 shrink-0">
+                    <Input
+                      name={`cv.${section.key}.${i}.year`}
+                      type="number"
+                      defaultValue={entry.year ?? ''}
+                      placeholder={t('year')}
+                      className="text-center"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    className="sm:order-last sm:self-start sm:mt-1 ml-auto sm:ml-0 h-10 w-10 flex items-center justify-center text-red-400 hover:text-red-600 hover:bg-red-50 rounded-md"
+                    onClick={() => section.setItems(section.items.filter((item) => item.id !== entry.id))}
+                    aria-label={t('delete')}
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
                 </div>
-                <div className="flex-1 space-y-1">
+                <div className="flex-1 space-y-1 sm:order-2">
                   {LOCALES.map((loc) => (
                     <Input
                       key={loc}
@@ -60,13 +70,6 @@ export function CVEntriesForm({ sections, generateId, emptyTranslatable }: CVEnt
                     />
                   ))}
                 </div>
-                <button
-                  type="button"
-                  className="self-start mt-1 text-red-400 hover:text-red-600"
-                  onClick={() => section.setItems(section.items.filter((item) => item.id !== entry.id))}
-                >
-                  <X className="w-4 h-4" />
-                </button>
               </div>
             ))}
           </div>

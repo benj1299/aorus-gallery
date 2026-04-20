@@ -384,7 +384,9 @@
       "exhibitions": "Exhibitions",
       "messages": "Messages",
       "settings": "Settings",
-      "logout": "Logout"
+      "logout": "Logout",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
     },
     "breadcrumb": {
       "administration": "Administration"
@@ -626,14 +628,14 @@
     },
     "imageEditor": {
       "title": "Crop image",
-      "description": "Adjust cropping, rotation and zoom — leave untouched to preserve the native aspect ratio.",
-      "ratio": "Ratio:",
-      "free": "Free",
+      "description": "Straighten and adjust the frame. Native aspect ratio preserved.",
+      "straighten": "Straighten",
+      "reset": "Reset",
+      "hint": "Drag the corners to adjust the frame.",
       "apply": "Apply",
       "applying": "Applying...",
       "cancel": "Cancel",
-      "rotateLeft": "Rotate -90°",
-      "rotateRight": "Rotate +90°",
+      "rotate90": "Rotate 90°",
       "noImage": "No image to edit."
     },
     "print": {

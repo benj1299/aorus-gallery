@@ -37,7 +37,7 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
             required
           />
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="publication" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.publication')} <span className="text-red-500">*</span></Label>
               <Input id="publication" name="publication" defaultValue={defaultValues.publication} required placeholder="Artnet News" />
@@ -71,7 +71,7 @@ export function PressForm({ action, defaultValues = {} }: PressFormProps) {
       </FormCard>
 
       <FormCard title={t('cards.displaySettings')}>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.sortOrder')}</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -70,9 +70,12 @@ export function AdminTable<T extends Record<string, unknown>>({
   const [sortDir, setSortDir] = useState<SortDir>('asc');
   const [clientPage, setClientPage] = useState(1);
 
-  useEffect(() => {
+  // Reset to page 1 whenever the search query changes (render-time state reset).
+  const [prevQuery, setPrevQuery] = useState(query);
+  if (prevQuery !== query) {
+    setPrevQuery(query);
     setClientPage(1);
-  }, [query]);
+  }
 
   const filtered = useMemo(() => {
     if (!query.trim()) return data;
@@ -154,7 +157,7 @@ export function AdminTable<T extends Record<string, unknown>>({
 
       <AdminSearchInput value={query} onChange={setQuery} placeholder={searchPlaceholder ?? t('search')} />
 
-      <div className="rounded-lg border border-gray-200 bg-white overflow-hidden">
+      <div className="rounded-lg border border-gray-200 bg-white overflow-x-auto -mx-4 sm:mx-0">
         <Table>
           <TableHeader>
             <TableRow>

@@ -71,7 +71,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
       </FormCard>
 
       <FormCard title={t('cards.classificationSchedule')}>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormSelect
               name="type"
               label={t('forms.type')}
@@ -88,7 +88,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="startDate" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.startDate')}</Label>
               <Input id="startDate" name="startDate" type="date" defaultValue={defaultValues.startDate} />
@@ -152,7 +152,7 @@ export function ExhibitionForm({ action, artists, artworks, defaultValues = {} }
       </FormCard>
 
       <FormCard title={t('cards.displaySettings')}>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="sortOrder" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.sortOrder')}</Label>
               <Input id="sortOrder" name="sortOrder" type="number" defaultValue={defaultValues.sortOrder ?? 0} />

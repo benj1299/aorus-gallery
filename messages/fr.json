@@ -384,7 +384,9 @@
       "exhibitions": "Expositions",
       "messages": "Messages",
       "settings": "Paramètres",
-      "logout": "Deconnexion"
+      "logout": "Deconnexion",
+      "openMenu": "Ouvrir le menu",
+      "closeMenu": "Fermer le menu"
     },
     "breadcrumb": {
       "administration": "Administration"
@@ -626,14 +628,14 @@
     },
     "imageEditor": {
       "title": "Recadrer l'image",
-      "description": "Ajustez le cadrage, la rotation et le zoom — laissez intact pour préserver le format natif.",
-      "ratio": "Ratio :",
-      "free": "Libre",
+      "description": "Redressez l'image et ajustez le cadre. Ratio natif préservé.",
+      "straighten": "Redresser",
+      "reset": "Réinitialiser",
+      "hint": "Glissez les coins pour ajuster le cadre.",
       "apply": "Appliquer",
       "applying": "Application...",
       "cancel": "Annuler",
-      "rotateLeft": "Rotation -90°",
-      "rotateRight": "Rotation +90°",
+      "rotate90": "Rotation 90°",
       "noImage": "Aucune image à éditer."
     },
     "print": {

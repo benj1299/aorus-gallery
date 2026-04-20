@@ -56,7 +56,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
             placeholder={t('forms.selectArtist')}
           />
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <TranslatableInput
               name="medium"
               label={t('forms.medium')}
@@ -71,7 +71,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
       </FormCard>
 
       <FormCard title={t('cards.pricing')}>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <div>
               <Label htmlFor="year" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.year')}</Label>
               <Input id="year" name="year" type="number" defaultValue={defaultValues.year ?? ''} />
