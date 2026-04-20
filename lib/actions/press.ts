@@ -43,8 +43,9 @@ export async function createPressArticle(formData: FormData): Promise<{ error: s
   const imageHeight = readDimension(formData, 'imageUrlHeight');
   const slug = slugify(data.title.en);
 
+  let createdId = '';
   try {
-    await db.pressArticle.create({
+    const created = await db.pressArticle.create({
       data: {
         ...data,
         slug,
@@ -54,7 +55,9 @@ export async function createPressArticle(formData: FormData): Promise<{ error: s
         imageHeight,
         excerpt: serializeTranslatable(data.excerpt),
       },
+      select: { id: true },
     });
+    createdId = created.id;
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
       return { error: 'Un élément avec ce nom existe déjà. Veuillez choisir un autre nom.' };
@@ -63,7 +66,7 @@ export async function createPressArticle(formData: FormData): Promise<{ error: s
   }
 
   revalidateEntity('/admin/press', ['/press']);
-  redirect('/admin/press?saved=1');
+  redirect(`/admin/press?created=${createdId}`);
 }
 
 export async function updatePressArticle(id: string, formData: FormData): Promise<{ error: string } | void> {

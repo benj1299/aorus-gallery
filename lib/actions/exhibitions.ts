@@ -92,8 +92,9 @@ export async function createExhibition(formData: FormData): Promise<{ error: str
   const imageWidth = readDimension(formData, 'imageUrlWidth');
   const imageHeight = readDimension(formData, 'imageUrlHeight');
 
+  let createdId = '';
   try {
-    await db.galleryExhibition.create({
+    const created = await db.galleryExhibition.create({
       data: {
         title: data.title,
         description: serializeTranslatable(data.description),
@@ -111,7 +112,9 @@ export async function createExhibition(formData: FormData): Promise<{ error: str
         artists: { create: artistIds.map((id) => ({ artistId: id })) },
         artworks: { create: artworkIds.map((id) => ({ artworkId: id })) },
       },
+      select: { id: true },
     });
+    createdId = created.id;
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
       return { error: 'Un élément avec ce nom existe déjà. Veuillez choisir un autre nom.' };
@@ -120,7 +123,7 @@ export async function createExhibition(formData: FormData): Promise<{ error: str
   }
 
   revalidateEntity('/admin/exhibitions', ['/exhibitions']);
-  redirect('/admin/exhibitions?saved=1');
+  redirect(`/admin/exhibitions?created=${createdId}`);
 }
 
 export async function updateExhibition(id: string, formData: FormData): Promise<{ error: string } | void> {

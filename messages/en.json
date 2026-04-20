@@ -408,6 +408,7 @@
     },
     "feedback": {
       "saved": "Changes saved",
+      "created": "Created successfully",
       "updated": "Updated",
       "deleted": "Deleted",
       "deleteError": "Delete failed",

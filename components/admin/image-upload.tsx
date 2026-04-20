@@ -163,45 +163,64 @@ export function ImageUpload({ name, defaultValue, defaultWidth, defaultHeight, r
         </button>
       </div>
 
-      {/* Upload tab */}
+      {/* Upload tab — dropzone OR uploading overlay */}
       {tab === 'upload' && !currentUrl && (
         <div
-          onDrop={handleDrop}
-          onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+          onDrop={uploading ? undefined : handleDrop}
+          onDragOver={(e) => { e.preventDefault(); if (!uploading) setDragOver(true); }}
           onDragLeave={(e) => { e.preventDefault(); setDragOver(false); }}
-          onClick={() => fileInputRef.current?.click()}
-          className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
-            dragOver
-              ? 'border-blue-400 bg-blue-50'
-              : 'border-gray-300 hover:border-gray-400'
+          onClick={() => { if (!uploading) fileInputRef.current?.click(); }}
+          className={`relative border-2 border-dashed rounded-lg p-8 text-center transition-colors overflow-hidden ${
+            uploading
+              ? 'border-gray-300 bg-gray-50 cursor-wait'
+              : dragOver
+                ? 'border-blue-400 bg-blue-50 cursor-pointer'
+                : 'border-gray-300 hover:border-gray-400 cursor-pointer'
           }`}
+          data-testid="image-upload-dropzone"
+          aria-busy={uploading}
         >
-          <Upload className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-          <p className="text-sm text-gray-500">
-            {t('dragOrClick')}{' '}
-            <span className="text-gray-700 font-medium">{t('clickToBrowse')}</span>
-          </p>
-          <p className="text-xs text-gray-400 mt-1">{t('formats')}</p>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept={acceptedTypes}
-            onChange={handleFileSelect}
-            className="hidden"
-          />
+          {uploading ? (
+            <div className="flex flex-col items-center justify-center py-6" data-testid="image-upload-progress">
+              <p
+                className="font-display text-5xl md:text-6xl text-gray-900 tracking-tight tabular-nums"
+                style={{ fontFeatureSettings: '"tnum"' }}
+              >
+                {Math.round(progress)}%
+              </p>
+              <p className="text-xs text-gray-500 tracking-[0.15em] uppercase mt-4">{t('uploading')}</p>
+              <div className="mt-6 w-full max-w-xs h-px bg-gray-200 overflow-hidden rounded-full">
+                <div
+                  className="h-full bg-gray-900 transition-all duration-300 ease-out"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+            </div>
+          ) : (
+            <>
+              <Upload className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+              <p className="text-sm text-gray-500">
+                {t('dragOrClick')}{' '}
+                <span className="text-gray-700 font-medium">{t('clickToBrowse')}</span>
+              </p>
+              <p className="text-xs text-gray-400 mt-1">{t('formats')}</p>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept={acceptedTypes}
+                onChange={handleFileSelect}
+                className="hidden"
+              />
+            </>
+          )}
         </div>
       )}
 
-      {/* Upload progress */}
-      {uploading && (
-        <div className="space-y-2">
-          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-emerald-500 rounded-full transition-all duration-300"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          <p className="text-xs text-gray-500">{t('uploading')}</p>
+      {/* Upload progress (re-editing an existing preview) */}
+      {uploading && currentUrl && (
+        <div className="flex flex-col items-center justify-center py-3" data-testid="image-upload-progress-inline">
+          <p className="font-display text-3xl text-gray-900 tabular-nums">{Math.round(progress)}%</p>
+          <p className="text-xs text-gray-500 tracking-[0.15em] uppercase mt-2">{t('uploading')}</p>
         </div>
       )}
 

@@ -60,8 +60,9 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
   const artistSlug = artist?.slug ?? 'unknown';
   const slug = slugify(artistSlug + '-' + data.title.en);
 
+  let createdId = '';
   try {
-    await db.artwork.create({
+    const created = await db.artwork.create({
       data: {
         ...data,
         slug,
@@ -73,7 +74,9 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
         imageHeight,
         imagesMeta: imagesMeta ?? undefined,
       },
+      select: { id: true },
     });
+    createdId = created.id;
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
       return { error: 'Un élément avec ce nom existe déjà. Veuillez choisir un autre nom.' };
@@ -82,7 +85,7 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
   }
 
   revalidateEntity('/admin/artworks', ['/artists', '']);
-  redirect('/admin/artworks?saved=1');
+  redirect(`/admin/artworks?created=${createdId}`);
 }
 
 export async function updateArtwork(id: string, formData: FormData): Promise<{ error: string } | void> {

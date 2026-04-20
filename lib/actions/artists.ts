@@ -68,8 +68,9 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
   const cvEntries = extractCVEntries(formData);
   const collections = extractTranslatableArray(formData, 'collections');
 
+  let createdId = '';
   try {
-    await db.artist.create({
+    const created = await db.artist.create({
       data: {
         ...data,
         slug,
@@ -87,7 +88,9 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
           create: collections.map((title, i) => ({ title, sortOrder: i })),
         },
       },
+      select: { id: true },
     });
+    createdId = created.id;
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
       return { error: 'Un élément avec ce nom existe déjà. Veuillez choisir un autre nom.' };
@@ -96,7 +99,7 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
   }
 
   revalidateEntity('/admin/artists', ['/artists', '']);
-  redirect('/admin/artists?saved=1');
+  redirect(`/admin/artists?created=${createdId}`);
 }
 
 export async function updateArtist(id: string, formData: FormData): Promise<{ error: string } | void> {

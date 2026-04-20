@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { AdminSearchInput } from './admin-search';
@@ -62,6 +63,8 @@ export function AdminTable<T extends Record<string, unknown>>({
   serverPagination,
 }: AdminTableProps<T>) {
   const t = useTranslations('admin.table');
+  const searchParams = useSearchParams();
+  const createdId = searchParams.get('created');
   const [query, setQuery] = useState('');
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDir, setSortDir] = useState<SortDir>('asc');
@@ -175,8 +178,15 @@ export function AdminTable<T extends Record<string, unknown>>({
             </TableRow>
           </TableHeader>
           <TableBody>
-            {displayItems.map((item) => (
-              <TableRow key={getId(item)} data-testid="table-row">
+            {displayItems.map((item) => {
+              const isJustCreated = createdId === getId(item);
+              return (
+              <TableRow
+                key={getId(item)}
+                data-testid="table-row"
+                data-just-created={isJustCreated ? 'true' : undefined}
+                className={isJustCreated ? 'animate-just-created' : undefined}
+              >
                 {columns.map((col) => (
                   <TableCell key={col.key} className="text-gray-900 text-sm">{col.render(item)}</TableCell>
                 ))}
@@ -200,7 +210,8 @@ export function AdminTable<T extends Record<string, unknown>>({
                   </div>
                 </TableCell>
               </TableRow>
-            ))}
+            );
+            })}
             {displayItems.length === 0 && (
               <TableRow>
                 <TableCell colSpan={totalColumns} className="h-24 text-center text-gray-500">

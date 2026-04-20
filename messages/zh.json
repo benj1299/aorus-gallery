@@ -408,6 +408,7 @@
     },
     "feedback": {
       "saved": "已儲存變更",
+      "created": "建立成功",
       "updated": "已更新",
       "deleted": "已刪除",
       "deleteError": "刪除失敗",

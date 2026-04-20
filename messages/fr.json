@@ -408,6 +408,7 @@
     },
     "feedback": {
       "saved": "Modifications enregistrées",
+      "created": "Créé avec succès",
       "updated": "Mis à jour",
       "deleted": "Supprimé",
       "deleteError": "Échec de la suppression",

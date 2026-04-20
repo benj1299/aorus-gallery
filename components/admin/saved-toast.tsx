@@ -24,8 +24,9 @@ export function SavedToast() {
   useEffect(() => {
     const saved = searchParams.get('saved');
     const deleted = searchParams.get('deleted');
-    const key = `${pathname}:${saved ?? deleted ?? ''}`;
-    if (!saved && !deleted) return;
+    const created = searchParams.get('created');
+    const key = `${pathname}:${saved ?? deleted ?? created ?? ''}`;
+    if (!saved && !deleted && !created) return;
     if (firedRef.current === key) return;
     firedRef.current = key;
 
@@ -33,13 +34,33 @@ export function SavedToast() {
       toast.success(t('saved', { defaultValue: 'Modifications enregistrées' }));
     } else if (deleted) {
       toast.success(t('deleted', { defaultValue: 'Supprimé' }));
+    } else if (created) {
+      toast.success(t('created', { defaultValue: 'Créé avec succès' }));
     }
 
+    // Leave ?created alone for 2.5s so the AdminTable row animation can pick
+    // it up before we strip the query. Other flags can be cleaned immediately.
     const params = new URLSearchParams(searchParams.toString());
     params.delete('saved');
     params.delete('deleted');
-    const clean = params.toString() ? `${pathname}?${params.toString()}` : pathname;
-    router.replace(clean, { scroll: false });
+    const cleanImmediate = () => {
+      const next = params.toString() ? `${pathname}?${params.toString()}` : pathname;
+      router.replace(next, { scroll: false });
+    };
+
+    if (!created) {
+      cleanImmediate();
+      return;
+    }
+
+    cleanImmediate();
+    const timer = window.setTimeout(() => {
+      const params2 = new URLSearchParams(window.location.search);
+      params2.delete('created');
+      const clean = params2.toString() ? `${pathname}?${params2.toString()}` : pathname;
+      router.replace(clean, { scroll: false });
+    }, 2_500);
+    return () => window.clearTimeout(timer);
   }, [searchParams, router, pathname, t]);
 
   return null;

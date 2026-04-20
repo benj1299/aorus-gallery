@@ -668,6 +668,22 @@
   }
 }
 
+/* Admin: "just created" row accent — subtle gold hairline that fades over 2s */
+@keyframes justCreatedPulse {
+  0% {
+    box-shadow: inset 3px 0 0 var(--color-jade), inset 0 0 0 1px rgba(74, 124, 111, 0.12);
+    background-color: rgba(74, 124, 111, 0.06);
+  }
+  100% {
+    box-shadow: inset 3px 0 0 transparent, inset 0 0 0 1px transparent;
+    background-color: transparent;
+  }
+}
+
+.animate-just-created {
+  animation: justCreatedPulse 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 /* Scrollbar - Minimal */
 ::-webkit-scrollbar {
   width: 6px;
