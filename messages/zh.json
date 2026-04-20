@@ -406,8 +406,16 @@
       "newArtwork": "新增作品",
       "newExhibition": "新增展覽"
     },
+    "feedback": {
+      "saved": "已儲存變更",
+      "updated": "已更新",
+      "deleted": "已刪除",
+      "deleteError": "刪除失敗",
+      "genericError": "發生錯誤"
+    },
     "forms": {
       "save": "儲存",
+      "saving": "儲存中...",
       "cancel": "取消",
       "delete": "刪除",
       "title": "標題",

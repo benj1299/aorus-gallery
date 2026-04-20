@@ -96,7 +96,7 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
   }
 
   revalidateEntity('/admin/artists', ['/artists', '']);
-  redirect('/admin/artists');
+  redirect('/admin/artists?saved=1');
 }
 
 export async function updateArtist(id: string, formData: FormData): Promise<{ error: string } | void> {
@@ -159,7 +159,7 @@ export async function updateArtist(id: string, formData: FormData): Promise<{ er
   }
 
   revalidateEntity('/admin/artists', ['/artists', '']);
-  redirect('/admin/artists');
+  redirect('/admin/artists?saved=1');
 }
 
 export async function deleteArtist(id: string): Promise<{ error: string } | void> {

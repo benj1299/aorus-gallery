@@ -63,7 +63,7 @@ export async function createPressArticle(formData: FormData): Promise<{ error: s
   }
 
   revalidateEntity('/admin/press', ['/press']);
-  redirect('/admin/press');
+  redirect('/admin/press?saved=1');
 }
 
 export async function updatePressArticle(id: string, formData: FormData): Promise<{ error: string } | void> {
@@ -101,7 +101,7 @@ export async function updatePressArticle(id: string, formData: FormData): Promis
   });
 
   revalidateEntity('/admin/press', ['/press']);
-  redirect('/admin/press');
+  redirect('/admin/press?saved=1');
 }
 
 export async function deletePressArticle(id: string): Promise<{ error: string } | void> {

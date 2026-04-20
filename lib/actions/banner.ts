@@ -47,5 +47,5 @@ export async function upsertBanner(formData: FormData): Promise<{ error: string 
   }
 
   revalidateEntity('/admin/banner', ['']);
-  redirect('/admin/banner');
+  redirect('/admin/banner?saved=1');
 }

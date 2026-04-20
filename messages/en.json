@@ -406,8 +406,16 @@
       "newArtwork": "New artwork",
       "newExhibition": "New exhibition"
     },
+    "feedback": {
+      "saved": "Changes saved",
+      "updated": "Updated",
+      "deleted": "Deleted",
+      "deleteError": "Delete failed",
+      "genericError": "Something went wrong"
+    },
     "forms": {
       "save": "Save",
+      "saving": "Saving...",
       "cancel": "Cancel",
       "delete": "Delete",
       "title": "Title",

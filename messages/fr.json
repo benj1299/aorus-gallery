@@ -406,8 +406,16 @@
       "newArtwork": "Nouvelle œuvre",
       "newExhibition": "Nouvelle exposition"
     },
+    "feedback": {
+      "saved": "Modifications enregistrées",
+      "updated": "Mis à jour",
+      "deleted": "Supprimé",
+      "deleteError": "Échec de la suppression",
+      "genericError": "Une erreur est survenue"
+    },
     "forms": {
       "save": "Enregistrer",
+      "saving": "Enregistrement...",
       "cancel": "Annuler",
       "delete": "Supprimer",
       "title": "Titre",

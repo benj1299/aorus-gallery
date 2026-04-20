@@ -82,7 +82,7 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
   }
 
   revalidateEntity('/admin/artworks', ['/artists', '']);
-  redirect('/admin/artworks');
+  redirect('/admin/artworks?saved=1');
 }
 
 export async function updateArtwork(id: string, formData: FormData): Promise<{ error: string } | void> {
@@ -154,7 +154,7 @@ export async function updateArtwork(id: string, formData: FormData): Promise<{ e
   }
 
   revalidateEntity('/admin/artworks', ['/artists', '']);
-  redirect('/admin/artworks');
+  redirect('/admin/artworks?saved=1');
 }
 
 export async function deleteArtwork(id: string): Promise<{ error: string } | void> {

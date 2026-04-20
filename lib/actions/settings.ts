@@ -18,5 +18,5 @@ export async function updateSiteSettings(formData: FormData) {
   });
 
   revalidateEntity('/admin/settings', ['']);
-  redirect('/admin/settings');
+  redirect('/admin/settings?saved=1');
 }

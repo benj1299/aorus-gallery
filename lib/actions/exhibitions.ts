@@ -120,7 +120,7 @@ export async function createExhibition(formData: FormData): Promise<{ error: str
   }
 
   revalidateEntity('/admin/exhibitions', ['/exhibitions']);
-  redirect('/admin/exhibitions');
+  redirect('/admin/exhibitions?saved=1');
 }
 
 export async function updateExhibition(id: string, formData: FormData): Promise<{ error: string } | void> {
@@ -196,7 +196,7 @@ export async function updateExhibition(id: string, formData: FormData): Promise<
   ]);
 
   revalidateEntity('/admin/exhibitions', ['/exhibitions']);
-  redirect('/admin/exhibitions');
+  redirect('/admin/exhibitions?saved=1');
 }
 
 export async function deleteExhibition(id: string): Promise<{ error: string } | void> {

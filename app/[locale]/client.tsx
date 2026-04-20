@@ -65,32 +65,6 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
 
   return (
     <div className="flex flex-col">
-      {banner && (
-        <section
-          className="relative h-screen overflow-hidden"
-          data-testid="home-banner"
-        >
-          <Image
-            src={banner.imageUrl}
-            alt={banner.title}
-            fill
-            sizes="100vw"
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-noir/30 via-noir/40 to-noir/60" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            {banner.linkUrl ? (
-              <Link href={banner.linkUrl} aria-label={banner.title}>
-                {bannerContent}
-              </Link>
-            ) : (
-              bannerContent
-            )}
-          </div>
-        </section>
-      )}
-
       {/* ===== BLOCK 1 — HERO ===== */}
       <section className="bg-blanc min-h-screen flex items-center justify-center relative">
         <div className="absolute inset-0">
@@ -102,7 +76,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
               height={700}
               className="w-[60vw] max-w-[700px] opacity-[0.05]"
               aria-hidden="true"
-              priority={!banner}
+              priority
             />
           </div>
         </div>
@@ -157,6 +131,31 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
         </motion.div>
       </section>
 
+      {/* ===== BANNIÈRE — sous le hero quand configurée ===== */}
+      {banner && (
+        <section
+          className="relative h-[70vh] md:h-[80vh] overflow-hidden"
+          data-testid="home-banner"
+        >
+          <Image
+            src={banner.imageUrl}
+            alt={banner.title}
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-noir/30 via-noir/40 to-noir/60" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            {banner.linkUrl ? (
+              <Link href={banner.linkUrl} aria-label={banner.title}>
+                {bannerContent}
+              </Link>
+            ) : (
+              bannerContent
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ===== BLOCK 2 — SELECTION D'OEUVRES ===== */}
       <AnimatedSection

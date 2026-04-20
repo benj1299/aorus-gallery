@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import { requireAuth } from '@/lib/auth-utils';
 import { AdminSidebar } from '@/components/admin/sidebar';
+import { SavedToast } from '@/components/admin/saved-toast';
 import { Toaster } from 'sonner';
 import { prisma } from '@/lib/db';
 import { NextIntlClientProvider } from 'next-intl';
@@ -21,7 +23,16 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       <div className="flex min-h-screen bg-gray-50">
         <AdminSidebar messageCount={messageCount} />
         <main className="flex-1 p-6 md:p-10">{children}</main>
-        <Toaster position="top-right" theme="light" />
+        <Toaster
+          position="top-right"
+          theme="light"
+          richColors
+          closeButton
+          duration={4000}
+        />
+        <Suspense fallback={null}>
+          <SavedToast />
+        </Suspense>
       </div>
     </NextIntlClientProvider>
   );
