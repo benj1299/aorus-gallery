@@ -7,6 +7,12 @@ const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
 const ACCEPTED_TYPES = '.jpg,.jpeg,.png,.webp,.gif';
 const ALLOWED_MIME = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
 
+export interface UploadResult {
+  url: string;
+  width: number | null;
+  height: number | null;
+}
+
 interface UseImageUploadReturn {
   // Upload state
   uploading: boolean;
@@ -20,13 +26,13 @@ interface UseImageUploadReturn {
 
   // Core actions
   validateFile: (file: File) => boolean;
-  uploadFile: (file: File | Blob, fileName?: string) => Promise<string | null>;
+  uploadFile: (file: File | Blob, fileName?: string) => Promise<UploadResult | null>;
 
   // Editor state
   showEditor: boolean;
   editorSrc: string;
   openEditor: (file: File) => void;
-  handleEditorComplete: (blob: Blob) => Promise<string | null>;
+  handleEditorComplete: (blob: Blob) => Promise<UploadResult | null>;
   handleEditorCancel: () => void;
 }
 
@@ -57,7 +63,7 @@ export function useImageUpload(): UseImageUploadReturn {
     return true;
   }, []);
 
-  const uploadFile = useCallback(async (file: File | Blob, fileName?: string): Promise<string | null> => {
+  const uploadFile = useCallback(async (file: File | Blob, fileName?: string): Promise<UploadResult | null> => {
     setUploading(true);
     setProgress(10);
     setError('');
@@ -87,7 +93,11 @@ export function useImageUpload(): UseImageUploadReturn {
 
       const data = await response.json();
       setProgress(100);
-      return data.url as string;
+      return {
+        url: data.url as string,
+        width: typeof data.width === 'number' ? data.width : null,
+        height: typeof data.height === 'number' ? data.height : null,
+      };
     } catch (err) {
       setError(err instanceof Error ? err.message : t('uploadError'));
       return null;
@@ -105,7 +115,7 @@ export function useImageUpload(): UseImageUploadReturn {
     setShowEditor(true);
   }, [validateFile]);
 
-  const handleEditorComplete = useCallback(async (blob: Blob): Promise<string | null> => {
+  const handleEditorComplete = useCallback(async (blob: Blob): Promise<UploadResult | null> => {
     setShowEditor(false);
     if (editorSrc) URL.revokeObjectURL(editorSrc);
     setEditorSrc('');

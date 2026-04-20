@@ -9,15 +9,19 @@ import { useImageUpload } from '@/lib/hooks/use-image-upload';
 interface ImageUploadProps {
   name: string;
   defaultValue?: string;
+  defaultWidth?: number | null;
+  defaultHeight?: number | null;
   required?: boolean;
 }
 
 type Tab = 'upload' | 'url';
 
-export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) {
+export function ImageUpload({ name, defaultValue, defaultWidth, defaultHeight, required }: ImageUploadProps) {
   const t = useTranslations('admin.upload');
   const [tab, setTab] = useState<Tab>(defaultValue ? 'url' : 'upload');
   const [currentUrl, setCurrentUrl] = useState(defaultValue ?? '');
+  const [currentWidth, setCurrentWidth] = useState<number | null>(defaultWidth ?? null);
+  const [currentHeight, setCurrentHeight] = useState<number | null>(defaultHeight ?? null);
   const [dragOver, setDragOver] = useState(false);
   const [previewError, setPreviewError] = useState(false);
 
@@ -26,6 +30,8 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
     setPrevDefault(defaultValue ?? '');
     if (defaultValue) {
       setCurrentUrl(defaultValue);
+      setCurrentWidth(defaultWidth ?? null);
+      setCurrentHeight(defaultHeight ?? null);
       setTab('url');
       setPreviewError(false);
     }
@@ -51,8 +57,12 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
   } = useImageUpload();
 
   const onEditorComplete = useCallback(async (blob: Blob) => {
-    const url = await handleEditorComplete(blob);
-    if (url) setCurrentUrl(url);
+    const result = await handleEditorComplete(blob);
+    if (result) {
+      setCurrentUrl(result.url);
+      setCurrentWidth(result.width);
+      setCurrentHeight(result.height);
+    }
   }, [handleEditorComplete]);
 
   const onEditorCancel = useCallback(() => {
@@ -79,12 +89,16 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
 
   const handleRemove = useCallback(() => {
     setCurrentUrl('');
+    setCurrentWidth(null);
+    setCurrentHeight(null);
     if (fileInputRef.current) fileInputRef.current.value = '';
   }, [fileInputRef]);
 
   return (
     <div className="space-y-3">
       <input type="hidden" name={name} value={currentUrl} />
+      <input type="hidden" name={`${name}Width`} value={currentWidth ?? ''} />
+      <input type="hidden" name={`${name}Height`} value={currentHeight ?? ''} />
 
       {/* Tabs */}
       <div className="inline-flex rounded-lg bg-gray-100 p-1">
@@ -163,7 +177,11 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
             type="url"
             placeholder="https://example.com/image.jpg"
             className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400"
-            onChange={(e) => setCurrentUrl(e.target.value)}
+            onChange={(e) => {
+              setCurrentUrl(e.target.value);
+              setCurrentWidth(null);
+              setCurrentHeight(null);
+            }}
           />
         </div>
       )}
@@ -182,6 +200,11 @@ export function ImageUpload({ name, defaultValue, required }: ImageUploadProps) 
                 src={currentUrl}
                 alt={t('preview')}
                 onError={() => setPreviewError(true)}
+                onLoad={(e) => {
+                  const img = e.currentTarget;
+                  if (!currentWidth && img.naturalWidth) setCurrentWidth(img.naturalWidth);
+                  if (!currentHeight && img.naturalHeight) setCurrentHeight(img.naturalHeight);
+                }}
                 className="w-full h-full object-cover"
               />
             )}

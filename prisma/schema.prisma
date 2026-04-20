@@ -107,6 +107,8 @@ model Artist {
   nationality Json
   bio         Json
   imageUrl    String
+  imageWidth  Int?
+  imageHeight Int?
   sortOrder   Int      @default(0)
   visible     Boolean  @default(true)
   createdAt   DateTime @default(now())
@@ -159,7 +161,10 @@ model Artwork {
   price        Decimal? @db.Decimal(10, 2)
   currency     String   @default("EUR")
   imageUrl     String
+  imageWidth   Int?
+  imageHeight  Int?
   images       String[]
+  imagesMeta   Json?
   visible      Boolean  @default(true)
   featuredHome Boolean  @default(false)
   showPrice    Boolean  @default(false)
@@ -183,6 +188,8 @@ model PressArticle {
   publishedAt DateTime
   url         String?
   imageUrl    String?
+  imageWidth  Int?
+  imageHeight Int?
   excerpt     Json?
   visible     Boolean  @default(true)
   sortOrder   Int      @default(0)
@@ -197,14 +204,16 @@ model PressArticle {
 // ========================
 
 model HomeBanner {
-  id        String   @id @default(cuid())
-  title     Json
-  subtitle  Json?
-  imageUrl  String
-  linkUrl   String?
-  visible   Boolean  @default(false)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String   @id @default(cuid())
+  title       Json
+  subtitle    Json?
+  imageUrl    String
+  imageWidth  Int?
+  imageHeight Int?
+  linkUrl     String?
+  visible     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   @@map("home_banner")
 }
@@ -224,6 +233,8 @@ model GalleryExhibition {
   endDate     DateTime?
   location    String?
   imageUrl    String?
+  imageWidth  Int?
+  imageHeight Int?
   visible     Boolean                 @default(true)
   sortOrder   Int                     @default(0)
   createdAt   DateTime                @default(now())

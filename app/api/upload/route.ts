@@ -27,18 +27,16 @@ function detectMimeFromBytes(buf: Buffer): string | null {
   return null;
 }
 
-async function optimizeImage(buffer: Buffer): Promise<{ data: Buffer; mime: string }> {
+async function optimizeImage(buffer: Buffer): Promise<{ data: Buffer; mime: string; width: number | null; height: number | null }> {
   try {
     const sharp = (await import('sharp')).default;
-    const data = await sharp(buffer)
-      .resize({ width: 2000, withoutEnlargement: true })
-      .webp({ quality: 80 })
-      .toBuffer();
-    return { data, mime: 'image/webp' };
+    const pipeline = sharp(buffer).resize({ width: 2000, withoutEnlargement: true }).webp({ quality: 80 });
+    const { data, info } = await pipeline.toBuffer({ resolveWithObject: true });
+    return { data, mime: 'image/webp', width: info.width ?? null, height: info.height ?? null };
   } catch {
-    // sharp unavailable or failed — upload original
+    // sharp unavailable or failed — upload original, dimensions stay null (CSS fallback handles)
     const mime = detectMimeFromBytes(buffer) ?? 'image/jpeg';
-    return { data: buffer, mime };
+    return { data: buffer, mime, width: null, height: null };
   }
 }
 
@@ -81,13 +79,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Optimize with sharp if available, otherwise upload as-is
-    const { data: uploadBuffer, mime: uploadMime } = await optimizeImage(buffer);
+    const { data: uploadBuffer, mime: uploadMime, width, height } = await optimizeImage(buffer);
     const ext = MIME_EXT[uploadMime] ?? 'webp';
     const key = `images/${Date.now()}-${randomUUID()}.${ext}`;
 
     if (!process.env.R2_ACCOUNT_ID) {
       const base64 = uploadBuffer.toString('base64');
-      return NextResponse.json({ url: `data:${uploadMime};base64,${base64}` });
+      return NextResponse.json({ url: `data:${uploadMime};base64,${base64}`, width, height });
     }
 
     const publicUrl = (process.env.R2_PUBLIC_URL || '').replace(/\/+$/, '');
@@ -105,10 +103,10 @@ export async function POST(request: NextRequest) {
     } catch (err) {
       console.error('[upload] R2 failed:', err);
       const base64 = uploadBuffer.toString('base64');
-      return NextResponse.json({ url: `data:${uploadMime};base64,${base64}` });
+      return NextResponse.json({ url: `data:${uploadMime};base64,${base64}`, width, height });
     }
 
-    return NextResponse.json({ url: `${publicUrl}/${key}` });
+    return NextResponse.json({ url: `${publicUrl}/${key}`, width, height });
   } catch (err) {
     console.error('[upload] Error:', err);
     const message = err instanceof Error ? err.message : 'Erreur interne';

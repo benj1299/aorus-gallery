@@ -7,7 +7,7 @@ import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
-import { optionalHttpsUrl, serializeTranslatable, booleanFromString } from '@/lib/schemas/common';
+import { optionalHttpsUrl, serializeTranslatable, booleanFromString, readDimension } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 import { sanitizeTranslatable } from '@/lib/sanitize';
 import { parseFormData } from '@/lib/actions/safe-action';
@@ -89,6 +89,9 @@ export async function createExhibition(formData: FormData): Promise<{ error: str
     }
   }
 
+  const imageWidth = readDimension(formData, 'imageUrlWidth');
+  const imageHeight = readDimension(formData, 'imageUrlHeight');
+
   try {
     await db.galleryExhibition.create({
       data: {
@@ -101,6 +104,8 @@ export async function createExhibition(formData: FormData): Promise<{ error: str
         endDate: data.endDate ?? null,
         location: data.location || null,
         imageUrl: data.imageUrl || null,
+        imageWidth,
+        imageHeight,
         visible: data.visible,
         sortOrder: data.sortOrder,
         artists: { create: artistIds.map((id) => ({ artistId: id })) },
@@ -163,6 +168,9 @@ export async function updateExhibition(id: string, formData: FormData): Promise<
     }
   }
 
+  const imageWidth = readDimension(formData, 'imageUrlWidth');
+  const imageHeight = readDimension(formData, 'imageUrlHeight');
+
   await db.$transaction([
     db.galleryExhibitionArtist.deleteMany({ where: { exhibitionId: id } }),
     db.galleryExhibitionArtwork.deleteMany({ where: { exhibitionId: id } }),
@@ -177,6 +185,8 @@ export async function updateExhibition(id: string, formData: FormData): Promise<
         endDate: data.endDate ?? null,
         location: data.location || null,
         imageUrl: data.imageUrl || null,
+        imageWidth,
+        imageHeight,
         visible: data.visible,
         sortOrder: data.sortOrder,
         artists: { create: artistIds.map((aid) => ({ artistId: aid })) },

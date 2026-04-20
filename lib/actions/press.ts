@@ -7,7 +7,7 @@ import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable } from '@/lib/i18n-content';
-import { optionalHttpsUrl, serializeTranslatable, booleanFromString } from '@/lib/schemas/common';
+import { optionalHttpsUrl, serializeTranslatable, booleanFromString, readDimension } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 import { sanitizeTranslatable } from '@/lib/sanitize';
 import { parseFormData } from '@/lib/actions/safe-action';
@@ -39,6 +39,8 @@ export async function createPressArticle(formData: FormData): Promise<{ error: s
   const parsed = parseFormData(pressSchema, raw);
   if (!parsed.success) return { error: parsed.error };
   const data = parsed.data;
+  const imageWidth = readDimension(formData, 'imageUrlWidth');
+  const imageHeight = readDimension(formData, 'imageUrlHeight');
   const slug = slugify(data.title.en);
 
   try {
@@ -48,6 +50,8 @@ export async function createPressArticle(formData: FormData): Promise<{ error: s
         slug,
         url: data.url || null,
         imageUrl: data.imageUrl || null,
+        imageWidth,
+        imageHeight,
         excerpt: serializeTranslatable(data.excerpt),
       },
     });
@@ -81,6 +85,8 @@ export async function updatePressArticle(id: string, formData: FormData): Promis
   const parsed = parseFormData(pressSchema, raw);
   if (!parsed.success) return { error: parsed.error };
   const data = parsed.data;
+  const imageWidth = readDimension(formData, 'imageUrlWidth');
+  const imageHeight = readDimension(formData, 'imageUrlHeight');
 
   await db.pressArticle.update({
     where: { id },
@@ -88,6 +94,8 @@ export async function updatePressArticle(id: string, formData: FormData): Promis
       ...data,
       url: data.url || null,
       imageUrl: data.imageUrl || null,
+      imageWidth,
+      imageHeight,
       excerpt: serializeTranslatable(data.excerpt),
     },
   });

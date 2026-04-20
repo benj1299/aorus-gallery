@@ -7,7 +7,7 @@ import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, extractTranslatable, extractTranslatableArray, type TranslatableField } from '@/lib/i18n-content';
-import { httpsUrl, booleanFromString } from '@/lib/schemas/common';
+import { httpsUrl, booleanFromString, readDimension } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 import { sanitizeTranslatable } from '@/lib/sanitize';
 import { parseFormData } from '@/lib/actions/safe-action';
@@ -61,6 +61,8 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
   const parsed = parseFormData(artistSchema, raw);
   if (!parsed.success) return { error: parsed.error };
   const data = parsed.data;
+  const imageWidth = readDimension(formData, 'imageUrlWidth');
+  const imageHeight = readDimension(formData, 'imageUrlHeight');
   const slug = slugify(data.name);
 
   const cvEntries = extractCVEntries(formData);
@@ -71,6 +73,8 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
       data: {
         ...data,
         slug,
+        imageWidth,
+        imageHeight,
         exhibitions: {
           create: cvEntries.map((entry) => ({
             title: entry.title,
@@ -112,6 +116,8 @@ export async function updateArtist(id: string, formData: FormData): Promise<{ er
   const parsed = parseFormData(artistSchema, raw);
   if (!parsed.success) return { error: parsed.error };
   const data = parsed.data;
+  const imageWidth = readDimension(formData, 'imageUrlWidth');
+  const imageHeight = readDimension(formData, 'imageUrlHeight');
 
   const cvEntries = extractCVEntries(formData);
   const collections = extractTranslatableArray(formData, 'collections');
@@ -129,6 +135,8 @@ export async function updateArtist(id: string, formData: FormData): Promise<{ er
         data: {
           ...data,
           ...(newSlug ? { slug: newSlug } : {}),
+          imageWidth,
+          imageHeight,
           exhibitions: {
             create: cvEntries.map((entry) => ({
               title: entry.title,

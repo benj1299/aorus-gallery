@@ -7,7 +7,7 @@ import { revalidateEntity } from '@/lib/actions/helpers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { translatableSchema, optionalTranslatableSchema, extractTranslatable, type TranslatableField } from '@/lib/i18n-content';
-import { httpsUrl, serializeTranslatable, booleanFromString } from '@/lib/schemas/common';
+import { httpsUrl, serializeTranslatable, booleanFromString, readDimension, readImagesMeta } from '@/lib/schemas/common';
 import { slugify } from '@/lib/slugify';
 import { parseFormData } from '@/lib/actions/safe-action';
 
@@ -52,6 +52,9 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
   const parsed = parseFormData(artworkSchema, raw);
   if (!parsed.success) return { error: parsed.error };
   const data = parsed.data;
+  const imageWidth = readDimension(formData, 'imageUrlWidth');
+  const imageHeight = readDimension(formData, 'imageUrlHeight');
+  const imagesMeta = readImagesMeta(formData, 'imagesMeta');
 
   const artist = await db.artist.findUnique({ where: { id: data.artistId }, select: { slug: true } });
   const artistSlug = artist?.slug ?? 'unknown';
@@ -66,6 +69,9 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
         dimensions: data.dimensions || null,
         price: data.price ?? null,
         year: data.year ?? null,
+        imageWidth,
+        imageHeight,
+        imagesMeta: imagesMeta ?? undefined,
       },
     });
   } catch (e) {
@@ -109,6 +115,9 @@ export async function updateArtwork(id: string, formData: FormData): Promise<{ e
   const parsed = parseFormData(artworkSchema, raw);
   if (!parsed.success) return { error: parsed.error };
   const data = parsed.data;
+  const imageWidth = readDimension(formData, 'imageUrlWidth');
+  const imageHeight = readDimension(formData, 'imageUrlHeight');
+  const imagesMeta = readImagesMeta(formData, 'imagesMeta');
 
   // Recalculate slug when title or artist changes
   const existingTitle = existing.title as TranslatableField | null;
@@ -132,6 +141,9 @@ export async function updateArtwork(id: string, formData: FormData): Promise<{ e
         dimensions: data.dimensions || null,
         price: data.price ?? null,
         year: data.year ?? null,
+        imageWidth,
+        imageHeight,
+        imagesMeta: imagesMeta ?? undefined,
       },
     });
   } catch (e) {
