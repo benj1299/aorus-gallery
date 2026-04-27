@@ -39,7 +39,7 @@
       "eyebrow": "Our Approach",
       "title": "Curatorial Direction",
       "text1": "Intimacy as a bridge between cultures\nFounded between Paris and Taiwan, ORUS Gallery champions an international roster of artists whose works explore intimacy in all its forms: the body, memory, human relationships, and the personal narratives that shape our identities.",
-      "text2": "The gallery sees intimacy as a universal language — a space where individual experiences become capable of crossing cultural boundaries. Through these sensitive narratives, the works reveal what connects cultures as much as what distinguishes them.",
+      "text2": "The gallery sees intimacy as a universal language, a space where individual experiences become capable of crossing cultural boundaries. Through these sensitive narratives, the works reveal what connects cultures as much as what distinguishes them.",
       "text3": "By creating dialogues between different art scenes, ORUS builds a program where intimacy becomes a meeting point: a common ground from which works can circulate, respond to one another, and resonate on a global scale."
     },
     "values": {
@@ -177,7 +177,8 @@
       "text": "A press kit including a gallery presentation, artist biographies, and visuals is available upon request.",
       "instruction": "For all press inquiries, please contact:",
       "email": "press@orusgallery.com"
-    }
+    },
+    "readArticle": "Read article"
   },
   "contact": {
     "title": "Contact",
@@ -427,6 +428,8 @@
       "medium": "Medium",
       "mediumPlaceholder": "Oil on canvas",
       "dimensions": "Dimensions",
+      "widthCm": "Width (cm)",
+      "heightCm": "Height (cm)",
       "year": "Year",
       "price": "Price",
       "currency": "Currency",

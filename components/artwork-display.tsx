@@ -40,6 +40,9 @@ export interface ArtworkMedia {
   caption?: string;
   /** Optional link — wraps the cell if provided. */
   href?: string;
+  /** Real-world dimensions in cm — used by ArtworkSalon for proportional scaling. */
+  widthCm?: number | null;
+  heightCm?: number | null;
 }
 
 /** Classify ratio for surface-specific handling. */
@@ -90,7 +93,7 @@ export function ArtworkRail({
       <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-blanc to-transparent z-10 pointer-events-none" />
       <div
         className={cn(
-          'flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4 cursor-grab active:cursor-grabbing',
+          'flex items-start gap-6 md:gap-10 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-2 cursor-grab active:cursor-grabbing',
           paddingClass,
         )}
         data-testid={dataTestId}
@@ -141,9 +144,7 @@ function ArtworkRailCell({ item, rowHeightClass, priority, sizes }: ArtworkRailC
   const aspectRatio = item.imageWidth && item.imageHeight ? `${item.imageWidth} / ${item.imageHeight}` : '4 / 5';
 
   // Cap widths for stretched/extreme ratios (designer § 6.2)
-  // Extreme ratios (>3:1 or <1:3) should be promoted to <ArtworkHighlight> by the caller.
-  // Here in the rail we cap them conservatively so the rail doesn't break.
-  const widthCapStyle = {
+  const imageBoxStyle = {
     aspectRatio,
     maxWidth:
       zone === 'extreme-wide'
@@ -165,11 +166,13 @@ function ArtworkRailCell({ item, rowHeightClass, priority, sizes }: ArtworkRailC
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6 }}
-      className={cn('relative bg-blanc-muted group', rowHeightClass)}
-      style={widthCapStyle}
+      className="group flex flex-col"
       data-ratio-zone={zone}
     >
-      <div className="relative h-full" style={{ aspectRatio }}>
+      <div
+        className={cn('relative bg-blanc-muted overflow-hidden', rowHeightClass)}
+        style={imageBoxStyle}
+      >
         <AdaptiveImage
           src={item.imageUrl}
           alt={item.title}
@@ -178,15 +181,19 @@ function ArtworkRailCell({ item, rowHeightClass, priority, sizes }: ArtworkRailC
           height={item.imageHeight}
           priority={priority}
           sizes={sizes}
-          className="transition-transform duration-700 group-hover:scale-[1.02]"
+          className="transition-opacity duration-500 group-hover:opacity-90"
         />
       </div>
-      {item.caption && (
-        <figcaption className="absolute left-0 right-0 -bottom-8 pt-3 text-xs text-noir/60 tracking-[0.1em] uppercase">
-          <p className="font-display text-sm text-noir truncate normal-case tracking-wide">{item.title}</p>
-          <p className="text-noir/50 mt-0.5 normal-case">{item.caption}</p>
-        </figcaption>
-      )}
+      <figcaption className="mt-5 px-0.5 max-w-full">
+        {item.caption && (
+          <p className="text-[0.65rem] md:text-xs tracking-[0.2em] uppercase text-noir/55">
+            {item.caption}
+          </p>
+        )}
+        <p className="font-display italic text-sm md:text-[0.95rem] text-noir/85 tracking-wide mt-1.5 truncate">
+          {item.title}
+        </p>
+      </figcaption>
     </motion.figure>
   );
 }
@@ -398,6 +405,162 @@ export function ArtworkHighlight({
           {caption}
         </figcaption>
       )}
+    </motion.figure>
+  );
+}
+
+// --- ArtworkSalon ---
+
+/**
+ * Salon-hang display for an artist's body of work.
+ *
+ * - Desktop (≥md): proportional scale based on real-world dimensions (widthCm/heightCm).
+ *   Items align on a baseline (items-end) like a museum wall. Tallest piece at full
+ *   reference height; smaller pieces scale down to a 40% floor for legibility.
+ * - Mobile (<md): uniform 2-col grid with native aspect-ratio + dimensions caption,
+ *   for a clean readable layout where proportional scaling would be unreadable.
+ *
+ * Items missing widthCm/heightCm fall back to the mobile (uniform) layout on every
+ * breakpoint. To enable proportional desktop, backfill cm dimensions in DB.
+ */
+interface ArtworkSalonProps {
+  items: ArtworkMedia[];
+  linkRenderer?: (href: string, children: ReactNode, className?: string) => ReactNode;
+  emptyState?: ReactNode;
+  /** Reference height in px for the largest piece (desktop). */
+  referenceHeight?: number;
+  /** Floor for proportional scaling (avoid invisible miniatures). 0–1, default 0.4. */
+  scaleFloor?: number;
+  dataTestId?: string;
+}
+
+export function ArtworkSalon({
+  items,
+  linkRenderer,
+  emptyState,
+  referenceHeight = 460,
+  scaleFloor = 0.4,
+  dataTestId = 'artwork-salon',
+}: ArtworkSalonProps) {
+  if (items.length === 0) return <>{emptyState ?? null}</>;
+
+  const itemsWithCm = items.filter((it) => it.widthCm && it.heightCm);
+  const proportionalEnabled = itemsWithCm.length === items.length && items.length > 0;
+  const maxHeightCm = proportionalEnabled
+    ? Math.max(...itemsWithCm.map((it) => it.heightCm ?? 0))
+    : 0;
+
+  const renderCell = (item: ArtworkMedia, mode: 'proportional' | 'uniform', index: number) => {
+    const aspectRatio = item.imageWidth && item.imageHeight ? `${item.imageWidth} / ${item.imageHeight}` : '4 / 5';
+    const cell = (
+      <ArtworkSalonCell
+        item={item}
+        mode={mode}
+        aspectRatio={aspectRatio}
+        referenceHeight={referenceHeight}
+        scaleFloor={scaleFloor}
+        maxHeightCm={maxHeightCm}
+        priority={index < 3}
+      />
+    );
+    if (item.href && linkRenderer) {
+      return <div key={item.id}>{linkRenderer(item.href, cell, 'block h-full')}</div>;
+    }
+    if (item.href) {
+      return (
+        <a key={item.id} href={item.href} className="block h-full">
+          {cell}
+        </a>
+      );
+    }
+    return <div key={item.id}>{cell}</div>;
+  };
+
+  return (
+    <div data-testid={dataTestId}>
+      {/* Desktop — proportional scale (Option A) */}
+      {proportionalEnabled && (
+        <div className="hidden md:flex flex-wrap items-end gap-x-10 lg:gap-x-14 gap-y-16 lg:gap-y-20">
+          {items.map((item, index) => renderCell(item, 'proportional', index))}
+        </div>
+      )}
+
+      {/* Mobile — uniform grid + dimensions caption (Option B) — also fallback when cm missing */}
+      <div className={cn('grid grid-cols-2 gap-6 sm:gap-8', proportionalEnabled && 'md:hidden')}>
+        {items.map((item, index) => renderCell(item, 'uniform', index))}
+      </div>
+    </div>
+  );
+}
+
+interface ArtworkSalonCellProps {
+  item: ArtworkMedia;
+  mode: 'proportional' | 'uniform';
+  aspectRatio: string;
+  referenceHeight: number;
+  scaleFloor: number;
+  maxHeightCm: number;
+  priority: boolean;
+}
+
+function ArtworkSalonCell({
+  item,
+  mode,
+  aspectRatio,
+  referenceHeight,
+  scaleFloor,
+  maxHeightCm,
+  priority,
+}: ArtworkSalonCellProps) {
+  const isProportional = mode === 'proportional' && item.heightCm && item.widthCm && maxHeightCm > 0;
+  const scale = isProportional
+    ? Math.max(scaleFloor, (item.heightCm as number) / maxHeightCm)
+    : 1;
+  const cellHeight = Math.round(referenceHeight * scale);
+
+  const dimsCaption = item.widthCm && item.heightCm ? `${item.widthCm} × ${item.heightCm} cm` : null;
+
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6 }}
+      className="group flex flex-col"
+    >
+      <div
+        className="relative bg-blanc-muted overflow-hidden"
+        style={
+          isProportional
+            ? { height: `${cellHeight}px`, aspectRatio }
+            : { aspectRatio }
+        }
+      >
+        <AdaptiveImage
+          src={item.imageUrl}
+          alt={item.title}
+          fit="native"
+          width={item.imageWidth}
+          height={item.imageHeight}
+          priority={priority}
+          sizes={isProportional ? `${cellHeight}px` : '(max-width: 768px) 50vw, 33vw'}
+          className="transition-opacity duration-500 group-hover:opacity-90"
+        />
+      </div>
+      <figcaption className="mt-4 px-0.5">
+        <p className="font-display italic text-sm text-noir/85 tracking-wide truncate">
+          {item.title}
+        </p>
+        {item.caption && (
+          <p className="text-noir/50 text-xs tracking-wide mt-1 truncate">{item.caption}</p>
+        )}
+        {/* In uniform/mobile mode, display real cm dimensions to remove visual ambiguity */}
+        {!isProportional && dimsCaption && (
+          <p className="text-noir/45 text-[0.7rem] tracking-[0.15em] uppercase mt-1.5">
+            {dimsCaption}
+          </p>
+        )}
+      </figcaption>
     </motion.figure>
   );
 }

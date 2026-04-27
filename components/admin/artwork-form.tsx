@@ -20,6 +20,8 @@ interface ArtworkFormProps {
     artistId?: string;
     medium?: TranslatableField;
     dimensions?: string;
+    widthCm?: number | null;
+    heightCm?: number | null;
     year?: number | null;
     price?: number | null;
     currency?: string;
@@ -66,6 +68,17 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
             <div>
               <Label htmlFor="dimensions" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.dimensions')}</Label>
               <Input id="dimensions" name="dimensions" defaultValue={defaultValues.dimensions ?? ''} placeholder="120 x 90 cm" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="widthCm" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.widthCm')}</Label>
+              <Input id="widthCm" name="widthCm" type="number" min="1" step="1" defaultValue={defaultValues.widthCm ?? ''} placeholder="90" />
+            </div>
+            <div>
+              <Label htmlFor="heightCm" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.heightCm')}</Label>
+              <Input id="heightCm" name="heightCm" type="number" min="1" step="1" defaultValue={defaultValues.heightCm ?? ''} placeholder="120" />
             </div>
           </div>
       </FormCard>

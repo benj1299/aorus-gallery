@@ -38,6 +38,8 @@ export default async function EditArtworkPage({ params }: Props) {
           artistId: artwork.artistId,
           medium: artwork.medium ?? undefined,
           dimensions: artwork.dimensions ?? '',
+          widthCm: artwork.widthCm,
+          heightCm: artwork.heightCm,
           year: artwork.year,
           price: artwork.price ? Number(artwork.price) : null,
           currency: artwork.currency,

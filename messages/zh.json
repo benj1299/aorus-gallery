@@ -177,7 +177,8 @@
       "text": "包含畫廊介紹、藝術家簡歷和視覺資料的新聞資料包可應要求提供。",
       "instruction": "如有新聞查詢，請聯繫：",
       "email": "press@orusgallery.com"
-    }
+    },
+    "readArticle": "閱讀文章"
   },
   "contact": {
     "title": "聯繫",
@@ -427,6 +428,8 @@
       "medium": "媒材",
       "mediumPlaceholder": "布面油畫",
       "dimensions": "尺寸",
+      "widthCm": "寬度 (公分)",
+      "heightCm": "高度 (公分)",
       "year": "年份",
       "price": "價格",
       "currency": "幣別",
