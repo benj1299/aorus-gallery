@@ -95,7 +95,7 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
             imageHeight={activeImage.height}
             onClick={() => openLightbox(activeIndex)}
             onKeyDown={(e) => { if (e.key === 'Enter') openLightbox(activeIndex); }}
-            ariaLabel={t('viewFullscreen', { defaultValue: 'View fullscreen' })}
+            ariaLabel={t('viewFullscreen')}
           />
 
           {/* Thumbnail strip */}
@@ -112,7 +112,7 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
                   key={image.src}
                   type="button"
                   onClick={() => setActiveIndex(index)}
-                  aria-label={`${t('details', { defaultValue: 'View photo' })} ${index + 1}`}
+                  aria-label={`${t('details')} ${index + 1}`}
                   aria-current={activeIndex === index}
                   className={`relative shrink-0 w-20 h-20 md:w-24 md:h-24 snap-start overflow-hidden border transition-all duration-300 ${
                     activeIndex === index
@@ -223,12 +223,12 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
                       onClick={() => openLightbox(index + 1)}
                       className="snap-start shrink-0 h-[240px] md:h-[300px] lg:h-[340px] bg-blanc-muted border border-noir/10 cursor-zoom-in group"
                       style={{ aspectRatio: ratio }}
-                      aria-label={`${t('detail', { defaultValue: 'Detail' })} ${index + 1}`}
+                      aria-label={`${t('detail')} ${index + 1}`}
                     >
                       <div className="relative h-full" style={{ aspectRatio: ratio }}>
                         <AdaptiveImage
                           src={image}
-                          alt={`${artwork.title} — ${t('detail', { defaultValue: 'detail' })} ${index + 1}`}
+                          alt={`${artwork.title} — ${t('detail')} ${index + 1}`}
                           sizes="(max-width: 768px) 80vw, 40vw"
                           fit="native"
                           width={w}

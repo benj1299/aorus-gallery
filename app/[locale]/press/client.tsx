@@ -109,7 +109,7 @@ export function PressPageClient({ articles }: { articles: PressArticle[] }) {
                         rel="noopener noreferrer"
                         className="mt-8 inline-block border-b border-noir/40 pb-1.5 text-[0.7rem] tracking-[0.25em] uppercase text-noir hover:border-noir transition-colors duration-300"
                       >
-                        {t('readArticle', { defaultValue: 'Lire l’article' })}
+                        {t('readArticle')}
                       </a>
                     )}
                   </div>
