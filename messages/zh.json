@@ -141,6 +141,7 @@
     "residencies": "駐村",
     "awards": "獎項",
     "career": "職業生涯",
+    "comingSoon": "即將推出",
     "contactUs": "聯繫我們",
     "priceOnRequest": "價格請洽詢",
     "pageNotFound": "頁面未找到",
@@ -153,7 +154,7 @@
   "artwork": {
     "priceOnRequest": "價格請洽詢",
     "sold": "已售出",
-    "inquire": "諮詢",
+    "inquire": "聯絡畫廊",
     "inquireAbout": "對這件作品感興趣？",
     "contactUs": "聯繫我們",
     "details": "細節",

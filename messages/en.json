@@ -141,6 +141,7 @@
     "residencies": "Residencies",
     "awards": "Awards",
     "career": "Career",
+    "comingSoon": "Coming soon",
     "contactUs": "Contact Us",
     "priceOnRequest": "Price on request",
     "pageNotFound": "Page Not Found",
@@ -153,7 +154,7 @@
   "artwork": {
     "priceOnRequest": "Price on request",
     "sold": "Sold",
-    "inquire": "Inquire",
+    "inquire": "Contact the gallery",
     "inquireAbout": "Interested in this work?",
     "contactUs": "Contact Us",
     "details": "Details",
