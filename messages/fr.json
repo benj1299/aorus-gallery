@@ -39,7 +39,7 @@
       "eyebrow": "Notre approche",
       "title": "Direction curatoriale",
       "text1": "L'intime comme pont entre les cultures\nFondée entre Paris et Taïwan, ORUS Gallery défend une scène internationale d'artistes dont les œuvres explorent l'intimité sous toutes ses formes : le corps, la mémoire, les relations humaines et les récits personnels qui façonnent nos identités.",
-      "text2": "La galerie considère l'intimité comme un langage universel — un espace où les expériences individuelles deviennent capables de traverser les frontières culturelles. À travers ces récits sensibles, les œuvres révèlent ce qui relie les cultures autant que ce qui les distingue.",
+      "text2": "La galerie considère l'intimité comme un langage universel, un espace où les expériences individuelles deviennent capables de traverser les frontières culturelles. À travers ces récits sensibles, les œuvres révèlent ce qui relie les cultures autant que ce qui les distingue.",
       "text3": "En créant des dialogues entre différentes scènes artistiques, ORUS construit une programmation où l'intime devient un point de rencontre : un territoire commun à partir duquel les œuvres peuvent circuler, se répondre et résonner à l'échelle du monde."
     },
     "values": {
@@ -177,7 +177,8 @@
       "text": "Un dossier de presse incluant une présentation de la galerie, des biographies d'artistes et des visuels est disponible sur demande.",
       "instruction": "Pour toute demande presse, merci de contacter :",
       "email": "press@orusgallery.com"
-    }
+    },
+    "readArticle": "Lire l’article"
   },
   "contact": {
     "title": "Contact",
@@ -427,6 +428,8 @@
       "medium": "Technique",
       "mediumPlaceholder": "Huile sur toile",
       "dimensions": "Dimensions",
+      "widthCm": "Largeur (cm)",
+      "heightCm": "Hauteur (cm)",
       "year": "Année",
       "price": "Prix",
       "currency": "Devise",

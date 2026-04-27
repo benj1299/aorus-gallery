@@ -131,14 +131,14 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
             </motion.div>
           )}
 
-          {/* Cartel */}
+          {/* Cartel — museum-grade hierarchy */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-10 max-w-xl"
+            className="mt-12 md:mt-16 max-w-xl"
           >
-            {/* 1. Artist name */}
+            {/* 1. Artist */}
             <Link
               href={`/artists/${artwork.artist.slug}`}
               className="font-display text-2xl md:text-3xl text-noir tracking-wide hover:text-or transition-colors duration-300"
@@ -146,36 +146,43 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
               {artwork.artist.name}
             </Link>
 
-            {/* 2. Title + 3. Year */}
-            <p className="text-noir/70 text-lg mt-3">
+            {/* 2. Title + Year */}
+            <p className="text-noir/80 text-lg md:text-xl mt-4">
               <span className="italic">{artwork.title}</span>
-              {artwork.year && <span>, {artwork.year}</span>}
+              {artwork.year && <span className="text-noir/60">, {artwork.year}</span>}
             </p>
 
-            {/* 4. Medium */}
-            {artwork.medium && (
-              <p className="text-noir/50 text-sm mt-2">{artwork.medium}</p>
+            {/* 3. Medium + Dimensions — single block, museum cartel style */}
+            {(artwork.medium || artwork.dimensions) && (
+              <div className="mt-5 space-y-1 text-sm text-noir/55 tracking-wide">
+                {artwork.medium && <p>{artwork.medium}</p>}
+                {artwork.dimensions && <p>{artwork.dimensions}</p>}
+              </div>
             )}
 
-            {/* 5. Dimensions */}
-            {artwork.dimensions && (
-              <p className="text-noir/50 text-sm mt-1">{artwork.dimensions}</p>
-            )}
-
-            {/* 6. Status */}
+            {/* 4. Status — discrete */}
             {artwork.sold ? (
-              <p className="text-noir/40 text-xs tracking-[0.1em] uppercase mt-3">{t('sold')}</p>
+              <p className="text-noir/45 text-[0.7rem] tracking-[0.2em] uppercase mt-6">
+                {t('sold')}
+              </p>
             ) : (
-              <p className="text-noir/40 text-xs italic mt-3">{t('priceOnRequest')}</p>
+              <p className="text-noir/45 text-[0.7rem] tracking-[0.2em] uppercase mt-6">
+                {t('priceOnRequest')}
+              </p>
             )}
 
-            {/* Inquire link */}
-            <Link
-              href="/contact"
-              className="inline-block mt-6 text-xs tracking-[0.15em] uppercase text-jade hover:underline transition-colors duration-300"
-            >
-              {t('inquire')}
-            </Link>
+            {/* 5. Inquire CTA — sober button-link style */}
+            {!artwork.sold && (
+              <a
+                href={`mailto:info@orusgallery.com?subject=${encodeURIComponent(
+                  `Renseignement — ${artwork.artist.name}, ${artwork.title}${artwork.year ? `, ${artwork.year}` : ''}`,
+                )}`}
+                className="mt-10 inline-block border-b border-noir/40 pb-1.5 text-xs tracking-[0.25em] uppercase text-noir hover:border-noir transition-colors duration-300"
+                data-testid="inquire-mailto"
+              >
+                {t('inquire')}
+              </a>
+            )}
           </motion.div>
         </div>
       </section>

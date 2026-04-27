@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { PageHero } from '@/components/PageHero';
@@ -17,15 +17,23 @@ interface PressArticle {
   excerpt: string | null;
 }
 
+const LOCALE_DATE_MAP: Record<string, string> = {
+  fr: 'fr-FR',
+  en: 'en-GB',
+  zh: 'zh-TW',
+};
+
 export function PressPageClient({ articles }: { articles: PressArticle[] }) {
   const t = useTranslations('press');
+  const locale = useLocale();
+  const dateLocale = LOCALE_DATE_MAP[locale] ?? 'en-GB';
 
   return (
     <div className="flex flex-col">
       <PageHero title={t('hero.title')} dividerClassName="mt-10" />
 
       <AnimatedSection
-        bg="blanc-muted"
+        bg="blanc"
         padding="lg"
         container="narrow"
         initial={{ opacity: 0, y: 40 }}
@@ -33,46 +41,84 @@ export function PressPageClient({ articles }: { articles: PressArticle[] }) {
         viewportMargin="-100px"
       >
         {articles.length > 0 ? (
-          <div className="space-y-6">
-            {articles.map((article, index) => (
-              <motion.div
-                key={article.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.1 * (index + 1) }}
-                className="bg-blanc border border-noir/10 p-8 flex items-start gap-8"
-              >
-                {article.imageUrl && (
-                  <div className="w-20 h-20 md:w-32 md:h-32 shrink-0 relative overflow-hidden">
-                    <Image src={article.imageUrl} alt={article.title} fill sizes="(max-width: 768px) 80px, 128px" className="object-cover" />
+          <div className="divide-y divide-noir/10">
+            {articles.map((article, index) => {
+              const formattedDate = new Date(article.publishedAt).toLocaleDateString(dateLocale, {
+                year: 'numeric',
+                month: 'long',
+              });
+              const titleNode = (
+                <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-noir leading-[1.15] tracking-wide">
+                  {article.title}
+                </h3>
+              );
+              return (
+                <motion.article
+                  key={article.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{ duration: 0.8, delay: 0.05 * index }}
+                  className="grid md:grid-cols-12 gap-8 md:gap-12 py-14 md:py-20 first:pt-0 last:pb-0"
+                >
+                  {article.imageUrl ? (
+                    <div className="md:col-span-4">
+                      <div className="aspect-[4/3] relative overflow-hidden bg-blanc-muted">
+                        <Image
+                          src={article.imageUrl}
+                          alt={article.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover transition-opacity duration-500 hover:opacity-90"
+                        />
+                      </div>
+                    </div>
+                  ) : null}
+                  <div className={article.imageUrl ? 'md:col-span-8' : 'md:col-span-12'}>
+                    <p className="text-[0.7rem] tracking-[0.25em] uppercase text-noir/55">
+                      <span className="text-noir">{article.publication}</span>
+                      <span className="text-noir/35 mx-3">/</span>
+                      {formattedDate}
+                    </p>
+                    <div className="mt-5">
+                      {article.url ? (
+                        <a
+                          href={article.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block group"
+                        >
+                          <span className="block transition-opacity duration-300 group-hover:opacity-70">
+                            {titleNode}
+                          </span>
+                        </a>
+                      ) : (
+                        titleNode
+                      )}
+                    </div>
+                    {article.excerpt && (
+                      <div
+                        className="text-noir/65 text-base md:text-lg leading-relaxed font-body mt-6 max-w-2xl"
+                        dangerouslySetInnerHTML={{ __html: article.excerpt }}
+                      />
+                    )}
+                    {article.url && (
+                      <a
+                        href={article.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-8 inline-block border-b border-noir/40 pb-1.5 text-[0.7rem] tracking-[0.25em] uppercase text-noir hover:border-noir transition-colors duration-300"
+                      >
+                        {t('readArticle', { defaultValue: 'Lire l’article' })}
+                      </a>
+                    )}
                   </div>
-                )}
-                <div className="flex-1 min-w-0">
-                  <p className="text-or text-xs tracking-[0.15em] uppercase mb-2">
-                    {article.publication} — {new Date(article.publishedAt).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long' })}
-                  </p>
-                  {article.url ? (
-                    <a
-                      href={article.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-display text-lg text-noir hover:text-noir/70 transition-colors tracking-wide"
-                    >
-                      {article.title}
-                    </a>
-                  ) : (
-                    <p className="font-display text-lg text-noir tracking-wide">{article.title}</p>
-                  )}
-                  {article.excerpt && (
-                    <div className="text-noir/50 text-sm leading-relaxed mt-2" dangerouslySetInnerHTML={{ __html: article.excerpt }} />
-                  )}
-                </div>
-              </motion.div>
-            ))}
+                </motion.article>
+              );
+            })}
           </div>
         ) : (
-          <div className="text-center py-16">
+          <div className="text-center py-24">
             <p className="text-noir/50 text-sm tracking-[0.1em] uppercase">
               {t('coverage.placeholder')}
             </p>
@@ -81,6 +127,7 @@ export function PressPageClient({ articles }: { articles: PressArticle[] }) {
       </AnimatedSection>
 
       <AnimatedSection
+        bg="blanc-muted"
         padding="lg"
         container="narrow"
         containerClassName="text-center"
@@ -88,20 +135,19 @@ export function PressPageClient({ articles }: { articles: PressArticle[] }) {
         transition={{ duration: 0.8, delay: 0.2 }}
         animateOnMount
       >
-        <h2 className="font-display text-3xl md:text-4xl text-noir mb-8 tracking-wide">
+        <p className="text-noir/55 text-[0.7rem] tracking-[0.25em] uppercase mb-6">
           {t('contact.title')}
-        </h2>
-        <p className="text-noir/60 text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+        </p>
+        <p className="font-display text-noir text-2xl md:text-3xl tracking-wide leading-tight max-w-2xl mx-auto">
           {t('contact.instruction')}
         </p>
         <a
           href={`mailto:${t('contact.email')}`}
-          className="text-noir hover:text-noir/70 text-xl font-display transition-colors duration-300"
+          className="mt-10 inline-block border-b border-noir/40 pb-1.5 text-sm tracking-[0.2em] uppercase text-noir hover:border-noir transition-colors duration-300"
         >
           {t('contact.email')}
         </a>
-        <div className="w-16 h-px bg-noir/10 mx-auto my-10" />
-        <p className="text-noir/50 text-base leading-relaxed max-w-2xl mx-auto">
+        <p className="text-noir/55 text-sm leading-relaxed max-w-xl mx-auto mt-12">
           {t('contact.text')}
         </p>
       </AnimatedSection>

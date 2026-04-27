@@ -6,7 +6,7 @@ import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { CTAStrip } from '@/components/CTAStrip';
-import { ArtworkGrid, type ArtworkMedia } from '@/components/artwork-display';
+import { ArtworkSalon, type ArtworkMedia } from '@/components/artwork-display';
 
 interface Artwork {
   id: string;
@@ -14,6 +14,8 @@ interface Artwork {
   title: string;
   medium: string | null;
   dimensions: string | null;
+  widthCm: number | null;
+  heightCm: number | null;
   imageUrl: string;
   imageWidth: number | null;
   imageHeight: number | null;
@@ -160,17 +162,18 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
         </div>
 
         {artist.artworks.length > 0 ? (
-          <ArtworkGrid
+          <ArtworkSalon
             items={artist.artworks.map<ArtworkMedia>((artwork) => ({
               id: artwork.id,
               title: artwork.title,
               imageUrl: artwork.imageUrl,
               imageWidth: artwork.imageWidth,
               imageHeight: artwork.imageHeight,
-              caption: [artwork.medium, artwork.dimensions].filter(Boolean).join(' — '),
+              widthCm: artwork.widthCm,
+              heightCm: artwork.heightCm,
+              caption: artwork.medium ?? undefined,
               href: `/artworks/${artwork.slug}`,
             }))}
-            columns={{ base: 2, md: 3, lg: 3 }}
             linkRenderer={(href, children, className) => (
               <Link href={href} className={className}>
                 {children}

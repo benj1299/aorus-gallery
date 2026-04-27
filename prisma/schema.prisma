@@ -157,6 +157,8 @@ model Artwork {
   title        Json
   medium       Json?
   dimensions   String?
+  widthCm      Int?
+  heightCm     Int?
   year         Int?
   price        Decimal? @db.Decimal(10, 2)
   currency     String   @default("EUR")
