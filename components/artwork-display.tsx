@@ -93,7 +93,7 @@ export function ArtworkRail({
       <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-blanc to-transparent z-10 pointer-events-none" />
       <div
         className={cn(
-          'flex items-start gap-6 md:gap-10 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-2 cursor-grab active:cursor-grabbing',
+          'flex items-start gap-6 md:gap-10 overflow-x-auto overflow-y-hidden overscroll-y-none scrollbar-hide snap-x snap-mandatory scroll-smooth pb-8 cursor-grab active:cursor-grabbing',
           paddingClass,
         )}
         data-testid={dataTestId}

@@ -133,7 +133,7 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
         <div className="max-w-3xl mx-auto px-6">
           <div className="divider-gold-wide mx-auto mb-10" />
           <p className="text-jade text-xs tracking-[0.25em] uppercase font-medium text-center mb-10">
-            {t('bio', { defaultValue: 'Biography' })}
+            {t('biography')}
           </p>
           <div
             className="text-noir/70 text-lg leading-loose font-body"
@@ -183,7 +183,7 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
         ) : (
           <div className="text-center py-16">
             <p className="text-noir/50 text-sm tracking-[0.1em] uppercase">
-              {t('works')} — {t('comingSoon', { defaultValue: 'Coming soon' })}
+              {t('works')} — {t('comingSoon')}
             </p>
           </div>
         )}

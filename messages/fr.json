@@ -141,6 +141,7 @@
     "residencies": "Résidences",
     "awards": "Prix et distinctions",
     "career": "Carrière",
+    "comingSoon": "Bientôt disponible",
     "contactUs": "Nous contacter",
     "priceOnRequest": "Prix sur demande",
     "pageNotFound": "Page non trouvée",
@@ -153,7 +154,7 @@
   "artwork": {
     "priceOnRequest": "Prix sur demande",
     "sold": "Vendu",
-    "inquire": "Se renseigner",
+    "inquire": "Contacter la galerie",
     "inquireAbout": "Intéressé par cette œuvre ?",
     "contactUs": "Nous contacter",
     "details": "Détails",
