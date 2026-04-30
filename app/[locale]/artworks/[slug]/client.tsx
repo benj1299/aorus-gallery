@@ -87,16 +87,18 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
           </motion.div>
 
           {/* Main artwork image — ratio natif preserved */}
-          <ArtworkHero
-            key={activeImage.src}
-            src={activeImage.src}
-            alt={activeImage.alt}
-            imageWidth={activeImage.width}
-            imageHeight={activeImage.height}
-            onClick={() => openLightbox(activeIndex)}
-            onKeyDown={(e) => { if (e.key === 'Enter') openLightbox(activeIndex); }}
-            ariaLabel={t('viewFullscreen')}
-          />
+          <div className="px-2 sm:px-6 md:px-12 lg:px-16 py-4 md:py-8">
+            <ArtworkHero
+              key={activeImage.src}
+              src={activeImage.src}
+              alt={activeImage.alt}
+              imageWidth={activeImage.width}
+              imageHeight={activeImage.height}
+              onClick={() => openLightbox(activeIndex)}
+              onKeyDown={(e) => { if (e.key === 'Enter') openLightbox(activeIndex); }}
+              ariaLabel={t('viewFullscreen')}
+            />
+          </div>
 
           {/* Thumbnail strip */}
           {hasMultiple && (

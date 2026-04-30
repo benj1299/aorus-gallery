@@ -326,13 +326,13 @@ export function ArtworkHero({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
       className={cn(
-        'relative mx-auto bg-blanc-muted border border-noir/10 overflow-hidden',
+        'relative mx-auto overflow-hidden',
         onClick && 'cursor-zoom-in',
       )}
       style={{
         aspectRatio: hasDims ? `${imageWidth} / ${imageHeight}` : '4 / 5',
-        maxWidth: zone === 'extreme-wide' ? '100%' : '1400px',
-        maxHeight: '90vh',
+        maxWidth: zone === 'extreme-wide' ? '100%' : 'min(1100px, 100%)',
+        maxHeight: 'min(75vh, 800px)',
       }}
       onClick={onClick}
       role={onClick ? 'button' : undefined}
@@ -349,7 +349,7 @@ export function ArtworkHero({
         width={imageWidth}
         height={imageHeight}
         priority={priority}
-        sizes="(max-width: 768px) 100vw, (max-width: 1400px) 90vw, 1400px"
+        sizes="(max-width: 768px) 92vw, (max-width: 1100px) 80vw, 1100px"
       />
     </motion.div>
   );
@@ -412,24 +412,25 @@ export function ArtworkHighlight({
 // --- ArtworkSalon ---
 
 /**
- * Salon-hang display for an artist's body of work.
+ * Gallery-grade display for an artist's body of work.
  *
- * - Desktop (≥md): proportional scale based on real-world dimensions (widthCm/heightCm).
- *   Items align on a baseline (items-end) like a museum wall. Tallest piece at full
- *   reference height; smaller pieces scale down to a 40% floor for legibility.
- * - Mobile (<md): uniform 2-col grid with native aspect-ratio + dimensions caption,
- *   for a clean readable layout where proportional scaling would be unreadable.
+ * Uniform column grid (Zwirner/Pace pattern), each cell preserves the image's
+ * native aspect ratio. Generous gutters, no crop, no proportional scaling.
  *
- * Items missing widthCm/heightCm fall back to the mobile (uniform) layout on every
- * breakpoint. To enable proportional desktop, backfill cm dimensions in DB.
+ * - Mobile (<md): 2 columns
+ * - Tablet (md): 2 columns, wider gutters
+ * - Desktop (lg+): 3 columns, max-width container for breathing room
+ *
+ * Real-world cm dimensions (widthCm/heightCm), if present, are surfaced in the
+ * caption — they no longer drive layout sizing.
  */
 interface ArtworkSalonProps {
   items: ArtworkMedia[];
   linkRenderer?: (href: string, children: ReactNode, className?: string) => ReactNode;
   emptyState?: ReactNode;
-  /** Reference height in px for the largest piece (desktop). */
+  /** Deprecated — kept for backwards-compat with existing call sites. No-op. */
   referenceHeight?: number;
-  /** Floor for proportional scaling (avoid invisible miniatures). 0–1, default 0.4. */
+  /** Deprecated — kept for backwards-compat with existing call sites. No-op. */
   scaleFloor?: number;
   dataTestId?: string;
 }
@@ -438,37 +439,18 @@ export function ArtworkSalon({
   items,
   linkRenderer,
   emptyState,
-  referenceHeight = 460,
-  scaleFloor = 0.4,
   dataTestId = 'artwork-salon',
 }: ArtworkSalonProps) {
   if (items.length === 0) return <>{emptyState ?? null}</>;
 
-  const itemsWithCm = items.filter((it) => it.widthCm && it.heightCm);
-  const proportionalEnabled = itemsWithCm.length === items.length && items.length > 0;
-  const maxHeightCm = proportionalEnabled
-    ? Math.max(...itemsWithCm.map((it) => it.heightCm ?? 0))
-    : 0;
-
-  const renderCell = (item: ArtworkMedia, mode: 'proportional' | 'uniform', index: number) => {
-    const aspectRatio = item.imageWidth && item.imageHeight ? `${item.imageWidth} / ${item.imageHeight}` : '4 / 5';
-    const cell = (
-      <ArtworkSalonCell
-        item={item}
-        mode={mode}
-        aspectRatio={aspectRatio}
-        referenceHeight={referenceHeight}
-        scaleFloor={scaleFloor}
-        maxHeightCm={maxHeightCm}
-        priority={index < 3}
-      />
-    );
+  const renderCell = (item: ArtworkMedia, index: number) => {
+    const cell = <ArtworkSalonCell item={item} priority={index < 3} />;
     if (item.href && linkRenderer) {
-      return <div key={item.id}>{linkRenderer(item.href, cell, 'block h-full')}</div>;
+      return <div key={item.id}>{linkRenderer(item.href, cell, 'block')}</div>;
     }
     if (item.href) {
       return (
-        <a key={item.id} href={item.href} className="block h-full">
+        <a key={item.id} href={item.href} className="block">
           {cell}
         </a>
       );
@@ -477,17 +459,9 @@ export function ArtworkSalon({
   };
 
   return (
-    <div data-testid={dataTestId}>
-      {/* Desktop — proportional scale (Option A) */}
-      {proportionalEnabled && (
-        <div className="hidden md:flex flex-wrap items-end gap-x-10 lg:gap-x-14 gap-y-16 lg:gap-y-20">
-          {items.map((item, index) => renderCell(item, 'proportional', index))}
-        </div>
-      )}
-
-      {/* Mobile — uniform grid + dimensions caption (Option B) — also fallback when cm missing */}
-      <div className={cn('grid grid-cols-2 gap-6 sm:gap-8', proportionalEnabled && 'md:hidden')}>
-        {items.map((item, index) => renderCell(item, 'uniform', index))}
+    <div className="max-w-7xl mx-auto" data-testid={dataTestId}>
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 md:gap-12 lg:gap-16 items-start">
+        {items.map((item, index) => renderCell(item, index))}
       </div>
     </div>
   );
@@ -495,29 +469,12 @@ export function ArtworkSalon({
 
 interface ArtworkSalonCellProps {
   item: ArtworkMedia;
-  mode: 'proportional' | 'uniform';
-  aspectRatio: string;
-  referenceHeight: number;
-  scaleFloor: number;
-  maxHeightCm: number;
   priority: boolean;
 }
 
-function ArtworkSalonCell({
-  item,
-  mode,
-  aspectRatio,
-  referenceHeight,
-  scaleFloor,
-  maxHeightCm,
-  priority,
-}: ArtworkSalonCellProps) {
-  const isProportional = mode === 'proportional' && item.heightCm && item.widthCm && maxHeightCm > 0;
-  const scale = isProportional
-    ? Math.max(scaleFloor, (item.heightCm as number) / maxHeightCm)
-    : 1;
-  const cellHeight = Math.round(referenceHeight * scale);
-
+function ArtworkSalonCell({ item, priority }: ArtworkSalonCellProps) {
+  const aspectRatio =
+    item.imageWidth && item.imageHeight ? `${item.imageWidth} / ${item.imageHeight}` : '4 / 5';
   const dimsCaption = item.widthCm && item.heightCm ? `${item.widthCm} × ${item.heightCm} cm` : null;
 
   return (
@@ -528,14 +485,7 @@ function ArtworkSalonCell({
       transition={{ duration: 0.6 }}
       className="group flex flex-col"
     >
-      <div
-        className="relative bg-blanc-muted overflow-hidden"
-        style={
-          isProportional
-            ? { height: `${cellHeight}px`, aspectRatio }
-            : { aspectRatio }
-        }
-      >
+      <div className="relative overflow-hidden" style={{ aspectRatio }}>
         <AdaptiveImage
           src={item.imageUrl}
           alt={item.title}
@@ -543,19 +493,18 @@ function ArtworkSalonCell({
           width={item.imageWidth}
           height={item.imageHeight}
           priority={priority}
-          sizes={isProportional ? `${cellHeight}px` : '(max-width: 768px) 50vw, 33vw'}
+          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
           className="transition-opacity duration-500 group-hover:opacity-90"
         />
       </div>
-      <figcaption className="mt-4 px-0.5">
-        <p className="font-display italic text-sm text-noir/85 tracking-wide truncate">
+      <figcaption className="mt-5 px-0.5">
+        <p className="font-display italic text-sm md:text-base text-noir/85 tracking-wide truncate">
           {item.title}
         </p>
         {item.caption && (
-          <p className="text-noir/50 text-xs tracking-wide mt-1 truncate">{item.caption}</p>
+          <p className="text-noir/50 text-xs md:text-sm tracking-wide mt-1 truncate">{item.caption}</p>
         )}
-        {/* In uniform/mobile mode, display real cm dimensions to remove visual ambiguity */}
-        {!isProportional && dimsCaption && (
+        {dimsCaption && (
           <p className="text-noir/45 text-[0.7rem] tracking-[0.15em] uppercase mt-1.5">
             {dimsCaption}
           </p>
