@@ -25,7 +25,8 @@ import { AdaptiveImage } from '@/components/ui/adaptive-image';
  *   aspect ratio exactly. Max-height 90vh, max-width 1400px, centered, zero crop.
  *
  * When dimensions are unknown (legacy rows pre-backfill), the components fall
- * back to `aspect-[4/5]` + `object-cover` (per designer § 6.4 backfill strategy).
+ * back to `aspect-[4/5]` + `object-contain` — never crop on native fit, even
+ * when ratios are missing (Victor pre-launch feedback 2026-05).
  */
 
 // --- Shared types ---

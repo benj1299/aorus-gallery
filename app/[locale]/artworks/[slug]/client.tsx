@@ -86,8 +86,8 @@ export function ArtworkDetailClient({ artwork }: { artwork: ArtworkData }) {
             </Link>
           </motion.div>
 
-          {/* Main artwork image — ratio natif preserved */}
-          <div className="px-2 sm:px-6 md:px-12 lg:px-16 py-4 md:py-8">
+          {/* Main artwork image — ratio natif preserved, generous breathing room */}
+          <div className="px-4 sm:px-8 md:px-16 lg:px-24 py-6 md:py-12">
             <ArtworkHero
               key={activeImage.src}
               src={activeImage.src}

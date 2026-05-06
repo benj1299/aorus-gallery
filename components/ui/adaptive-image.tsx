@@ -39,7 +39,7 @@ function AdaptiveImage({
 
   const nativeMode = fit === 'native' && !!width && !!height;
   const nativeFallback = fit === 'native' && (!width || !height);
-  const imgObjectFit = fit === 'contain' ? 'object-contain' : 'object-cover';
+  const imgObjectFit = fit === 'cover' ? 'object-cover' : 'object-contain';
 
   const containerStyle = nativeMode
     ? { aspectRatio: `${width} / ${height}` }
