@@ -126,8 +126,8 @@ export default function AboutPage() {
               className="aspect-[3/2] lg:aspect-[3/4] relative overflow-hidden"
             >
               <Image
-                src="/images/gallery/Secretariat.png"
-                alt="ORUS Gallery reception"
+                src="/images/gallery/collectors-institutions.jpg"
+                alt="ORUS Gallery portfolio — Collectors & Institutions"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
