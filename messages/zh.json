@@ -179,7 +179,12 @@
       "instruction": "如有新聞查詢，請聯繫：",
       "email": "press@orusgallery.com"
     },
-    "readArticle": "閱讀文章"
+    "readArticle": "閱讀文章",
+    "carousel": {
+      "previous": "上一篇",
+      "next": "下一篇",
+      "goToSlide": "前往第 {n} 篇"
+    }
   },
   "contact": {
     "title": "聯繫",
@@ -500,6 +505,7 @@
       "search": "搜尋...",
       "viewPublicPage": "查看公開頁面",
       "artistSheet": "藝術家資料 (PDF)",
+      "artworkSheet": "作品資料 (PDF)",
       "pressKit": "媒體資料包 (PDF)",
       "viewMessage": "查看訊息"
     },
@@ -644,6 +650,7 @@
     },
     "print": {
       "backToArtists": "返回藝術家",
+      "backToArtworks": "返回作品",
       "backToExhibitions": "返回展覽",
       "exportPdf": "匯出為 PDF",
       "biography": "Biography",
@@ -654,6 +661,17 @@
       "participatingArtists": "參展藝術家",
       "exhibitedWorks": "展出作品",
       "byAppointmentOnlyFr": "僅限預約",
+      "specifications": "Specifications",
+      "medium": "Medium",
+      "dimensions": "Dimensions",
+      "year": "Year",
+      "reference": "Reference",
+      "availability": "Availability",
+      "aboutArtist": "About the Artist",
+      "additionalViews": "Additional Views",
+      "priceOnRequest": "Price upon request",
+      "sold": "Sold",
+      "fullBioAvailable": "Full biography available upon request",
       "cvSections": {
         "soloShows": "Solo Exhibitions",
         "groupShows": "Group Exhibitions",

@@ -179,7 +179,12 @@
       "instruction": "For all press inquiries, please contact:",
       "email": "press@orusgallery.com"
     },
-    "readArticle": "Read article"
+    "readArticle": "Read article",
+    "carousel": {
+      "previous": "Previous article",
+      "next": "Next article",
+      "goToSlide": "Go to article {n}"
+    }
   },
   "contact": {
     "title": "Contact",
@@ -500,6 +505,7 @@
       "search": "Search...",
       "viewPublicPage": "View public page",
       "artistSheet": "Artist sheet (PDF)",
+      "artworkSheet": "Artwork sheet (PDF)",
       "pressKit": "Press kit (PDF)",
       "viewMessage": "View message"
     },
@@ -644,6 +650,7 @@
     },
     "print": {
       "backToArtists": "Back to artists",
+      "backToArtworks": "Back to artworks",
       "backToExhibitions": "Back to exhibitions",
       "exportPdf": "Export as PDF",
       "biography": "Biography",
@@ -654,6 +661,17 @@
       "participatingArtists": "Participating artists",
       "exhibitedWorks": "Exhibited works",
       "byAppointmentOnlyFr": "By appointment only",
+      "specifications": "Specifications",
+      "medium": "Medium",
+      "dimensions": "Dimensions",
+      "year": "Year",
+      "reference": "Reference",
+      "availability": "Availability",
+      "aboutArtist": "About the Artist",
+      "additionalViews": "Additional Views",
+      "priceOnRequest": "Price upon request",
+      "sold": "Sold",
+      "fullBioAvailable": "Full biography available upon request",
       "cvSections": {
         "soloShows": "Solo Exhibitions",
         "groupShows": "Group Exhibitions",

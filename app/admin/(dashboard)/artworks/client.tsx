@@ -7,7 +7,7 @@ import { resolveTranslation, type TranslatableField } from '@/lib/i18n-content';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { deleteArtwork, toggleArtworkField } from '@/lib/actions/artworks';
 import { QuickToggle } from '@/components/admin/quick-toggle';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Eye, FileDown } from 'lucide-react';
 
 type Artist = { id: string; name: string };
 
@@ -152,6 +152,30 @@ export function ArtworksListClient({
         deleteAction={deleteArtwork}
         getId={(aw) => aw.id}
         serverPagination={serverPagination}
+        extraActions={(aw) => (
+          <>
+            <a
+              href={`/fr/artworks/${aw.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+              title={t('table.viewPublicPage')}
+              data-testid="view-btn"
+            >
+              <Eye className="h-4 w-4" />
+            </a>
+            <a
+              href={`/admin/print/artwork/${aw.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center h-8 w-8 text-gray-400 hover:text-emerald-700 hover:bg-emerald-50 rounded-md transition-colors"
+              title={t('table.artworkSheet')}
+              data-testid="artwork-sheet-btn"
+            >
+              <FileDown className="h-4 w-4" />
+            </a>
+          </>
+        )}
       />
     </div>
   );
