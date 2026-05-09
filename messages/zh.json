@@ -295,7 +295,13 @@
     "liabilityText": "ORUS Gallery 盡力確保本網站資訊的準確性，但不能保證其完整性或時效性。畫廊不對因使用本網站而產生的任何直接或間接損害承擔責任。",
     "governingLaw": "適用法律",
     "governingLawText": "這些條款與細則受法國法律管轄並據此解釋。因使用本網站而產生的任何爭議應由法國巴黎法院專屬管轄。",
-    "lastUpdated": "最後更新：2026年3月"
+    "lastUpdated": "最後更新：2026年5月",
+    "cookies": "Cookie 與流量分析",
+    "cookiesText": "本網站使用 Google Analytics 4（Google Ireland Limited）以衡量流量並改善使用者體驗。根據 GDPR 與 CNIL 指引，在您透過頁面底部的橫幅明確同意之前，不會放置任何分析 Cookie。預設套用「預設拒絕同意」模式（Consent Mode v2）：在您接受之前，Google 僅接收彙整且匿名化的訊號。您可以隨時透過清除瀏覽器 Cookie 來撤回或修改同意。",
+    "analyticsProvider": "分析處理方",
+    "analyticsProviderText": "流量資料由 Google Ireland Limited（Gordon House, Barrow Street, Dublin 4, Ireland）處理。資料可能依據歐盟—美國資料隱私框架傳輸至美國。IP 位址在處理前已匿名化，並啟用 ads_data_redaction 以防止與廣告主共享。",
+    "hosting": "網站代管",
+    "hostingText": "本網站由 Vercel Inc.（440 N Barranca Ave #4133, Covina, CA 91723, USA）代管。資料庫由 Neon Inc.（歐盟區）儲存。Vercel 與 Neon 均遵循資料隱私框架原則。"
   },
   "lightbox": {
     "viewer": "圖片檢視器",
@@ -716,6 +722,15 @@
       "title": "發生錯誤",
       "defaultMessage": "未預期的錯誤",
       "retry": "重試"
+    }
+  },
+  "cookies": {
+    "message": "我們使用 Google Analytics 以匿名方式統計網站流量。您可以接受或拒絕這些 Cookie。",
+    "learnMore": "了解更多",
+    "accept": "接受",
+    "reject": "拒絕",
+    "aria": {
+      "label": "Cookie 同意橫幅"
     }
   }
 }
