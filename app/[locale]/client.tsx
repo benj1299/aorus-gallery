@@ -79,7 +79,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
               alt=""
               width={700}
               height={700}
-              className="w-[90vw] sm:w-[70vw] md:w-[60vw] max-w-[700px] opacity-[0.05]"
+              className="w-[110vw] sm:w-[70vw] md:w-[60vw] max-w-[700px] opacity-[0.05]"
               aria-hidden="true"
               priority
             />
