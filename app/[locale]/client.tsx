@@ -83,10 +83,10 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
             className="
               relative aspect-square mx-auto
               flex flex-col items-center justify-center
-              w-[140vw] max-w-[560px]
-              sm:w-[110vw] sm:max-w-[680px]
-              md:w-[90vw] md:max-w-[820px]
-              lg:w-[80vw] lg:max-w-[920px]
+              w-[180vw] max-w-[720px]
+              sm:w-[120vw] sm:max-w-[820px]
+              md:w-[100vw] md:max-w-[940px]
+              lg:w-[85vw] lg:max-w-[1040px]
               px-6 sm:px-8 md:px-12
             "
           >
@@ -96,7 +96,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
                 src="/images/gallery/logo.jpeg"
                 alt=""
                 fill
-                sizes="(max-width: 640px) 140vw, (max-width: 768px) 110vw, (max-width: 1024px) 90vw, 920px"
+                sizes="(max-width: 640px) 180vw, (max-width: 768px) 120vw, (max-width: 1024px) 100vw, 1040px"
                 className="object-contain opacity-[0.06]"
                 aria-hidden="true"
                 priority
