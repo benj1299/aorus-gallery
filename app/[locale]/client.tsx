@@ -65,75 +65,61 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
 
   return (
     <div className="flex flex-col">
-      {/* ===== BLOCK 1 — HERO ===== */}
-      <section className="bg-blanc min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* ===== BLOCK 1 — HERO =====
+          Watermark logo subtil (5% opacity) + texte par-dessus — version
+          "classy" demandée par Victor (2026-05-10). Le wrapping circle
+          des PRs #4/#5 a été reverté. Sur mobile, le watermark scale via
+          90vw plutôt que 60vw pour garder la même présence visuelle qu'en
+          desktop. */}
+      <section className="bg-blanc min-h-screen flex items-center justify-center relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Image
+              src="/images/gallery/logo.jpeg"
+              alt=""
+              width={700}
+              height={700}
+              className="w-[90vw] sm:w-[70vw] md:w-[60vw] max-w-[700px] opacity-[0.05]"
+              aria-hidden="true"
+              priority
+            />
+          </div>
+        </div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10"
+          className="relative z-10 text-center px-6"
         >
-          {/* Circle container — sized so the ORUS GALLERY text + cities row +
-              tagline fit comfortably inside the circle on every breakpoint.
-              On mobile we let the circle bleed beyond the viewport edges
-              (overflow-hidden on the section crops it visually) rather than
-              shrink the text, per business owner request 2026-05-09. */}
-          <div
-            data-testid="home-hero-circle"
-            className="
-              relative aspect-square mx-auto
-              flex flex-col items-center justify-center
-              w-[180vw] max-w-[720px]
-              sm:w-[120vw] sm:max-w-[820px]
-              md:w-[100vw] md:max-w-[940px]
-              lg:w-[85vw] lg:max-w-[1040px]
-              px-6 sm:px-8 md:px-12
-            "
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="mb-12"
           >
-            {/* Circle logo (subtle background) — fills the wrapper */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <Image
-                src="/images/gallery/logo.jpeg"
-                alt=""
-                fill
-                sizes="(max-width: 640px) 180vw, (max-width: 768px) 120vw, (max-width: 1024px) 100vw, 1040px"
-                className="object-contain opacity-[0.06]"
-                aria-hidden="true"
-                priority
-              />
-            </div>
-
-            {/* Centered text stack — relative so it sits above the absolute logo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="relative mb-8 md:mb-10"
-            >
-              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl uppercase leading-none text-noir text-center">
-                <span className="tracking-[0.45em] block">ORUS</span>
-                <span className="tracking-[0.15em] block">GALLERY</span>
-              </h1>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              className="relative flex items-center justify-center gap-6 mb-6 md:mb-8"
-            >
-              <span className="font-display text-base md:text-lg tracking-[0.3em] uppercase text-noir">TAIPEI</span>
-              <div className="w-12 h-px bg-or" />
-              <span className="font-display text-base md:text-lg tracking-[0.3em] uppercase text-noir">PARIS</span>
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.9 }}
-              className="relative text-noir/50 text-sm md:text-base lg:text-lg tracking-[0.15em] uppercase text-center"
-            >
-              {t('hero.tagline')}
-            </motion.p>
-          </div>
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl uppercase leading-none text-noir text-center">
+              <span className="tracking-[0.45em] block">ORUS</span>
+              <span className="tracking-[0.15em] block">GALLERY</span>
+            </h1>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="flex items-center justify-center gap-6 mb-10"
+          >
+            <span className="font-display text-base md:text-lg tracking-[0.3em] uppercase text-noir">TAIPEI</span>
+            <div className="w-12 h-px bg-or" />
+            <span className="font-display text-base md:text-lg tracking-[0.3em] uppercase text-noir">PARIS</span>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.9 }}
+            className="text-noir/50 text-base md:text-lg tracking-[0.15em] uppercase"
+          >
+            {t('hero.tagline')}
+          </motion.p>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
