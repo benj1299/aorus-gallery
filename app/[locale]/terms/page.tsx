@@ -48,6 +48,7 @@ export default async function TermsPage({ params }: Props) {
             <p>{t('governingLawText')}</p>
             <h2 className="font-display text-2xl text-noir tracking-wide">{t('contact')}</h2>
             <p>{t('contactText')}</p>
+            <p className="text-sm text-noir/40 pt-8 border-t border-hairline mt-12">{t('lastUpdated')}</p>
           </div>
         </div>
       </section>

@@ -42,12 +42,19 @@ export default async function PrivacyPage({ params }: Props) {
             <p>{t('dataCollectionText')}</p>
             <h2 className="font-display text-2xl text-noir tracking-wide">{t('dataUse')}</h2>
             <p>{t('dataUseText')}</p>
+            <h2 className="font-display text-2xl text-noir tracking-wide">{t('cookies')}</h2>
+            <p>{t('cookiesText')}</p>
+            <h2 className="font-display text-2xl text-noir tracking-wide">{t('analyticsProvider')}</h2>
+            <p>{t('analyticsProviderText')}</p>
+            <h2 className="font-display text-2xl text-noir tracking-wide">{t('hosting')}</h2>
+            <p>{t('hostingText')}</p>
             <h2 className="font-display text-2xl text-noir tracking-wide">{t('dataRetention')}</h2>
             <p>{t('dataRetentionText')}</p>
             <h2 className="font-display text-2xl text-noir tracking-wide">{t('yourRights')}</h2>
             <p>{t('yourRightsText')}</p>
             <h2 className="font-display text-2xl text-noir tracking-wide">{t('contact')}</h2>
             <p>{t('contactText')}</p>
+            <p className="text-sm text-noir/40 pt-8 border-t border-hairline mt-12">{t('lastUpdated')}</p>
           </div>
         </div>
       </section>

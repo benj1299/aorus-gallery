@@ -295,7 +295,13 @@
     "liabilityText": "ORUS Gallery makes every effort to ensure the accuracy of information on this website but cannot guarantee it is complete or up-to-date. The gallery shall not be held liable for any direct or indirect damages arising from the use of this website.",
     "governingLaw": "Governing Law",
     "governingLawText": "These terms and conditions are governed by and construed in accordance with French law. Any disputes arising from the use of this website shall be subject to the exclusive jurisdiction of the courts of Paris, France.",
-    "lastUpdated": "Last updated: March 2026"
+    "lastUpdated": "Last updated: May 2026",
+    "cookies": "Cookies and traffic analytics",
+    "cookiesText": "Our site uses Google Analytics 4 (Google Ireland Limited) to measure traffic and improve user experience. In accordance with GDPR and CNIL guidelines, no analytics cookie is set until you have given explicit consent via the banner at the bottom of the page. \"Default-denied consent\" mode (Consent Mode v2) is applied : Google only receives aggregated and anonymized signals until you accept. You can withdraw or modify your consent at any time by clearing your browser cookies.",
+    "analyticsProvider": "Analytics processor",
+    "analyticsProviderText": "Traffic data is processed by Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Ireland). Data may be transferred to the United States under the EU-U.S. Data Privacy Framework. IP addresses are anonymized before any processing and ads_data_redaction is enabled to prevent sharing with advertisers.",
+    "hosting": "Hosting",
+    "hostingText": "The website is hosted by Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA). Database data is stored by Neon Inc. (EU region). Vercel and Neon adhere to the Data Privacy Framework principles."
   },
   "lightbox": {
     "viewer": "Image viewer",
@@ -716,6 +722,15 @@
       "title": "An error occurred",
       "defaultMessage": "Unexpected error",
       "retry": "Try again"
+    }
+  },
+  "cookies": {
+    "message": "We use Google Analytics to measure site traffic anonymously. You can accept or decline these cookies.",
+    "learnMore": "Learn more",
+    "accept": "Accept",
+    "reject": "Decline",
+    "aria": {
+      "label": "Cookie consent banner"
     }
   }
 }

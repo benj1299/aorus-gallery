@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { getLocale } from 'next-intl/server';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { CookieBanner } from '@/components/CookieBanner';
 import './globals.css';
 
 // GA Measurement ID — set via Vercel env. If absent, the GoogleAnalytics
@@ -41,6 +42,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // Google Search Console domain ownership verification (URL-prefix property
+  // method — alternative à la validation DNS). Permet à Victor de valider la
+  // propriété du site sans toucher aux DNS du registrar.
+  // Token configurable via env pour pouvoir le rotater sans toucher au code.
+  verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
+    : undefined,
 };
 
 export default async function RootLayout({
@@ -55,12 +63,10 @@ export default async function RootLayout({
 
       {/* === GA4 Consent Mode v2 ===
           RGPD-friendly default : tous les consents commencent à 'denied'.
-          GA4 reçoit alors UNIQUEMENT des "consent signals" (traffic agrégé +
-          modélisé), aucune donnée personnelle. Quand on ajoutera un cookie
-          banner, il appellera gtag('consent', 'update', { ad_storage: 'granted',
-          analytics_storage: 'granted' }) pour activer le tracking complet.
-          Tant que le banner n'est pas en place, on reste en "tracking minimal
-          conforme RGPD" — GA collecte des stats de trafic sans cookies. */}
+          Le CookieBanner ci-dessous appelle gtag('consent', 'update', ...)
+          quand l'utilisateur accepte. wait_for_update: 500ms = GA4 attend la
+          décision avant de fire les premiers events (sinon il fire en mode
+          consent-denied et on perd la session du visiteur qui accepte). */}
       {GA_ID && (
         <Script id="gtag-consent-default" strategy="beforeInteractive">
           {`
@@ -78,6 +84,10 @@ export default async function RootLayout({
         </Script>
       )}
       {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
+
+      {/* Cookie banner — RGPD-compliant. Equal-weight Accept/Reject buttons
+          (CNIL 2021). Hidden when localStorage carries a < 12-month decision. */}
+      {GA_ID && <CookieBanner />}
     </html>
   );
 }
