@@ -1,0 +1,52 @@
+schema_version: 1
+target: orus-gallery
+
+matrix:
+  web:
+    default: [chromium, firefox, webkit]
+    viewports:
+      - { w: 1440, h: 900 }
+      - { w: 768, h: 1024 }
+      - { w: 375, h: 812 }
+  mobile:
+    default: [] # Orus is web-only — no Maestro matrix
+
+routes:
+  - id: artwork-detail
+    description: "Hero artwork image must not be clipped on Safari ; cartel readable. Bug discovered 2026-05-09."
+    criticality: critical
+    web:
+      url_template: "/fr/artworks/{slug}"
+      slug_examples:
+        - halee-roth-the-power-of-blue
+        - carlos-romano-hh
+        - matthieu-scheiffer-series-iii
+      wait_for: '[data-testid="artwork-main-image"]'
+      assertions:
+        - kind: bbox-match
+          selector: '[data-testid="artwork-main-image"]'
+          tolerance_ratio: 0.05 # 5% drift max — covers minor border / shadow rounding
+
+  - id: home
+    description: "Editorial home — hero rail + featured grid"
+    criticality: high
+    web:
+      url_template: "/fr"
+      wait_for: 'main' # Refine after first run if needed
+
+  - id: artist-detail
+    description: "Artist hero portrait + biography layout"
+    criticality: high
+    web:
+      url_template: "/fr/artists/{id}"
+      id_examples:
+        - halee-roth
+        - carlos-romano
+      wait_for: 'main'
+
+  - id: about
+    description: "About page editorial layout — unified 4:5 ratios + asymmetric grid (refonte 2026-05-09)"
+    criticality: high
+    web:
+      url_template: "/fr/about"
+      wait_for: 'main'

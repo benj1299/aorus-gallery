@@ -320,6 +320,15 @@ export function ArtworkHero({
 }: ArtworkHeroProps) {
   const hasDims = !!imageWidth && !!imageHeight;
   const zone = classifyRatio(imageWidth, imageHeight);
+  // Safari does not derive width from aspect-ratio when max-height clamps height
+  // (WebKit aspect-ratio + max-height + overflow:hidden quirk → image gets cut).
+  // We translate the height cap into a width cap via the aspect ratio so the
+  // single remaining constraint is width-based; aspect-ratio then derives the
+  // correct height on every engine.
+  const ratioValue = hasDims ? imageWidth! / imageHeight! : 4 / 5;
+  const heightCap = 'min(75vh, 800px)';
+  const widthFromHeight = `calc(${heightCap} * ${ratioValue})`;
+  const widthFromMax = zone === 'extreme-wide' ? '100%' : 'min(1100px, 100%)';
 
   return (
     <motion.div
@@ -332,8 +341,7 @@ export function ArtworkHero({
       )}
       style={{
         aspectRatio: hasDims ? `${imageWidth} / ${imageHeight}` : '4 / 5',
-        maxWidth: zone === 'extreme-wide' ? '100%' : 'min(1100px, 100%)',
-        maxHeight: 'min(75vh, 800px)',
+        width: `min(${widthFromMax}, ${widthFromHeight})`,
       }}
       onClick={onClick}
       role={onClick ? 'button' : undefined}

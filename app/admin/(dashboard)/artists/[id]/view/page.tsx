@@ -20,6 +20,7 @@ export default async function ArtistViewPage({ params }: Props) {
   if (!artist) notFound();
 
   const data = {
+    id: artist.id,
     name: artist.name,
     slug: artist.slug,
     nationality: resolveTranslation(artist.nationality, 'fr'),
