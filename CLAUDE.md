@@ -42,3 +42,28 @@ curl -s https://www.orusgallery.com/fr/about | grep -q "<needle>"
 
 `<type>(orus-gallery): <description>` — type ∈ {feat, fix, chore, refactor, test, seo}.
 Description en français, scope toujours `orus-gallery`.
+
+## Git workflow
+
+**Règle absolue : ne JAMAIS commit sur `main` directement.** Toujours créer une feature branch `feat/...` ou `fix/...` depuis `origin/main` (pas local main), travailler dessus, ouvrir PR, squash-merge, puis ré-aligner local main.
+
+GitHub fait du **squash merge** (paramètre du repo). Conséquence : si tu as un commit orphelin sur local main qui n'est jamais pushé, le squash recrée ce contenu sur origin/main et local main "diverge" (chacun a un commit unique que l'autre n'a pas, ancêtre commun = avant l'orphan).
+
+### Avant chaque PR
+
+```bash
+# Repartir d'origin/main, JAMAIS de local main
+git fetch origin
+git switch -c <branch-name> origin/main
+```
+
+### Après merge d'une PR
+
+```bash
+git fetch origin --prune          # remote refs cleanup
+git switch <some-other-branch>    # quitter main si on est dessus
+git branch -f main origin/main    # ré-aligner local main (non-destructif)
+git switch main
+```
+
+Ne jamais utiliser `git reset --hard` pour résoudre la divergence — `git branch -f` suffit puisque le contenu est déjà dans le squash sur origin/main. Les commits orphelins sur local main restent dans le reflog 90 jours (récupérables si besoin).
