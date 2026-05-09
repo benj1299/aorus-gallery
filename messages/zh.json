@@ -90,6 +90,8 @@
       "eyebrow": "我們的布局",
       "title": "國際布局",
       "subtitle": "巴黎 — 台北",
+      "city1Label": "歐洲",
+      "city2Label": "亞洲",
       "text1": "ORUS Gallery 在兩座互補的文化大都市之間運營。巴黎，藝術的歷史之都，提供了通往歐洲和非洲藝術場景的特權通道。台北，東南亞的活力中心，打開了一個快速擴張的市場和一個充滿熱情且見識不凡的收藏家群體的大門。",
       "text2": "這種雙重佈局不是地理上的巧合——它是我們提案的核心。它使我們能夠在彼此陌生的藝術場景之間架起橋樑，為我們的藝術家提供真正的國際知名度，為我們的收藏家提供在別處找不到的作品。",
       "text3": "我們的展覽計劃在兩座城市之間交替進行，創造文化和觀眾之間持續的對話。"
@@ -678,6 +680,28 @@
         "artFairs": "Art Fairs",
         "residencies": "Residencies",
         "awards": "Awards & Prizes"
+      },
+      "inventory": {
+        "title": "作品庫存清單",
+        "openButton": "查看庫存",
+        "print": "列印",
+        "totalWorks": "{count, plural, =0 {沒有作品} =1 {1 件作品} other {# 件作品}}",
+        "empty": "此藝術家尚未登錄任何作品。",
+        "cols": {
+          "image": "圖片",
+          "title": "標題",
+          "year": "年份",
+          "medium": "媒材",
+          "dimensions": "尺寸",
+          "price": "價格",
+          "status": "狀態"
+        },
+        "status": {
+          "available": "可售",
+          "sold": "已售出",
+          "reserved": "已預訂",
+          "hidden": "未公開"
+        }
       }
     },
     "login": {

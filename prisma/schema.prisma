@@ -171,6 +171,7 @@ model Artwork {
   featuredHome Boolean  @default(false)
   showPrice    Boolean  @default(false)
   sold         Boolean  @default(false)
+  reserved     Boolean  @default(false)
   sortOrder    Int      @default(0)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt

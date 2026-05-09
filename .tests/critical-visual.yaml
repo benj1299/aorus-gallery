@@ -43,3 +43,10 @@ routes:
         - halee-roth
         - carlos-romano
       wait_for: 'main'
+
+  - id: about
+    description: "About page editorial layout — unified 4:5 ratios + asymmetric grid (refonte 2026-05-09)"
+    criticality: high
+    web:
+      url_template: "/fr/about"
+      wait_for: 'main'

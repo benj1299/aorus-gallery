@@ -1,46 +1,50 @@
 import { db } from '@/lib/db-typed';
 import { notFound } from 'next/navigation';
 import { resolveTranslation } from '@/lib/i18n-content';
-import { ArtistViewClient } from '@/app/admin/(dashboard)/artists/[id]/view/client';
+import { ArtistInventoryClient, type InventoryArtwork } from './inventory-client';
 
 interface Props {
   params: Promise<{ id: string }>;
 }
 
-export default async function ArtistPrintPage({ params }: Props) {
+export default async function ArtistInventoryPage({ params }: Props) {
   const { id } = await params;
   const artist = await db.artist.findUnique({
     where: { id },
     include: {
-      exhibitions: { orderBy: { sortOrder: 'asc' } },
-      collections: { orderBy: { sortOrder: 'asc' } },
-      artworks: { where: { visible: true }, orderBy: { sortOrder: 'asc' } },
+      // Inventory: ALL artworks (visible AND hidden), sorted by admin sortOrder.
+      // Counter to the public artist view which filters visible:true and slices.
+      artworks: { orderBy: { sortOrder: 'asc' } },
     },
   });
   if (!artist) notFound();
 
-  const data = {
-    name: artist.name,
-    slug: artist.slug,
-    nationality: resolveTranslation(artist.nationality, 'fr'),
-    bio: resolveTranslation(artist.bio, 'fr'),
-    imageUrl: artist.imageUrl,
-    cv: {
-      soloShows: artist.exhibitions.filter(e => e.type === 'SOLO_SHOW').map(e => resolveTranslation(e.title, 'fr')),
-      groupShows: artist.exhibitions.filter(e => e.type === 'GROUP_SHOW').map(e => resolveTranslation(e.title, 'fr')),
-      artFairs: artist.exhibitions.filter(e => e.type === 'ART_FAIR').map(e => resolveTranslation(e.title, 'fr')),
-      residencies: artist.exhibitions.filter(e => e.type === 'RESIDENCY').map(e => resolveTranslation(e.title, 'fr')),
-      awards: artist.exhibitions.filter(e => e.type === 'AWARD').map(e => resolveTranslation(e.title, 'fr')),
-    },
-    collections: artist.collections.map(c => resolveTranslation(c.title, 'fr')),
-    artworks: artist.artworks.map(aw => ({
-      title: resolveTranslation(aw.title, 'fr'),
-      medium: aw.medium ? resolveTranslation(aw.medium, 'fr') : null,
-      dimensions: aw.dimensions,
-      year: aw.year,
-      imageUrl: aw.imageUrl,
-    })),
-  };
+  const artworks: InventoryArtwork[] = artist.artworks.map((aw) => ({
+    id: aw.id,
+    slug: aw.slug,
+    title: resolveTranslation(aw.title, 'fr'),
+    year: aw.year,
+    medium: aw.medium ? resolveTranslation(aw.medium, 'fr') : null,
+    dimensions: aw.dimensions,
+    widthCm: aw.widthCm,
+    heightCm: aw.heightCm,
+    price: aw.price ? Number(aw.price) : null,
+    currency: aw.currency,
+    imageUrl: aw.imageUrl,
+    visible: aw.visible,
+    sold: aw.sold,
+    reserved: aw.reserved,
+  }));
 
-  return <ArtistViewClient artist={data} />;
+  return (
+    <ArtistInventoryClient
+      artist={{
+        id: artist.id,
+        name: artist.name,
+        slug: artist.slug,
+        nationality: resolveTranslation(artist.nationality, 'fr'),
+      }}
+      artworks={artworks}
+    />
+  );
 }

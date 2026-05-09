@@ -90,6 +90,8 @@
       "eyebrow": "Our Presence",
       "title": "An International Presence",
       "subtitle": "Paris — Taipei",
+      "city1Label": "Europe",
+      "city2Label": "Asia",
       "text1": "ORUS is engaged in an active dialogue between Europe and Asia.\nFrom Paris, the gallery maintains close relationships with artists, institutions, and key players in the European contemporary scene.",
       "text2": "In Taiwan, it develops roots within a dynamic artistic ecosystem, characterized by attentive collectors, engaged institutions, and a cultural scene open to international dialogues.",
       "text3": "This dual presence allows ORUS to circulate works, ideas, and practices between different cultural contexts."
@@ -678,6 +680,28 @@
         "artFairs": "Art Fairs",
         "residencies": "Residencies",
         "awards": "Awards & Prizes"
+      },
+      "inventory": {
+        "title": "Artwork inventory",
+        "openButton": "View inventory",
+        "print": "Print",
+        "totalWorks": "{count, plural, =0 {No artworks} =1 {1 artwork} other {# artworks}}",
+        "empty": "No artworks recorded for this artist.",
+        "cols": {
+          "image": "Image",
+          "title": "Title",
+          "year": "Year",
+          "medium": "Medium",
+          "dimensions": "Dimensions",
+          "price": "Price",
+          "status": "Status"
+        },
+        "status": {
+          "available": "Available",
+          "sold": "Sold",
+          "reserved": "Reserved",
+          "hidden": "Hidden"
+        }
       }
     },
     "login": {

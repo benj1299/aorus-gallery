@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { ArrowLeft, Printer } from 'lucide-react';
+import { ArrowLeft, Printer, Package } from 'lucide-react';
 
 interface Artwork {
   title: string;
@@ -14,6 +14,7 @@ interface Artwork {
 }
 
 interface ArtistData {
+  id?: string;
   name: string;
   slug: string;
   nationality: string;
@@ -62,13 +63,27 @@ export function ArtistViewClient({ artist }: { artist: ArtistData }) {
           <ArrowLeft className="h-4 w-4" />
           {t('backToArtists')}
         </Link>
-        <button
-          onClick={() => window.print()}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
-        >
-          <Printer className="h-4 w-4" />
-          {t('exportPdf')}
-        </button>
+        <div className="flex items-center gap-2">
+          {artist.id && (
+            <Link
+              href={`/admin/print/artist/${artist.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-50 transition-colors"
+              data-testid="open-inventory-btn"
+            >
+              <Package className="h-4 w-4" />
+              {t('inventory.openButton')}
+            </Link>
+          )}
+          <button
+            onClick={() => window.print()}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
+          >
+            <Printer className="h-4 w-4" />
+            {t('exportPdf')}
+          </button>
+        </div>
       </div>
 
       <div className="print-sheet bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { ArrowLeft, Printer } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 interface ArtworkData {
   id: string;
@@ -81,7 +81,7 @@ export function ArtworkViewClient({ artwork }: { artwork: ArtworkData }) {
         }
       `}</style>
 
-      <div className="no-print mb-6 flex items-center justify-between">
+      <div className="no-print mb-6">
         <Link
           href="/admin/artworks"
           className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
@@ -89,13 +89,6 @@ export function ArtworkViewClient({ artwork }: { artwork: ArtworkData }) {
           <ArrowLeft className="h-4 w-4" />
           {t('backToArtworks')}
         </Link>
-        <button
-          onClick={() => window.print()}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
-        >
-          <Printer className="h-4 w-4" />
-          {t('exportPdf')}
-        </button>
       </div>
 
       <div className="print-sheet bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
