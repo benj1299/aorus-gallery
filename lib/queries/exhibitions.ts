@@ -1,5 +1,6 @@
 import { db } from '@/lib/db-typed';
 import { resolveTranslation } from '@/lib/i18n-content';
+import { serializePrismaRow } from '@/lib/queries/serialize';
 import type { Locale } from '@/i18n/routing';
 
 export async function getGalleryExhibitions(locale: Locale = 'en') {
@@ -80,13 +81,14 @@ export async function getExhibitionBySlugForFrontend(slug: string, locale: Local
 }
 
 export async function getAllExhibitionsAdmin() {
-  return db.galleryExhibition.findMany({
+  const rows = await db.galleryExhibition.findMany({
     orderBy: { sortOrder: 'asc' },
     include: {
       artists: { include: { artist: { select: { name: true } } } },
       _count: { select: { artworks: true } },
     },
   });
+  return rows.map((row) => serializePrismaRow(row));
 }
 
 export async function getExhibitionById(id: string) {

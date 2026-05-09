@@ -1,5 +1,6 @@
 import { db } from '@/lib/db-typed';
 import { resolveTranslation } from '@/lib/i18n-content';
+import { serializePrismaRow } from '@/lib/queries/serialize';
 import type { Locale } from '@/i18n/routing';
 
 export async function getPressArticles(locale: Locale = 'en') {
@@ -26,9 +27,10 @@ export async function getPressArticles(locale: Locale = 'en') {
 
 /** Get all press articles for admin */
 export async function getAllPressAdmin() {
-  return db.pressArticle.findMany({
+  const rows = await db.pressArticle.findMany({
     orderBy: { publishedAt: 'desc' },
   });
+  return rows.map((row) => serializePrismaRow(row));
 }
 
 export async function getPressArticleById(id: string) {

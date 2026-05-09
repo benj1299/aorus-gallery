@@ -1,5 +1,6 @@
 import { db } from '@/lib/db-typed';
 import { resolveTranslation } from '@/lib/i18n-content';
+import { serializePrismaPage } from '@/lib/queries/serialize';
 import type { Locale } from '@/i18n/routing';
 
 /** Format CV entries with year prefix, sorted by year descending */
@@ -141,11 +142,11 @@ export async function getAllArtistsAdmin(
     db.artist.count(),
   ]);
 
-  return {
+  return serializePrismaPage({
     items: artists,
     total,
     page,
     pageSize,
     totalPages: Math.ceil(total / pageSize),
-  };
+  });
 }

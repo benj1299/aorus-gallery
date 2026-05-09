@@ -165,7 +165,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
         viewportMargin="-100px"
         container={false}
       >
-        <div className="text-center mb-20 px-6 md:px-12 lg:px-20">
+        <div className="text-center mb-20 px-4 md:px-8 lg:px-12">
           <h2 className="title-section text-noir">{t('gallery.title')}</h2>
         </div>
         {featuredArtworks.length > 0 ? (
@@ -197,7 +197,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 px-4 md:px-8 lg:px-12">
             {featuredArtists.map((artist, index) => (
               <motion.div
                 key={artist.id}

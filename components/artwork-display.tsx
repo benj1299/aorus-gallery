@@ -83,7 +83,7 @@ export function ArtworkRail({
   sizes = '(max-width: 768px) 85vw, (max-width: 1024px) 55vw, 40vw',
   linkRenderer,
   emptyState,
-  paddingClass = 'px-6 md:px-12 lg:px-20',
+  paddingClass = 'px-4 md:px-8 lg:px-12',
   dataTestId = 'artwork-rail',
 }: ArtworkRailProps) {
   if (items.length === 0) return <>{emptyState ?? null}</>;
