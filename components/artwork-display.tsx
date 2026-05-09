@@ -26,7 +26,7 @@ import { AdaptiveImage } from '@/components/ui/adaptive-image';
  *
  * When dimensions are unknown (legacy rows pre-backfill), the components fall
  * back to `aspect-[4/5]` + `object-contain` — never crop on native fit, even
- * when ratios are missing (Victor pre-launch feedback 2026-05).
+ * when ratios are missing (pre-launch feedback 2026-05).
  */
 
 // --- Shared types ---

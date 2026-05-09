@@ -67,10 +67,9 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
     <div className="flex flex-col">
       {/* ===== BLOCK 1 — HERO =====
           Watermark logo subtil (5% opacity) + texte par-dessus — version
-          "classy" demandée par Victor (2026-05-10). Le wrapping circle
-          des PRs #4/#5 a été reverté. Sur mobile, le watermark scale via
-          90vw plutôt que 60vw pour garder la même présence visuelle qu'en
-          desktop. */}
+          "classy" décidée 2026-05-10. Le wrapping circle des PRs #4/#5 a
+          été reverté. Sur mobile, le watermark scale via 110vw plutôt que
+          60vw pour garder la même présence visuelle qu'en desktop. */}
       <section className="bg-blanc min-h-screen flex items-center justify-center relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 flex items-center justify-center">

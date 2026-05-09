@@ -51,10 +51,8 @@ export default async function HomePage({ params }: Props) {
     description: 'Contemporary art gallery bridging Taipei and Paris. Origin + Us.',
     slogan: 'Origin + Us',
     email: 'info@orusgallery.com',
-    founder: {
-      '@type': 'Person',
-      name: 'Victor Jouaneau',
-    },
+    // schema.org Person identification intentionally omitted pre-launch — the
+    // gallery is presented as an institutional entity, not a personal project.
     address: [
       { '@type': 'PostalAddress', addressLocality: 'Paris', addressCountry: 'FR' },
       { '@type': 'PostalAddress', addressLocality: 'Taipei', addressCountry: 'TW' },
@@ -76,7 +74,7 @@ export default async function HomePage({ params }: Props) {
       description: 'By appointment only',
     },
     sameAs: [
-      // To be filled with Victor's social accounts
+      // To be filled with the gallery's social accounts
       // 'https://www.instagram.com/orusgallery',
       // 'https://www.artsy.net/partner/orus-gallery',
     ].filter(Boolean),
