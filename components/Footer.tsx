@@ -8,7 +8,7 @@ export function Footer() {
 
   return (
     <footer className="border-t" style={{ backgroundColor: '#FAFAFA', borderColor: '#E6E6E6' }}>
-      <div className="py-10 md:py-12 px-6 md:px-12 lg:px-20">
+      <div className="py-10 md:py-12 px-4 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto space-y-6">
           {/* Line 1 — Info */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">

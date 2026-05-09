@@ -1,5 +1,6 @@
 import { db } from '@/lib/db-typed';
 import { resolveTranslation } from '@/lib/i18n-content';
+import { serializePrismaPage } from '@/lib/queries/serialize';
 import type { Locale } from '@/i18n/routing';
 
 export async function getFeaturedArtworks(locale: Locale = 'en') {
@@ -58,16 +59,19 @@ export async function getAllArtworksAdmin(
     db.artwork.count({ where }),
   ]);
 
-  return {
-    items: artworks.map((aw) => ({
-      ...aw,
-      price: aw.price ? Number(aw.price) : null,
-    })),
+  // serializePrismaPage handles Decimal → number coercion + strips the
+  // nodejs.util.inspect.custom symbol that Prisma 7 attaches to model instances.
+  // The runtime shape has price as number; cast the type explicitly since TS
+  // can't infer through the recursive cleaner.
+  type AdminArtworkRow = Omit<(typeof artworks)[number], 'price'> & { price: number | null };
+  const page_ = serializePrismaPage({
+    items: artworks,
     total,
     page,
     pageSize,
     totalPages: Math.ceil(total / pageSize),
-  };
+  });
+  return { ...page_, items: page_.items as unknown as AdminArtworkRow[] };
 }
 
 export async function getArtworkById(id: string) {
