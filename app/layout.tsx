@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { getLocale } from 'next-intl/server';
 import { GoogleAnalytics } from '@next/third-parties/google';
-import { CookieBanner } from '@/components/CookieBanner';
 import './globals.css';
 
 // GA Measurement ID — set via Vercel env. If absent, the GoogleAnalytics
@@ -84,10 +83,9 @@ export default async function RootLayout({
         </Script>
       )}
       {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
-
-      {/* Cookie banner — RGPD-compliant. Equal-weight Accept/Reject buttons
-          (CNIL 2021). Hidden when localStorage carries a < 12-month decision. */}
-      {GA_ID && <CookieBanner />}
+      {/* CookieBanner is mounted in app/[locale]/layout.tsx (inside
+          NextIntlClientProvider) because it calls useTranslations(). Mounting
+          here, above the provider, throws "context not found" → 500. */}
     </html>
   );
 }
