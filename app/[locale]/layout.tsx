@@ -4,9 +4,12 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'sonner';
 import { cormorant, dmSans, notoSerifTC } from '@/lib/fonts';
 import { getSiteSettings } from '@/lib/queries/settings';
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -42,6 +45,11 @@ export default async function LocaleLayout({
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
           <Toaster position="bottom-right" />
+          {/* Banner is INSIDE NextIntlClientProvider — required because it uses
+              useTranslations(). When mounted in root layout (above the provider),
+              SSR throws "context not found" → 500 on every request.
+              Bug found 2026-05-09. */}
+          {GA_ID && <CookieBanner />}
         </div>
       </NextIntlClientProvider>
     </div>
