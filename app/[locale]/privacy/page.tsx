@@ -7,16 +7,31 @@ interface Props {
   params: Promise<{ locale: string }>;
 }
 
+const SECTION_KEYS = [
+  'section1',
+  'section2',
+  'section3',
+  'section4',
+  'section5',
+  'section6',
+  'section7',
+  'section8',
+  'section9',
+  'section10',
+  'section11',
+  'section12',
+] as const;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'legal' });
+  const t = await getTranslations({ locale, namespace: 'legal.privacy' });
   return {
-    title: `${t('privacyTitle')} | ORUS Gallery`,
-    description: t('privacyIntro'),
+    title: `${t('title')} | ORUS Gallery`,
+    description: t('intro1'),
     alternates: generateAlternates(locale, '/privacy'),
     openGraph: {
-      title: `${t('privacyTitle')} | ORUS Gallery`,
-      description: t('privacyIntro'),
+      title: `${t('title')} | ORUS Gallery`,
+      description: t('intro1'),
       type: 'website',
       siteName: 'ORUS Gallery',
       locale: OG_LOCALE[locale],
@@ -33,28 +48,25 @@ export default async function PrivacyPage({ params }: Props) {
 
   return (
     <div className="flex flex-col">
-      <PageHero title={t('privacyTitle')} />
+      <PageHero title={t('privacy.title')} />
       <section className="section-padding">
         <div className="container-narrow">
-          <div className="prose prose-lg text-noir/70 max-w-none space-y-8">
-            <p>{t('privacyIntro')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('dataCollection')}</h2>
-            <p>{t('dataCollectionText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('dataUse')}</h2>
-            <p>{t('dataUseText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('cookies')}</h2>
-            <p>{t('cookiesText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('analyticsProvider')}</h2>
-            <p>{t('analyticsProviderText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('hosting')}</h2>
-            <p>{t('hostingText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('dataRetention')}</h2>
-            <p>{t('dataRetentionText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('yourRights')}</h2>
-            <p>{t('yourRightsText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('contact')}</h2>
-            <p>{t('contactText')}</p>
-            <p className="text-sm text-noir/40 pt-8 border-t border-hairline mt-12">{t('lastUpdated')}</p>
+          <div className="prose prose-lg text-noir/70 max-w-none space-y-10">
+            <p className="text-base leading-relaxed">{t('privacy.intro1')}</p>
+            <p className="text-base leading-relaxed">{t('privacy.intro2')}</p>
+            {SECTION_KEYS.map((key) => (
+              <section key={key} className="space-y-4">
+                <h2 className="font-display text-2xl text-noir tracking-wide">
+                  {t(`privacy.${key}.title`)}
+                </h2>
+                <p className="whitespace-pre-line text-base leading-relaxed">
+                  {t(`privacy.${key}.body`)}
+                </p>
+              </section>
+            ))}
+            <p className="text-sm text-noir/40 pt-8 border-t border-hairline mt-12">
+              {t('lastUpdated')}
+            </p>
           </div>
         </div>
       </section>

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { getPressArticles } from '@/lib/queries/press';
 import { PressPageClient } from './client';
+import { PageHero } from '@/components/PageHero';
 import type { Locale } from '@/i18n/routing';
 import { BASE_URL, OG_LOCALE, generateAlternates } from '@/lib/seo';
 
@@ -30,7 +31,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PressPage({ params }: Props) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const articles = await getPressArticles(locale as Locale);
+
+  if (articles.length === 0) {
+    const t = await getTranslations({ locale, namespace: 'press.empty' });
+    return (
+      <div className="flex flex-col">
+        <PageHero title={t('title')} />
+        <section className="section-padding">
+          <div className="container-narrow">
+            <div className="max-w-2xl mx-auto space-y-6 text-noir/75">
+              <p className="text-base leading-relaxed">{t('intro')}</p>
+              <p>
+                <a
+                  href="mailto:press@orusgallery.com"
+                  className="text-base text-noir underline decoration-or/40 underline-offset-4 hover:decoration-or transition-colors"
+                >
+                  press@orusgallery.com
+                </a>
+              </p>
+              <p className="text-sm text-noir/55 pt-4">{t('footer')}</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   const jsonLd = {
     '@context': 'https://schema.org',
