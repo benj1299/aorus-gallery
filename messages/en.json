@@ -184,6 +184,11 @@
       "previous": "Previous article",
       "next": "Next article",
       "goToSlide": "Go to article {n}"
+    },
+    "empty": {
+      "title": "Press",
+      "intro": "For press enquiries, editorial requests, high-resolution images, artist biographies, exhibition materials or interview requests, please contact:",
+      "footer": "ORUS Gallery will respond to press and editorial requests directly."
     }
   },
   "contact": {
@@ -260,48 +265,134 @@
     "contactUs": "Contact Us"
   },
   "footer": {
-    "tagline": "Origin + Us — Where art meets identity",
-    "navigation": "Navigation",
-    "contactTitle": "Contact",
+    "gallery": {
+      "name": "ORUS Gallery",
+      "tagline": "Contemporary art gallery between Paris and Taipei."
+    },
+    "contact": {
+      "title": "Contact",
+      "appointment": "By appointment only",
+      "cities": "Taipei / Paris"
+    },
+    "press": {
+      "title": "Press"
+    },
+    "social": {
+      "title": "Social",
+      "instagram": "Instagram",
+      "handle": "@orusgallery"
+    },
     "copyright": "© 2026 ORUS Gallery",
     "privacy": "Privacy Policy",
-    "rights": "All rights reserved",
-    "appointment": "By appointment only",
-    "cities": "Taipei / Paris",
-    "terms": "Terms & Conditions",
-    "collectors": "For Collectors",
-    "pressKit": "Press Kit"
+    "terms": "Terms & Conditions"
   },
   "legal": {
-    "privacyTitle": "Privacy Policy",
-    "privacyIntro": "ORUS Gallery is committed to protecting your personal data. This policy explains how we collect, use, and protect your information when you visit our website or interact with our services.",
-    "dataCollection": "Data Collection",
-    "dataCollectionText": "We collect personal data that you voluntarily provide through our contact form, including your name, email address, message content, and communication preferences. We also collect anonymous usage data through cookies and analytics tools to improve our website.",
-    "dataUse": "Use of Data",
-    "dataUseText": "Your personal data is used solely to respond to your inquiries, send you relevant information about exhibitions and artists when requested, and improve our services. We do not sell, trade, or share your personal data with third parties without your consent, except as required by law.",
-    "dataRetention": "Data Retention",
-    "dataRetentionText": "We retain your personal data only for as long as necessary to fulfill the purposes for which it was collected, or as required by applicable law. You may request deletion of your data at any time.",
-    "yourRights": "Your Rights",
-    "yourRightsText": "In accordance with applicable data protection regulations (including GDPR), you have the right to access, rectify, delete, or port your personal data. You may also object to or restrict the processing of your data. To exercise these rights, please contact us at contact@orusgallery.com.",
-    "contact": "Contact",
-    "contactText": "For any questions regarding this privacy policy or the processing of your personal data, please contact us at contact@orusgallery.com.",
-    "termsTitle": "Terms & Conditions",
-    "termsIntro": "By accessing and using the ORUS Gallery website, you agree to be bound by these terms and conditions. Please read them carefully before using our site.",
-    "intellectualProperty": "Intellectual Property",
-    "intellectualPropertyText": "All content on this website, including images, texts, logos, and design, is the property of ORUS Gallery or its represented artists and is protected by intellectual property laws. No reproduction, distribution, or use of this content is permitted without prior written authorization.",
-    "siteUse": "Use of the Site",
-    "siteUseText": "This website is provided for informational purposes. You may browse the site and use the contact form for legitimate inquiries. Any unauthorized use, including data scraping, automated access, or attempts to compromise the site's security, is strictly prohibited.",
-    "liability": "Limitation of Liability",
-    "liabilityText": "ORUS Gallery makes every effort to ensure the accuracy of information on this website but cannot guarantee it is complete or up-to-date. The gallery shall not be held liable for any direct or indirect damages arising from the use of this website.",
-    "governingLaw": "Governing Law",
-    "governingLawText": "These terms and conditions are governed by and construed in accordance with French law. Any disputes arising from the use of this website shall be subject to the exclusive jurisdiction of the courts of Paris, France.",
-    "lastUpdated": "Last updated: May 2026",
-    "cookies": "Cookies and traffic analytics",
-    "cookiesText": "Our site uses Google Analytics 4 (Google Ireland Limited) to measure traffic and improve user experience. In accordance with GDPR and CNIL guidelines, no analytics cookie is set until you have given explicit consent via the banner at the bottom of the page. \"Default-denied consent\" mode (Consent Mode v2) is applied : Google only receives aggregated and anonymized signals until you accept. You can withdraw or modify your consent at any time by clearing your browser cookies.",
-    "analyticsProvider": "Analytics processor",
-    "analyticsProviderText": "Traffic data is processed by Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Ireland). Data may be transferred to the United States under the EU-U.S. Data Privacy Framework. IP addresses are anonymized before any processing and ads_data_redaction is enabled to prevent sharing with advertisers.",
-    "hosting": "Hosting",
-    "hostingText": "The website is hosted by Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA). Database data is stored by Neon Inc. (EU region). Vercel and Neon adhere to the Data Privacy Framework principles."
+    "lastUpdated": "Last updated: 2026",
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro1": "ORUS Gallery is committed to protecting the privacy and personal data of visitors to its website.",
+      "intro2": "This Privacy Policy explains how personal data may be collected, used, stored and protected when using the ORUS Gallery website or contacting the gallery.",
+      "section1": {
+        "title": "1. Data Controller",
+        "body": "The data controller is ORUS Gallery.\nFor any question regarding this Privacy Policy or the processing of personal data, please contact: contact@orusgallery.com"
+      },
+      "section2": {
+        "title": "2. Personal Data Collected",
+        "body": "ORUS Gallery may collect personal data voluntarily provided by users, including:\n• name;\n• email address;\n• message content;\n• professional or institutional affiliation, when provided;\n• communication preferences;\n• any information submitted through the contact form or by email.\nThe website may also collect limited technical data, such as browsing information, device type, browser type, language preferences and anonymous usage data, where applicable."
+      },
+      "section3": {
+        "title": "3. Purpose of Data Processing",
+        "body": "Personal data may be used for the following purposes:\n• responding to enquiries sent through the website or by email;\n• managing communication with collectors, artists, institutions, press representatives and other professional contacts;\n• providing information about exhibitions, artists, projects or gallery activities, when requested;\n• improving the website and user experience;\n• ensuring the security, maintenance and proper functioning of the website;\n• complying with legal or regulatory obligations where applicable.\nORUS Gallery does not sell personal data."
+      },
+      "section4": {
+        "title": "4. Legal Basis",
+        "body": "Personal data is processed only where there is a lawful basis to do so, including:\n• the user's consent, when information is submitted voluntarily;\n• the legitimate interest of ORUS Gallery in responding to enquiries and managing professional relationships;\n• compliance with legal obligations where applicable."
+      },
+      "section5": {
+        "title": "5. Cookies and Analytics",
+        "body": "The ORUS Gallery website may use cookies or similar technologies to ensure the proper functioning of the site, improve navigation and analyse website traffic.\nWhere required by applicable law, users will be informed and asked to provide consent before non-essential cookies are placed on their device.\nUsers may manage or disable cookies through their browser settings. Disabling certain cookies may affect the functionality of the website."
+      },
+      "section6": {
+        "title": "6. Data Retention",
+        "body": "Personal data is retained only for as long as necessary for the purposes for which it was collected.\nMessages and contact requests may be kept for the duration necessary to manage the relationship with the user, and generally for no longer than three years after the last contact, unless a longer retention period is required by law."
+      },
+      "section7": {
+        "title": "7. Data Sharing",
+        "body": "Personal data may be accessed only by authorised persons or service providers acting on behalf of ORUS Gallery, strictly where necessary for the operation of the website, communication, hosting, technical maintenance or email services.\nORUS Gallery does not sell, rent or trade personal data with third parties."
+      },
+      "section8": {
+        "title": "8. International Transfers",
+        "body": "As ORUS Gallery operates in an international context, certain technical or communication services may involve the transfer of personal data outside the European Economic Area.\nWhere such transfers occur, ORUS Gallery takes reasonable steps to ensure that appropriate safeguards are in place in accordance with applicable data protection laws."
+      },
+      "section9": {
+        "title": "9. Data Security",
+        "body": "ORUS Gallery takes reasonable technical and organisational measures to protect personal data against unauthorised access, alteration, disclosure, loss or destruction.\nHowever, no method of transmission over the Internet or electronic storage is completely secure. ORUS Gallery cannot guarantee absolute security."
+      },
+      "section10": {
+        "title": "10. User Rights",
+        "body": "In accordance with applicable data protection regulations, including the GDPR where applicable, users may have the right to:\n• access their personal data;\n• request correction of inaccurate data;\n• request deletion of their data;\n• object to certain processing;\n• request restriction of processing;\n• request data portability, where applicable;\n• withdraw consent at any time, where processing is based on consent.\nTo exercise these rights, users may contact: contact@orusgallery.com\nUsers also have the right to lodge a complaint with the competent data protection authority."
+      },
+      "section11": {
+        "title": "11. External Links",
+        "body": "The ORUS Gallery website may contain links to external websites or third-party platforms.\nORUS Gallery is not responsible for the privacy practices, content or policies of those external websites."
+      },
+      "section12": {
+        "title": "12. Updates to this Privacy Policy",
+        "body": "ORUS Gallery may update this Privacy Policy from time to time to reflect changes in legal, technical or operational requirements.\nThe latest version will always be available on this page."
+      }
+    },
+    "terms": {
+      "title": "Terms & Conditions",
+      "intro1": "By accessing and using the ORUS Gallery website, you agree to the following Terms & Conditions. Please read them carefully before using the site.",
+      "section1": {
+        "title": "1. Purpose of the Website",
+        "body": "The ORUS Gallery website is intended to present the gallery, its artists, exhibitions, projects, editorial content and related information.\nThe website is provided for informational and communication purposes only. Nothing on this website shall be considered as a binding offer, contract, sale agreement or guarantee of availability.\nAny request concerning an artwork, exhibition, artist, press material or collaboration must be addressed directly to ORUS Gallery."
+      },
+      "section2": {
+        "title": "2. Intellectual Property",
+        "body": "All content displayed on this website, including but not limited to artworks, images, texts, logos, graphic elements, design, layout, videos, documents and visual identity, is protected by intellectual property laws.\nSuch content is the property of ORUS Gallery, its artists, photographers, authors, partners or respective rights holders.\nNo content from this website may be copied, reproduced, downloaded, distributed, modified, published, transmitted, displayed, used for commercial purposes or otherwise exploited without prior written authorization from ORUS Gallery or the relevant rights holder.\nAny unauthorized use of the content may constitute an infringement of intellectual property rights."
+      },
+      "section3": {
+        "title": "3. Artwork Images and Rights",
+        "body": "Images of artworks displayed on the website are provided for presentation and informational purposes only.\nThe display of an artwork on the ORUS Gallery website does not grant any license, transfer of rights, authorization of reproduction or commercial use.\nAny request to reproduce, publish, share or use an image of an artwork must be submitted in writing to ORUS Gallery."
+      },
+      "section4": {
+        "title": "4. Use of the Website",
+        "body": "Users agree to use the website lawfully and respectfully.\nIt is strictly prohibited to:\n• use the website for unlawful, fraudulent or harmful purposes;\n• attempt to interfere with the proper functioning or security of the website;\n• use automated systems, bots, scraping tools or data extraction methods without authorization;\n• copy, extract or reuse website content without permission;\n• upload, transmit or submit any harmful, offensive, misleading or unlawful content;\n• attempt to gain unauthorized access to the website, servers or related systems.\nORUS Gallery reserves the right to take any appropriate action in the event of misuse of the website."
+      },
+      "section5": {
+        "title": "5. Information on Artworks and Availability",
+        "body": "ORUS Gallery makes reasonable efforts to ensure that information presented on the website is accurate and up to date.\nHowever, information relating to artworks, including titles, dates, mediums, dimensions, availability, prices, provenance, exhibitions or related details, may change without prior notice.\nThe presence of an artwork on the website does not guarantee that it is available for sale.\nAll artwork enquiries, prices, reservations, sales conditions, transport arrangements and related matters are subject to direct confirmation by ORUS Gallery."
+      },
+      "section6": {
+        "title": "6. No Online Sales Contract",
+        "body": "Unless expressly stated otherwise, the ORUS Gallery website does not constitute an online sales platform.\nAny sale, reservation or acquisition of an artwork is subject to a separate written agreement, invoice or confirmation issued directly by ORUS Gallery.\nNo transaction shall be considered final until formally confirmed by ORUS Gallery."
+      },
+      "section7": {
+        "title": "7. External Links",
+        "body": "The website may contain links to external websites, social media platforms or third-party services.\nORUS Gallery is not responsible for the content, accuracy, availability, privacy practices or policies of external websites.\nAccessing third-party websites is done at the user's own risk."
+      },
+      "section8": {
+        "title": "8. Limitation of Liability",
+        "body": "ORUS Gallery makes reasonable efforts to maintain access to the website and ensure the accuracy of its content.\nHowever, ORUS Gallery does not guarantee that the website will be uninterrupted, error-free, secure or permanently available.\nORUS Gallery shall not be held liable for any direct or indirect damage resulting from:\n• access to or use of the website;\n• temporary unavailability of the website;\n• inaccuracies, omissions or errors in the information displayed;\n• technical issues, viruses, bugs or security incidents;\n• use of external links or third-party services.\nUsers remain responsible for their own use of the website and for taking appropriate measures to protect their devices and data."
+      },
+      "section9": {
+        "title": "9. Privacy and Personal Data",
+        "body": "The processing of personal data is governed by the ORUS Gallery Privacy Policy.\nUsers are invited to consult the Privacy Policy for further information on how personal data may be collected, used, stored and protected."
+      },
+      "section10": {
+        "title": "10. Modification of the Terms",
+        "body": "ORUS Gallery may update or modify these Terms & Conditions at any time, in order to reflect changes in the website, legal requirements or gallery operations.\nThe latest version will always be available on this page.\nContinued use of the website after any update constitutes acceptance of the revised Terms & Conditions."
+      },
+      "section11": {
+        "title": "11. Governing Law",
+        "body": "These Terms & Conditions are governed by French law, unless otherwise required by mandatory applicable local regulations.\nAny dispute relating to the use of the website shall be subject to the competent courts of France, unless otherwise required by applicable law."
+      },
+      "section12": {
+        "title": "12. Contact",
+        "body": "For any question regarding these Terms & Conditions, please contact: contact@orusgallery.com"
+      }
+    }
   },
   "lightbox": {
     "viewer": "Image viewer",
@@ -318,73 +409,6 @@
     "title": "Page not found",
     "description": "The page you are looking for does not exist or has been moved.",
     "backHome": "Back to home"
-  },
-  "collectors": {
-    "metaDescription": "ORUS Gallery provides a discreet, rigorous art advisory for collectors building international contemporary art collections between Paris and Taipei.",
-    "eyebrow": "For Collectors",
-    "title": "A Relationship Over Time",
-    "intro": "At ORUS Gallery, we don't sell artworks. We help build collections that hold a line. Each recommendation is made with the collector's journey and the artist's trajectory in mind.",
-    "advisory": {
-      "title": "Private Advisory",
-      "text": "Personalised guidance from initial conversations to long-term collection strategy. Acquisition, provenance, framing, shipping, and archive management."
-    },
-    "curation": {
-      "title": "Curatorial Intent",
-      "text": "We only work with artists whose practice holds coherence beyond trends. Each work we propose fits a precise place within a collection's narrative."
-    },
-    "access": {
-      "title": "Exclusive Access",
-      "text": "Preview of new works before public release, invitations to studio visits, and introductions to artists during fairs in Paris and Taipei."
-    },
-    "approach": {
-      "eyebrow": "Our Approach",
-      "title": "Coherence is not displayed. It is built.",
-      "text1": "We take the time to understand what moves a collector — the questions, the references, the sensibilities. Only then do we propose works that resonate with both the collector's gaze and the artists we trust.",
-      "text2": "A collection built with ORUS is not an accumulation of pieces. It is a held line, year after year, between cultures, between generations, between silences."
-    },
-    "cta": {
-      "title": "Begin a Conversation",
-      "text": "Every collection we help build starts with a first exchange. Share what you are drawn to, and we will take it from there.",
-      "button": "Contact Us"
-    }
-  },
-  "pressKit": {
-    "metaDescription": "Official press kit for ORUS Gallery — contemporary art gallery between Taipei and Paris. Download the logo, read the press release, and get in touch.",
-    "eyebrow": "Press Kit",
-    "title": "ORUS Gallery",
-    "intro": "Active between Taipei and Paris, ORUS Gallery represents a selection of international contemporary artists whose practice explores intimacy, memory, and identity.",
-    "about": {
-      "eyebrow": "About",
-      "title": "Origin + Us",
-      "text1": "ORUS Gallery was founded on a conviction: that the most intimate art is also the most universal. Based between Taipei and Paris, we build bridges between Asian and Western contemporary art scenes.",
-      "text2": "The gallery works with a deliberately small number of artists. Each work presented is part of a strong, coherent practice capable of engaging with different cultural contexts.",
-      "text3": "ORUS Gallery deploys an international curatorial vision shaped by expertise from auction houses, Parisian galleries, and the emerging Asian art market."
-    },
-    "facts": {
-      "founded": "Founded",
-      "locations": "Locations",
-      "artists": "Artists",
-      "continents": "Continents"
-    },
-    "assets": {
-      "eyebrow": "Downloads",
-      "title": "Media Assets",
-      "download": "Download",
-      "logo": {
-        "title": "Logo",
-        "description": "High-resolution logo for editorial use"
-      },
-      "colors": {
-        "title": "Brand Colors",
-        "description": "Official palette for design and editorial"
-      }
-    },
-    "contact": {
-      "eyebrow": "Press Contact",
-      "title": "For Editorial Inquiries",
-      "text": "For interview requests, high-resolution images, artist bios, or exhibition coverage, please reach our press team directly.",
-      "button": "General Contact"
-    }
   },
   "admin": {
     "nav": {

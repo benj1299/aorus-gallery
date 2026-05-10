@@ -7,16 +7,31 @@ interface Props {
   params: Promise<{ locale: string }>;
 }
 
+const SECTION_KEYS = [
+  'section1',
+  'section2',
+  'section3',
+  'section4',
+  'section5',
+  'section6',
+  'section7',
+  'section8',
+  'section9',
+  'section10',
+  'section11',
+  'section12',
+] as const;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'legal' });
+  const t = await getTranslations({ locale, namespace: 'legal.terms' });
   return {
-    title: `${t('termsTitle')} | ORUS Gallery`,
-    description: t('termsIntro'),
+    title: `${t('title')} | ORUS Gallery`,
+    description: t('intro1'),
     alternates: generateAlternates(locale, '/terms'),
     openGraph: {
-      title: `${t('termsTitle')} | ORUS Gallery`,
-      description: t('termsIntro'),
+      title: `${t('title')} | ORUS Gallery`,
+      description: t('intro1'),
       type: 'website',
       siteName: 'ORUS Gallery',
       locale: OG_LOCALE[locale],
@@ -33,22 +48,24 @@ export default async function TermsPage({ params }: Props) {
 
   return (
     <div className="flex flex-col">
-      <PageHero title={t('termsTitle')} />
+      <PageHero title={t('terms.title')} />
       <section className="section-padding">
         <div className="container-narrow">
-          <div className="prose prose-lg text-noir/70 max-w-none space-y-8">
-            <p>{t('termsIntro')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('intellectualProperty')}</h2>
-            <p>{t('intellectualPropertyText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('siteUse')}</h2>
-            <p>{t('siteUseText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('liability')}</h2>
-            <p>{t('liabilityText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('governingLaw')}</h2>
-            <p>{t('governingLawText')}</p>
-            <h2 className="font-display text-2xl text-noir tracking-wide">{t('contact')}</h2>
-            <p>{t('contactText')}</p>
-            <p className="text-sm text-noir/40 pt-8 border-t border-hairline mt-12">{t('lastUpdated')}</p>
+          <div className="prose prose-lg text-noir/70 max-w-none space-y-10">
+            <p className="text-base leading-relaxed">{t('terms.intro1')}</p>
+            {SECTION_KEYS.map((key) => (
+              <section key={key} className="space-y-4">
+                <h2 className="font-display text-2xl text-noir tracking-wide">
+                  {t(`terms.${key}.title`)}
+                </h2>
+                <p className="whitespace-pre-line text-base leading-relaxed">
+                  {t(`terms.${key}.body`)}
+                </p>
+              </section>
+            ))}
+            <p className="text-sm text-noir/40 pt-8 border-t border-hairline mt-12">
+              {t('lastUpdated')}
+            </p>
           </div>
         </div>
       </section>
