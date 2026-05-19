@@ -32,6 +32,7 @@ interface ArtworkFormProps {
     featuredHome?: boolean;
     showPrice?: boolean;
     sold?: boolean;
+    reserved?: boolean;
   };
 }
 
@@ -129,6 +130,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
             <FormSwitch name="featuredHome" label={t('forms.featuredHome')} defaultChecked={defaultValues.featuredHome ?? false} />
             <FormSwitch name="showPrice" label={t('forms.showPrice')} defaultChecked={defaultValues.showPrice ?? false} />
             <FormSwitch name="sold" label={t('forms.sold')} defaultChecked={defaultValues.sold ?? false} />
+            <FormSwitch name="reserved" label={t('forms.reserved')} defaultChecked={defaultValues.reserved ?? false} />
           </div>
       </FormCard>
 

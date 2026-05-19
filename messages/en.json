@@ -473,6 +473,7 @@
       "featuredHome": "Featured on homepage",
       "showPrice": "Show price",
       "sold": "Sold",
+      "reserved": "Reserved",
       "sortOrder": "Sort order",
       "image": "Image",
       "imageRequired": "Image required",
@@ -573,7 +574,8 @@
         "visible": "Visible",
         "featured": "Featured",
         "price": "Price",
-        "sold": "Sold"
+        "sold": "Sold",
+        "reserved": "Reserved"
       }
     },
     "exhibitions": {
