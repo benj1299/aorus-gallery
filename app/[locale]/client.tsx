@@ -66,19 +66,20 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
   return (
     <div className="flex flex-col">
       {/* ===== BLOCK 1 — HERO =====
-          Watermark logo subtil (5% opacity) + texte par-dessus — version
-          "classy" décidée 2026-05-10. Le wrapping circle des PRs #4/#5 a
-          été reverté. Sur mobile, le watermark scale via 110vw plutôt que
-          60vw pour garder la même présence visuelle qu'en desktop. */}
+          Watermark logo subtil (5% opacity) + texte par-dessus. Sizing via
+          clamp() fluide pour éviter les sauts brutaux aux breakpoints
+          Tailwind 640/768px lors d'un resize desktop (feedback Victor
+          2026-05-19). clamp(360px, 60vw, 720px) = min 360px (lisible
+          mobile), 60vw fluide intermédiaire, 720px max desktop large. */}
       <section className="bg-blanc min-h-screen flex items-center justify-center relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 flex items-center justify-center">
             <Image
               src="/images/gallery/logo.jpeg"
               alt=""
-              width={700}
-              height={700}
-              className="w-[110vw] sm:w-[70vw] md:w-[60vw] max-w-[700px] opacity-[0.05]"
+              width={720}
+              height={720}
+              className="w-[clamp(360px,60vw,720px)] h-auto opacity-[0.05]"
               aria-hidden="true"
               priority
             />
