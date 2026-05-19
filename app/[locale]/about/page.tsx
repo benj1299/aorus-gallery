@@ -39,12 +39,12 @@ export default function AboutPage() {
               className="aspect-[16/9] lg:aspect-[4/3] relative overflow-hidden"
             >
               <Image
-                src="/images/gallery/vision-artwork.jpeg"
-                alt="Contemporary artwork in gallery setting"
+                src="/images/gallery/vision-artwork-v2.jpg"
+                alt="Visiteuse contemplant une œuvre contemporaine dans l'espace de la galerie"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
-                style={{ objectPosition: 'center 30%' }}
+                style={{ objectPosition: 'center center' }}
               />
             </motion.div>
             <motion.div
