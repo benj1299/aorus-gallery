@@ -1,7 +1,25 @@
 @import "tailwindcss";
 @import "shadcn/tailwind.css";
 
+/* Variant `dark:` Tailwind v4 ne s'active que si un ancêtre `.dark` existe.
+ * Aucun composant n'ajoute cette classe (pas de next-themes, pas de toggle
+ * thème) donc le variant reste dormant. Override par défaut Tailwind v4
+ * (qui serait `@media (prefers-color-scheme: dark)` → activerait le mode
+ * sombre automatique non désiré). */
 @custom-variant dark (&:is(.dark *));
+
+/* Force light mode UA controls (inputs, autofill, scrollbars, date pickers,
+ * native dialogs, mobile browser chrome). Sans color-scheme explicite,
+ * Safari/Chrome/Firefox appliquent les prefs OS dark sur les éléments
+ * natifs → l'admin et les formulaires apparaissent en gris foncé pour les
+ * utilisateurs dont le système est en dark mode. Le site ORUS est
+ * designed light-only. Feedback Victor 2026-05-19. */
+:root {
+  color-scheme: light;
+}
+html {
+  color-scheme: light;
+}
 
 /* ORUS Gallery Design System v4 - Paper & Jade
  * Base: Noir / Blanc (Paper) / Jade accent

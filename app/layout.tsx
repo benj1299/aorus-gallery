@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { getLocale } from 'next-intl/server';
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -7,6 +7,15 @@ import './globals.css';
 // GA Measurement ID — set via Vercel env. If absent, the GoogleAnalytics
 // component is not rendered (no script load, no PII leakage).
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
+// Force light mode partout (UA controls + mobile browser chrome status bar).
+// Le site est designed light-only ; sans ces déclarations Safari iOS / Chrome
+// Android tintent automatiquement la status bar et les inputs selon les
+// prefs OS dark. Feedback Victor 2026-05-19.
+export const viewport: Viewport = {
+  themeColor: '#FAFAFA',
+  colorScheme: 'light',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.orusgallery.com'),
