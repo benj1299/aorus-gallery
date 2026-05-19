@@ -50,6 +50,7 @@ export default async function EditArtworkPage({ params }: Props) {
           featuredHome: artwork.featuredHome,
           showPrice: artwork.showPrice,
           sold: artwork.sold,
+          reserved: artwork.reserved,
         }}
       />
     </div>

@@ -473,6 +473,7 @@
       "featuredHome": "En avant sur l'accueil",
       "showPrice": "Afficher le prix",
       "sold": "Vendu",
+      "reserved": "Réservée",
       "sortOrder": "Ordre d'affichage",
       "image": "Image",
       "imageRequired": "Image requise",
@@ -573,7 +574,8 @@
         "visible": "Visible",
         "featured": "En avant",
         "price": "Prix",
-        "sold": "Vendu"
+        "sold": "Vendu",
+        "reserved": "Réservée"
       }
     },
     "exhibitions": {

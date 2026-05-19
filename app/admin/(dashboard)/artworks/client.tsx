@@ -24,6 +24,7 @@ type Artwork = {
   featuredHome: boolean;
   showPrice: boolean;
   sold: boolean;
+  reserved: boolean;
   artistId: string;
   artist: { name: string; slug: string };
 };
@@ -108,6 +109,7 @@ export function ArtworksListClient({
           <QuickToggle id={aw.id} field="featuredHome" checked={aw.featuredHome} action={toggleArtworkField} label={t('artworks.toggles.featured')} />
           <QuickToggle id={aw.id} field="showPrice" checked={aw.showPrice} action={toggleArtworkField} label={t('artworks.toggles.price')} />
           <QuickToggle id={aw.id} field="sold" checked={aw.sold} action={toggleArtworkField} label={t('artworks.toggles.sold')} />
+          <QuickToggle id={aw.id} field="reserved" checked={aw.reserved} action={toggleArtworkField} label={t('artworks.toggles.reserved')} />
         </div>
       ),
     },

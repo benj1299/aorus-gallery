@@ -473,6 +473,7 @@
       "featuredHome": "首頁推薦",
       "showPrice": "顯示價格",
       "sold": "已售出",
+      "reserved": "已預約",
       "sortOrder": "排序",
       "image": "圖片",
       "imageRequired": "必須上傳圖片",
@@ -573,7 +574,8 @@
         "visible": "顯示",
         "featured": "推薦",
         "price": "價格",
-        "sold": "已售出"
+        "sold": "已售出",
+        "reserved": "已預約"
       }
     },
     "exhibitions": {

@@ -28,6 +28,7 @@ const artworkSchema = z.object({
   featuredHome: booleanFromString.default(false),
   showPrice: booleanFromString.default(false),
   sold: booleanFromString.default(false),
+  reserved: booleanFromString.default(false),
 });
 
 export async function createArtwork(formData: FormData): Promise<{ error: string } | void> {
@@ -52,6 +53,7 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
     featuredHome: formData.get('featuredHome')?.toString() ?? 'false',
     showPrice: formData.get('showPrice')?.toString() ?? 'false',
     sold: formData.get('sold')?.toString() ?? 'false',
+    reserved: formData.get('reserved')?.toString() ?? 'false',
   };
   const parsed = parseFormData(artworkSchema, raw);
   if (!parsed.success) return { error: parsed.error };
@@ -122,6 +124,7 @@ export async function updateArtwork(id: string, formData: FormData): Promise<{ e
     featuredHome: formData.get('featuredHome')?.toString() ?? 'false',
     showPrice: formData.get('showPrice')?.toString() ?? 'false',
     sold: formData.get('sold')?.toString() ?? 'false',
+    reserved: formData.get('reserved')?.toString() ?? 'false',
   };
   const parsed = parseFormData(artworkSchema, raw);
   if (!parsed.success) return { error: parsed.error };
@@ -178,9 +181,9 @@ export async function deleteArtwork(id: string): Promise<{ error: string } | voi
   revalidateEntity('/admin/artworks', ['/artists', '']);
 }
 
-const ARTWORK_TOGGLE_FIELDS = ['visible', 'featuredHome', 'showPrice', 'sold'] as const;
+const ARTWORK_TOGGLE_FIELDS = ['visible', 'featuredHome', 'showPrice', 'sold', 'reserved'] as const;
 
-export async function toggleArtworkField(id: string, field: 'visible' | 'featuredHome' | 'showPrice' | 'sold'): Promise<{ error: string } | void> {
+export async function toggleArtworkField(id: string, field: 'visible' | 'featuredHome' | 'showPrice' | 'sold' | 'reserved'): Promise<{ error: string } | void> {
   await requireAuth();
   if (!(ARTWORK_TOGGLE_FIELDS as readonly string[]).includes(field)) throw new Error('Invalid field');
   const current = await db.artwork.findUnique({ where: { id }, select: { [field]: true } });
