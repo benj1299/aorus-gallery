@@ -715,6 +715,7 @@
         "title": "Artwork inventory",
         "openButton": "View inventory",
         "print": "Print",
+        "downloadPdf": "Download PDF",
         "totalWorks": "{count, plural, =0 {No artworks} =1 {1 artwork} other {# artworks}}",
         "empty": "No artworks recorded for this artist.",
         "cols": {
