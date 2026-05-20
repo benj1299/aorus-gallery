@@ -1,0 +1,5739 @@
+{
+  "metadata": {
+    "generatedAt": "2026-05-20T17:29:11.406Z",
+    "databaseUrl": "postgresql://***@ep-polished-band-an39b4ba-pooler.c-6.us-east-1.aws.neon.tech/neondb?sslmode=require",
+    "entityCount": 307
+  },
+  "entities": [
+    {
+      "ref": "artist:cmn3sdtk4000gag9k8lrf86k5",
+      "model": "artist",
+      "id": "cmn3sdtk4000gag9k8lrf86k5",
+      "label": "Carlos Romano",
+      "fields": {
+        "nationality": {
+          "en": "Angola",
+          "fr": "Angola",
+          "zh": "Angola"
+        },
+        "bio": {
+          "en": "<p>Carlos Romano develops a transdisciplinary practice across painting, sculpture, music, dance, poetry, philosophy, and writing. Through these different languages, he explores human emotions, the memory of the body, and the African heritages that shape his imagination.</p><p>In painting and sculpture, Romano unfolds a singular expressive figuration, where bodies seem to carry inner states rather than fixed identities. Presence, vulnerability, spirituality, and movement meet in a constant tension between strength and fragility.</p><p>Rhythm is central to his work. Nourished by African musicalities and folklore, from East Africa to Mali and Senegal, as well as by modern and urban languages, his practice creates a dialogue between image, sound, gesture, and thought.</p><p>Through his project <strong>Afrophilia</strong>, Romano questions African identity, love, existence, and the deeper structures of human experience. His work approaches intimacy as a universal language, where the body becomes a space of memory, transmission, and transformation.</p>",
+          "fr": "<p>Carlos Romano développe une pratique transdisciplinaire à la croisée de la peinture, de la sculpture, de la musique, de la danse, de la poésie, de la philosophie et de l’écriture. À travers ces différents langages, il explore les émotions humaines, la mémoire du corps et les héritages africains qui traversent son imaginaire.</p><p>Dans sa peinture et sa sculpture, Romano déploie une figuration expressive et singulière, où les corps semblent porter des états intérieurs plus que des identités fixes. Présence, vulnérabilité, spiritualité et mouvement s’y rencontrent dans une tension constante entre force et fragilité.</p><p>Son rapport au rythme est central. Nourrie par les musicalités et les folklores d’Afrique de l’Est, du Mali et du Sénégal, mais aussi par les langages modernes et urbains, son œuvre fait dialoguer image, son, geste et pensée.</p><p>À travers son projet <strong>Afrophilia</strong>, Romano interroge l’identité africaine, l’amour, l’existence et les structures profondes de l’expérience humaine. Son travail s’inscrit dans une approche de l’intimité comme langage universel, où le corps devient un espace de mémoire, de transmission et de transformation.</p>",
+          "zh": "<p>卡洛斯・羅馬諾發展出一種跨學科的創作實踐，橫跨繪畫、雕塑、音樂、舞蹈、詩歌、哲學與寫作。透過這些不同的語言，他探索人類情感、身體記憶，以及塑造其想像的非洲文化傳承。</p><p>在繪畫與雕塑中，羅馬諾展開一種獨特而富有表現力的具象語言。他筆下的身體承載的並非固定身份，而更像是內在狀態：存在、脆弱、精神性與動勢，在力量與易碎之間持續交會。</p><p>節奏在他的創作中佔據核心位置。受到非洲音樂性與民俗傳統的滋養，從東非到馬利與塞內加爾，並結合現代與都市語彙，他的作品使影像、聲音、姿態與思想彼此對話。</p><p>透過 <strong>Afrophilia</strong> 項目，羅馬諾探問非洲身份、愛、存在，以及形塑人類經驗的深層結構。他的創作將親密性視為一種普世語言，使身體成為記憶、傳遞與轉化的空間。</p>"
+        }
+      },
+      "policy": {
+        "nationality": "translate",
+        "bio": "skip"
+      }
+    },
+    {
+      "ref": "artist:cmn3seal9001cag9kbc311i74",
+      "model": "artist",
+      "id": "cmn3seal9001cag9kbc311i74",
+      "label": "Ewa Goral",
+      "fields": {
+        "nationality": {
+          "en": "Poland",
+          "fr": "Pologne",
+          "zh": ""
+        },
+        "bio": {
+          "en": "<p>Ewa Goral was born in 1984 in Tychy, Poland. She studied painting at the Academy of Fine Arts in Krakow before pursuing an independent artistic path.</p><p>For more than a decade, her work has explored the relationship between humanity and the natural world. Plants, seeds, flowers, and hybrid organisms appear not as botanical motifs, but as fragments of an inner landscape. Through non-anthropocentric forms, Goral creates ambiguous micro-worlds, suspended between observation and imagination, organic reality and fiction.</p><p>Her practice is deeply attentive to matter, process, and transformation. Natural pigments, recycled canvases, and collected materials extend her reflection on cycles, ecology, and the fragile balance of living systems. Rather than representing nature directly, her work questions what the living world absorbs, preserves, and reveals.</p><p>In Goral’s paintings, the vegetal becomes an intimate language: a space of memory, metamorphosis, and silent resistance. Her work approaches intimacy as a universal language, giving form to worlds where life unfolds beyond the human gaze, in all its fragile and unsettling beauty.</p>",
+          "fr": "<p>Ewa Goral est née en 1984 à Tychy, en Pologne. Elle vit et travaille à Varsovie. Après avoir étudié la peinture à l’Académie des beaux-arts de Cracovie, elle poursuit une trajectoire indépendante, développant une œuvre profondément liée au monde végétal, à la biodiversité et aux formes non humaines du vivant.</p><p>Depuis plus d’une décennie, sa peinture explore la relation entre l’humain et la nature. Plantes, graines, fleurs et organismes hybrides y apparaissent moins comme des motifs botaniques que comme les fragments d’un monde intérieur. À travers des formes non anthropocentrées, Goral compose des microcosmes ambigus, situés entre observation, imagination, réalité organique et fiction.</p><p>Sa pratique accorde une place essentielle à la matière et au processus. Certaines œuvres intègrent des pigments naturels, des toiles recyclées ou des matériaux collectés, prolongeant sa réflexion sur les cycles, la transformation et la fragilité des écosystèmes. Loin d’une simple représentation de la nature, son travail interroge ce que le vivant conserve, absorbe et révèle.</p><p>Chez Ewa Goral, le végétal devient un langage intime : un espace de mémoire, de métamorphose et de résistance silencieuse. Sa peinture résonne avec une approche de l’intimité comme langage universel, en donnant forme à des mondes où la vie se déploie hors du regard humain, dans toute sa beauté trouble et fragile.</p>",
+          "zh": "<p>伊娃・戈拉爾 1984 年出生於波蘭蒂黑。她曾於克拉科夫美術學院學習繪畫，之後展開獨立的藝術創作道路。</p><p>十多年來，她的作品持續探索人類與自然世界之間的關係。植物、種子、花卉與混合性的有機形態，在她的畫面中並不只是植物學式的圖像，而更像是內在風景的碎片。透過非人類中心的形式，戈拉爾創造出曖昧的微型世界，介於觀察與想像、有機現實與虛構之間。</p><p>她的創作特別重視材料、過程與轉化。天然顏料、回收畫布與被採集的材料，延伸了她對循環、生態以及生命系統脆弱平衡的思考。她並不直接再現自然，而是探問生命世界如何吸收、保存並揭示自身的痕跡。</p><p>在戈拉爾的繪畫中，植物成為一種親密的語言：一個關於記憶、變形與靜默抵抗的空間。她的作品將親密性視為一種普世語言，呈現出那些在人類視線之外悄然展開的生命世界，以及其中脆弱而令人不安的美。</p>"
+        }
+      },
+      "policy": {
+        "nationality": "translate",
+        "bio": "skip"
+      }
+    },
+    {
+      "ref": "artist:cmn3se23x000wag9kqykjgrxv",
+      "model": "artist",
+      "id": "cmn3se23x000wag9kqykjgrxv",
+      "label": "Halee Roth",
+      "fields": {
+        "nationality": {
+          "en": "USA",
+          "fr": "États-Unis ",
+          "zh": ""
+        },
+        "bio": {
+          "en": "<p>Halee Roth lives and works in Ohio, United States, surrounded by gardens, mountains, and the quiet presence of the natural world. This environment deeply informs her painting, which is attentive to the body, light, and the inner movements of human experience.</p><p>A graduate of Utah State University in painting and drawing, with a particular focus on the human figure, Roth has developed a pictorial language where chromatic intensity meets emotional delicacy. Her practice has been shaped by her studies in Germany, where she encountered the expressive force of modern painting, and by her time in India, which deepened her sensitivity to color and atmosphere.</p><p>In her work, the figure becomes a threshold between memory and presence, vulnerability and resilience. Through organic forms, floral elements, dark lines, and layered color, Roth creates intimate compositions where beauty carries both fragility and quiet strength.</p>",
+          "fr": "<p>Halee Roth vit et travaille dans l'Ohio, aux États-Unis, au sein d’un paysage marqué par les jardins, les montagnes et la présence silencieuse du monde naturel. Cet environnement nourrit profondément sa peinture, attentive au corps, à la lumière et aux mouvements intérieurs de l’expérience humaine.</p><p>Diplômée de l’Utah State University en peinture et dessin, avec une attention particulière portée à la figure humaine, Roth a développé un langage pictural où l’intensité chromatique rencontre une grande délicatesse émotionnelle. Sa pratique a été marquée par ses études en Allemagne, où elle découvre la force expressive de la peinture moderne, ainsi que par son séjour en Inde, qui approfondit sa sensibilité à la couleur et à l’atmosphère.</p><p>Dans son œuvre, la figure devient un seuil entre mémoire et présence, vulnérabilité et résilience. À travers des formes organiques, des éléments floraux, des lignes sombres et des couleurs superposées, Roth compose des espaces intimes où la beauté porte à la fois fragilité et force silencieuse.</p>",
+          "zh": "<p><strong>海莉・羅斯</strong></p><p>海莉・羅斯現居並工作於美國猶他州。她的創作環境被花園、群山與自然世界的靜謐氣息所環繞。這份與自然的親近深深滋養著她的繪畫，使她的作品始終關注身體、光線，以及人類經驗中那些細微而內在的流動。</p><p>羅斯畢業於猶他州立大學，主修繪畫與素描，並特別專注於人體形象。她逐漸發展出一種獨特的繪畫語言，在強烈的色彩與細膩的情感之間建立平衡。她在德國的學習經歷，使她接觸到現代繪畫的表現力量；而她在印度的生活經驗，則進一步深化了她對色彩與氛圍的感知。</p><p>在她的作品中，人物不僅是畫面的主體，更像是一處臨界之地：介於記憶與當下、脆弱與韌性之間。透過有機形態、花卉元素、深色線條與層疊的色彩，羅斯創造出親密而富有象徵性的空間，使美不再只是裝飾，而承載著脆弱與安靜的力量。</p>"
+        }
+      },
+      "policy": {
+        "nationality": "translate",
+        "bio": "skip"
+      }
+    },
+    {
+      "ref": "artist:cmn3sdiny0000ag9ks3gev6kg",
+      "model": "artist",
+      "id": "cmn3sdiny0000ag9ks3gev6kg",
+      "label": "Matthieu Scheiffer",
+      "fields": {
+        "nationality": {
+          "en": "France",
+          "fr": "France",
+          "zh": ""
+        },
+        "bio": {
+          "en": "<p>Matthieu Schaeffer was born in 1998. He lives and works between Paris and Hossegor. Raised between France and Kenya, he first trained in aerospace engineering before fully turning to painting in 2023.</p><p>His work constructs an artificial garden: a recomposed nature, familiar yet displaced, where animals, flowers, and plants seem to be made of plastic, cardboard, or molded matter. Everything is painted, yet everything appears fabricated. Through this ambiguity, Schaeffer questions the boundary between the living and the inert, the natural and the artificial, memory and reconstruction.</p><p>Working through a dialogue between digital imagery, 3D modeling, and hand painting, he has developed a precise technique using acrylic and spray gun. His smooth, luminous, almost sculptural surfaces give his figures a strange presence: seemingly naïve, yet charged with an intimate depth linked to childhood, memory, and the desire for life.</p><p>His practice resonates with an approach to intimacy as a universal language: for Matthieu Schaeffer, repainting nature becomes a way to repair, to breathe, and to recreate a habitable world.</p>",
+          "fr": "<p>Matthieu Schaeffer est né en 1998. Il vit et travaille entre Paris et Hossegor. Élevé entre la France et le Kenya, il suit d’abord une formation d’ingénieur aérospatial avant de se tourner pleinement vers la peinture en 2023.</p><p>Son travail construit un jardin artificiel : une nature recomposée, familière et pourtant déplacée, où animaux, fleurs et plantes semblent faits de plastique, de carton ou de matière modelée. Tout est peint, mais tout paraît fabriqué. À travers ce trouble, Schaeffer interroge la frontière entre le vivant et l’inerte, le naturel et l’artificiel, le souvenir et la reconstruction.</p><p>À partir d’un dialogue entre image numérique, modélisation 3D et peinture à la main, il développe une technique précise à l’acrylique et au pistolet. Ses surfaces lisses, lumineuses et presque sculpturales donnent à ses figures une présence étrange : naïves en apparence, elles portent pourtant une profondeur intime, liée à l’enfance, à la mémoire et au désir de vie.</p><p>Sa pratique résonne avec une approche de l’intimité comme langage universel : chez Matthieu Schaeffer, repeindre la nature devient une manière de réparer, de respirer et de recréer un monde habitable.</p>",
+          "zh": "<p>馬修・謝弗 1998 年出生。現居並工作於巴黎與奧瑟戈爾之間。他成長於法國與肯亞之間，最初接受航太工程訓練，後於 2023 年全心轉向繪畫創作。</p><p>他的作品建構出一座「人工花園」：一種被重新組合的自然，既熟悉又帶有位移感。在他的畫面中，動物、花卉與植物彷彿由塑膠、紙板或被塑形的材料製成。一切皆由繪畫完成，卻又像是被製造出來的物件。透過這種曖昧狀態，謝弗探問生命與無生命、自然與人工、記憶與重建之間的邊界。</p><p>他的創作過程結合數位影像、3D 建模與手工繪畫，並發展出以壓克力與噴槍為核心的精細技法。那些光滑、明亮、近乎雕塑般的表面，使他的形象具有一種奇異的存在感：表面上看似天真，卻承載著與童年、記憶和生命渴望相關的內在深度。</p><p>他的創作與一種將親密性視為普世語言的觀點相互呼應：對馬修・謝弗而言，重新描繪自然，也是一種修復、呼吸，並重新創造可棲居世界的方式。</p>"
+        }
+      },
+      "policy": {
+        "nationality": "translate",
+        "bio": "skip"
+      }
+    },
+    {
+      "ref": "artist:cmn3sejvj001sag9kcu6bbrgf",
+      "model": "artist",
+      "id": "cmn3sejvj001sag9kcu6bbrgf",
+      "label": "Owen Rival",
+      "fields": {
+        "nationality": {
+          "en": "Canada",
+          "fr": " Canada",
+          "zh": ""
+        },
+        "bio": {
+          "en": "<p>Owen Rival was born in 1999 in Toronto. He received his BFA from the Rhode Island School of Design in Providence in 2021.</p><p>His paintings, primarily made in oil and acrylic on canvas, move between narration and abstraction. Through familiar scenes, often centered on the artist himself and his wife, Rival transforms everyday life into a psychological space that feels unstable, luminous, and quietly theatrical.</p><p>With meticulous precision, he combines saturated color, atmospheric distortion, and shifting effects of light to depict not only what is seen, but what is felt. His images, initially recognizable, gradually open onto more ambiguous states: memory, sensation, inner tension, or a suspended moment.</p><p>His work approaches intimacy as a universal language, revealing the emotional intensity hidden within ordinary scenes.</p>",
+          "fr": "<p>Owen Rival est né en 1999 à Toronto. Il est diplômé de la Rhode Island School of Design, à Providence, où il obtient son BFA en 2021.</p><p>Sa peinture, principalement réalisée à l’huile et à l’acrylique sur toile, oscille entre narration et abstraction. À travers des scènes familières, souvent centrées sur l’artiste lui-même et son épouse, Rival transforme le quotidien en un espace psychologique instable, lumineux et discrètement théâtral.</p><p>Avec une précision minutieuse, il associe couleurs saturées, distorsions atmosphériques et jeux de lumière pour représenter non seulement ce qui est vu, mais ce qui est ressenti. Ses images, d’abord reconnaissables, s’ouvrent peu à peu vers des états plus ambigus : souvenir, sensation, tension intérieure ou moment suspendu.</p><p>Son travail s’inscrit dans une approche de l’intimité comme langage universel, révélant l’intensité émotionnelle dissimulée dans les scènes ordinaires.</p>",
+          "zh": "<p>歐文・萊瓦爾 1999 年出生於加拿大多倫多。2021 年，他畢業於美國普羅維登斯的羅德島設計學院，取得藝術學士學位。</p><p>他的繪畫主要以油彩與壓克力創作於畫布之上，游移於敘事與抽象之間。透過熟悉的日常場景，並經常以藝術家本人與他的妻子作為畫面中的人物，萊瓦爾將日常生活轉化為一種不穩定、明亮而帶有細膩劇場感的心理空間。</p><p>他以精細的描繪方式，結合飽和的色彩、氛圍性的扭曲與光線的變化，呈現的不只是眼睛所見之物，更是身體與情感所感受到的經驗。那些最初看似可辨識的場景，逐漸展開為更曖昧的狀態：記憶、感覺、內在張力，或某個被懸置的瞬間。</p><p>他的創作將親密性視為一種普世語言，揭示日常場景中隱藏的情感強度。</p>"
+        }
+      },
+      "policy": {
+        "nationality": "translate",
+        "bio": "skip"
+      }
+    },
+    {
+      "ref": "artist:cmn3sdyxg000oag9kbyl3twn6",
+      "model": "artist",
+      "id": "cmn3sdyxg000oag9kbyl3twn6",
+      "label": "Rebekka Macht",
+      "fields": {
+        "nationality": {
+          "en": "Ghana / Germany",
+          "fr": "Ghana / Allemagne",
+          "zh": ""
+        },
+        "bio": {
+          "en": "<p>Rebekka Macht is a German visual artist living and working between Berlin and Accra. Her practice, primarily rooted in portraiture and large-scale painting, explores the intimate forms of human connection, vulnerability, and care.</p><p>Her work is shaped by a simple yet unresolved question: how do we care for one another, and at what point does care reach its limits? Through fragmented bodies, gestures of contact, and figures drawn from her immediate surroundings, Macht constructs images that are both sensitive and unstable, where tenderness and tension coexist. Her paintings inhabit an in-between space, between presence and distance, attachment and separation, where relationships remain open, fragile, and often impossible to fully define.</p><p>Built through layers, from ultramarine underpaintings to extensively reworked surfaces, her compositions blur the boundary between figuration and abstraction. Deep blues, violets, and saturated magentas shift the portrait into a psychological, almost interior register, where intimacy becomes visible without ever fully revealing itself.</p><p>Her recent works engage more specifically with masculinity, motherhood, and transmission, informed by her experience as the mother of sons growing up between multiple cultural and racial heritages. In Macht’s work, care never appears as a simple protective gesture: it becomes an exposed territory, caught between love, fear, responsibility, and the social realities that move through bodies.</p>",
+          "fr": "<p>Rebekka Macht est une artiste allemande vivant et travaillant entre Berlin et Accra. Sa pratique, principalement ancrée dans le portrait et la peinture de grand format, explore les formes intimes du lien humain, de la vulnérabilité et du soin.</p><p>Son travail est traversé par une question simple, mais jamais résolue : comment prenons-nous soin les uns des autres, et à quel moment ce soin rencontre-t-il ses limites ? À travers des corps fragmentés, des gestes de contact et des figures issues de son environnement proche, Macht construit des images à la fois sensibles et instables, où la tendresse coexiste avec la tension. Ses peintures habitent un espace intermédiaire, entre présence et distance, attachement et séparation, là où les relations demeurent ouvertes, fragiles, parfois impossibles à fixer.</p><p>Construites par strates, à partir de sous-couches d’outremer et de surfaces longuement retravaillées, ses compositions brouillent la frontière entre figuration et abstraction. Les bleus profonds, les violets et les magentas saturés déplacent le portrait vers un registre psychologique, presque intérieur, où l’intimité devient visible sans jamais se livrer entièrement.</p><p>Ses œuvres récentes interrogent plus particulièrement la masculinité, la maternité et la transmission, nourries par son expérience de mère de fils grandissant entre plusieurs héritages culturels et raciaux. Chez Macht, le soin n’apparaît jamais comme une évidence protectrice : il devient un territoire exposé, pris entre amour, peur, responsabilité et les réalités sociales qui traversent les corps.</p>",
+          "zh": "<p>蕾貝卡・馬赫特（Rebekka Macht<strong>）</strong>是一位德國視覺藝術家，現居並工作於柏林與阿克拉之間。她的創作主要根植於肖像與大型繪畫，探索人與人之間親密連結、脆弱性與照護的內在形式。</p><p>她的作品始終圍繞著一個簡單卻無法被完全解答的問題：我們如何照顧彼此？而這種照護又在何處抵達它的邊界？透過破碎的身體、接觸的姿態，以及取自其日常親近環境中的人物，馬赫特構築出既敏感又不穩定的圖像，使溫柔與張力在畫面中並存。她的繪畫棲居於一種中間地帶：介於在場與距離、依附與分離之間；在那裡，關係始終保持開放、脆弱，且難以被完全固定。</p><p>她的作品由層層繪畫結構構成，從群青色的底層開始，經由反覆處理與重塑的表面，逐漸模糊具象與抽象之間的界線。深藍、紫色與高飽和的洋紅色，將肖像推向一種心理性的、近乎內在的層次，使親密變得可見，卻從不完全暴露自身。</p><p>她近期的作品更集中地回應男性氣質、母職與傳承等議題，並受到她作為母親的經驗所滋養——她的兒子們成長於多重文化與族裔脈絡之間。在馬赫特的繪畫中，照護從來不是一種單純的保護姿態；它成為一片被暴露的領域，置於愛、恐懼、責任，以及穿越身體的社會現實之間。</p>"
+        }
+      },
+      "policy": {
+        "nationality": "translate",
+        "bio": "skip"
+      }
+    },
+    {
+      "ref": "artist:cmn3sdotc0008ag9kt2ul1gp1",
+      "model": "artist",
+      "id": "cmn3sdotc0008ag9kt2ul1gp1",
+      "label": "Renée Le Bloas -Julienne",
+      "fields": {
+        "nationality": {
+          "en": "France",
+          "fr": "",
+          "zh": ""
+        },
+        "bio": {
+          "en": "<p>Renée Le Bloas-Julienne is a self-taught artist, born in Toronto and of French nationality. She lives and works in Paris.</p><p>Since childhood, her relationship to painting has been shaped by color and light. A journey to Polynesia in her late adolescence left a lasting imprint on her imagination: the intensity of color, the marine world, and the luxuriance of nature became founding presences in her work.</p><p>After several years as a photojournalist and author of children’s books, particularly devoted to marine animals, she fully dedicated herself to painting in 2005. Since 2015, epoxy resin has become central to her practice. Through successive layers, luminous pigments, and effects of transparency, she creates organic landscapes where coral reefs, mineral cartographies, aerial views, and cosmic spaces seem to converge.</p><p>Her <strong>BUBBLES</strong> series introduces a sculptural dimension: resin spheres emerge from the surface, capturing and refracting light. For Le Bloas-Julienne, nature is never merely a source of imagery. It becomes an intimate territory — a space of contemplation and projection, where matter, light, and chance open onto inner worlds.</p>",
+          "fr": "<p>Renée Le Bloas-Julienne est une artiste autodidacte, née à Toronto, de nationalité française. Elle vit et travaille à Paris.</p><p>Depuis l’enfance, son rapport à la peinture se construit autour de la couleur et de la lumière. Un voyage en Polynésie, à la fin de l’adolescence, marque durablement son imaginaire : l’intensité des couleurs, le monde marin et la luxuriance de la nature deviennent alors des présences fondatrices dans son œuvre.</p><p>Après plusieurs années comme photoreporter et auteure de livres pour enfants, notamment consacrés aux animaux marins, elle se consacre pleinement à la peinture à partir de 2005. Depuis 2015, la résine époxy est devenue son médium central. Par couches successives, pigments lumineux et jeux de transparence, elle compose des paysages organiques où se croisent récifs coralliens, cartographies minérales, vues aériennes et espaces cosmiques.</p><p>Sa série <strong>BUBBLES</strong> introduit une dimension sculpturale : des sphères en relief émergent de la surface, captant et diffractant la lumière. Chez Renée Le Bloas-Julienne, la nature n’est jamais un simple motif. Elle devient un territoire intime, un espace de contemplation et de projection, où la matière, la lumière et l’aléatoire ouvrent vers des mondes intérieurs.</p>",
+          "zh": "<p>蕾妮・勒布洛阿-朱利安是一位自學藝術家，出生於加拿大多倫多，擁有法國國籍，現居並工作於巴黎。</p><p>自童年起，色彩與光線便深深塑造了她與繪畫之間的關係。青少年時期的一次波里尼西亞之旅，成為她創作想像中的重要轉折：強烈的色彩、海洋世界與自然的繁盛，自此成為她作品中持續存在的核心力量。</p><p>在成為全職藝術家之前，她曾從事攝影記者工作，並創作兒童書籍，題材尤其與海洋生物相關。自 2005 年起，她全心投入繪畫創作。2015 年後，環氧樹脂成為她實踐中的核心媒材。透過層層堆疊、明亮的顏料與透明質感，她創造出有機而沉浸的景觀，彷彿介於珊瑚礁、礦物地圖、空中視角與宇宙空間之間。</p><p>她的 <strong>BUBBLES</strong> 系列進一步引入雕塑性的維度：立體樹脂球體從畫面表面浮現，捕捉並折射周圍的光線。對蕾妮・勒布洛阿-朱利安而言，自然從不是單純的圖像來源，而是一處親密的內在領域；在那裡，物質、光線與偶然性共同打開一個可供凝視與投射的空間。</p>"
+        }
+      },
+      "policy": {
+        "nationality": "translate",
+        "bio": "skip"
+      }
+    },
+    {
+      "ref": "artist:cmn3seefk001kag9kkibmp60k",
+      "model": "artist",
+      "id": "cmn3seefk001kag9kkibmp60k",
+      "label": "Richard Mensah",
+      "fields": {
+        "nationality": {
+          "en": "Ghana / England",
+          "fr": "Ghana / Angleterre",
+          "zh": ""
+        },
+        "bio": {
+          "en": "<p>Richard Mensah was born in 1978 in Ghana. He lives and works in London, United Kingdom.</p><p>A self-taught artist, Mensah developed an early passion for drawing, sketching, and painting before moving to the United Kingdom in the early 2000s. After a long interruption, he fully returned to his practice in 2016, building a figurative body of work that is vivid, narrative, and deeply personal.</p><p>His painting draws from his African heritage, childhood memories, and scenes of everyday life. Through compositions that move between abstraction and realism, Mensah gives form to stories shaped by Black memory, social questions, community, and human experience.</p><p>His works draw the viewer in through their intense colors, bodily presence, use of light, and symbolic details. Each scene remains open: it invites the viewer to enter the story, to read its signs, and to complete what is deliberately left suspended.</p><p>His work approaches intimacy as a universal language: for Richard Mensah, painting becomes a space of memory, dignity, and transmission, where personal narratives meet a broader collective experience.</p>",
+          "fr": "<p>Richard Mensah est né en 1978 au Ghana. Il vit et travaille à Londres, au Royaume-Uni.</p><p>Artiste autodidacte, il développe très tôt une passion pour le dessin, l’esquisse et la peinture, avant de s’installer au Royaume-Uni au début des années 2000. Après une longue interruption, il reprend pleinement sa pratique en 2016, construisant depuis une œuvre figurative à la fois vive, narrative et profondément personnelle.</p><p>Sa peinture puise dans son héritage africain, ses souvenirs d’enfance et les scènes du quotidien. À travers des compositions où se mêlent abstraction et réalisme, Mensah donne forme à des récits souvent traversés par la mémoire noire, les questions sociales, la communauté et l’expérience humaine.</p><p>Ses œuvres attirent le regard par l’intensité de leurs couleurs, la présence des corps, les jeux de lumière et les symboles disséminés dans l’image. Chaque scène semble ouverte : elle invite le spectateur à entrer dans l’histoire, à en chercher les signes, à compléter ce qui demeure volontairement suspendu.</p><p>Son travail s’inscrit dans une approche de l’intimité comme langage universel : chez Richard Mensah, la peinture devient un espace de mémoire, de dignité et de transmission, où les récits personnels rejoignent une expérience collective plus vaste.</p>",
+          "zh": "<p>理查德・門薩 1978 年出生於迦納。現居並工作於英國倫敦。</p><p>作為一位自學藝術家，門薩自幼便對素描、速寫與繪畫產生濃厚興趣。2000 年代初，他移居英國；在經歷一段長時間的創作中斷後，於 2016 年重新全心投入繪畫，逐漸建立起一種鮮明、敘事性強且深具個人色彩的具象繪畫語言。</p><p>他的繪畫汲取自非洲文化傳承、童年記憶與日常生活場景。透過介於抽象與寫實之間的構圖，門薩呈現出與黑人記憶、社會議題、共同體以及人類經驗相關的故事。</p><p>他的作品以強烈的色彩、身體的存在感、光線的運用與畫面中的象徵細節吸引觀者。每一個場景都保持著開放性：它邀請觀者進入故事之中，尋找其中的符號，並補足那些被有意懸置的部分。</p><p>他的創作將親密性視為一種普世語言：對理查德・門薩而言，繪畫成為記憶、尊嚴與傳遞的空間，使個人敘事與更廣泛的集體經驗彼此交會。</p>"
+        }
+      },
+      "policy": {
+        "nationality": "translate",
+        "bio": "skip"
+      }
+    },
+    {
+      "ref": "exhibition:cmp000rsx000004i88mhje0c7",
+      "model": "exhibition",
+      "id": "cmp000rsx000004i88mhje0c7",
+      "label": "[Matthieu Scheiffer] Beyond natural, Vin’s Gallery, Taiwan  (2026, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Beyond natural, Vin’s Gallery, Taiwan ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp000rsy000104i8vhtumnku",
+      "model": "exhibition",
+      "id": "cmp000rsy000104i8vhtumnku",
+      "label": "[Matthieu Scheiffer] On oublie le nom des fleurs, Cohle Gallery, Paris  (2025, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "On oublie le nom des fleurs, Cohle Gallery, Paris ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp000rsy000204i8fwixbi5b",
+      "model": "exhibition",
+      "id": "cmp000rsy000204i8fwixbi5b",
+      "label": "[Matthieu Scheiffer] Curation “Emerging artist” salon des beaux arts, Paris (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Curation “Emerging artist” salon des beaux arts, Paris",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp000rsy000304i8zswxor8t",
+      "model": "exhibition",
+      "id": "cmp000rsy000304i8zswxor8t",
+      "label": "[Matthieu Scheiffer] Emergency Exit, Cohle Gallery, Minorque (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Emergency Exit, Cohle Gallery, Minorque",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp000rsy000404i8di7vvaxc",
+      "model": "exhibition",
+      "id": "cmp000rsy000404i8di7vvaxc",
+      "label": "[Matthieu Scheiffer] Art Monster Fair, Vin’s Gallery, Taïwan  (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Art Monster Fair, Vin’s Gallery, Taïwan ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp000rsy000504i8nznjn7dg",
+      "model": "exhibition",
+      "id": "cmp000rsy000504i8nznjn7dg",
+      "label": "[Matthieu Scheiffer] Blue Horizon, Cohle Gallery, Paris  (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Blue Horizon, Cohle Gallery, Paris ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp000rsy000604i8hq972dha",
+      "model": "exhibition",
+      "id": "cmp000rsy000604i8hq972dha",
+      "label": "[Matthieu Scheiffer] Baignade, personnel, Rueil - Malmaison (2022, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Baignade, personnel, Rueil - Malmaison",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp000rsy000704i8gbfuspho",
+      "model": "exhibition",
+      "id": "cmp000rsy000704i8gbfuspho",
+      "label": "[Matthieu Scheiffer] Prix du Jeune Créateur, Salon d’Automne (2024, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Young Designer Award, Autumn Salon",
+          "fr": "Prix du Jeune Créateur, Salon d’Automne",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93s000004l5pbmbhyy8",
+      "model": "exhibition",
+      "id": "cmp6su93s000004l5pbmbhyy8",
+      "label": "[Carlos Romano] Afrophilia - Anthologies of a Semba, April/May Lisbon, Portugal (2019, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Afrophilia - Anthologies of a Semba, April/May Lisbon, Portugal",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93s000104l5ftc0l4t3",
+      "model": "exhibition",
+      "id": "cmp6su93s000104l5ftc0l4t3",
+      "label": "[Carlos Romano] Afrophilia anthologies of a Semba, May/June, Stockholm, Sweden  (2019, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Afrophilia anthologies of a Semba, May/June, Stockholm, Sweden ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93s000204l5ubs9uibr",
+      "model": "exhibition",
+      "id": "cmp6su93s000204l5ubs9uibr",
+      "label": "[Carlos Romano] Private Show, Cape Town, South Africa (2022, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Private Show, Cape Town, South Africa",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93s000304l5pufgxhky",
+      "model": "exhibition",
+      "id": "cmp6su93s000304l5pufgxhky",
+      "label": "[Carlos Romano]  ⁠⁠Armory Show - New York, USA (2018, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": " ⁠⁠Armory Show - New York, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93s000404l5w8eoky61",
+      "model": "exhibition",
+      "id": "cmp6su93s000404l5w8eoky61",
+      "label": "[Carlos Romano] NYC Art Expo - New York, USA, (2023, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "NYC Art Expo - New York, USA,",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93s000504l5k1igx9sz",
+      "model": "exhibition",
+      "id": "cmp6su93s000504l5k1igx9sz",
+      "label": "[Carlos Romano] Artbasel Miami - Miami, USA, December (2016, ART_FAIR)",
+      "fields": {
+        "title": {
+          "en": "Artbasel Miami - Miami, USA, December",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93s000604l5ccz43i56",
+      "model": "exhibition",
+      "id": "cmp6su93s000604l5ccz43i56",
+      "label": "[Carlos Romano] Artbasel - Basel, Switzerland, (2017, ART_FAIR)",
+      "fields": {
+        "title": {
+          "en": "Artbasel - Basel, Switzerland,",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93s000704l5q5u998i8",
+      "model": "exhibition",
+      "id": "cmp6su93s000704l5q5u998i8",
+      "label": "[Carlos Romano] Metro of Lisbon Art Festival - Lisbon, Portugal  (2019, ART_FAIR)",
+      "fields": {
+        "title": {
+          "en": "Metro of Lisbon Art Festival - Lisbon, Portugal ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93s000804l58otw4rsn",
+      "model": "exhibition",
+      "id": "cmp6su93s000804l58otw4rsn",
+      "label": "[Carlos Romano] London Contemporary Art Fair - London, England, (2024, ART_FAIR)",
+      "fields": {
+        "title": {
+          "en": "London Contemporary Art Fair - London, England,",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93s000904l5j22iiw5t",
+      "model": "exhibition",
+      "id": "cmp6su93s000904l5j22iiw5t",
+      "label": "[Carlos Romano] Largo Residencies - Lisbon, Portugal (2019, RESIDENCY)",
+      "fields": {
+        "title": {
+          "en": "Largo Residencies - Lisbon, Portugal",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93t000a04l582yc0vdg",
+      "model": "exhibition",
+      "id": "cmp6su93t000a04l582yc0vdg",
+      "label": "[Carlos Romano] Private Residencies, offered for a private art collector, New York, USA (2023, RESIDENCY)",
+      "fields": {
+        "title": {
+          "en": "Private Residencies, offered for a private art collector, New York, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6su93t000b04l5lmv2f9jg",
+      "model": "exhibition",
+      "id": "cmp6su93t000b04l5lmv2f9jg",
+      "label": "[Carlos Romano] Private Residencies, offered for a private art collector, Zurich, Switzerland  (2024, RESIDENCY)",
+      "fields": {
+        "title": {
+          "en": "Private Residencies, offered for a private art collector, Zurich, Switzerland ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p3000004la1ji7glkg",
+      "model": "exhibition",
+      "id": "cmou9g2p3000004la1ji7glkg",
+      "label": "[Rebekka Macht] The Realms of In-Between, Soho House Berlin, Germany (2023, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "The Realms of In-Between, Soho House Berlin, Germany",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000104lat6lkx4fl",
+      "model": "exhibition",
+      "id": "cmou9g2p4000104lat6lkx4fl",
+      "label": "[Rebekka Macht] Womanhood, SLP Gallery (2021, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Womanhood, SLP Gallery",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000204la3nucx14t",
+      "model": "exhibition",
+      "id": "cmou9g2p4000204la3nucx14t",
+      "label": "[Rebekka Macht] Growing., Cologne, Germany (2019, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Growing., Cologne, Germany",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000304lav6aeoj0y",
+      "model": "exhibition",
+      "id": "cmou9g2p4000304lav6aeoj0y",
+      "label": "[Rebekka Macht] Fragile Wings of Motherhood, Gallery 1957, Accra, Ghana (2025, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Fragile Wings of Motherhood, Gallery 1957, Accra, Ghana",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000404lai1ehociy",
+      "model": "exhibition",
+      "id": "cmou9g2p4000404lai1ehociy",
+      "label": "[Rebekka Macht] Liaison, BetterGoSouth Gallery, Stuttgart, Germany (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Liaison, BetterGoSouth Gallery, Stuttgart, Germany",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000504la2xs8gfa8",
+      "model": "exhibition",
+      "id": "cmou9g2p4000504la2xs8gfa8",
+      "label": "[Rebekka Macht] Cumulus, Bethanien Berlin, Germany (2023, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Cumulus, Bethanien Berlin, Germany",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000604lalttgsxhi",
+      "model": "exhibition",
+      "id": "cmou9g2p4000604lalttgsxhi",
+      "label": "[Rebekka Macht] Studio Talks, ARTCO Gallery (2023, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Studio Talks, ARTCO Gallery",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000704laggxpdakf",
+      "model": "exhibition",
+      "id": "cmou9g2p4000704laggxpdakf",
+      "label": "[Rebekka Macht] Collateral Beauty, Reinbeckhallen, Berlin Art Week, Germany (2022, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Collateral Beauty, Reinbeckhallen, Berlin Art Week, Germany",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000804lav05qquu7",
+      "model": "exhibition",
+      "id": "cmou9g2p4000804lav05qquu7",
+      "label": "[Rebekka Macht] Human Electricity, MaHalla Berlin, Berlin Art Week, Germany (2021, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Human Electricity, MaHalla Berlin, Berlin Art Week, Germany",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000904lat6muibea",
+      "model": "exhibition",
+      "id": "cmou9g2p4000904lat6muibea",
+      "label": "[Rebekka Macht] Residency, dot.ateliers, founded by Amoako Boafo, Accra, Ghana (2024, RESIDENCY)",
+      "fields": {
+        "title": {
+          "en": "Residency, dot.ateliers, founded by Amoako Boafo, Accra, Ghana",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000a04laeb4bxehm",
+      "model": "exhibition",
+      "id": "cmou9g2p4000a04laeb4bxehm",
+      "label": "[Rebekka Macht] Residency, Gallery 1957, Accra, Ghana (2024, RESIDENCY)",
+      "fields": {
+        "title": {
+          "en": "Residency, Gallery 1957, Accra, Ghana",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000b04lal27unkz8",
+      "model": "exhibition",
+      "id": "cmou9g2p4000b04lal27unkz8",
+      "label": "[Rebekka Macht] Berlin Fellowship Award, Soho House Fellowship Program (2021, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Berlin Fellowship Award, Soho House Fellowship Program",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000004juwfuozamg",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000004juwfuozamg",
+      "label": "[Halee Roth] Self Titled Show, Flowerstone Frame and Art Studio, Riverton, Utah, USA (2025, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Self Titled Show, Flowerstone Frame and Art Studio, Riverton, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000104jus2grob3b",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000104jus2grob3b",
+      "label": "[Halee Roth] The Human Spirit, A Gallery Allen and Allan Fine Art, Salt Lake CIty, Utah, USA (2025, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "The Human Spirit, A Gallery Allen and Allan Fine Art, Salt Lake CIty, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000204jus8prcw10",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000204jus8prcw10",
+      "label": "[Halee Roth] Self Titled Show, 15th Street Gallery, Salt Lake City, Utah, USA (2024, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Self Titled Show, 15th Street Gallery, Salt Lake City, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000304jut6eqw8wu",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000304jut6eqw8wu",
+      "label": "[Halee Roth] Love in the Abstract, Allan and Allen Fine Art, Salt Lake City, Utah, USA (2026, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Love in the Abstract, Allan and Allen Fine Art, Salt Lake City, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000404jumdvk3fjz",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000404jumdvk3fjz",
+      "label": "[Halee Roth] Spring Salon, Statewide Competition, Springville Museum Of Art, Springville, Utah, USA (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Spring Salon, Statewide Competition, Springville Museum Of Art, Springville, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000504jut6kw3qhj",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000504jut6kw3qhj",
+      "label": "[Halee Roth] Honoring Minerva,Group Show, Ramble Gallery, Bountiful, Utah, USA (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Honoring Minerva,Group Show, Ramble Gallery, Bountiful, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000604juo99zk2y5",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000604juo99zk2y5",
+      "label": "[Halee Roth] Nude, Manifest Gallery, Cincinnati, Ohio, USA (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Nude, Manifest Gallery, Cincinnati, Ohio, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000704juckeqpze4",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000704juckeqpze4",
+      "label": "[Halee Roth] Online Exhibition, Almenara art Prize 2025 (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Online Exhibition, Almenara art Prize 2025",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000804ju84jxjtpp",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000804ju84jxjtpp",
+      "label": "[Halee Roth] Sonder, The Vendue Gallery, Charleston, South Carolina, USA (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Sonder, The Vendue Gallery, Charleston, South Carolina, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000904juh3g07qn8",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000904juh3g07qn8",
+      "label": "[Halee Roth] Duo Exhibition, Experience, Process, Discover, Bountiful Davis Art Center, Bountiful, Utah, USA ‍ (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Duo Exhibition, Experience, Process, Discover, Bountiful Davis Art Center, Bountiful, Utah, USA ‍",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000a04ju7ambhtaq",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000a04ju7ambhtaq",
+      "label": "[Halee Roth] Beaux Arts, Scottdale Artists' School, Scottsdale, Arizona, USA (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Beaux Arts, Scottdale Artists' School, Scottsdale, Arizona, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000b04jui6058y1b",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000b04jui6058y1b",
+      "label": "[Halee Roth] Reflections of Eden, Urban Arts Gallery, Salt Lake City, Utah, USA ‍ (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Reflections of Eden, Urban Arts Gallery, Salt Lake City, Utah, USA ‍",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000c04ju7kmgi8dr",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000c04ju7kmgi8dr",
+      "label": "[Halee Roth] A ‍Salon 100, Springville Museum of Art, Springville, Utah, USA (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "A ‍Salon 100, Springville Museum of Art, Springville, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000d04ju3y9rizzf",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000d04ju3y9rizzf",
+      "label": "[Halee Roth] ‍ Statewide Competition, Bountiful Davis Art Center, Bountiful, Utah, USA (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "‍ Statewide Competition, Bountiful Davis Art Center, Bountiful, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000e04juuwqp8b96",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000e04juuwqp8b96",
+      "label": "[Halee Roth] Freedom Festival Art Exhibit, Covey Center for the Arts, Provo, Utah, USA ‍ (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Freedom Festival Art Exhibit, Covey Center for the Arts, Provo, Utah, USA ‍",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000f04juxb7l81mx",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000f04juxb7l81mx",
+      "label": "[Halee Roth] Statewide Competition, Eccles Art Center, Ogden, Utah, USA (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Statewide Competition, Eccles Art Center, Ogden, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000g04juey8gq2xl",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000g04juey8gq2xl",
+      "label": "[Halee Roth] President's Art Show, SLCC, Salt Lake City, Utah, USA (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "President's Art Show, SLCC, Salt Lake City, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000h04jurttu6b49",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000h04jurttu6b49",
+      "label": "[Halee Roth] Holiday Exhibition,, 15th Street Gallery, Salt Lake City, Utah, USA (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Holiday Exhibition,, 15th Street Gallery, Salt Lake City, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000i04juse4u5z9k",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000i04juse4u5z9k",
+      "label": "[Halee Roth] First Place, Women: The Creative Edge Competition, Eccles Art Center, Ogden, Utah, USA (—, AWARD)",
+      "fields": {
+        "title": {
+          "en": "First Place, Women: The Creative Edge Competition, Eccles Art Center, Ogden, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000j04ju1vwj7q1z",
+      "model": "exhibition",
+      "id": "cmpcyxbg6000j04ju1vwj7q1z",
+      "label": "[Halee Roth] Honorable Mention, Spring Salon Statewide Competition, Springville, Utah, USA (—, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Honorable Mention, Spring Salon Statewide Competition, Springville, Utah, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000004jmq5obtnto",
+      "model": "exhibition",
+      "id": "cmpb4gd4w000004jmq5obtnto",
+      "label": "[Ewa Goral] Polish Academy of Sience Botanical Garden, Powsin, PL  (2026, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Polish Academy of Sience Botanical Garden, Powsin, PL ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000104jmwf1944db",
+      "model": "exhibition",
+      "id": "cmpb4gd4w000104jmwf1944db",
+      "label": "[Ewa Goral] “Botanic Fever” ArtAround Gallery, Warsaw, PL (2026, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "“Botanic Fever” ArtAround Gallery, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000204jmnupdqrt7",
+      "model": "exhibition",
+      "id": "cmpb4gd4w000204jmnupdqrt7",
+      "label": "[Ewa Goral] Westin, Warsaw, PL (2025, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Westin, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000304jm15omfyfe",
+      "model": "exhibition",
+      "id": "cmpb4gd4w000304jm15omfyfe",
+      "label": "[Ewa Goral] Artinfo, Warsaw, PL (2024, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Artinfo, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000404jmluj02mp9",
+      "model": "exhibition",
+      "id": "cmpb4gd4w000404jmluj02mp9",
+      "label": "[Ewa Goral] Universes curated by Kinga Szafrankowska, Emi_Art_Warsaw, PL (2024, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Universes curated by Kinga Szafrankowska, Emi_Art_Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000504jmq1z7b7zv",
+      "model": "exhibition",
+      "id": "cmpb4gd4w000504jmq1z7b7zv",
+      "label": "[Ewa Goral] Dzielna Foundation, PL (2023, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Dzielna Foundation, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000604jmottszdcy",
+      "model": "exhibition",
+      "id": "cmpb4gd4w000604jmottszdcy",
+      "label": "[Ewa Goral] Bielska BWA Gallery, Bielsko-Biała, PL (2023, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Bielska BWA Gallery, Bielsko-Biała, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000704jm8qidia9w",
+      "model": "exhibition",
+      "id": "cmpb4gd4w000704jm8qidia9w",
+      "label": "[Ewa Goral] BWA Gallery Krosno, PL (2023, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "BWA Gallery Krosno, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000804jmr8xwccn1",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000804jmr8xwccn1",
+      "label": "[Ewa Goral] BWA Gallery, Sanok, PL (2022, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "BWA Gallery, Sanok, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000904jmb306cluw",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000904jmb306cluw",
+      "label": "[Ewa Goral] Silent Manifesto, Venice Biennale, Performance, Venice,  (2022, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Silent Manifesto, Venice Biennale, Performance, Venice, ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000a04jmpwzy0ul9",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000a04jmpwzy0ul9",
+      "label": "[Ewa Goral] BWA Gallery, Ostrowiec, PL (2021, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "BWA Gallery, Ostrowiec, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000b04jm4y200q2k",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000b04jm4y200q2k",
+      "label": "[Ewa Goral] Arttrakt Gallery, Wrocław, PL (2021, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Arttrakt Gallery, Wrocław, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000c04jmnm1x9ik7",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000c04jmnm1x9ik7",
+      "label": "[Ewa Goral] OFF FRAME Gallery, Kraków, PL (2019, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "OFF FRAME Gallery, Kraków, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000d04jmbwe9kdrl",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000d04jmbwe9kdrl",
+      "label": "[Ewa Goral] Plant Consciousness, Regent’s University, London, UK (2015, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Plant Consciousness, Regent’s University, London, UK",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000e04jm32rha9s6",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000e04jm32rha9s6",
+      "label": "[Ewa Goral] Polish Academy of Siences, Botany Institute, Kraków, PL (2015, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Polish Academy of Siences, Botany Institute, Kraków, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000f04jm7v67xo3a",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000f04jm7v67xo3a",
+      "label": "[Ewa Goral] Unit24 Gallery, London, UK (2013, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Unit24 Gallery, London, UK",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000g04jm9z2buoxy",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000g04jm9z2buoxy",
+      "label": "[Ewa Goral] Idea Fix, Cracow, PL  (2012, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Idea Fix, Cracow, PL ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000h04jms33jlncz",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000h04jms33jlncz",
+      "label": "[Ewa Goral] Inny Śląsk Gallery, Tarnowskie Góry, PL (2011, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Inny Śląsk Gallery, Tarnowskie Góry, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000i04jm20acjdp5",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000i04jm20acjdp5",
+      "label": "[Ewa Goral] “Kwiatostany” Mazovia Centre of Contemporaty Art Elektrownia, Radom, PL (2026, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "“Kwiatostany” Mazovia Centre of Contemporaty Art Elektrownia, Radom, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000j04jmdstdlwwm",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000j04jmdstdlwwm",
+      "label": "[Ewa Goral] ArtAround Gallery / Foksal, Warsaw, PL (2026, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "ArtAround Gallery / Foksal, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000k04jmk1i9skn3",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000k04jmk1i9skn3",
+      "label": "[Ewa Goral] BigHUB/ArtAround, Warsaw, PL (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "BigHUB/ArtAround, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000l04jmht2o7bug",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000l04jmht2o7bug",
+      "label": "[Ewa Goral]  “Phantom of Happines” ArtAround Gallery, Warsaw, PL (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": " “Phantom of Happines” ArtAround Gallery, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000m04jmcqv281cb",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000m04jmcqv281cb",
+      "label": "[Ewa Goral] “Dziewczynki”, ArtAround Gallery, PL (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "“Dziewczynki”, ArtAround Gallery, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000n04jmsd18vu6j",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000n04jmsd18vu6j",
+      "label": "[Ewa Goral] 5:5, B383 Gallery, Warsaw, PL (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "5:5, B383 Gallery, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000o04jmw9iceit2",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000o04jmw9iceit2",
+      "label": "[Ewa Goral] “Żywa krew” Oblatów 4 Gallery, Katowice, PL (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "“Żywa krew” Oblatów 4 Gallery, Katowice, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000p04jmd3xx9ylj",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000p04jmd3xx9ylj",
+      "label": "[Ewa Goral] Municipal Museum in Żory, PL (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Municipal Museum in Żory, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000q04jmu9nbq75c",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000q04jmu9nbq75c",
+      "label": "[Ewa Goral] Sotto63 Gallery, Mystery Keepers with A.Grucela, M.Kolesnik, Warsaw, PL (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Sotto63 Gallery, Mystery Keepers with A.Grucela, M.Kolesnik, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000r04jmssljv42p",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000r04jmssljv42p",
+      "label": "[Ewa Goral] Artinfo/WellArt, Katowice, PL (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Artinfo/WellArt, Katowice, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000s04jmvo00dh32",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000s04jmvo00dh32",
+      "label": "[Ewa Goral] Kongres Rysowniczek with Paweł Althamer, Program Gallery, Warsaw, PL (2022, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Kongres Rysowniczek with Paweł Althamer, Program Gallery, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000t04jm84dj7k8q",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000t04jm84dj7k8q",
+      "label": "[Ewa Goral] Arttrakt Gallery, Wrocław, PL (2022, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Arttrakt Gallery, Wrocław, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000u04jmg6wi56c3",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000u04jmg6wi56c3",
+      "label": "[Ewa Goral] BWA Gallery Krosno, PL “Mikrobiom” (2021, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "BWA Gallery Krosno, PL “Mikrobiom”",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000v04jmr11m38gx",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000v04jmr11m38gx",
+      "label": "[Ewa Goral] 15th International Autumn Salon of Art, BWA Gallery Ostrowiec, PL (2021, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "15th International Autumn Salon of Art, BWA Gallery Ostrowiec, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000w04jmgorw9axb",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000w04jmgorw9axb",
+      "label": "[Ewa Goral] Stolarska/Krupowicz Gallery, Warsaw, PL (2021, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000x04jmjkp6kqmx",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000x04jmjkp6kqmx",
+      "label": "[Ewa Goral] HOS Gallery/Nanazenit Warszawa, PL “Rozkwitamy” (2020, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "HOS Gallery/Nanazenit Warszawa, PL “Rozkwitamy”",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000y04jmy5pn6l2p",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000y04jmy5pn6l2p",
+      "label": "[Ewa Goral] 9TH YOUNG TRIENNALE in Orońsko, PL “So Long as We Still Live” (2020, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "9TH YOUNG TRIENNALE in Orońsko, PL “So Long as We Still Live”",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000z04jmmjxab4ei",
+      "model": "exhibition",
+      "id": "cmpb4gd4x000z04jmmjxab4ei",
+      "label": "[Ewa Goral]  Szyb Wilsona Gallery, Katowice, PL (2018, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": " Szyb Wilsona Gallery, Katowice, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001004jmjkh0c5g4",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001004jmjkh0c5g4",
+      "label": "[Ewa Goral] Arttrakt Gallery, Wrocław, PL (2018, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Arttrakt Gallery, Wrocław, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001104jmixmiueib",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001104jmixmiueib",
+      "label": "[Ewa Goral] Stolarska/Krupowicz Gallery, Warsaw, PL (2017, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001204jmlbo0flzj",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001204jmlbo0flzj",
+      "label": "[Ewa Goral] Zealous X, RichMix, London, UK (2016, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Zealous X, RichMix, London, UK",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001304jma96757hs",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001304jma96757hs",
+      "label": "[Ewa Goral] Gruning Gallery, Krakow, PL (2016, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Gruning Gallery, Krakow, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001404jmen5oo2rw",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001404jmen5oo2rw",
+      "label": "[Ewa Goral] Bohema Nowa Sztuka Gallery, Warsaw, PL (2016, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Bohema Nowa Sztuka Gallery, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001504jmp5e9lv4o",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001504jmp5e9lv4o",
+      "label": "[Ewa Goral] SoContemporary Gallery, London, UK (2016, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "SoContemporary Gallery, London, UK",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001604jm4l619o5z",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001604jm4l619o5z",
+      "label": "[Ewa Goral] Espacio Gallery, London, UK (2014, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Espacio Gallery, London, UK",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001704jmcnjk5axe",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001704jmcnjk5axe",
+      "label": "[Ewa Goral] Forbes Charity Ball, Hilton Hotel, Warsaw, PL (2013, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Forbes Charity Ball, Hilton Hotel, Warsaw, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001804jm51is4d7w",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001804jm51is4d7w",
+      "label": "[Ewa Goral] Silence is a Lie, Urban Art Exhibition, SEZ, Berlin, DE (2012, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Silence is a Lie, Urban Art Exhibition, SEZ, Berlin, DE",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001904jm9t9jz1dj",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001904jm9t9jz1dj",
+      "label": "[Ewa Goral] Polish deConstruction Show, London, UK (2008, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Polish deConstruction Show, London, UK",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001a04jm83y0tqqu",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001a04jm83y0tqqu",
+      "label": "[Ewa Goral] BWA Gallery, Bielsko Biala, PL (2003, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "BWA Gallery, Bielsko Biala, PL",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001b04jmj8i5m2xs",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001b04jmj8i5m2xs",
+      "label": "[Ewa Goral] 15th International Autumn Salon of Art, BWA Ostrowiec - exhibition (2021, AWARD)",
+      "fields": {
+        "title": {
+          "en": "15th International Autumn Salon of Art, BWA Ostrowiec - exhibition",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001c04jm3gomim9h",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001c04jm3gomim9h",
+      "label": "[Ewa Goral] 9TH YOUNG TRIENNALE in Orońsko “So Long as We Still Live” - exhibition (2020, AWARD)",
+      "fields": {
+        "title": {
+          "en": "9TH YOUNG TRIENNALE in Orońsko “So Long as We Still Live” - exhibition",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001d04jmq4p98m19",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001d04jmq4p98m19",
+      "label": "[Ewa Goral] Nowa Awangarda - Szyb Wilsona Gallery - exhibition (2018, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Nowa Awangarda - Szyb Wilsona Gallery - exhibition",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001e04jm1ca4bnod",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001e04jm1ca4bnod",
+      "label": "[Ewa Goral] Muraspec, wallpaper design competition - distinction (2018, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Muraspec, wallpaper design competition - distinction",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001f04jmp4c8meyp",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001f04jmp4c8meyp",
+      "label": "[Ewa Goral] Zealous X London - exhibition (2015, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Zealous X London - exhibition",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001g04jmhhqdhnnv",
+      "model": "exhibition",
+      "id": "cmpb4gd4x001g04jmhhqdhnnv",
+      "label": "[Ewa Goral] Polish Biennale of Young Artists in Bielsko Biala - 3th prize (2003, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Polish Biennale of Young Artists in Bielsko Biala - 3th prize",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000004k0yt6c8497",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000004k0yt6c8497",
+      "label": "[Richard Mensah] The Waters We Claimed, Chilli, London (2025, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "The Waters We Claimed, Chilli, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000104k0aqctpe59",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000104k0aqctpe59",
+      "label": "[Richard Mensah] Solo show, Chilliart Projects, London (2024, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Solo show, Chilliart Projects, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000204k0q3mps9uk",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000204k0q3mps9uk",
+      "label": "[Richard Mensah] Solo show, Band of Vices, Los Angeles (2023, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Solo show, Band of Vices, Los Angeles",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000304k01wh1rnlp",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000304k01wh1rnlp",
+      "label": "[Richard Mensah] The Softer Side of Us, Afikaris, Paris France (2023, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "The Softer Side of Us, Afikaris, Paris France",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000404k0rwo76kbn",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000404k0rwo76kbn",
+      "label": "[Richard Mensah] Stepping Back To Move Forward, Chilliart Project, Cheshire (2022, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Stepping Back To Move Forward, Chilliart Project, Cheshire",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000504k01yujsu52",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000504k01yujsu52",
+      "label": "[Richard Mensah] Fluid Movement, Solo Show, Chilliart Projects, London (2022, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Fluid Movement, Solo Show, Chilliart Projects, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000604k0wm0zv7y9",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000604k0wm0zv7y9",
+      "label": "[Richard Mensah]  Solo Exhibition Black History Month ‘Our History’, Financial Ombudsman Black History Month Art exhibition, London UK (2018, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": " Solo Exhibition Black History Month ‘Our History’, Financial Ombudsman Black History Month Art exhibition, London UK",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000704k0l1mhcc3q",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000704k0l1mhcc3q",
+      "label": "[Richard Mensah] Butter Art Fair, Band of Vices, Los Angeles (2026, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Butter Art Fair, Band of Vices, Los Angeles",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000804k0botq5lf3",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000804k0botq5lf3",
+      "label": "[Richard Mensah] Harlem Fine Arts Show, US (2026, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Harlem Fine Arts Show, US",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000904k0e886a02n",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000904k0e886a02n",
+      "label": "[Richard Mensah] Atlanta Art fair, Atlanta, US (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Atlanta Art fair, Atlanta, US",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000a04k0lzomndw9",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000a04k0lzomndw9",
+      "label": "[Richard Mensah]  In His Own image, London (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": " In His Own image, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000b04k08hdboob1",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000b04k08hdboob1",
+      "label": "[Richard Mensah] Harlem Fine Arts Show, US (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Harlem Fine Arts Show, US",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000c04k07bzrf28l",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000c04k07bzrf28l",
+      "label": "[Richard Mensah] Christie’s Lates, Voices of Black Artistry, London (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Christie’s Lates, Voices of Black Artistry, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000d04k0qc7cpyye",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000d04k0qc7cpyye",
+      "label": "[Richard Mensah] Reclaiming Our Narrative, Westminster City Council, London (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Reclaiming Our Narrative, Westminster City Council, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000e04k0e6w7igcy",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000e04k0e6w7igcy",
+      "label": "[Richard Mensah] Amalgam -, Chilliart Projects (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Amalgam -, Chilliart Projects",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000f04k0vzjebzh0",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000f04k0vzjebzh0",
+      "label": "[Richard Mensah] Reflections, Chilliart Projects, London (2023, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Reflections, Chilliart Projects, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000g04k0d6efkqgp",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000g04k0d6efkqgp",
+      "label": "[Richard Mensah] Surface 1, Chilliart Projects, London (2023, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Surface 1, Chilliart Projects, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000h04k08cnduos7",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000h04k08cnduos7",
+      "label": "[Richard Mensah] Classique, Afikaris, Paris (2022, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Classique, Afikaris, Paris",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000i04k0trr673m0",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000i04k0trr673m0",
+      "label": "[Richard Mensah] Masterpieces 3, Band of Vices, Los Angeles (2022, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Masterpieces 3, Band of Vices, Los Angeles",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000j04k0ontmw2ph",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000j04k0ontmw2ph",
+      "label": "[Richard Mensah] The Stories We Tell, Chilliart Projects, London (2022, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "The Stories We Tell, Chilliart Projects, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000k04k071olbs3r",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000k04k071olbs3r",
+      "label": "[Richard Mensah] Group Exhibition, Ascension, Zari Gallery, London (2021, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Group Exhibition, Ascension, Zari Gallery, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000l04k01d4gjdnr",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000l04k01d4gjdnr",
+      "label": "[Richard Mensah] Group Exhibition, Honour Remember Inspire, Zari Gallery, London (2021, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Group Exhibition, Honour Remember Inspire, Zari Gallery, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000m04k0eu1zacdh",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000m04k0eu1zacdh",
+      "label": "[Richard Mensah] Group Exhibition, Black in Full Colour, The Collective Makers, London (2021, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Group Exhibition, Black in Full Colour, The Collective Makers, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000n04k0k4kp0ljb",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000n04k0k4kp0ljb",
+      "label": "[Richard Mensah] Group Exhibition, Awakening, Chilliart Projects, London (2021, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Group Exhibition, Awakening, Chilliart Projects, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000o04k0vcudiq8y",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000o04k0vcudiq8y",
+      "label": "[Richard Mensah] Create Magazine Springing forward exhibition Curated By Gita Joshi (2021, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Create Magazine Springing forward exhibition Curated By Gita Joshi",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000p04k0o2ofzvzv",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000p04k0o2ofzvzv",
+      "label": "[Richard Mensah] Virtual Group Exhibition. Change. Norman Rea Gallery, United Kingdom (2020, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Virtual Group Exhibition. Change. Norman Rea Gallery, United Kingdom",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000q04k0kpzgsxu4",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000q04k0kpzgsxu4",
+      "label": "[Richard Mensah] Group Exhibition Isolation Mastered, JD Malat Gallery, London. (2020, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Group Exhibition Isolation Mastered, JD Malat Gallery, London.",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000r04k02s44j053",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000r04k02s44j053",
+      "label": "[Richard Mensah] Group Exhibition Figuratively Speaking, Elizabeth James Gallery, London (2018, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Group Exhibition Figuratively Speaking, Elizabeth James Gallery, London",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000s04k0paqjag99",
+      "model": "exhibition",
+      "id": "cmp6s6z4e000s04k0paqjag99",
+      "label": "[Richard Mensah] AKAA Fair, Paris (2022, ART_FAIR)",
+      "fields": {
+        "title": {
+          "en": "AKAA Fair, Paris",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000t04k0b4tiq26e",
+      "model": "exhibition",
+      "id": "cmp6s6z4f000t04k0b4tiq26e",
+      "label": "[Richard Mensah] Manchester Art Fair, Zari Gallery (2021, ART_FAIR)",
+      "fields": {
+        "title": {
+          "en": "Manchester Art Fair, Zari Gallery",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000u04k0lod777lf",
+      "model": "exhibition",
+      "id": "cmp6s6z4f000u04k0lod777lf",
+      "label": "[Richard Mensah] LGC Art Prize Finalist (2024, AWARD)",
+      "fields": {
+        "title": {
+          "en": "LGC Art Prize Finalist",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000v04k0j3g18afk",
+      "model": "exhibition",
+      "id": "cmp6s6z4f000v04k0j3g18afk",
+      "label": "[Richard Mensah] Robert Walters Group UK New Artist of the Year Award longlisted (2021, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Robert Walters Group UK New Artist of the Year Award longlisted",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000w04k0u3x1mv7a",
+      "model": "exhibition",
+      "id": "cmp6s6z4f000w04k0u3x1mv7a",
+      "label": "[Richard Mensah] Shortlisted Royal Academy of Arts Summer Exhibition 2021 (2021, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Shortlisted Royal Academy of Arts Summer Exhibition 2021",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000x04k0sbzecypu",
+      "model": "exhibition",
+      "id": "cmp6s6z4f000x04k0sbzecypu",
+      "label": "[Richard Mensah] Longlisted on Jackson’s Painting Prize 2021 – Among 400 artworks selected from 8674 entries (2021, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Longlisted on Jackson’s Painting Prize 2021 – Among 400 artworks selected from 8674 entries",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000y04k0b5sgn4xs",
+      "model": "exhibition",
+      "id": "cmp6s6z4f000y04k0b5sgn4xs",
+      "label": "[Richard Mensah] Selected Among 25 Artist UK wide to Exhibit at JD Malat Gallery (2020, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Selected Among 25 Artist UK wide to Exhibit at JD Malat Gallery",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000z04k0aloj4s42",
+      "model": "exhibition",
+      "id": "cmp6s6z4f000z04k0aloj4s42",
+      "label": "[Richard Mensah] Longlisted Jackson’s Painting Prize 2020 (2019, AWARD)",
+      "fields": {
+        "title": {
+          "en": "Longlisted Jackson’s Painting Prize 2020",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001i04l7k3nl5t55",
+      "model": "exhibition",
+      "id": "cmozzu7zq001i04l7k3nl5t55",
+      "label": "[Owen Rival] Untitled, LBF Contemporary, London, England (2026, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Untitled, LBF Contemporary, London, England",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001j04l7blqzccry",
+      "model": "exhibition",
+      "id": "cmozzu7zq001j04l7blqzccry",
+      "label": "[Owen Rival] Mental Landscapes, Abbozzo Gallery, Toronto, Canada (2025, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Mental Landscapes, Abbozzo Gallery, Toronto, Canada",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001k04l71zpm4w25",
+      "model": "exhibition",
+      "id": "cmozzu7zq001k04l71zpm4w25",
+      "label": "[Owen Rival] Chronic Maintenance, Monti8 Gallery, Latina, Italy  (2023, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Chronic Maintenance, Monti8 Gallery, Latina, Italy ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001l04l7fj990e8r",
+      "model": "exhibition",
+      "id": "cmozzu7zq001l04l7fj990e8r",
+      "label": "[Owen Rival] Longview, Harkawik Gallery, NYC, USA (2023, SOLO_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Longview, Harkawik Gallery, NYC, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001m04l7tphuzsr4",
+      "model": "exhibition",
+      "id": "cmozzu7zq001m04l7tphuzsr4",
+      "label": "[Owen Rival] String Theory, Gagne Contemporary, Toronto, Canada (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "String Theory, Gagne Contemporary, Toronto, Canada",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001n04l7qwr4466n",
+      "model": "exhibition",
+      "id": "cmozzu7zq001n04l7qwr4466n",
+      "label": "[Owen Rival] Compatibility, Monti8 Gallery, Latina, Italy (2025, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Compatibility, Monti8 Gallery, Latina, Italy",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001o04l7764rkiec",
+      "model": "exhibition",
+      "id": "cmozzu7zq001o04l7764rkiec",
+      "label": "[Owen Rival] Entre El Cielo Y El Suelo Art House, Mexico City, Mexico (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Entre El Cielo Y El Suelo Art House, Mexico City, Mexico",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001p04l7avg2sou1",
+      "model": "exhibition",
+      "id": "cmozzu7zq001p04l7avg2sou1",
+      "label": "[Owen Rival] Dallas Art Fair  1969 Gallery, Dallas, USA (2024, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Dallas Art Fair  1969 Gallery, Dallas, USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001q04l7phs9d4pj",
+      "model": "exhibition",
+      "id": "cmozzu7zq001q04l7phs9d4pj",
+      "label": "[Owen Rival] Works on Paper on Fridges Harkawik Gallery  (2022, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Works on Paper on Fridges Harkawik Gallery ",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001r04l70xgo0s7r",
+      "model": "exhibition",
+      "id": "cmozzu7zq001r04l70xgo0s7r",
+      "label": "[Owen Rival] Exit 26 Monti8 Gallery, Latina, Italy (2022, GROUP_SHOW)",
+      "fields": {
+        "title": {
+          "en": "Exit 26 Monti8 Gallery, Latina, Italy",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy"
+      }
+    },
+    {
+      "ref": "collection:cmp000rt2000804i8um5alei8",
+      "model": "collection",
+      "id": "cmp000rt2000804i8um5alei8",
+      "label": "[Matthieu Scheiffer] Private Collections, France, Europe and Asia",
+      "fields": {
+        "title": {
+          "en": "Private Collections, France, Europe and Asia",
+          "fr": "Private Collections, France, Europe and Asia",
+          "zh": "Private Collections, France, Europe and Asia"
+        }
+      },
+      "policy": {
+        "title": "translate"
+      }
+    },
+    {
+      "ref": "collection:cmpb4fzpk000004lgdbq8dz97",
+      "model": "collection",
+      "id": "cmpb4fzpk000004lgdbq8dz97",
+      "label": "[Renée Le Bloas -Julienne] Private Collections, France and Asia",
+      "fields": {
+        "title": {
+          "en": "Private Collections, France and Asia",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "translate"
+      }
+    },
+    {
+      "ref": "collection:cmp6su94e000c04l5tl6z5o47",
+      "model": "collection",
+      "id": "cmp6su94e000c04l5tl6z5o47",
+      "label": "[Carlos Romano] European, African and American private collection",
+      "fields": {
+        "title": {
+          "en": "European, African and American private collection",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "translate"
+      }
+    },
+    {
+      "ref": "collection:cmp6su94e000d04l5gk170o54",
+      "model": "collection",
+      "id": "cmp6su94e000d04l5gk170o54",
+      "label": "[Carlos Romano] Saatchi Gallery USA",
+      "fields": {
+        "title": {
+          "en": "Saatchi Gallery USA",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "translate"
+      }
+    },
+    {
+      "ref": "collection:cmou9g2pn000c04lahlu3glum",
+      "model": "collection",
+      "id": "cmou9g2pn000c04lahlu3glum",
+      "label": "[Rebekka Macht] Soho House Collection, London and Berlin",
+      "fields": {
+        "title": {
+          "en": "Soho House Collection, London and Berlin",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "translate"
+      }
+    },
+    {
+      "ref": "collection:cmou9g2pn000d04la8rcftg3n",
+      "model": "collection",
+      "id": "cmou9g2pn000d04la8rcftg3n",
+      "label": "[Rebekka Macht] Private collections, including Amoako Boafo Collection",
+      "fields": {
+        "title": {
+          "en": "Private collections, including Amoako Boafo Collection",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "translate"
+      }
+    },
+    {
+      "ref": "collection:cmpb4gd5p001h04jmbohxxn3x",
+      "model": "collection",
+      "id": "cmpb4gd5p001h04jmbohxxn3x",
+      "label": "[Ewa Goral] Private Collections, Poland and Europe",
+      "fields": {
+        "title": {
+          "en": "Private Collections, Poland and Europe",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "translate"
+      }
+    },
+    {
+      "ref": "collection:cmozzu7zu001s04l73pl8odon",
+      "model": "collection",
+      "id": "cmozzu7zu001s04l73pl8odon",
+      "label": "[Owen Rival] Private collection of Beth DeWoody",
+      "fields": {
+        "title": {
+          "en": "Private collection of Beth DeWoody",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "translate"
+      }
+    },
+    {
+      "ref": "collection:cmozzu7zu001t04l7bp84r7x4",
+      "model": "collection",
+      "id": "cmozzu7zu001t04l7bp84r7x4",
+      "label": "[Owen Rival] The Nixon Collection",
+      "fields": {
+        "title": {
+          "en": "The Nixon Collection",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa3l57i000404ichrcoxjej",
+      "model": "artwork",
+      "id": "cmoa3l57i000404ichrcoxjej",
+      "label": "[Matthieu Scheiffer] Sigmund2",
+      "fields": {
+        "title": {
+          "en": "Sigmund2",
+          "fr": "Sigmund2",
+          "zh": "Sigmund2"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sdls80005ag9kgxb5h6ml",
+      "model": "artwork",
+      "id": "cmn3sdls80005ag9kgxb5h6ml",
+      "label": "[Matthieu Scheiffer] Untitled I",
+      "fields": {
+        "title": {
+          "en": "Untitled I",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmni2l5go000004l46nvize58",
+      "model": "artwork",
+      "id": "cmni2l5go000004l46nvize58",
+      "label": "[Matthieu Scheiffer] Crocodile",
+      "fields": {
+        "title": {
+          "en": "Crocodile",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Acrylic on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmo98p74r000004l83albcrh2",
+      "model": "artwork",
+      "id": "cmo98p74r000004l83albcrh2",
+      "label": "[Matthieu Scheiffer] Orque",
+      "fields": {
+        "title": {
+          "en": "Orque",
+          "fr": "Orque",
+          "zh": "Orque"
+        },
+        "medium": {
+          "en": "Acrylic on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa3jmg1000004l44keb9pi3",
+      "model": "artwork",
+      "id": "cmoa3jmg1000004l44keb9pi3",
+      "label": "[Matthieu Scheiffer] Dodo",
+      "fields": {
+        "title": {
+          "en": "Dodo",
+          "fr": "Dodo",
+          "zh": "Dodo"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sdn9i0006ag9kk905h4h9",
+      "model": "artwork",
+      "id": "cmn3sdn9i0006ag9kk905h4h9",
+      "label": "[Matthieu Scheiffer] Untitled II",
+      "fields": {
+        "title": {
+          "en": "Untitled II",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sdndi0007ag9kublbgal1",
+      "model": "artwork",
+      "id": "cmn3sdndi0007ag9kublbgal1",
+      "label": "[Matthieu Scheiffer] Series III",
+      "fields": {
+        "title": {
+          "en": "Series III",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Mixed media on panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmozyan68000004jlegiv6knb",
+      "model": "artwork",
+      "id": "cmozyan68000004jlegiv6knb",
+      "label": "[Renée Le Bloas -Julienne] BULLES SOLAIRES",
+      "fields": {
+        "title": {
+          "en": "BULLES SOLAIRES",
+          "fr": "BULLES SOLAIRES",
+          "zh": "BULLES SOLAIRES"
+        },
+        "medium": {
+          "en": "Résine & acrylique sur support bois",
+          "fr": "Résine & acrylique sur support bois",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp9us00x000004l2d9cbygtx",
+      "model": "artwork",
+      "id": "cmp9us00x000004l2d9cbygtx",
+      "label": "[Renée Le Bloas -Julienne] SPRING BLOOM",
+      "fields": {
+        "title": {
+          "en": "SPRING BLOOM",
+          "fr": "SPRING BLOOM",
+          "zh": "SPRING BLOOM"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmopnr7dv000204l0mc3l2nxf",
+      "model": "artwork",
+      "id": "cmopnr7dv000204l0mc3l2nxf",
+      "label": "[Renée Le Bloas -Julienne] INDIAN SUMMER",
+      "fields": {
+        "title": {
+          "en": "INDIAN SUMMER",
+          "fr": "INDIAN SUMMER",
+          "zh": "INDIAN SUMMER"
+        },
+        "medium": {
+          "en": "résine et filtre dichroïque sur support en bois",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmozyjnla000104jl254ylkbq",
+      "model": "artwork",
+      "id": "cmozyjnla000104jl254ylkbq",
+      "label": "[Renée Le Bloas -Julienne] CHLOROPHYLL DROPS",
+      "fields": {
+        "title": {
+          "en": "CHLOROPHYLL DROPS",
+          "fr": "CHLOROPHYLL DROPS",
+          "zh": "CHLOROPHYLL DROPS"
+        },
+        "medium": {
+          "en": "",
+          "fr": "résine & filtre dichroïque sur support bois",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmozyu2rk000004jo3y7nahg9",
+      "model": "artwork",
+      "id": "cmozyu2rk000004jo3y7nahg9",
+      "label": "[Renée Le Bloas -Julienne] SANDSTORM",
+      "fields": {
+        "title": {
+          "en": "SANDSTORM",
+          "fr": "SANDSTORM",
+          "zh": "SANDSTORM"
+        },
+        "medium": {
+          "en": "Résine sur support bois-",
+          "fr": "Résine sur support bois",
+          "zh": "Résine sur support bois"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmozz398u000104ld53w3y0gs",
+      "model": "artwork",
+      "id": "cmozz398u000104ld53w3y0gs",
+      "label": "[Renée Le Bloas -Julienne] SPICY COCKTAIL",
+      "fields": {
+        "title": {
+          "en": "SPICY COCKTAIL",
+          "fr": "SPICY COCKTAIL",
+          "zh": "SPICY COCKTAIL"
+        },
+        "medium": {
+          "en": "Résine & filtre dichroïque sur support bois",
+          "fr": "Résine & filtre dichroïque sur support bois",
+          "zh": "Résine & filtre dichroïque sur support bois"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmozynffx000004ld19boy8oq",
+      "model": "artwork",
+      "id": "cmozynffx000004ld19boy8oq",
+      "label": "[Renée Le Bloas -Julienne] AMBER DROPS",
+      "fields": {
+        "title": {
+          "en": "AMBER DROPS",
+          "fr": "AMBER DROPS",
+          "zh": "AMBER DROPS"
+        },
+        "medium": {
+          "en": "résine & acrylique sur support bois",
+          "fr": "résine & acrylique sur support bois",
+          "zh": "résine & acrylique sur support bois"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmozz64u8000004lbrir6rip8",
+      "model": "artwork",
+      "id": "cmozz64u8000004lbrir6rip8",
+      "label": "[Renée Le Bloas -Julienne] SUNNY ICE CUBES",
+      "fields": {
+        "title": {
+          "en": "SUNNY ICE CUBES",
+          "fr": "SUNNY ICE CUBES",
+          "zh": "SUNNY ICE CUBES"
+        },
+        "medium": {
+          "en": "",
+          "fr": "Résine & acrylique sur support bois",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmozydwle000004jnvth3dpvc",
+      "model": "artwork",
+      "id": "cmozydwle000004jnvth3dpvc",
+      "label": "[Renée Le Bloas -Julienne] PURPLE DROPS",
+      "fields": {
+        "title": {
+          "en": "PURPLE DROPS",
+          "fr": "PURPLE DROPS",
+          "zh": "PURPLE DROPS"
+        },
+        "medium": {
+          "en": "Résine & filtre dichroïque sur support bois",
+          "fr": "Résine & filtre dichroïque sur support bois",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sdr6g000dag9kh5k53lma",
+      "model": "artwork",
+      "id": "cmn3sdr6g000dag9kh5k53lma",
+      "label": "[Renée Le Bloas -Julienne] POOL !",
+      "fields": {
+        "title": {
+          "en": "POOL !",
+          "fr": "POOL !",
+          "zh": "POOL !"
+        },
+        "medium": {
+          "en": "Resine et Acrylique sur support en bois",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp9sw2l6000304l1xizzru1d",
+      "model": "artwork",
+      "id": "cmp9sw2l6000304l1xizzru1d",
+      "label": "[Renée Le Bloas -Julienne] BLUEBERRY SEEDS",
+      "fields": {
+        "title": {
+          "en": "BLUEBERRY SEEDS",
+          "fr": "BLUEBERRY SEEDS",
+          "zh": "BLUEBERRY SEEDS"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sdr95000eag9kv91zctf2",
+      "model": "artwork",
+      "id": "cmn3sdr95000eag9kv91zctf2",
+      "label": "[Renée Le Bloas -Julienne] SUNSHINE",
+      "fields": {
+        "title": {
+          "en": "SUNSHINE",
+          "fr": "SUNSHINE",
+          "zh": "SUNSHINE"
+        },
+        "medium": {
+          "en": "Résine et acrylique sur support de bois",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sdrvw000fag9k511b1qug",
+      "model": "artwork",
+      "id": "cmn3sdrvw000fag9k511b1qug",
+      "label": "[Renée Le Bloas -Julienne] POUSSIÈRE D’ÉTOILES",
+      "fields": {
+        "title": {
+          "en": "POUSSIÈRE D’ÉTOILES",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Résine & filtre dichroïque sur support bois",
+          "fr": "Résine & filtre dichroïque sur support bois",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa8jvwm000004jm1fv2g200",
+      "model": "artwork",
+      "id": "cmoa8jvwm000004jm1fv2g200",
+      "label": "[Carlos Romano] Tutu Maiado",
+      "fields": {
+        "title": {
+          "en": "Tutu Maiado",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa8kx9g000604l4yk04jugy",
+      "model": "artwork",
+      "id": "cmoa8kx9g000604l4yk04jugy",
+      "label": "[Carlos Romano] Alibi",
+      "fields": {
+        "title": {
+          "en": "Alibi",
+          "fr": "Alibi",
+          "zh": "Alibi"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmo992m0p000104l8bo2i3xqg",
+      "model": "artwork",
+      "id": "cmo992m0p000104l8bo2i3xqg",
+      "label": "[Carlos Romano] Weeping",
+      "fields": {
+        "title": {
+          "en": "Weeping",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sdwod000lag9kvkfvk7w4",
+      "model": "artwork",
+      "id": "cmn3sdwod000lag9kvkfvk7w4",
+      "label": "[Carlos Romano] Solea",
+      "fields": {
+        "title": {
+          "en": "Solea",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa8jfd5000504l4tk39y1sb",
+      "model": "artwork",
+      "id": "cmoa8jfd5000504l4tk39y1sb",
+      "label": "[Carlos Romano] Tunda",
+      "fields": {
+        "title": {
+          "en": "Tunda",
+          "fr": "Tunda",
+          "zh": "Tunda"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp00acpy000904i8mzaq96q0",
+      "model": "artwork",
+      "id": "cmp00acpy000904i8mzaq96q0",
+      "label": "[Carlos Romano] Autumn Fall",
+      "fields": {
+        "title": {
+          "en": "Autumn Fall",
+          "fr": "Autumn Fall",
+          "zh": "Autumn Fall"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa8ih6v000304l41yflv664",
+      "model": "artwork",
+      "id": "cmoa8ih6v000304l41yflv664",
+      "label": "[Carlos Romano] Gg",
+      "fields": {
+        "title": {
+          "en": "Gg",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa8kfn5000104jmzfja7feg",
+      "model": "artwork",
+      "id": "cmoa8kfn5000104jmzfja7feg",
+      "label": "[Carlos Romano] Genesis",
+      "fields": {
+        "title": {
+          "en": "Genesis",
+          "fr": "Genesis",
+          "zh": "Genesis"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa8hnix000004l4r1srcz9b",
+      "model": "artwork",
+      "id": "cmoa8hnix000004l4r1srcz9b",
+      "label": "[Carlos Romano] Pyramids",
+      "fields": {
+        "title": {
+          "en": "Pyramids",
+          "fr": "Pyramids",
+          "zh": "Pyramids"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou83ik0000004l7od78f045",
+      "model": "artwork",
+      "id": "cmou83ik0000004l7od78f045",
+      "label": "[Rebekka Macht] Origin",
+      "fields": {
+        "title": {
+          "en": "Origin",
+          "fr": "Origin",
+          "zh": "Origin"
+        },
+        "medium": {
+          "en": "Oil on canvas ",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou7ryto000004k0018he64l",
+      "model": "artwork",
+      "id": "cmou7ryto000004k0018he64l",
+      "label": "[Rebekka Macht] Return",
+      "fields": {
+        "title": {
+          "en": "Return",
+          "fr": "Return",
+          "zh": "Return"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou7o6tq000004l4mlqv8wj4",
+      "model": "artwork",
+      "id": "cmou7o6tq000004l4mlqv8wj4",
+      "label": "[Rebekka Macht] Reach | triptych",
+      "fields": {
+        "title": {
+          "en": "Reach | triptych",
+          "fr": "Reach | triptych",
+          "zh": "Reach | triptych"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou8grz3000204l4596anfck",
+      "model": "artwork",
+      "id": "cmou8grz3000204l4596anfck",
+      "label": "[Rebekka Macht] The night he left",
+      "fields": {
+        "title": {
+          "en": "The night he left",
+          "fr": "The night he left",
+          "zh": "The night he left"
+        },
+        "medium": {
+          "en": "oil on canvas",
+          "fr": "oil on canvas",
+          "zh": "oil on canvas"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou9873p000104jjlcoj0ykq",
+      "model": "artwork",
+      "id": "cmou9873p000104jjlcoj0ykq",
+      "label": "[Rebekka Macht] I have enough, brother",
+      "fields": {
+        "title": {
+          "en": "I have enough, brother",
+          "fr": "I have enough, brother",
+          "zh": "I have enough, brother"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou8o0fo000004jiwrrpv92i",
+      "model": "artwork",
+      "id": "cmou8o0fo000004jiwrrpv92i",
+      "label": "[Rebekka Macht] Mountains",
+      "fields": {
+        "title": {
+          "en": "Mountains",
+          "fr": "Mountains",
+          "zh": "Mountains"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmocqmt2k000104jxbp0y7uyd",
+      "model": "artwork",
+      "id": "cmocqmt2k000104jxbp0y7uyd",
+      "label": "[Rebekka Macht] Presence",
+      "fields": {
+        "title": {
+          "en": "Presence",
+          "fr": "Presence",
+          "zh": "Presence"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou94w2e000404jioz0j2aeh",
+      "model": "artwork",
+      "id": "cmou94w2e000404jioz0j2aeh",
+      "label": "[Rebekka Macht] Cradle",
+      "fields": {
+        "title": {
+          "en": "Cradle",
+          "fr": "Cradle",
+          "zh": "Cradle"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou8ylzx000204jiseo8o4am",
+      "model": "artwork",
+      "id": "cmou8ylzx000204jiseo8o4am",
+      "label": "[Rebekka Macht] Course ",
+      "fields": {
+        "title": {
+          "en": "Course ",
+          "fr": "Course ",
+          "zh": "Course "
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou8rjun000104jivadrav8d",
+      "model": "artwork",
+      "id": "cmou8rjun000104jivadrav8d",
+      "label": "[Rebekka Macht] Bare",
+      "fields": {
+        "title": {
+          "en": "Bare",
+          "fr": "Bare",
+          "zh": "Bare"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3se0f7000tag9kvtjsokuq",
+      "model": "artwork",
+      "id": "cmn3se0f7000tag9kvtjsokuq",
+      "label": "[Rebekka Macht] Coming Home",
+      "fields": {
+        "title": {
+          "en": "Coming Home",
+          "fr": "Coming Home",
+          "zh": "Coming Home"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou9dwuc000204jjuu0pxksh",
+      "model": "artwork",
+      "id": "cmou9dwuc000204jjuu0pxksh",
+      "label": "[Rebekka Macht] Threshold 2",
+      "fields": {
+        "title": {
+          "en": "Threshold 2",
+          "fr": "Threshold 2",
+          "zh": "Threshold 2"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou8vj5i000004jjbrk2g2bw",
+      "model": "artwork",
+      "id": "cmou8vj5i000004jjbrk2g2bw",
+      "label": "[Rebekka Macht] Illumination",
+      "fields": {
+        "title": {
+          "en": "Illumination",
+          "fr": "Illumination",
+          "zh": "Illumination"
+        },
+        "medium": {
+          "en": "Oil on canvas ",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmocqgktf000004jxhjp3m5ll",
+      "model": "artwork",
+      "id": "cmocqgktf000004jxhjp3m5ll",
+      "label": "[Rebekka Macht] Threshold",
+      "fields": {
+        "title": {
+          "en": "Threshold",
+          "fr": "Threshold",
+          "zh": "Threshold"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile ",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou87dlp000104l4fypnjb2p",
+      "model": "artwork",
+      "id": "cmou87dlp000104l4fypnjb2p",
+      "label": "[Rebekka Macht] Crossroads",
+      "fields": {
+        "title": {
+          "en": "Crossroads",
+          "fr": "Crossroads",
+          "zh": "Crossroads"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Oil on canvas",
+          "zh": "Oil on canvas"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou7u47v000104k0i3140qnt",
+      "model": "artwork",
+      "id": "cmou7u47v000104k0i3140qnt",
+      "label": "[Rebekka Macht] Confluence",
+      "fields": {
+        "title": {
+          "en": "Confluence",
+          "fr": "Confluence",
+          "zh": "Confluence"
+        },
+        "medium": {
+          "en": "oil on canvas, cotton fabric",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou91xow000304jic24e99pf",
+      "model": "artwork",
+      "id": "cmou91xow000304jic24e99pf",
+      "label": "[Rebekka Macht] Symbiosis",
+      "fields": {
+        "title": {
+          "en": "Symbiosis",
+          "fr": "Symbiosis",
+          "zh": "Symbiosis"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmocqkd91000404l5qkaq913u",
+      "model": "artwork",
+      "id": "cmocqkd91000404l5qkaq913u",
+      "label": "[Rebekka Macht] entangle (left) unravel (right), diptych",
+      "fields": {
+        "title": {
+          "en": "entangle (left) unravel (right), diptych",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmou8f0tp000104l7zzpym56x",
+      "model": "artwork",
+      "id": "cmou8f0tp000104l7zzpym56x",
+      "label": "[Rebekka Macht] Hold, Trace, Reach | Triptych",
+      "fields": {
+        "title": {
+          "en": "Hold, Trace, Reach | Triptych",
+          "fr": "Hold, Trace, Reach | Triptych",
+          "zh": "Hold, Trace, Reach | Triptych"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "Huile sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3se0hz000uag9kcarpfgql",
+      "model": "artwork",
+      "id": "cmn3se0hz000uag9kcarpfgql",
+      "label": "[Rebekka Macht] Ghost of the Night",
+      "fields": {
+        "title": {
+          "en": "Ghost of the Night",
+          "fr": "Ghost of the Night",
+          "zh": "Ghost of the Night"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3se173000vag9k4t0rvxul",
+      "model": "artwork",
+      "id": "cmn3se173000vag9k4t0rvxul",
+      "label": "[Rebekka Macht] Immersion",
+      "fields": {
+        "title": {
+          "en": "Immersion",
+          "fr": "Immersion",
+          "zh": "Immersion"
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa2ovww000004ie83f5es0p",
+      "model": "artwork",
+      "id": "cmoa2ovww000004ie83f5es0p",
+      "label": "[Halee Roth] Light Falling",
+      "fields": {
+        "title": {
+          "en": "Light Falling",
+          "fr": "Light Falling",
+          "zh": "Light Falling"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3se4ja0011ag9krnmfyb74",
+      "model": "artwork",
+      "id": "cmn3se4ja0011ag9krnmfyb74",
+      "label": "[Halee Roth] Bent Boughs",
+      "fields": {
+        "title": {
+          "en": "Bent Boughs",
+          "fr": "Bent Boughs",
+          "zh": "Bent Boughs"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa0skh8000004i7pd1ui0zs",
+      "model": "artwork",
+      "id": "cmoa0skh8000004i7pd1ui0zs",
+      "label": "[Halee Roth] Form in Warmth ",
+      "fields": {
+        "title": {
+          "en": "Form in Warmth ",
+          "fr": "Form in Warmth ",
+          "zh": "Form in Warmth "
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa0tctb000104i7uabbojuh",
+      "model": "artwork",
+      "id": "cmoa0tctb000104i7uabbojuh",
+      "label": "[Halee Roth] Heart is in the Earth",
+      "fields": {
+        "title": {
+          "en": "Heart is in the Earth",
+          "fr": "Heart is in the Earth",
+          "zh": "Heart is in the Earth"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa1xa4r000104jpua929rtx",
+      "model": "artwork",
+      "id": "cmoa1xa4r000104jpua929rtx",
+      "label": "[Halee Roth] Komorebi",
+      "fields": {
+        "title": {
+          "en": "Komorebi",
+          "fr": "Komorebi",
+          "zh": "Komorebi"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa0u71x000204i7skrk9d50",
+      "model": "artwork",
+      "id": "cmoa0u71x000204i7skrk9d50",
+      "label": "[Halee Roth] Dictamnus Albus ",
+      "fields": {
+        "title": {
+          "en": "Dictamnus Albus ",
+          "fr": "Dictamnus Albus ",
+          "zh": "Dictamnus Albus "
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa1znh9000004i2z66naqqj",
+      "model": "artwork",
+      "id": "cmoa1znh9000004i2z66naqqj",
+      "label": "[Halee Roth] Chrysalis",
+      "fields": {
+        "title": {
+          "en": "Chrysalis",
+          "fr": "Chrysalis",
+          "zh": "Chrysalis"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa1ur2u000004l5s3li2lhh",
+      "model": "artwork",
+      "id": "cmoa1ur2u000004l5s3li2lhh",
+      "label": "[Halee Roth] Dusk Where Tree Meets Sky ",
+      "fields": {
+        "title": {
+          "en": "Dusk Where Tree Meets Sky ",
+          "fr": "Dusk Where Tree Meets Sky ",
+          "zh": "Dusk Where Tree Meets Sky "
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa1xzcc000204jp9j0bhiow",
+      "model": "artwork",
+      "id": "cmoa1xzcc000204jp9j0bhiow",
+      "label": "[Halee Roth] Anchor Light ",
+      "fields": {
+        "title": {
+          "en": "Anchor Light ",
+          "fr": "Anchor Light ",
+          "zh": "Anchor Light "
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa1wjcq000004kyx4ox088q",
+      "model": "artwork",
+      "id": "cmoa1wjcq000004kyx4ox088q",
+      "label": "[Halee Roth] The Power of Blue",
+      "fields": {
+        "title": {
+          "en": "The Power of Blue",
+          "fr": "The Power of Blue",
+          "zh": "The Power of Blue"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa1vtzj000004jpb25f1ix7",
+      "model": "artwork",
+      "id": "cmoa1vtzj000004jpb25f1ix7",
+      "label": "[Halee Roth] Forced to Feel",
+      "fields": {
+        "title": {
+          "en": "Forced to Feel",
+          "fr": "Forced to Feel",
+          "zh": "Forced to Feel"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa20anz000104i2hb6i2tq5",
+      "model": "artwork",
+      "id": "cmoa20anz000104i2hb6i2tq5",
+      "label": "[Halee Roth] Leaves of Glass",
+      "fields": {
+        "title": {
+          "en": "Leaves of Glass",
+          "fr": "Leaves of Glass",
+          "zh": "Leaves of Glass"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa20w1t000304jpj0kaw2z6",
+      "model": "artwork",
+      "id": "cmoa20w1t000304jpj0kaw2z6",
+      "label": "[Halee Roth] Nature's First Green",
+      "fields": {
+        "title": {
+          "en": "Nature's First Green",
+          "fr": "Nature's First Green",
+          "zh": "Nature's First Green"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa2r4or000004jvv46newls",
+      "model": "artwork",
+      "id": "cmoa2r4or000004jvv46newls",
+      "label": "[Halee Roth] Papaver Drape",
+      "fields": {
+        "title": {
+          "en": "Papaver Drape",
+          "fr": "Papaver Drape",
+          "zh": "Papaver Drape"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa2rnx3000104l168ol1r5h",
+      "model": "artwork",
+      "id": "cmoa2rnx3000104l168ol1r5h",
+      "label": "[Halee Roth] Water on Parched Earth ",
+      "fields": {
+        "title": {
+          "en": "Water on Parched Earth ",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmotvoybq000004jxif0ngy38",
+      "model": "artwork",
+      "id": "cmotvoybq000004jxif0ngy38",
+      "label": "[Halee Roth] When We Were The Wind",
+      "fields": {
+        "title": {
+          "en": "When We Were The Wind",
+          "fr": "When We Were The Wind",
+          "zh": "When We Were The Wind"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp9r0uf3000204l1mikdkv9r",
+      "model": "artwork",
+      "id": "cmp9r0uf3000204l1mikdkv9r",
+      "label": "[Halee Roth] Summer Clothes",
+      "fields": {
+        "title": {
+          "en": "Summer Clothes",
+          "fr": "Summer Clothes",
+          "zh": "Summer Clothes"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp9qr3sk000404l42171cbo7",
+      "model": "artwork",
+      "id": "cmp9qr3sk000404l42171cbo7",
+      "label": "[Halee Roth] Music and Poetry",
+      "fields": {
+        "title": {
+          "en": "Music and Poetry",
+          "fr": "Music and Poetry",
+          "zh": "Music and Poetry"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp9qtctd000004l2zfn9himz",
+      "model": "artwork",
+      "id": "cmp9qtctd000004l2zfn9himz",
+      "label": "[Halee Roth] Nasturtiums",
+      "fields": {
+        "title": {
+          "en": "Nasturtiums",
+          "fr": "Nasturtiums",
+          "zh": "Nasturtiums"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp9qoosl000304l4kpr1veo2",
+      "model": "artwork",
+      "id": "cmp9qoosl000304l4kpr1veo2",
+      "label": "[Halee Roth] Light Shines Low",
+      "fields": {
+        "title": {
+          "en": "Light Shines Low",
+          "fr": "Light Shines Low",
+          "zh": "Light Shines Low"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp9qi58v000104l4m0n0cyd8",
+      "model": "artwork",
+      "id": "cmp9qi58v000104l4m0n0cyd8",
+      "label": "[Halee Roth] Hope",
+      "fields": {
+        "title": {
+          "en": "Hope",
+          "fr": "Hope",
+          "zh": "Hope"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp9qffgk000004jm617hy016",
+      "model": "artwork",
+      "id": "cmp9qffgk000004jm617hy016",
+      "label": "[Halee Roth] God's Bodies",
+      "fields": {
+        "title": {
+          "en": "God's Bodies",
+          "fr": "God's Bodies",
+          "zh": "God's Bodies"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp9qd0mc000004l4gqwjwvv0",
+      "model": "artwork",
+      "id": "cmp9qd0mc000004l4gqwjwvv0",
+      "label": "[Halee Roth] A Life Echoing Clouds",
+      "fields": {
+        "title": {
+          "en": "A Life Echoing Clouds",
+          "fr": "A Life Echoing Clouds",
+          "zh": "A Life Echoing Clouds"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa1z2jb000104kyj7gbn8e9",
+      "model": "artwork",
+      "id": "cmoa1z2jb000104kyj7gbn8e9",
+      "label": "[Halee Roth] Burning the Last Light",
+      "fields": {
+        "title": {
+          "en": "Burning the Last Light",
+          "fr": "Burning the Last Light",
+          "zh": "Burning the Last Light"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa2qdh3000004l13uvxqyl1",
+      "model": "artwork",
+      "id": "cmoa2qdh3000004l13uvxqyl1",
+      "label": "[Halee Roth] The Musician and the Poet",
+      "fields": {
+        "title": {
+          "en": "The Musician and the Poet",
+          "fr": "The Musician and the Poet",
+          "zh": "The Musician and the Poet"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3se53h0012ag9kst8vgcd7",
+      "model": "artwork",
+      "id": "cmn3se53h0012ag9kst8vgcd7",
+      "label": "[Halee Roth] Vivid Plumes",
+      "fields": {
+        "title": {
+          "en": "Vivid Plumes",
+          "fr": "Vivid Plumes",
+          "zh": "Vivid Plumes"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3se5670013ag9kg562bbj5",
+      "model": "artwork",
+      "id": "cmn3se5670013ag9kg562bbj5",
+      "label": "[Halee Roth] Coral Pink",
+      "fields": {
+        "title": {
+          "en": "Coral Pink",
+          "fr": "Coral Pink",
+          "zh": "Coral Pink"
+        },
+        "medium": {
+          "en": "Mixed media on wood panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcucb30000104l4dby1qg8h",
+      "model": "artwork",
+      "id": "cmpcucb30000104l4dby1qg8h",
+      "label": "[Ewa Goral] EVERGREEN",
+      "fields": {
+        "title": {
+          "en": "EVERGREEN",
+          "fr": "EVERGREEN",
+          "zh": "EVERGREEN"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcsz7xq000204l94i36fzus",
+      "model": "artwork",
+      "id": "cmpcsz7xq000204l94i36fzus",
+      "label": "[Ewa Goral] THE BOTANICAL ALCHEMIST",
+      "fields": {
+        "title": {
+          "en": "THE BOTANICAL ALCHEMIST",
+          "fr": "THE BOTANICAL ALCHEMIST",
+          "zh": "THE BOTANICAL ALCHEMIST"
+        },
+        "medium": {
+          "en": "Acrylic and oil on canvas,",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpct5014000104jv1brzczcf",
+      "model": "artwork",
+      "id": "cmpct5014000104jv1brzczcf",
+      "label": "[Ewa Goral] FLORA LUNA",
+      "fields": {
+        "title": {
+          "en": "FLORA LUNA",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Acrylic on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcymz33000004l16fvjjcul",
+      "model": "artwork",
+      "id": "cmpcymz33000004l16fvjjcul",
+      "label": "[Ewa Goral] ORANGENIC",
+      "fields": {
+        "title": {
+          "en": "ORANGENIC",
+          "fr": "ORANGENIC",
+          "zh": "ORANGENIC"
+        },
+        "medium": {
+          "en": "Acrylic and glitter on canvas,",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcsuotc000004jvsoyztaah",
+      "model": "artwork",
+      "id": "cmpcsuotc000004jvsoyztaah",
+      "label": "[Ewa Goral] WHISPER FROM THE UNDERGROWTH",
+      "fields": {
+        "title": {
+          "en": "WHISPER FROM THE UNDERGROWTH",
+          "fr": "WHISPER FROM THE UNDERGROWTH",
+          "zh": "WHISPER FROM THE UNDERGROWTH"
+        },
+        "medium": {
+          "en": "Acrylic and oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp01zzd9000004l58s5teaug",
+      "model": "artwork",
+      "id": "cmp01zzd9000004l58s5teaug",
+      "label": "[Ewa Goral] NIGHT LIGHT",
+      "fields": {
+        "title": {
+          "en": "NIGHT LIGHT",
+          "fr": "NIGHT LIGHT",
+          "zh": "NIGHT LIGHT"
+        },
+        "medium": {
+          "en": "Acrylic and oil on canvas",
+          "fr": "Acrylique sur toile",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcuav7t000004l8m9dcierg",
+      "model": "artwork",
+      "id": "cmpcuav7t000004l8m9dcierg",
+      "label": "[Ewa Goral] WHEN THE WIND BLOWS",
+      "fields": {
+        "title": {
+          "en": "WHEN THE WIND BLOWS",
+          "fr": "WHEN THE WIND BLOWS",
+          "zh": "WHEN THE WIND BLOWS"
+        },
+        "medium": {
+          "en": "Acrylic on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcu8kup000004l4owor2cal",
+      "model": "artwork",
+      "id": "cmpcu8kup000004l4owor2cal",
+      "label": "[Ewa Goral] LET IT GROW",
+      "fields": {
+        "title": {
+          "en": "LET IT GROW",
+          "fr": "LET IT GROW",
+          "zh": "LET IT GROW"
+        },
+        "medium": {
+          "en": "Acrylic, oil, glitter and spray on canvas,",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpctqrjm000104jysyuvhj5a",
+      "model": "artwork",
+      "id": "cmpctqrjm000104jysyuvhj5a",
+      "label": "[Ewa Goral] SOMEWHERE DEEP AWAY",
+      "fields": {
+        "title": {
+          "en": "SOMEWHERE DEEP AWAY",
+          "fr": "SOMEWHERE DEEP AWAY",
+          "zh": "SOMEWHERE DEEP AWAY"
+        },
+        "medium": {
+          "en": "Acrylic and oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp02awsf000004lbflpck4hw",
+      "model": "artwork",
+      "id": "cmp02awsf000004lbflpck4hw",
+      "label": "[Ewa Goral] BLUEGRAY",
+      "fields": {
+        "title": {
+          "en": "BLUEGRAY",
+          "fr": "BLUEGRAY",
+          "zh": "BLUEGRAY"
+        },
+        "medium": {
+          "en": "Acrylic on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp0gyz58000004jr30qqo6nm",
+      "model": "artwork",
+      "id": "cmp0gyz58000004jr30qqo6nm",
+      "label": "[Ewa Goral] HERBACEOUS",
+      "fields": {
+        "title": {
+          "en": "HERBACEOUS",
+          "fr": "HERBACEOUS",
+          "zh": "HERBACEOUS"
+        },
+        "medium": {
+          "en": "Acrylic and oil on canvas,",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp0gjrwf000004joawr95j4s",
+      "model": "artwork",
+      "id": "cmp0gjrwf000004joawr95j4s",
+      "label": "[Ewa Goral] Pink Mush",
+      "fields": {
+        "title": {
+          "en": "Pink Mush",
+          "fr": "Pink Mush",
+          "zh": "Pink Mush"
+        },
+        "medium": {
+          "en": "Acrylic on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcyed3t000004jk7kvej7pt",
+      "model": "artwork",
+      "id": "cmpcyed3t000004jk7kvej7pt",
+      "label": "[Ewa Goral] EVERGREEN II",
+      "fields": {
+        "title": {
+          "en": "EVERGREEN II",
+          "fr": "EVERGREEN II",
+          "zh": "EVERGREEN II"
+        },
+        "medium": {
+          "en": "Acrylic on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcygo8m000004l8ptlagwc1",
+      "model": "artwork",
+      "id": "cmpcygo8m000004l8ptlagwc1",
+      "label": "[Ewa Goral] BLUE MONDAY",
+      "fields": {
+        "title": {
+          "en": "BLUE MONDAY",
+          "fr": "BLUE MONDAY",
+          "zh": "BLUE MONDAY"
+        },
+        "medium": {
+          "en": "Acrylic and oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcyj18t000004js3woanyj2",
+      "model": "artwork",
+      "id": "cmpcyj18t000004js3woanyj2",
+      "label": "[Ewa Goral] MAGNETIC MAGENTA",
+      "fields": {
+        "title": {
+          "en": "MAGNETIC MAGENTA",
+          "fr": "MAGNETIC MAGENTA",
+          "zh": "MAGNETIC MAGENTA"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcykzm5000104js3hfd5kjo",
+      "model": "artwork",
+      "id": "cmpcykzm5000104js3hfd5kjo",
+      "label": "[Ewa Goral] UNDER THE SKY",
+      "fields": {
+        "title": {
+          "en": "UNDER THE SKY",
+          "fr": "UNDER THE SKY",
+          "zh": "UNDER THE SKY"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcyoon4000204jstzf90jpd",
+      "model": "artwork",
+      "id": "cmpcyoon4000204jstzf90jpd",
+      "label": "[Ewa Goral] RAFFERIA MUELLERI",
+      "fields": {
+        "title": {
+          "en": "RAFFERIA MUELLERI",
+          "fr": "RAFFERIA MUELLERI",
+          "zh": "RAFFERIA MUELLERI"
+        },
+        "medium": {
+          "en": "Acrylic and oil on canvas,",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcyrfk0000204l1m7alkilj",
+      "model": "artwork",
+      "id": "cmpcyrfk0000204l1m7alkilj",
+      "label": "[Ewa Goral] GAUDENSIS CAAPI",
+      "fields": {
+        "title": {
+          "en": "GAUDENSIS CAAPI",
+          "fr": "GAUDENSIS CAAPI",
+          "zh": "GAUDENSIS CAAPI"
+        },
+        "medium": {
+          "en": "Acrylic and glitter on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcyq0vf000104l13amzq05e",
+      "model": "artwork",
+      "id": "cmpcyq0vf000104l13amzq05e",
+      "label": "[Ewa Goral] MIMOSA VERDI",
+      "fields": {
+        "title": {
+          "en": "MIMOSA VERDI",
+          "fr": "MIMOSA VERDI",
+          "zh": "MIMOSA VERDI"
+        },
+        "medium": {
+          "en": "Acrylic and glitter on canvas,",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcyw41r000304l1htm119kt",
+      "model": "artwork",
+      "id": "cmpcyw41r000304l1htm119kt",
+      "label": "[Ewa Goral] HARMINA VAGIS",
+      "fields": {
+        "title": {
+          "en": "HARMINA VAGIS",
+          "fr": "HARMINA VAGIS",
+          "zh": "HARMINA VAGIS"
+        },
+        "medium": {
+          "en": "Acrylic and glitter on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmp01o2m4000004lgovea46fj",
+      "model": "artwork",
+      "id": "cmp01o2m4000004lgovea46fj",
+      "label": "[Ewa Goral] BLUE IN DEEP",
+      "fields": {
+        "title": {
+          "en": "BLUEIN DEEP",
+          "fr": "BLUE IN DEEP",
+          "zh": "BLUE IN DEEP"
+        },
+        "medium": {
+          "en": "Acrylic on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpctkfil000004jyme5yj49v",
+      "model": "artwork",
+      "id": "cmpctkfil000004jyme5yj49v",
+      "label": "[Ewa Goral] TWINKLE OF LIGHT (Tryptic)",
+      "fields": {
+        "title": {
+          "en": "TWINKLE OF LIGHT (Tryptic)",
+          "fr": "TWINKLE OF LIGHT (Tryptic)",
+          "zh": "TWINKLE OF LIGHT (Tryptic)"
+        },
+        "medium": {
+          "en": "Acrylic and oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sedml001hag9kwroy4xnj",
+      "model": "artwork",
+      "id": "cmn3sedml001hag9kwroy4xnj",
+      "label": "[Ewa Goral] TREASURES OF THE NIGHT",
+      "fields": {
+        "title": {
+          "en": "TREASURES OF THE NIGHT",
+          "fr": "TREASURES OF THE NIGHT",
+          "zh": "TREASURES OF THE NIGHT"
+        },
+        "medium": {
+          "en": "Acrylic on canvas",
+          "fr": "Acrylique sur toile ",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpctaa5i000004l8cgjt258r",
+      "model": "artwork",
+      "id": "cmpctaa5i000004l8cgjt258r",
+      "label": "[Ewa Goral] YOU’RE NOT ALONE",
+      "fields": {
+        "title": {
+          "en": "YOU’RE NOT ALONE",
+          "fr": "YOU’RE NOT ALONE",
+          "zh": "YOU’RE NOT ALONE"
+        },
+        "medium": {
+          "en": "Acrylic on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcsqeq0000004l9cbiw1or2",
+      "model": "artwork",
+      "id": "cmpcsqeq0000004l9cbiw1or2",
+      "label": "[Ewa Goral] THE SECRET LANGUAGE OF PLANTS,",
+      "fields": {
+        "title": {
+          "en": "THE SECRET LANGUAGE OF PLANTS,",
+          "fr": "THE SECRET LANGUAGE OF PLANTS,",
+          "zh": "THE SECRET LANGUAGE OF PLANTS,"
+        },
+        "medium": {
+          "en": "acrylic on canvas,",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmpcssk38000104l9zabn4cjc",
+      "model": "artwork",
+      "id": "cmpcssk38000104l9zabn4cjc",
+      "label": "[Ewa Goral] MIDNIGHT BLOOM",
+      "fields": {
+        "title": {
+          "en": "MIDNIGHT BLOOM",
+          "fr": "MIDNIGHT BLOOM",
+          "zh": "MIDNIGHT BLOOM"
+        },
+        "medium": {
+          "en": "acrylic on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sedpd001iag9k7jlrckvr",
+      "model": "artwork",
+      "id": "cmn3sedpd001iag9k7jlrckvr",
+      "label": "[Ewa Goral] CYNARA",
+      "fields": {
+        "title": {
+          "en": "CYNARA",
+          "fr": "CYNARA",
+          "zh": "CYNARA"
+        },
+        "medium": {
+          "en": "Acrylic and oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3seds0001jag9k9agj8w97",
+      "model": "artwork",
+      "id": "cmn3seds0001jag9k9agj8w97",
+      "label": "[Ewa Goral] MEADOW",
+      "fields": {
+        "title": {
+          "en": "MEADOW",
+          "fr": "MEADOW",
+          "zh": "MEADOW"
+        },
+        "medium": {
+          "en": "Acrylic, oil and glitter on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmopnijmu000104l0ssxuw9ua",
+      "model": "artwork",
+      "id": "cmopnijmu000104l0ssxuw9ua",
+      "label": "[Richard Mensah] A Place Of Our Own",
+      "fields": {
+        "title": {
+          "en": "A Place Of Our Own",
+          "fr": "A Place Of Our Own",
+          "zh": "A Place Of Our Own"
+        },
+        "medium": {
+          "en": "Oil on Linen Canvas with imitated copper leaves",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3segut001pag9kp18g14dv",
+      "model": "artwork",
+      "id": "cmn3segut001pag9kp18g14dv",
+      "label": "[Richard Mensah] Untitled I",
+      "fields": {
+        "title": {
+          "en": "Untitled I",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmopnk043000004l1t5em9q3n",
+      "model": "artwork",
+      "id": "cmopnk043000004l1t5em9q3n",
+      "label": "[Richard Mensah] Grace Above Water",
+      "fields": {
+        "title": {
+          "en": "Grace Above Water",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Oil on wooden board in restored frame.",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmopng0gp000004jxt6ytd73x",
+      "model": "artwork",
+      "id": "cmopng0gp000004jxt6ytd73x",
+      "label": "[Richard Mensah] Unyielding Grace",
+      "fields": {
+        "title": {
+          "en": "Unyielding Grace",
+          "fr": "Unyielding Grace",
+          "zh": "Unyielding Grace"
+        },
+        "medium": {
+          "en": "Oil, Gold Leaf on Wood Panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmopne093000004l0e70sdokp",
+      "model": "artwork",
+      "id": "cmopne093000004l0e70sdokp",
+      "label": "[Richard Mensah] Dance of a King",
+      "fields": {
+        "title": {
+          "en": "Dance of a King",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Oil on a restored frame",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sehgh001qag9kxcfncns8",
+      "model": "artwork",
+      "id": "cmn3sehgh001qag9kxcfncns8",
+      "label": "[Richard Mensah] We are Kings",
+      "fields": {
+        "title": {
+          "en": "We are Kings",
+          "fr": "We are Kings",
+          "zh": "We are Kings"
+        },
+        "medium": {
+          "en": "acrylic modelling paste on wooden birch panel",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3sehja001rag9k342go18z",
+      "model": "artwork",
+      "id": "cmn3sehja001rag9k342go18z",
+      "label": "[Richard Mensah] Still I Rise",
+      "fields": {
+        "title": {
+          "en": "Still I Rise",
+          "fr": "Still I Rise",
+          "zh": "Still I Rise"
+        },
+        "medium": {
+          "en": "Oil, goldleaf, on cotton canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa7azo8000004jmxk5hbgkj",
+      "model": "artwork",
+      "id": "cmoa7azo8000004jmxk5hbgkj",
+      "label": "[Owen Rival] Tutorial",
+      "fields": {
+        "title": {
+          "en": "Tutorial",
+          "fr": "Tutorial",
+          "zh": "Tutorial"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa7c2nx000104jpcqvjkp1z",
+      "model": "artwork",
+      "id": "cmoa7c2nx000104jpcqvjkp1z",
+      "label": "[Owen Rival] Recycle",
+      "fields": {
+        "title": {
+          "en": "Recycle",
+          "fr": "Recycle",
+          "zh": "Recycle"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa7e8b0000204jpzoonk7wn",
+      "model": "artwork",
+      "id": "cmoa7e8b0000204jpzoonk7wn",
+      "label": "[Owen Rival] Temptation",
+      "fields": {
+        "title": {
+          "en": "Temptation",
+          "fr": "Temptation",
+          "zh": "Temptation"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa7j5ho000304jpst4ubt84",
+      "model": "artwork",
+      "id": "cmoa7j5ho000304jpst4ubt84",
+      "label": "[Owen Rival] Calm after the storm",
+      "fields": {
+        "title": {
+          "en": "Calm after the storm",
+          "fr": "Calm after the storm",
+          "zh": "Calm after the storm"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa7lplh000404jpz26bi03l",
+      "model": "artwork",
+      "id": "cmoa7lplh000404jpz26bi03l",
+      "label": "[Owen Rival] Run",
+      "fields": {
+        "title": {
+          "en": "Run",
+          "fr": "Run",
+          "zh": "Run"
+        },
+        "medium": {
+          "en": "Colored Pencil on Paper",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3semb1001xag9kejoon2rr",
+      "model": "artwork",
+      "id": "cmn3semb1001xag9kejoon2rr",
+      "label": "[Owen Rival] Longview",
+      "fields": {
+        "title": {
+          "en": "Longview",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Acrylic on Canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmoa78tne000004jpgm9goaw4",
+      "model": "artwork",
+      "id": "cmoa78tne000004jpgm9goaw4",
+      "label": "[Owen Rival] Stair",
+      "fields": {
+        "title": {
+          "en": "Stair",
+          "fr": "Stair",
+          "zh": "Stair"
+        },
+        "medium": null
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3semvu001yag9kzjv8zwqv",
+      "model": "artwork",
+      "id": "cmn3semvu001yag9kzjv8zwqv",
+      "label": "[Owen Rival] Beach Day",
+      "fields": {
+        "title": {
+          "en": "Beach Day",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Oil on canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "artwork:cmn3semyl001zag9kk48996mz",
+      "model": "artwork",
+      "id": "cmn3semyl001zag9kk48996mz",
+      "label": "[Owen Rival] Nightstand",
+      "fields": {
+        "title": {
+          "en": "Nightstand",
+          "fr": "",
+          "zh": ""
+        },
+        "medium": {
+          "en": "Acrylic on Canvas",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "medium": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmn3sennk0020ag9kehflr3g8",
+      "model": "pressArticle",
+      "id": "cmn3sennk0020ag9kehflr3g8",
+      "label": "Rebekka Macht dans SCHIRN MAG — peinture, maternité et care",
+      "fields": {
+        "title": {
+          "en": "Rebekka Macht in SCHIRN MAG — Painting, motherhood and care",
+          "fr": "Rebekka Macht dans SCHIRN MAG — peinture, maternité et care",
+          "zh": "Rebekka Macht 於 SCHIRN MAG：繪畫、母職與照護"
+        },
+        "excerpt": {
+          "en": "<p>In this SCHIRN MAG interview, Rebekka Macht reflects on painting, motherhood and the realities of care work. The conversation connects her portrait practice to questions of gender, vulnerability, social structures and the emotional conditions that shape artistic life.</p>",
+          "fr": "<p>Dans cet entretien publié par SCHIRN MAG, Rebekka Macht revient sur sa peinture, la maternité et les réalités du care. La conversation relie sa pratique du portrait aux questions de genre, de vulnérabilité, de structures sociales et aux conditions émotionnelles qui traversent la vie d’artiste.</p>",
+          "zh": "<p>在這篇 SCHIRN MAG 專訪中，Rebekka Macht 談及繪畫、母職與照護工作的現實。文章將她的肖像創作與性別、脆弱性、社會結構，以及藝術生活背後的情感條件相連結。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmn3senqd0021ag9ku4dp2upm",
+      "model": "pressArticle",
+      "id": "cmn3senqd0021ag9ku4dp2upm",
+      "label": "Rebekka Macht — Fragile Wings of Motherhood dans Art Report Africa",
+      "fields": {
+        "title": {
+          "en": "Rebekka Macht’s Fragile Wings of Motherhood featured in Art Report Africa",
+          "fr": "Rebekka Macht — Fragile Wings of Motherhood dans Art Report Africa",
+          "zh": "Rebekka Macht《Fragile Wings of Motherhood》獲 Art Report Africa 報導"
+        },
+        "excerpt": {
+          "en": "<p>Art Report Africa presents Rebekka Macht’s solo exhibition <em>Fragile Wings of Motherhood</em> in Accra. Emerging from a five-month residency and curated by Azu Nwagbogu, the exhibition explores motherhood, vulnerability, protection, identity and the emotional realities of raising biracial children.</p>",
+          "fr": "<p>Art Report Africa présente l’exposition personnelle de Rebekka Macht, <em>Fragile Wings of Motherhood</em> à Accra. Issue d’une résidence de cinq mois et commissariée par Azu Nwagbogu, l’exposition aborde la maternité, la vulnérabilité, la protection, l’identité et l’expérience intime d’élever des enfants métis.</p>",
+          "zh": "<p>Art Report Africa 報導 Rebekka Macht 的個展《Fragile Wings of Motherhood》。展覽由 Azu Nwagbogu 策展，源自一段五個月的駐村經驗，探討母職、脆弱性、保護、身份，以及撫養混血子女的情感現實。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmoztfhiv000004l1obhxfegb",
+      "model": "pressArticle",
+      "id": "cmoztfhiv000004l1obhxfegb",
+      "label": "Let It Grow — Ewa Goral",
+      "fields": {
+        "title": {
+          "en": "Let It Grow — Ewa Goral",
+          "fr": "Let It Grow — Ewa Goral",
+          "zh": "Let It Grow — Ewa Goral"
+        },
+        "excerpt": {
+          "en": "<p>PIK Wrocław presents <em>Let It Grow</em>, an exhibition by Ewa Goral at Galeria Arttrakt. The text situates her painting as an affirmation of the botanical world, where vivid organic forms, light and plant imagery move between ornament, abstraction and ecological awareness.</p>",
+          "fr": "<p>PIK Wrocław présente <em>Let It Grow</em>, une exposition d’Ewa Goral à la Galeria Arttrakt. Le texte inscrit sa peinture dans une affirmation du monde botanique, où formes organiques, couleurs vives, lumière et motifs végétaux circulent entre ornement, abstraction et conscience écologique.</p>",
+          "zh": "<p>PIK Wrocław 介紹 Ewa Goral 於 Galeria Arttrakt 舉辦的《Let It Grow》展覽。文章將她的繪畫置於植物世界的禮讚之中：鮮明的有機形態、光線與植物意象，在裝飾性、抽象性與生態意識之間展開。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmozr1iq9000004ld0zgm3v97",
+      "model": "pressArticle",
+      "id": "cmozr1iq9000004ld0zgm3v97",
+      "label": "Renée Le Bloas-Julienne — entretien avec Parisienneries",
+      "fields": {
+        "title": {
+          "en": "Renée Le Bloas-Julienne interviewed by Parisienneries",
+          "fr": "Renée Le Bloas-Julienne — entretien avec Parisienneries",
+          "zh": "Renée Le Bloas-Julienne 接受 Parisienneries 專訪"
+        },
+        "excerpt": {
+          "en": "<p>In this interview with Parisienneries, Renée Le Bloas-Julienne discusses the origins of her artistic practice, her relationship with drawing, travel and nature, as well as her use of resin. She describes a process shaped by precision, light, colour and the unpredictable reactions of materials.</p>",
+          "fr": "<p>Dans cet entretien avec Parisienneries, Renée Le Bloas-Julienne revient sur les origines de sa pratique, son rapport au dessin, au voyage et à la nature, ainsi que sur son travail de la résine. Elle y évoque une création portée par la précision, la lumière, la couleur et l’imprévisible des matières.</p>",
+          "zh": "<p>在這篇 Parisienneries 專訪中，Renée Le Bloas-Julienne 談及她創作實踐的起點、她與繪畫、旅行及自然之間的關係，以及她對樹脂媒材的運用。文章呈現出她如何在精準控制、光線、色彩與材料的不可預期性之間建立自己的藝術語言。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmn3sep780022ag9k1q9e5fd5",
+      "model": "pressArticle",
+      "id": "cmn3sep780022ag9k1q9e5fd5",
+      "label": "Carlos Romano’s Afrophilia – Antologias para um Semba featured in BANTUMEN",
+      "fields": {
+        "title": {
+          "en": "Carlos Romano’s Afrophilia – Antologias para um Semba featured in BANTUMEN",
+          "fr": "Carlos Romano’s Afrophilia – Antologias para um Semba featured in BANTUMEN",
+          "zh": "Carlos Romano’s Afrophilia – Antologias para um Semba featured in BANTUMEN"
+        },
+        "excerpt": {
+          "en": "<p>BANTUMEN highlights Carlos Romano’s Lisbon exhibition <em>Afrophilia – Antologias para um Semba</em>, an interdisciplinary project bringing together painting, dance, poetry, music and fashion. The article places the show in continuity with <em>Embrya</em>, while noting a more colourful and expansive direction in the artist’s visual universe.</p>",
+          "fr": "<p>BANTUMEN consacre un article à l’exposition lisboète de Carlos Romano, <em>Afrophilia – Antologias para um Semba</em>, un projet qui associe peinture, danse, poésie, musique et mode. Le texte inscrit cette exposition dans la continuité d’<em>Embrya</em>, tout en soulignant une orientation plus colorée et ouverte dans l’univers plastique de l’artiste.</p>",
+          "zh": "<p>BANTUMEN 報導 Carlos Romano 於里斯本舉辦的展覽《Afrophilia – Antologias para um Semba》。該項目結合繪畫、舞蹈、詩歌、音樂與時尚，延續其先前展覽《Embrya》的脈絡，同時呈現出更鮮明、開放且富於色彩的視覺方向。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmozrnbd3000004jpsdkvlud4",
+      "model": "pressArticle",
+      "id": "cmozrnbd3000004jpsdkvlud4",
+      "label": "Halee Roth — entretien avec Voyage Utah",
+      "fields": {
+        "title": {
+          "en": "Halee Roth in conversation with Voyage Utah",
+          "fr": "Halee Roth — entretien avec Voyage Utah",
+          "zh": "Halee Roth 接受 Voyage Utah 專訪"
+        },
+        "excerpt": {
+          "en": "<p>In this interview with Voyage Utah, Halee Roth reflects on her artistic path, from her early relationship with drawing and painting to her current focus on the human figure. She discusses colour, light, motherhood, discipline and the emotional force she seeks to bring to the body in her work.</p>",
+          "fr": "<p>Dans cet entretien avec Voyage Utah, Halee Roth revient sur son parcours artistique, depuis son rapport précoce au dessin et à la peinture jusqu’à son travail actuel autour de la figure humaine. Elle y évoque la couleur, la lumière, la maternité, la discipline et la force émotionnelle qu’elle cherche à donner au corps.</p>",
+          "zh": "<p>在這篇 Voyage Utah 專訪中，Halee Roth 回顧自己的藝術道路，從早期與繪畫和素描的關係，到如今對人體形象的持續探索。她談及色彩、光線、母職、創作紀律，以及她希望在作品中賦予身體的情感力量。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmozrr9yj000004l79oblauma",
+      "model": "pressArticle",
+      "id": "cmozrr9yj000004l79oblauma",
+      "label": "Halee Roth dans le Beautiful Bizarre Artist Directory",
+      "fields": {
+        "title": {
+          "en": "Halee Roth featured in Beautiful Bizarre Artist Directory",
+          "fr": "Halee Roth dans le Beautiful Bizarre Artist Directory",
+          "zh": "Halee Roth 收錄於 Beautiful Bizarre Artist Directory"
+        },
+        "excerpt": {
+          "en": "<p>Beautiful Bizarre Artist Directory presents Halee Roth’s figurative painting practice, rooted in contemporary realism, colour, nature and the human form. The profile highlights her interest in beauty, hope, movement and narrative, as well as the emotional contrasts that shape her work.</p>",
+          "fr": "<p>Le Beautiful Bizarre Artist Directory présente la pratique figurative de Halee Roth, entre réalisme contemporain, couleur, nature et représentation du corps. Le profil met en avant son intérêt pour la beauté, l’espoir, le mouvement et la narration, ainsi que les contrastes émotionnels qui traversent son travail.</p>",
+          "zh": "<p>Beautiful Bizarre Artist Directory 介紹 Halee Roth 的具象繪畫實踐，其創作結合當代寫實、色彩、自然與人體形象。該頁面強調她對美、希望、動態與敘事的關注，以及作品中光與暗、生命與衰敗之間的情感張力。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmozry69z000104l7l6u6s6cc",
+      "model": "pressArticle",
+      "id": "cmozry69z000104l7l6u6s6cc",
+      "label": "Richard Mensah — récit visuel et culture noire dans TRT Afrika",
+      "fields": {
+        "title": {
+          "en": "Richard Mensah on visual storytelling in Black culture",
+          "fr": "Richard Mensah — récit visuel et culture noire dans TRT Afrika",
+          "zh": "Richard Mensah 於 TRT Afrika：黑人文化中的視覺敘事"
+        },
+        "excerpt": {
+          "en": "<p>In this TRT Afrika feature, Richard Mensah discusses visual storytelling, Black culture and the personal experiences that shape his work. The article traces his path from chemical engineering to painting, while highlighting themes of memory, discrimination, love, history and the bonds that connect Black communities.</p>",
+          "fr": "<p>Dans cet article de TRT Afrika, Richard Mensah évoque le récit visuel, la culture noire et les expériences personnelles qui nourrissent son travail. Le texte retrace son passage de l’ingénierie chimique à la peinture, tout en abordant la mémoire, la discrimination, l’amour, l’histoire et les liens qui unissent les communautés noires.</p>",
+          "zh": "<p>在這篇 TRT Afrika 的專題文章中，Richard Mensah 談及視覺敘事、黑人文化，以及塑造其創作的個人經驗。文章回顧他從化學工程走向繪畫的歷程，並呈現記憶、歧視、愛、歷史，以及黑人社群之間深層連結等主題。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmozs3fi0000004l4pfkw4zix",
+      "model": "pressArticle",
+      "id": "cmozs3fi0000004l4pfkw4zix",
+      "label": "Owen Rival — entretien avec Juliet Art Magazine",
+      "fields": {
+        "title": {
+          "en": "Owen Rival in conversation with Juliet Art Magazine",
+          "fr": "Owen Rival — entretien avec Juliet Art Magazine",
+          "zh": "Owen Rival 接受 Juliet Art Magazine 專訪"
+        },
+        "excerpt": {
+          "en": "<p>In this interview with Juliet Art Magazine, Owen Rival reflects on figurative painting, domestic rituals and the quiet tensions of everyday life. The conversation explores how his scenes transform ordinary gestures into psychological spaces shaped by routine, anxiety, intimacy and control.</p><p></p>",
+          "fr": "<p>Dans cet entretien avec Juliet Art Magazine, Owen Rival revient sur la peinture figurative, les rituels domestiques et les tensions discrètes du quotidien. La conversation montre comment ses scènes transforment des gestes ordinaires en espaces psychologiques traversés par la routine, l’anxiété, l’intimité et le contrôle.</p>",
+          "zh": "<p>在這篇 Juliet Art Magazine 專訪中，Owen Rival 談及具象繪畫、日常儀式與生活中隱微的心理張力。文章呈現他如何將平凡的家庭動作轉化為充滿日常、焦慮、親密與控制感的心理空間。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmozs8bia000604l7xuanz9rn",
+      "model": "pressArticle",
+      "id": "cmozs8bia000604l7xuanz9rn",
+      "label": "Owen Rival dans It’s Nice That",
+      "fields": {
+        "title": {
+          "en": "Owen Rival featured in It’s Nice That",
+          "fr": "Owen Rival dans It’s Nice That",
+          "zh": "Owen Rival 獲《It’s Nice That》專題報導"
+        },
+        "excerpt": {
+          "en": "<p><em>It’s Nice That</em> profiles Owen Rival’s saturated figurative paintings, which transform everyday scenes into charged psychological moments. The article highlights his focus on coupledom, routine, intimacy and the emotional volatility of young adulthood, while tracing his path toward painting.</p>",
+          "fr": "<p><em>It’s Nice That</em> consacre un article aux peintures figuratives saturées d’Owen Rival, où les scènes ordinaires deviennent des moments psychologiques chargés. Le texte met en lumière son regard sur le couple, la routine, l’intimité et l’instabilité émotionnelle du jeune âge adulte, tout en retraçant son chemin vers la peinture.</p>",
+          "zh": "<p>《It’s Nice That》介紹 Owen Rival 色彩濃烈的具象繪畫：他將日常場景轉化為充滿心理張力的時刻。文章聚焦於伴侶關係、日常儀式、親密感與青年成年期的情緒波動，同時回顧他走向繪畫創作的歷程。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmozsey6o000004jokw96g6cx",
+      "model": "pressArticle",
+      "id": "cmozsey6o000004jokw96g6cx",
+      "label": "Owen Rival — entretien avec Art Hub Magazine",
+      "fields": {
+        "title": {
+          "en": "Owen Rival interviewed by Art Hub Magazine",
+          "fr": "Owen Rival — entretien avec Art Hub Magazine",
+          "zh": "Owen Rival 接受 Art Hub Magazine 專訪"
+        },
+        "excerpt": {
+          "en": "<p>In this interview with Art Hub Magazine, Owen Rival discusses his painting process, from daily rituals and drawing to the construction of psychological and surreal spaces. The conversation explores realism, vulnerability, introspection, social media and the emotional narratives that shape his figurative work.</p>",
+          "fr": "<p>Dans cet entretien avec Art Hub Magazine, Owen Rival revient sur son processus pictural, du rituel quotidien au dessin, jusqu’à la construction d’espaces psychologiques et surréels. La conversation aborde le réalisme, la vulnérabilité, l’introspection, les réseaux sociaux et les récits émotionnels qui traversent sa peinture figurative.</p>",
+          "zh": "<p>在這篇 Art Hub Magazine 專訪中，Owen Rival 談及他的繪畫過程，從日常創作儀式與素描，到心理性與超現實空間的建構。文章探討寫實、脆弱性、自我凝視、社群媒體，以及貫穿其具象繪畫的情感敘事。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmozt0rz9000004l56xi8xj0f",
+      "model": "pressArticle",
+      "id": "cmozt0rz9000004l56xi8xj0f",
+      "label": "Owen Rival — Chronic Maintenance documenté par Art Viewer",
+      "fields": {
+        "title": {
+          "en": "Owen Rival’s Chronic Maintenance documented by Art Viewer",
+          "fr": "Owen Rival — Chronic Maintenance documenté par Art Viewer",
+          "zh": "Owen Rival《Chronic Maintenance》獲 Art Viewer 報導"
+        },
+        "excerpt": {
+          "en": "<p>Art Viewer documents Owen Rival’s <em>Chronic Maintenance</em>, a series of paintings focused on domestic rituals, intimacy and the fragile routines that structure daily life. The exhibition highlights how ordinary gestures can become charged with anxiety, vulnerability and quiet psychological tension.</p>",
+          "fr": "<p>Art Viewer documente <em>Chronic Maintenance</em> d’Owen Rival, une série de peintures consacrée aux rituels domestiques, à l’intimité et aux routines fragiles qui structurent le quotidien. L’exposition montre comment des gestes ordinaires peuvent devenir des scènes traversées par l’anxiété, la vulnérabilité et une tension psychologique discrète.</p>",
+          "zh": "<p>Art Viewer 報導 Owen Rival 的《Chronic Maintenance》，一組聚焦家庭儀式、親密關係與日常脆弱秩序的繪畫作品。展覽呈現平凡動作如何轉化為帶有焦慮、脆弱性與細膩心理張力的場景。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmnetobmb000004jrbaqu2nqh",
+      "model": "pressArticle",
+      "id": "cmnetobmb000004jrbaqu2nqh",
+      "label": "Richard Mensah, artiste britannico-ghanéen, célèbre la joie noire",
+      "fields": {
+        "title": {
+          "en": "British-Ghanaian artist Richard Mensah on celebrating Black joy",
+          "fr": "Richard Mensah, artiste britannico-ghanéen, célèbre la joie noire",
+          "zh": "英國迦納藝術家 Richard Mensah：頌揚黑人喜悅"
+        },
+        "excerpt": {
+          "en": "<p>In this France 24 interview, London-based British-Ghanaian artist Richard Mensah discusses his first solo exhibition in Paris, <em>The Softer Side of Us</em>. The conversation highlights his celebration of Black joy, intimacy and everyday life across the United States, the United Kingdom and Ghana.</p>",
+          "fr": "<p>Dans cet entretien pour France 24, l’artiste britannico-ghanéen Richard Mensah, basé à Londres, évoque sa première exposition personnelle à Paris, <em>The Softer Side of Us</em>. L’échange met en lumière sa célébration de la joie noire, de l’intimité et de la vie quotidienne entre les États-Unis, le Royaume-Uni et le Ghana.</p>",
+          "zh": "<p>在 France 24 的訪談中，現居倫敦的英國迦納藝術家 Richard Mensah 談及他在巴黎的首次個展《The Softer Side of Us》。訪談聚焦於他如何透過繪畫頌揚黑人喜悅、親密感與日常生活，並連結美國、英國與迦納等不同地域經驗。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "pressArticle:cmoztccm8000004jm5tuwua1d",
+      "model": "pressArticle",
+      "id": "cmoztccm8000004jm5tuwua1d",
+      "label": "Ewa Goral présente INNER GARDEN au Westin Warsaw",
+      "fields": {
+        "title": {
+          "en": "Ewa Goral’s INNER GARDEN at The Westin Warsaw",
+          "fr": "Ewa Goral présente INNER GARDEN au Westin Warsaw",
+          "zh": "Ewa Goral 於華沙威斯汀酒店呈現《INNER GARDEN》"
+        },
+        "excerpt": {
+          "en": "<p>Architectural Digest Polska presents Ewa Goral’s <em>INNER GARDEN</em> at The Westin Warsaw, where her organic paintings transform the hotel lobby into a space of artistic encounter. The article highlights her botanical forms, shifting between reality and abstraction, and her surreal approach to nature.</p>",
+          "fr": "<p>Architectural Digest Polska présente <em>INNER GARDEN</em>, l’exposition d’Ewa Goral au Westin Warsaw, où ses peintures organiques investissent le lobby de l’hôtel comme un espace de rencontre artistique. L’article souligne ses formes botaniques, entre réalité et abstraction, ainsi que son approche surréaliste de la nature.</p>",
+          "zh": "<p>《Architectural Digest Polska》介紹 Ewa Goral 於華沙威斯汀酒店呈現的《INNER GARDEN》。她以有機形態的繪畫作品介入酒店大廳，使公共空間成為藝術相遇之地。文章聚焦於她介於現實與抽象之間的植物性語彙，以及其帶有超現實感的自然想像。</p>"
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "excerpt": "translate"
+      }
+    },
+    {
+      "ref": "homeBanner:cmndv12y700004mcak125z09f",
+      "model": "homeBanner",
+      "id": "cmndv12y700004mcak125z09f",
+      "label": "Chapter One",
+      "fields": {
+        "title": {
+          "en": "Chapter One",
+          "fr": "",
+          "zh": ""
+        },
+        "subtitle": null
+      },
+      "policy": {
+        "title": "translate",
+        "subtitle": "translate"
+      }
+    },
+    {
+      "ref": "galleryExhibition:cmnlg2q1h005tc2cawlws9o8i",
+      "model": "galleryExhibition",
+      "id": "cmnlg2q1h005tc2cawlws9o8i",
+      "label": "Checkbox Test 1775374393878",
+      "fields": {
+        "title": {
+          "en": "Checkbox Test 1775374393878",
+          "fr": "",
+          "zh": ""
+        },
+        "description": null
+      },
+      "policy": {
+        "title": "copy",
+        "description": "translate"
+      }
+    },
+    {
+      "ref": "galleryExhibition:cmne3gdy0000404l7rwdfinar",
+      "model": "galleryExhibition",
+      "id": "cmne3gdy0000404l7rwdfinar",
+      "label": "ddd",
+      "fields": {
+        "title": {
+          "en": "ddd",
+          "fr": "",
+          "zh": ""
+        },
+        "description": null
+      },
+      "policy": {
+        "title": "copy",
+        "description": "translate"
+      }
+    },
+    {
+      "ref": "galleryExhibition:cmngdwpkd0003c2cacp6tru1j",
+      "model": "galleryExhibition",
+      "id": "cmngdwpkd0003c2cacp6tru1j",
+      "label": "test",
+      "fields": {
+        "title": {
+          "en": "test",
+          "fr": "test",
+          "zh": "test"
+        },
+        "description": {
+          "en": "<p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>",
+          "fr": "",
+          "zh": ""
+        }
+      },
+      "policy": {
+        "title": "copy",
+        "description": "translate"
+      }
+    }
+  ]
+}
