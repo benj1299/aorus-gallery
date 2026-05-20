@@ -721,6 +721,7 @@
         "title": "Inventaire des œuvres",
         "openButton": "Voir l'inventaire",
         "print": "Imprimer",
+        "downloadPdf": "Télécharger le PDF",
         "totalWorks": "{count, plural, =0 {Aucune œuvre} =1 {1 œuvre} other {# œuvres}}",
         "empty": "Aucune œuvre enregistrée pour cet artiste.",
         "cols": {

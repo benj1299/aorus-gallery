@@ -7,7 +7,9 @@ const isDev = process.env.NODE_ENV === 'development';
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  serverExternalPackages: ['sharp'],
+  // @react-pdf/renderer doit rester serveur — il dépend de yoga-layout +
+  // pdfkit (Node natifs) et ne se bundle pas côté client.
+  serverExternalPackages: ['sharp', '@react-pdf/renderer'],
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },

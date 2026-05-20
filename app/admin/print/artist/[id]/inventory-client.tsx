@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
-import { ArrowLeft, Printer, Package } from 'lucide-react';
+import { useTranslations, useLocale } from 'next-intl';
+import { ArrowLeft, Printer, Package, Download } from 'lucide-react';
 
 const GOLD = '#B59060';
 
@@ -58,6 +58,8 @@ function statusFor(aw: InventoryArtwork, t: (k: string) => string) {
 
 export function ArtistInventoryClient({ artist, artworks }: Props) {
   const t = useTranslations('admin.print');
+  const locale = useLocale();
+  const pdfHref = `/api/admin/artists/${artist.id}/inventory-pdf?locale=${locale}`;
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-6 md:px-12 print:bg-white print:px-0 print:py-0">
@@ -80,14 +82,24 @@ export function ArtistInventoryClient({ artist, artworks }: Props) {
             <ArrowLeft className="h-4 w-4" />
             {t('backToArtists')}
           </Link>
-          <button
-            onClick={() => window.print()}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
-            data-testid="inventory-print-btn"
-          >
-            <Printer className="h-4 w-4" />
-            {t('inventory.print')}
-          </button>
+          <div className="flex items-center gap-2">
+            <a
+              href={pdfHref}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
+              data-testid="inventory-download-pdf-btn"
+            >
+              <Download className="h-4 w-4" />
+              {t('inventory.downloadPdf')}
+            </a>
+            <button
+              onClick={() => window.print()}
+              className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-50 transition-colors"
+              data-testid="inventory-print-btn"
+            >
+              <Printer className="h-4 w-4" />
+              {t('inventory.print')}
+            </button>
+          </div>
         </div>
 
         {/* Header */}
