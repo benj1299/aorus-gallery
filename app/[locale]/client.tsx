@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { Target, Clock, Globe } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { CTAStrip } from '@/components/CTAStrip';
-import { ArtworkRail, type ArtworkMedia } from '@/components/artwork-display';
+import { AdaptiveImage } from '@/components/ui/adaptive-image';
 
 const valueIcons = [Target, Clock, Globe];
 
@@ -66,11 +66,14 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
   return (
     <div className="flex flex-col">
       {/* ===== BLOCK 1 — HERO =====
-          Watermark logo subtil (5% opacity) + texte par-dessus. Sizing via
-          clamp() fluide pour éviter les sauts brutaux aux breakpoints
-          Tailwind 640/768px lors d'un resize desktop (feedback Victor
-          2026-05-19). clamp(360px, 60vw, 720px) = min 360px (lisible
-          mobile), 60vw fluide intermédiaire, 720px max desktop large. */}
+          Watermark logo subtil (5% opacity) + texte par-dessus. Sizing en
+          `vmin` pour stabilité absolue : la taille suit la plus petite
+          dimension du viewport (largeur OU hauteur), donc le watermark ne
+          réagit pas aux variations parasites quand l'utilisateur resize
+          uniquement la largeur (cas Victor 2026-05-20 : feedback fenêtre
+          desktop réduite encore instable malgré clamp(vw)). Borne haute via
+          `min()` pour cap desktop large. Carré 1:1 strict (aspect-square)
+          → aucun reflow possible. */}
       <section className="bg-blanc min-h-screen flex items-center justify-center relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 flex items-center justify-center">
@@ -79,7 +82,7 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
               alt=""
               width={720}
               height={720}
-              className="w-[clamp(360px,60vw,720px)] h-auto opacity-[0.05]"
+              className="w-[min(70vmin,720px)] aspect-square opacity-[0.05] object-contain"
               aria-hidden="true"
               priority
             />
@@ -174,25 +177,49 @@ export function HomePageClient({ featuredArtworks, featuredArtists, banner }: { 
           <h2 className="title-section text-noir">{t('gallery.title')}</h2>
         </div>
         {featuredArtworks.length > 0 ? (
-          <div style={{ ['--rail-h' as string]: '420px' } as React.CSSProperties}>
-            <ArtworkRail
-              items={featuredArtworks.slice(0, 10).map<ArtworkMedia>((artwork) => ({
-                id: artwork.id,
-                title: artwork.title,
-                imageUrl: artwork.imageUrl,
-                imageWidth: artwork.imageWidth,
-                imageHeight: artwork.imageHeight,
-                caption: artwork.artistName,
-                href: `/artworks/${artwork.slug}`,
-              }))}
-              rowHeightClass="h-[280px] md:h-[360px] lg:h-[420px]"
-              linkRenderer={(href, children, className) => (
-                <Link href={href} className={className}>
-                  {children}
-                </Link>
-              )}
-            />
-            <div className="text-center mt-24">
+          <div>
+            {/* Restored uniform 4:5 card grid (pré-PR phase2+3 ArtworkRail).
+                Feedback Victor 2026-05-20 : le rail multi-format produisait des
+                tailles déséquilibrées (œuvres trop petites/grandes). Retour
+                au rendu équilibré horizontal scroll snap, taille fixe par card. */}
+            <div className="relative">
+              <div className="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-blanc to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-blanc to-transparent z-10 pointer-events-none" />
+              <div className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth px-6 md:px-12 lg:px-20">
+                {featuredArtworks.slice(0, 10).map((artwork, index) => (
+                  <motion.div
+                    key={artwork.id}
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: index * 0.06 }}
+                    className="group snap-start shrink-0 w-[260px] md:w-[300px]"
+                  >
+                    <Link href={`/artworks/${artwork.slug}`}>
+                      <div className="aspect-[4/5] relative overflow-hidden">
+                        <AdaptiveImage
+                          src={artwork.imageUrl}
+                          alt={artwork.title}
+                          sizes="300px"
+                          className="transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-noir/0 group-hover:bg-noir/30 transition-colors duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
+                          <div>
+                            <p className="font-display text-lg text-blanc tracking-wide">{artwork.title}</p>
+                            <p className="text-blanc/70 text-sm mt-1">{artwork.artistName}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mt-4">
+                        <p className="font-display text-base text-noir tracking-wide">{artwork.title}</p>
+                        <p className="text-noir/50 text-sm tracking-wide mt-1">{artwork.artistName}</p>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+            <div className="text-center mt-16">
               <Link
                 href="/artists"
                 className="inline-flex items-center gap-3 text-noir/60 text-sm tracking-[0.1em] uppercase transition-colors duration-300 hover:text-noir"

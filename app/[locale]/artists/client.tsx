@@ -24,7 +24,10 @@ export function ArtistsPageClient({ artists }: { artists: Artist[] }) {
         subtitleClassName="text-noir/60 text-base tracking-[0.08em] mb-8"
       />
 
-      <section className="section-padding bg-blanc-muted">
+      {/* Fond uniforme blanc (feedback Victor 2026-05-20) : la section grille
+          était en `bg-blanc-muted` (gris très clair) entre le PageHero blanc
+          et le footer, créant une rupture visuelle non voulue. */}
+      <section className="section-padding bg-blanc">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
