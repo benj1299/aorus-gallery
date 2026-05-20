@@ -6,10 +6,12 @@ import { TranslatableInput } from './translatable-input';
 import { FormSwitch } from './form-switch';
 import { ImageUpload } from './image-upload';
 import { CVEntriesForm } from './cv-entries-form';
+import { CountryMultiSelect } from './country-multi-select';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { LOCALES } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import { Plus, X } from 'lucide-react';
 import { FormCard } from './form-card';
 import { FormLayout } from './form-layout';
@@ -31,6 +33,8 @@ interface ArtistFormProps {
     visible?: boolean;
     cvEntries?: CVEntry[];
     collections?: TranslatableField[];
+    countries?: string[];
+    internalNote?: string | null;
   };
 }
 
@@ -132,6 +136,24 @@ export function ArtistForm({ action, defaultValues = {} }: ArtistFormProps) {
           generateId={uid}
           emptyTranslatable={emptyT}
         />
+      </FormCard>
+
+      <FormCard title={t('cards.internal')}>
+        <p className="text-sm text-gray-500">{t('cards.internalDescription')}</p>
+        <div>
+          <Label className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.countries')}</Label>
+          <CountryMultiSelect name="countries" defaultValue={defaultValues.countries ?? []} />
+        </div>
+        <div>
+          <Label htmlFor="internalNote" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.internalNote')}</Label>
+          <Textarea
+            id="internalNote"
+            name="internalNote"
+            defaultValue={defaultValues.internalNote ?? ''}
+            rows={4}
+            placeholder={t('forms.internalNotePlaceholder')}
+          />
+        </div>
       </FormCard>
 
       <FormCard title={t('cards.collections')}>

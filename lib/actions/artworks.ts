@@ -29,6 +29,9 @@ const artworkSchema = z.object({
   showPrice: booleanFromString.default(false),
   sold: booleanFromString.default(false),
   reserved: booleanFromString.default(false),
+  // Internal admin fields (jamais exposés côté public)
+  countries: z.array(z.string().regex(/^[A-Z]{2}$/)).max(50).default([]),
+  internalNote: z.string().max(5000).optional().default(''),
 });
 
 export async function createArtwork(formData: FormData): Promise<{ error: string } | void> {
@@ -54,6 +57,8 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
     showPrice: formData.get('showPrice')?.toString() ?? 'false',
     sold: formData.get('sold')?.toString() ?? 'false',
     reserved: formData.get('reserved')?.toString() ?? 'false',
+    countries: formData.getAll('countries').map((v) => v.toString()).filter(Boolean),
+    internalNote: formData.get('internalNote')?.toString() ?? '',
   };
   const parsed = parseFormData(artworkSchema, raw);
   if (!parsed.success) return { error: parsed.error };
@@ -81,6 +86,7 @@ export async function createArtwork(formData: FormData): Promise<{ error: string
         imageWidth,
         imageHeight,
         imagesMeta: imagesMeta ?? undefined,
+        internalNote: data.internalNote || null,
       },
       select: { id: true },
     });
@@ -125,6 +131,8 @@ export async function updateArtwork(id: string, formData: FormData): Promise<{ e
     showPrice: formData.get('showPrice')?.toString() ?? 'false',
     sold: formData.get('sold')?.toString() ?? 'false',
     reserved: formData.get('reserved')?.toString() ?? 'false',
+    countries: formData.getAll('countries').map((v) => v.toString()).filter(Boolean),
+    internalNote: formData.get('internalNote')?.toString() ?? '',
   };
   const parsed = parseFormData(artworkSchema, raw);
   if (!parsed.success) return { error: parsed.error };
@@ -160,6 +168,7 @@ export async function updateArtwork(id: string, formData: FormData): Promise<{ e
         imageWidth,
         imageHeight,
         imagesMeta: imagesMeta ?? undefined,
+        internalNote: data.internalNote || null,
       },
     });
   } catch (e) {

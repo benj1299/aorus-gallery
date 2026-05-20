@@ -12,6 +12,11 @@ import { slugify } from '@/lib/slugify';
 import { sanitizeTranslatable } from '@/lib/sanitize';
 import { parseFormData } from '@/lib/actions/safe-action';
 
+// ISO 3166-1 alpha-2 (2 lettres majuscules). Whitelist côté DB pas nécessaire :
+// la liste est rendue par le composant CountryMultiSelect via Intl.supportedValuesOf,
+// donc seules les valeurs valides arrivent en FormData.
+const countryCodeRegex = /^[A-Z]{2}$/;
+
 const artistSchema = z.object({
   name: z.string().min(1).max(200),
   nationality: translatableSchema,
@@ -19,6 +24,8 @@ const artistSchema = z.object({
   imageUrl: httpsUrl,
   sortOrder: z.coerce.number().int().min(0).default(0),
   visible: booleanFromString.default(true),
+  countries: z.array(z.string().regex(countryCodeRegex)).max(50).default([]),
+  internalNote: z.string().max(5000).optional().default(''),
 });
 
 const CV_TYPES = ['SOLO_SHOW', 'GROUP_SHOW', 'ART_FAIR', 'RESIDENCY', 'AWARD'] as const;
@@ -57,6 +64,8 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
     imageUrl: formData.get('imageUrl')?.toString() ?? '',
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
     visible: formData.get('visible')?.toString() ?? 'false',
+    countries: formData.getAll('countries').map((v) => v.toString()).filter(Boolean),
+    internalNote: formData.get('internalNote')?.toString() ?? '',
   };
   const parsed = parseFormData(artistSchema, raw);
   if (!parsed.success) return { error: parsed.error };
@@ -76,6 +85,7 @@ export async function createArtist(formData: FormData): Promise<{ error: string 
         slug,
         imageWidth,
         imageHeight,
+        internalNote: data.internalNote || null,
         exhibitions: {
           create: cvEntries.map((entry) => ({
             title: entry.title,
@@ -115,6 +125,8 @@ export async function updateArtist(id: string, formData: FormData): Promise<{ er
     imageUrl: formData.get('imageUrl')?.toString() ?? '',
     sortOrder: formData.get('sortOrder')?.toString() ?? '0',
     visible: formData.get('visible')?.toString() ?? 'false',
+    countries: formData.getAll('countries').map((v) => v.toString()).filter(Boolean),
+    internalNote: formData.get('internalNote')?.toString() ?? '',
   };
   const parsed = parseFormData(artistSchema, raw);
   if (!parsed.success) return { error: parsed.error };
@@ -140,6 +152,7 @@ export async function updateArtist(id: string, formData: FormData): Promise<{ er
           ...(newSlug ? { slug: newSlug } : {}),
           imageWidth,
           imageHeight,
+          internalNote: data.internalNote || null,
           exhibitions: {
             create: cvEntries.map((entry) => ({
               title: entry.title,

@@ -101,18 +101,21 @@ enum GalleryExhibitionStatus {
 // ========================
 
 model Artist {
-  id          String   @id @default(cuid())
-  slug        String   @unique
-  name        String
-  nationality Json
-  bio         Json
-  imageUrl    String
-  imageWidth  Int?
-  imageHeight Int?
-  sortOrder   Int      @default(0)
-  visible     Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  name         String
+  nationality  Json
+  bio          Json
+  imageUrl     String
+  imageWidth   Int?
+  imageHeight  Int?
+  sortOrder    Int      @default(0)
+  visible      Boolean  @default(true)
+  // Internal fields (admin only, jamais exposés côté public)
+  countries    String[] @default([]) // ISO 3166-1 alpha-2 codes
+  internalNote String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   exhibitions        Exhibition[]
   collections        Collection[]
@@ -172,6 +175,9 @@ model Artwork {
   showPrice    Boolean  @default(false)
   sold         Boolean  @default(false)
   reserved     Boolean  @default(false)
+  // Internal fields (admin only, jamais exposés côté public)
+  countries    String[] @default([]) // ISO 3166-1 alpha-2 codes
+  internalNote String?
   sortOrder    Int      @default(0)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt

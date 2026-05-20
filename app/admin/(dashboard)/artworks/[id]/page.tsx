@@ -51,6 +51,8 @@ export default async function EditArtworkPage({ params }: Props) {
           showPrice: artwork.showPrice,
           sold: artwork.sold,
           reserved: artwork.reserved,
+          countries: artwork.countries,
+          internalNote: artwork.internalNote,
         }}
       />
     </div>

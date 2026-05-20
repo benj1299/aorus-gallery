@@ -105,13 +105,26 @@ export async function getArtistBySlugForFrontend(slug: string, locale: Locale = 
       awards: formatCVEntries(a.exhibitions.filter((e) => e.type === 'AWARD'), locale),
       collections: a.collections.map((c) => resolveTranslation(c.title, locale)),
     },
+    // Whitelist explicite — exclut `internalNote` et `countries` (champs
+     // admin only, jamais exposés au client public).
     artworks: a.artworks.map((aw) => ({
-      ...aw,
+      id: aw.id,
+      slug: aw.slug,
       title: resolveTranslation(aw.title, locale),
       medium: aw.medium ? resolveTranslation(aw.medium, locale) : null,
+      dimensions: aw.dimensions,
+      widthCm: aw.widthCm,
+      heightCm: aw.heightCm,
+      year: aw.year,
       showPrice: aw.showPrice,
       price: aw.price ? Number(aw.price) : null,
       currency: aw.currency,
+      sold: aw.sold,
+      imageUrl: aw.imageUrl,
+      imageWidth: aw.imageWidth,
+      imageHeight: aw.imageHeight,
+      images: aw.images,
+      sortOrder: aw.sortOrder,
     })),
   };
 }
