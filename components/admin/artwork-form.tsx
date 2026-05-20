@@ -156,6 +156,7 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
             name="internalNote"
             defaultValue={defaultValues.internalNote ?? ''}
             rows={4}
+            maxLength={5000}
             placeholder={t('forms.internalNotePlaceholder')}
           />
         </div>
