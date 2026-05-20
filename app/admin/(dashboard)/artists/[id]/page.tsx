@@ -47,6 +47,8 @@ export default async function EditArtistPage({ params }: Props) {
             year: e.year,
           })),
           collections: artist.collections.map((c) => c.title),
+          countries: artist.countries,
+          internalNote: artist.internalNote,
         }}
       />
     </div>

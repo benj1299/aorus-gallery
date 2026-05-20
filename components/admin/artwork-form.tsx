@@ -6,9 +6,11 @@ import { FormSwitch } from './form-switch';
 import { FormSelect } from './form-select';
 import { ImageUpload } from './image-upload';
 import { MultiImageUpload } from './multi-image-upload';
+import { CountryMultiSelect } from './country-multi-select';
 import type { TranslatableField } from '@/lib/i18n-content';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import { FormCard } from './form-card';
 import { FormLayout } from './form-layout';
 
@@ -33,6 +35,8 @@ interface ArtworkFormProps {
     showPrice?: boolean;
     sold?: boolean;
     reserved?: boolean;
+    countries?: string[];
+    internalNote?: string | null;
   };
 }
 
@@ -137,6 +141,25 @@ export function ArtworkForm({ action, artists, defaultValues = {} }: ArtworkForm
       <FormCard title={t('cards.contextImages')}>
           <p className="text-sm text-gray-500">{t('cards.contextImagesDescription')}</p>
           <MultiImageUpload name="images" defaultValue={defaultValues?.images} maxImages={5} />
+      </FormCard>
+
+      <FormCard title={t('cards.internal')}>
+        <p className="text-sm text-gray-500">{t('cards.internalDescription')}</p>
+        <div>
+          <Label className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.countries')}</Label>
+          <CountryMultiSelect name="countries" defaultValue={defaultValues.countries ?? []} />
+        </div>
+        <div>
+          <Label htmlFor="internalNote" className="text-sm font-medium text-gray-700 mb-1.5">{t('forms.internalNote')}</Label>
+          <Textarea
+            id="internalNote"
+            name="internalNote"
+            defaultValue={defaultValues.internalNote ?? ''}
+            rows={4}
+            maxLength={5000}
+            placeholder={t('forms.internalNotePlaceholder')}
+          />
+        </div>
       </FormCard>
 
     </FormLayout>
