@@ -1,18 +1,16 @@
-import { Document, Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
-import path from 'node:path';
+import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
 import type { Locale } from '@/i18n/routing';
 
-// Register custom fonts shipped in public/fonts/.
-// Cormorant Garamond = display (titles), Helvetica (built-in) = body.
-// react-pdf needs filesystem paths in server context — process.cwd() is the
-// app root on Vercel + local.
-Font.register({
-  family: 'CormorantGaramond',
-  fonts: [
-    { src: path.resolve(process.cwd(), 'public/fonts/CormorantGaramond-Regular.ttf') },
-    { src: path.resolve(process.cwd(), 'public/fonts/CormorantGaramond-Bold.ttf'), fontWeight: 'bold' },
-  ],
-});
+// Fonts : PDF built-in uniquement (Times-Roman / Helvetica). Pas de TTF
+// custom à charger côté serveur → zéro risque de path resolution sur Vercel
+// serverless, bundle minimal. Times-Roman = display (proche du Cormorant
+// Garamond stylistiquement, classique galerie), Helvetica = body. Upgrade
+// vers Cormorant possible en v2 via @react-pdf Font.register + TTF bundlé
+// dans `lib/fonts/` (commité comme code).
+const FONT_DISPLAY = 'Times-Roman';
+const FONT_DISPLAY_BOLD = 'Times-Bold';
+const FONT_BODY = 'Helvetica';
+const FONT_BODY_BOLD = 'Helvetica-Bold';
 
 const GOLD = '#B59060';
 const NOIR = '#0B0B0B';
@@ -24,7 +22,7 @@ const styles = StyleSheet.create({
     paddingTop: 36,
     paddingBottom: 48,
     paddingHorizontal: 32,
-    fontFamily: 'Helvetica',
+    fontFamily: FONT_BODY,
     fontSize: 9,
     color: NOIR,
     backgroundColor: '#FFFFFF',
@@ -36,7 +34,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   eyebrow: {
-    fontFamily: 'CormorantGaramond',
+    fontFamily: FONT_DISPLAY,
     color: GOLD,
     fontSize: 9,
     letterSpacing: 2,
@@ -44,7 +42,7 @@ const styles = StyleSheet.create({
   },
   dateLabel: { fontSize: 8, color: STONE },
   artistName: {
-    fontFamily: 'CormorantGaramond',
+    fontFamily: FONT_DISPLAY,
     fontSize: 28,
     marginTop: 4,
     color: NOIR,
@@ -61,7 +59,7 @@ const styles = StyleSheet.create({
     fontSize: 7,
     textTransform: 'uppercase',
     color: STONE,
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: FONT_BODY_BOLD,
     letterSpacing: 1,
   },
   row: {
@@ -92,10 +90,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
 
-  titleText: { fontSize: 10, fontFamily: 'Helvetica-Bold', color: NOIR },
+  titleText: { fontSize: 10, fontFamily: FONT_BODY_BOLD, color: NOIR },
   subtleText: { fontSize: 8, color: STONE, marginTop: 1 },
   bodyText: { fontSize: 9, color: NOIR },
-  priceText: { fontSize: 9, color: NOIR, fontFamily: 'Helvetica-Bold' },
+  priceText: { fontSize: 9, color: NOIR, fontFamily: FONT_BODY_BOLD },
 
   statusPill: {
     fontSize: 7,

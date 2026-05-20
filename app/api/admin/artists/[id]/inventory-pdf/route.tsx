@@ -11,6 +11,10 @@ import { slugify } from '@/lib/slugify';
 // Force Node runtime — @react-pdf/renderer ne tourne pas sur Edge.
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+// Vercel maxDuration : un inventaire avec 50-100 œuvres + images distantes
+// peut prendre 5-20s. Default Hobby = 10s, Pro = 60s. On force 60s pour
+// éviter timeout sur les gros catalogues (no-op si plan free).
+export const maxDuration = 60;
 
 function parseLocale(raw: string | null): Locale {
   if (!raw) return 'fr';
@@ -25,10 +29,12 @@ export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  // Auth — 401 si non admin (les routes API ne peuvent pas rediriger comme
-  // requireAuth(), on retourne un statut explicite).
+  // Auth — 401 si non admin. Pattern défensif : on extrait `isAdmin` une fois
+  // pour éviter une short-circuit ambigu si la lib auth change la forme du
+  // session object.
   const session = await auth.api.getSession({ headers: await headers() });
-  if (!session?.user || session.user.role !== 'admin') {
+  const isAdmin = session?.user?.role === 'admin';
+  if (!isAdmin) {
     return new Response('Unauthorized', { status: 401 });
   }
 
@@ -71,8 +77,11 @@ export async function GET(
     />,
   );
 
-  // Filename : <ArtistSlug>_ORUS_Artwork_List.pdf — slug ASCII-friendly,
-  // évite les soucis d'encodage Content-Disposition cross-browser.
+  // Filename : <ArtistSlug>_ORUS_Artwork_List.pdf — slugify() normalise NFD
+  // et strip les accents (ex : "Renée" → "renee"), donc le filename ASCII
+  // est safe pour `Content-Disposition`. On ajoute `filename*=UTF-8''` en
+  // fallback RFC 5987 si on voulait préserver les accents — pas nécessaire
+  // ici puisque slug ASCII-only.
   const filename = `${slugify(artist.name)}_ORUS_Artwork_List.pdf`;
 
   // Buffer → Blob : Next 16 Response BodyInit types n'acceptent ni Node
