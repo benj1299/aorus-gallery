@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-21T12:08:58.842Z",
+    "generatedAt": "2026-05-21T12:05:40.424Z",
     "databaseUrl": "postgresql://***@ep-polished-band-an39b4ba-pooler.c-6.us-east-1.aws.neon.tech/neondb?sslmode=require",
     "entityCount": 306
   },
@@ -2601,7 +2601,7 @@
       "ref": "collection:cmpfd9jv3000004l196oleqgw",
       "model": "collection",
       "id": "cmpfd9jv3000004l196oleqgw",
-      "label": "[Renée Le Bloas -Julienne] Collections privées, France et Asie",
+      "label": "[Renée Le Bloas -Julienne] Private Collections, France and Asia",
       "fields": {
         "title": {
           "en": "Private Collections, France and Asia",
@@ -2617,7 +2617,7 @@
       "ref": "collection:cmpfdjps5000n04ict6ythivc",
       "model": "collection",
       "id": "cmpfdjps5000n04ict6ythivc",
-      "label": "[Carlos Romano] Collection privée européenne, africaine et américaine",
+      "label": "[Carlos Romano] European, African and American private collection",
       "fields": {
         "title": {
           "en": "European, African and American private collection",
@@ -2633,7 +2633,7 @@
       "ref": "collection:cmpfdjps5000o04ickp6z25ve",
       "model": "collection",
       "id": "cmpfdjps5000o04ickp6z25ve",
-      "label": "[Carlos Romano] Saatchi Gallery, USA",
+      "label": "[Carlos Romano] Saatchi Gallery USA",
       "fields": {
         "title": {
           "en": "Saatchi Gallery USA",
@@ -2681,7 +2681,7 @@
       "ref": "collection:cmpfdazp4002104latt2lm2ve",
       "model": "collection",
       "id": "cmpfdazp4002104latt2lm2ve",
-      "label": "[Ewa Goral] Collections privées, Pologne et Europe",
+      "label": "[Ewa Goral] Private Collections, Poland and Europe",
       "fields": {
         "title": {
           "en": "Private Collections, Poland and Europe",
@@ -2697,7 +2697,7 @@
       "ref": "collection:cmpfdad31000904ic6bwm0rv3",
       "model": "collection",
       "id": "cmpfdad31000904ic6bwm0rv3",
-      "label": "[Owen Rival] Collection privée de Beth DeWoody",
+      "label": "[Owen Rival] Private collection of Beth DeWoody",
       "fields": {
         "title": {
           "en": "Private collection of Beth DeWoody",
