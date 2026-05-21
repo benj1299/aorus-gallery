@@ -1,0 +1,1498 @@
+{
+  "mode": "apply",
+  "summary": {
+    "applied": 93,
+    "skipped": 0,
+    "errors": 0
+  },
+  "log": [
+    {
+      "ref": "exhibition:cmpfd9srk000104l1l7b48yvh",
+      "field": "title",
+      "before": {
+        "en": "Beyond natural, Vin’s Gallery, Taiwan ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Beyond natural, Vin’s Gallery, Taiwan ",
+        "fr": "Beyond natural, Vin’s Gallery, Taiwan ",
+        "zh": "Beyond natural, Vin’s Gallery, Taiwan "
+      },
+      "appliedAt": "2026-05-21T12:08:25.985Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfd9srk000204l1ouxdjlk3",
+      "field": "title",
+      "before": {
+        "en": "On oublie le nom des fleurs, Cohle Gallery, Paris ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "On oublie le nom des fleurs, Cohle Gallery, Paris ",
+        "fr": "On oublie le nom des fleurs, Cohle Gallery, Paris ",
+        "zh": "On oublie le nom des fleurs, Cohle Gallery, Paris "
+      },
+      "appliedAt": "2026-05-21T12:08:26.180Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfd9srk000304l15daabw0f",
+      "field": "title",
+      "before": {
+        "en": "Curation “Emerging artist” salon des beaux arts, Paris",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Curation “Emerging artist” salon des beaux arts, Paris",
+        "fr": "Curation “Emerging artist” salon des beaux arts, Paris",
+        "zh": "Curation “Emerging artist” salon des beaux arts, Paris"
+      },
+      "appliedAt": "2026-05-21T12:08:26.375Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfd9srk000404l1603cq3fw",
+      "field": "title",
+      "before": {
+        "en": "Emergency Exit, Cohle Gallery, Minorque",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Emergency Exit, Cohle Gallery, Minorque",
+        "fr": "Emergency Exit, Cohle Gallery, Minorque",
+        "zh": "Emergency Exit, Cohle Gallery, Minorque"
+      },
+      "appliedAt": "2026-05-21T12:08:26.567Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfd9srk000504l1ki9h0w2b",
+      "field": "title",
+      "before": {
+        "en": "Art Monster Fair, Vin’s Gallery, Taïwan ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Art Monster Fair, Vin’s Gallery, Taïwan ",
+        "fr": "Art Monster Fair, Vin’s Gallery, Taïwan ",
+        "zh": "Art Monster Fair, Vin’s Gallery, Taïwan "
+      },
+      "appliedAt": "2026-05-21T12:08:26.760Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfd9srk000604l1wzti3jh0",
+      "field": "title",
+      "before": {
+        "en": "Blue Horizon, Cohle Gallery, Paris ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Blue Horizon, Cohle Gallery, Paris ",
+        "fr": "Blue Horizon, Cohle Gallery, Paris ",
+        "zh": "Blue Horizon, Cohle Gallery, Paris "
+      },
+      "appliedAt": "2026-05-21T12:08:26.952Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfd9srk000704l1zf8vnuqt",
+      "field": "title",
+      "before": {
+        "en": "Baignade, personnel, Rueil - Malmaison",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Baignade, personnel, Rueil - Malmaison",
+        "fr": "Baignade, personnel, Rueil - Malmaison",
+        "zh": "Baignade, personnel, Rueil - Malmaison"
+      },
+      "appliedAt": "2026-05-21T12:08:27.146Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfd9srl000804l16od5w60r",
+      "field": "title",
+      "before": {
+        "en": "Young Designer Award, Autumn Salon",
+        "fr": "Prix du Jeune Créateur, Salon d’Automne",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Young Designer Award, Autumn Salon",
+        "fr": "Prix du Jeune Créateur, Salon d’Automne",
+        "zh": "Prix du Jeune Créateur, Salon d’Automne"
+      },
+      "appliedAt": "2026-05-21T12:08:27.345Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000k04lakvw9kq4c",
+      "field": "title",
+      "before": {
+        "en": "Polish Academy of Sience Botanical Garden, Powsin, PL ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Polish Academy of Sience Botanical Garden, Powsin, PL ",
+        "fr": "Polish Academy of Sience Botanical Garden, Powsin, PL ",
+        "zh": "Polish Academy of Sience Botanical Garden, Powsin, PL "
+      },
+      "appliedAt": "2026-05-21T12:08:27.542Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000l04larlczfaac",
+      "field": "title",
+      "before": {
+        "en": "“Botanic Fever” ArtAround Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "“Botanic Fever” ArtAround Gallery, Warsaw, PL",
+        "fr": "“Botanic Fever” ArtAround Gallery, Warsaw, PL",
+        "zh": "“Botanic Fever” ArtAround Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:27.736Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000m04layl1paue4",
+      "field": "title",
+      "before": {
+        "en": "Westin, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Westin, Warsaw, PL",
+        "fr": "Westin, Warsaw, PL",
+        "zh": "Westin, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:27.930Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000n04laa72c90dk",
+      "field": "title",
+      "before": {
+        "en": "Artinfo, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Artinfo, Warsaw, PL",
+        "fr": "Artinfo, Warsaw, PL",
+        "zh": "Artinfo, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:28.123Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000o04lab2c0pc7k",
+      "field": "title",
+      "before": {
+        "en": "Universes curated by Kinga Szafrankowska, Emi_Art_Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Universes curated by Kinga Szafrankowska, Emi_Art_Warsaw, PL",
+        "fr": "Universes curated by Kinga Szafrankowska, Emi_Art_Warsaw, PL",
+        "zh": "Universes curated by Kinga Szafrankowska, Emi_Art_Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:28.322Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000p04la1tvy4hub",
+      "field": "title",
+      "before": {
+        "en": "Dzielna Foundation, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Dzielna Foundation, PL",
+        "fr": "Dzielna Foundation, PL",
+        "zh": "Dzielna Foundation, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:28.519Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000q04lavn69c8wm",
+      "field": "title",
+      "before": {
+        "en": "Bielska BWA Gallery, Bielsko-Biała, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Bielska BWA Gallery, Bielsko-Biała, PL",
+        "fr": "Bielska BWA Gallery, Bielsko-Biała, PL",
+        "zh": "Bielska BWA Gallery, Bielsko-Biała, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:28.716Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000r04lafi53datg",
+      "field": "title",
+      "before": {
+        "en": "BWA Gallery Krosno, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BWA Gallery Krosno, PL",
+        "fr": "BWA Gallery Krosno, PL",
+        "zh": "BWA Gallery Krosno, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:28.911Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000s04la50ig4ul6",
+      "field": "title",
+      "before": {
+        "en": "BWA Gallery, Sanok, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BWA Gallery, Sanok, PL",
+        "fr": "BWA Gallery, Sanok, PL",
+        "zh": "BWA Gallery, Sanok, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:29.104Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000t04labr884tl2",
+      "field": "title",
+      "before": {
+        "en": "Silent Manifesto, Venice Biennale, Performance, Venice, ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Silent Manifesto, Venice Biennale, Performance, Venice, ",
+        "fr": "Silent Manifesto, Venice Biennale, Performance, Venice, ",
+        "zh": "Silent Manifesto, Venice Biennale, Performance, Venice, "
+      },
+      "appliedAt": "2026-05-21T12:08:29.298Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000u04ladm3hw9za",
+      "field": "title",
+      "before": {
+        "en": "BWA Gallery, Ostrowiec, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BWA Gallery, Ostrowiec, PL",
+        "fr": "BWA Gallery, Ostrowiec, PL",
+        "zh": "BWA Gallery, Ostrowiec, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:29.494Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000v04latl32t1tp",
+      "field": "title",
+      "before": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "Arttrakt Gallery, Wrocław, PL",
+        "zh": "Arttrakt Gallery, Wrocław, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:29.689Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000w04lajwthr54c",
+      "field": "title",
+      "before": {
+        "en": "OFF FRAME Gallery, Kraków, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "OFF FRAME Gallery, Kraków, PL",
+        "fr": "OFF FRAME Gallery, Kraków, PL",
+        "zh": "OFF FRAME Gallery, Kraków, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:29.882Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000x04laszlwz7r8",
+      "field": "title",
+      "before": {
+        "en": "Plant Consciousness, Regent’s University, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Plant Consciousness, Regent’s University, London, UK",
+        "fr": "Plant Consciousness, Regent’s University, London, UK",
+        "zh": "Plant Consciousness, Regent’s University, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:08:30.076Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000y04lalfkhw01s",
+      "field": "title",
+      "before": {
+        "en": "Polish Academy of Siences, Botany Institute, Kraków, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Polish Academy of Siences, Botany Institute, Kraków, PL",
+        "fr": "Polish Academy of Siences, Botany Institute, Kraków, PL",
+        "zh": "Polish Academy of Siences, Botany Institute, Kraków, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:30.270Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok000z04laf4lbdtky",
+      "field": "title",
+      "before": {
+        "en": "Unit24 Gallery, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Unit24 Gallery, London, UK",
+        "fr": "Unit24 Gallery, London, UK",
+        "zh": "Unit24 Gallery, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:08:30.464Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001004laxtrg7wtb",
+      "field": "title",
+      "before": {
+        "en": "Idea Fix, Cracow, PL ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Idea Fix, Cracow, PL ",
+        "fr": "Idea Fix, Cracow, PL ",
+        "zh": "Idea Fix, Cracow, PL "
+      },
+      "appliedAt": "2026-05-21T12:08:30.660Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001104la83j17heb",
+      "field": "title",
+      "before": {
+        "en": "Inny Śląsk Gallery, Tarnowskie Góry, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Inny Śląsk Gallery, Tarnowskie Góry, PL",
+        "fr": "Inny Śląsk Gallery, Tarnowskie Góry, PL",
+        "zh": "Inny Śląsk Gallery, Tarnowskie Góry, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:30.854Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001204ladey1cn8i",
+      "field": "title",
+      "before": {
+        "en": "“Kwiatostany” Mazovia Centre of Contemporaty Art Elektrownia, Radom, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "“Kwiatostany” Mazovia Centre of Contemporaty Art Elektrownia, Radom, PL",
+        "fr": "“Kwiatostany” Mazovia Centre of Contemporaty Art Elektrownia, Radom, PL",
+        "zh": "“Kwiatostany” Mazovia Centre of Contemporaty Art Elektrownia, Radom, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:31.048Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001304lal4t1hzlq",
+      "field": "title",
+      "before": {
+        "en": "ArtAround Gallery / Foksal, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "ArtAround Gallery / Foksal, Warsaw, PL",
+        "fr": "ArtAround Gallery / Foksal, Warsaw, PL",
+        "zh": "ArtAround Gallery / Foksal, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:31.243Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001404laal8yd6ng",
+      "field": "title",
+      "before": {
+        "en": "BigHUB/ArtAround, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BigHUB/ArtAround, Warsaw, PL",
+        "fr": "BigHUB/ArtAround, Warsaw, PL",
+        "zh": "BigHUB/ArtAround, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:31.438Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001504la0zfns7gt",
+      "field": "title",
+      "before": {
+        "en": " “Phantom of Happines” ArtAround Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": " “Phantom of Happines” ArtAround Gallery, Warsaw, PL",
+        "fr": " “Phantom of Happines” ArtAround Gallery, Warsaw, PL",
+        "zh": " “Phantom of Happines” ArtAround Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:31.634Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001604lark7w5ss8",
+      "field": "title",
+      "before": {
+        "en": "“Dziewczynki”, ArtAround Gallery, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "“Dziewczynki”, ArtAround Gallery, PL",
+        "fr": "“Dziewczynki”, ArtAround Gallery, PL",
+        "zh": "“Dziewczynki”, ArtAround Gallery, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:31.829Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001704lalgo4ownm",
+      "field": "title",
+      "before": {
+        "en": "5:5, B383 Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "5:5, B383 Gallery, Warsaw, PL",
+        "fr": "5:5, B383 Gallery, Warsaw, PL",
+        "zh": "5:5, B383 Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:32.023Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001804laebbuoqjr",
+      "field": "title",
+      "before": {
+        "en": "“Żywa krew” Oblatów 4 Gallery, Katowice, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "“Żywa krew” Oblatów 4 Gallery, Katowice, PL",
+        "fr": "“Żywa krew” Oblatów 4 Gallery, Katowice, PL",
+        "zh": "“Żywa krew” Oblatów 4 Gallery, Katowice, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:32.216Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001904lajrmrvsyb",
+      "field": "title",
+      "before": {
+        "en": "Municipal Museum in Żory, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Municipal Museum in Żory, PL",
+        "fr": "Municipal Museum in Żory, PL",
+        "zh": "Municipal Museum in Żory, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:32.410Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001a04lapaib97vt",
+      "field": "title",
+      "before": {
+        "en": "Sotto63 Gallery, Mystery Keepers with A.Grucela, M.Kolesnik, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Sotto63 Gallery, Mystery Keepers with A.Grucela, M.Kolesnik, Warsaw, PL",
+        "fr": "Sotto63 Gallery, Mystery Keepers with A.Grucela, M.Kolesnik, Warsaw, PL",
+        "zh": "Sotto63 Gallery, Mystery Keepers with A.Grucela, M.Kolesnik, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:32.603Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001b04la4p1wcgzd",
+      "field": "title",
+      "before": {
+        "en": "Artinfo/WellArt, Katowice, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Artinfo/WellArt, Katowice, PL",
+        "fr": "Artinfo/WellArt, Katowice, PL",
+        "zh": "Artinfo/WellArt, Katowice, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:32.820Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001c04la3q2oj0uv",
+      "field": "title",
+      "before": {
+        "en": "Kongres Rysowniczek with Paweł Althamer, Program Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Kongres Rysowniczek with Paweł Althamer, Program Gallery, Warsaw, PL",
+        "fr": "Kongres Rysowniczek with Paweł Althamer, Program Gallery, Warsaw, PL",
+        "zh": "Kongres Rysowniczek with Paweł Althamer, Program Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:33.015Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001d04la2k3i7b4m",
+      "field": "title",
+      "before": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "Arttrakt Gallery, Wrocław, PL",
+        "zh": "Arttrakt Gallery, Wrocław, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:33.219Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001e04lad0igxg99",
+      "field": "title",
+      "before": {
+        "en": "BWA Gallery Krosno, PL “Mikrobiom”",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BWA Gallery Krosno, PL “Mikrobiom”",
+        "fr": "BWA Gallery Krosno, PL “Mikrobiom”",
+        "zh": "BWA Gallery Krosno, PL “Mikrobiom”"
+      },
+      "appliedAt": "2026-05-21T12:08:33.413Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001f04la47x760lb",
+      "field": "title",
+      "before": {
+        "en": "15th International Autumn Salon of Art, BWA Gallery Ostrowiec, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "15th International Autumn Salon of Art, BWA Gallery Ostrowiec, PL",
+        "fr": "15th International Autumn Salon of Art, BWA Gallery Ostrowiec, PL",
+        "zh": "15th International Autumn Salon of Art, BWA Gallery Ostrowiec, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:33.608Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001g04la43o4cu2x",
+      "field": "title",
+      "before": {
+        "en": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "fr": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "zh": "Stolarska/Krupowicz Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:33.803Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001h04la61552d2e",
+      "field": "title",
+      "before": {
+        "en": "HOS Gallery/Nanazenit Warszawa, PL “Rozkwitamy”",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "HOS Gallery/Nanazenit Warszawa, PL “Rozkwitamy”",
+        "fr": "HOS Gallery/Nanazenit Warszawa, PL “Rozkwitamy”",
+        "zh": "HOS Gallery/Nanazenit Warszawa, PL “Rozkwitamy”"
+      },
+      "appliedAt": "2026-05-21T12:08:33.995Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001i04la0qhu35cr",
+      "field": "title",
+      "before": {
+        "en": "9TH YOUNG TRIENNALE in Orońsko, PL “So Long as We Still Live”",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "9TH YOUNG TRIENNALE in Orońsko, PL “So Long as We Still Live”",
+        "fr": "9TH YOUNG TRIENNALE in Orońsko, PL “So Long as We Still Live”",
+        "zh": "9TH YOUNG TRIENNALE in Orońsko, PL “So Long as We Still Live”"
+      },
+      "appliedAt": "2026-05-21T12:08:34.191Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazok001j04lat8wgbseu",
+      "field": "title",
+      "before": {
+        "en": " Szyb Wilsona Gallery, Katowice, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": " Szyb Wilsona Gallery, Katowice, PL",
+        "fr": " Szyb Wilsona Gallery, Katowice, PL",
+        "zh": " Szyb Wilsona Gallery, Katowice, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:34.390Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001k04lab8m134ub",
+      "field": "title",
+      "before": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "Arttrakt Gallery, Wrocław, PL",
+        "zh": "Arttrakt Gallery, Wrocław, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:34.584Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001l04lavypf5g20",
+      "field": "title",
+      "before": {
+        "en": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "fr": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "zh": "Stolarska/Krupowicz Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:34.779Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001m04lakbbbuwdf",
+      "field": "title",
+      "before": {
+        "en": "Zealous X, RichMix, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Zealous X, RichMix, London, UK",
+        "fr": "Zealous X, RichMix, London, UK",
+        "zh": "Zealous X, RichMix, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:08:34.971Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001n04lajyd34p6s",
+      "field": "title",
+      "before": {
+        "en": "Gruning Gallery, Krakow, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Gruning Gallery, Krakow, PL",
+        "fr": "Gruning Gallery, Krakow, PL",
+        "zh": "Gruning Gallery, Krakow, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:35.164Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001o04lax458fyi3",
+      "field": "title",
+      "before": {
+        "en": "Bohema Nowa Sztuka Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Bohema Nowa Sztuka Gallery, Warsaw, PL",
+        "fr": "Bohema Nowa Sztuka Gallery, Warsaw, PL",
+        "zh": "Bohema Nowa Sztuka Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:35.359Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001p04lancvn9gkq",
+      "field": "title",
+      "before": {
+        "en": "SoContemporary Gallery, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "SoContemporary Gallery, London, UK",
+        "fr": "SoContemporary Gallery, London, UK",
+        "zh": "SoContemporary Gallery, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:08:35.553Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001q04lachd3wjle",
+      "field": "title",
+      "before": {
+        "en": "Espacio Gallery, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Espacio Gallery, London, UK",
+        "fr": "Espacio Gallery, London, UK",
+        "zh": "Espacio Gallery, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:08:35.745Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001r04la0uh8m6z9",
+      "field": "title",
+      "before": {
+        "en": "Forbes Charity Ball, Hilton Hotel, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Forbes Charity Ball, Hilton Hotel, Warsaw, PL",
+        "fr": "Forbes Charity Ball, Hilton Hotel, Warsaw, PL",
+        "zh": "Forbes Charity Ball, Hilton Hotel, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:35.937Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001s04lafdrppz9e",
+      "field": "title",
+      "before": {
+        "en": "Silence is a Lie, Urban Art Exhibition, SEZ, Berlin, DE",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Silence is a Lie, Urban Art Exhibition, SEZ, Berlin, DE",
+        "fr": "Silence is a Lie, Urban Art Exhibition, SEZ, Berlin, DE",
+        "zh": "Silence is a Lie, Urban Art Exhibition, SEZ, Berlin, DE"
+      },
+      "appliedAt": "2026-05-21T12:08:36.129Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001t04layhxygjjg",
+      "field": "title",
+      "before": {
+        "en": "Polish deConstruction Show, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Polish deConstruction Show, London, UK",
+        "fr": "Polish deConstruction Show, London, UK",
+        "zh": "Polish deConstruction Show, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:08:36.322Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001u04la63po0iu6",
+      "field": "title",
+      "before": {
+        "en": "BWA Gallery, Bielsko Biala, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BWA Gallery, Bielsko Biala, PL",
+        "fr": "BWA Gallery, Bielsko Biala, PL",
+        "zh": "BWA Gallery, Bielsko Biala, PL"
+      },
+      "appliedAt": "2026-05-21T12:08:36.517Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001v04laoz74zwsh",
+      "field": "title",
+      "before": {
+        "en": "15th International Autumn Salon of Art, BWA Ostrowiec - exhibition",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "15th International Autumn Salon of Art, BWA Ostrowiec - exhibition",
+        "fr": "15th International Autumn Salon of Art, BWA Ostrowiec - exhibition",
+        "zh": "15th International Autumn Salon of Art, BWA Ostrowiec - exhibition"
+      },
+      "appliedAt": "2026-05-21T12:08:36.712Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001w04lagtl7xi9e",
+      "field": "title",
+      "before": {
+        "en": "9TH YOUNG TRIENNALE in Orońsko “So Long as We Still Live” - exhibition",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "9TH YOUNG TRIENNALE in Orońsko “So Long as We Still Live” - exhibition",
+        "fr": "9TH YOUNG TRIENNALE in Orońsko “So Long as We Still Live” - exhibition",
+        "zh": "9TH YOUNG TRIENNALE in Orońsko “So Long as We Still Live” - exhibition"
+      },
+      "appliedAt": "2026-05-21T12:08:36.904Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001x04laqdurid4f",
+      "field": "title",
+      "before": {
+        "en": "Nowa Awangarda - Szyb Wilsona Gallery - exhibition",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Nowa Awangarda - Szyb Wilsona Gallery - exhibition",
+        "fr": "Nowa Awangarda - Szyb Wilsona Gallery - exhibition",
+        "zh": "Nowa Awangarda - Szyb Wilsona Gallery - exhibition"
+      },
+      "appliedAt": "2026-05-21T12:08:37.098Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001y04lassgy9icu",
+      "field": "title",
+      "before": {
+        "en": "Muraspec, wallpaper design competition - distinction",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Muraspec, wallpaper design competition - distinction",
+        "fr": "Muraspec, wallpaper design competition - distinction",
+        "zh": "Muraspec, wallpaper design competition - distinction"
+      },
+      "appliedAt": "2026-05-21T12:08:37.291Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol001z04lanls4h37l",
+      "field": "title",
+      "before": {
+        "en": "Zealous X London - exhibition",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Zealous X London - exhibition",
+        "fr": "Zealous X London - exhibition",
+        "zh": "Zealous X London - exhibition"
+      },
+      "appliedAt": "2026-05-21T12:08:37.485Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdazol002004lajx1grjwj",
+      "field": "title",
+      "before": {
+        "en": "Polish Biennale of Young Artists in Bielsko Biala - 3th prize",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Polish Biennale of Young Artists in Bielsko Biala - 3th prize",
+        "fr": "Polish Biennale of Young Artists in Bielsko Biala - 3th prize",
+        "zh": "Polish Biennale of Young Artists in Bielsko Biala - 3th prize"
+      },
+      "appliedAt": "2026-05-21T12:08:37.679Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000b04lb2asi8fzr",
+      "field": "title",
+      "before": {
+        "en": "Harlem Fine Arts Show, US",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Harlem Fine Arts Show, US",
+        "fr": "Harlem Fine Arts Show, US",
+        "zh": "Harlem Fine Arts Show, US"
+      },
+      "appliedAt": "2026-05-21T12:08:37.872Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000c04lb04gja0kk",
+      "field": "title",
+      "before": {
+        "en": "Christie’s Lates, Voices of Black Artistry, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Christie’s Lates, Voices of Black Artistry, London",
+        "fr": "Christie’s Lates, Voices of Black Artistry, London",
+        "zh": "Christie’s Lates, Voices of Black Artistry, London"
+      },
+      "appliedAt": "2026-05-21T12:08:38.066Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000d04lbncey37kr",
+      "field": "title",
+      "before": {
+        "en": "Reclaiming Our Narrative, Westminster City Council, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Reclaiming Our Narrative, Westminster City Council, London",
+        "fr": "Reclaiming Our Narrative, Westminster City Council, London",
+        "zh": "Reclaiming Our Narrative, Westminster City Council, London"
+      },
+      "appliedAt": "2026-05-21T12:08:38.259Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000e04lbwt10gzxq",
+      "field": "title",
+      "before": {
+        "en": "Amalgam -, Chilliart Projects",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Amalgam -, Chilliart Projects",
+        "fr": "Amalgam -, Chilliart Projects",
+        "zh": "Amalgam -, Chilliart Projects"
+      },
+      "appliedAt": "2026-05-21T12:08:38.452Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000f04lbohqerf13",
+      "field": "title",
+      "before": {
+        "en": "Reflections, Chilliart Projects, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Reflections, Chilliart Projects, London",
+        "fr": "Reflections, Chilliart Projects, London",
+        "zh": "Reflections, Chilliart Projects, London"
+      },
+      "appliedAt": "2026-05-21T12:08:38.644Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000g04lbeu65k0v4",
+      "field": "title",
+      "before": {
+        "en": "Surface 1, Chilliart Projects, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Surface 1, Chilliart Projects, London",
+        "fr": "Surface 1, Chilliart Projects, London",
+        "zh": "Surface 1, Chilliart Projects, London"
+      },
+      "appliedAt": "2026-05-21T12:08:38.836Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000h04lb8svns29h",
+      "field": "title",
+      "before": {
+        "en": "Classique, Afikaris, Paris",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Classique, Afikaris, Paris",
+        "fr": "Classique, Afikaris, Paris",
+        "zh": "Classique, Afikaris, Paris"
+      },
+      "appliedAt": "2026-05-21T12:08:39.027Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000i04lb6kcf6s47",
+      "field": "title",
+      "before": {
+        "en": "Masterpieces 3, Band of Vices, Los Angeles",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Masterpieces 3, Band of Vices, Los Angeles",
+        "fr": "Masterpieces 3, Band of Vices, Los Angeles",
+        "zh": "Masterpieces 3, Band of Vices, Los Angeles"
+      },
+      "appliedAt": "2026-05-21T12:08:39.222Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000j04lb4oevyq45",
+      "field": "title",
+      "before": {
+        "en": "The Stories We Tell, Chilliart Projects, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "The Stories We Tell, Chilliart Projects, London",
+        "fr": "The Stories We Tell, Chilliart Projects, London",
+        "zh": "The Stories We Tell, Chilliart Projects, London"
+      },
+      "appliedAt": "2026-05-21T12:08:39.414Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000k04lb2hgvsjwb",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition, Ascension, Zari Gallery, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition, Ascension, Zari Gallery, London",
+        "fr": "Group Exhibition, Ascension, Zari Gallery, London",
+        "zh": "Group Exhibition, Ascension, Zari Gallery, London"
+      },
+      "appliedAt": "2026-05-21T12:08:39.608Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000l04lb2uz4ja9s",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition, Honour Remember Inspire, Zari Gallery, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition, Honour Remember Inspire, Zari Gallery, London",
+        "fr": "Group Exhibition, Honour Remember Inspire, Zari Gallery, London",
+        "zh": "Group Exhibition, Honour Remember Inspire, Zari Gallery, London"
+      },
+      "appliedAt": "2026-05-21T12:08:39.805Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000m04lbgnovv4lg",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition, Black in Full Colour, The Collective Makers, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition, Black in Full Colour, The Collective Makers, London",
+        "fr": "Group Exhibition, Black in Full Colour, The Collective Makers, London",
+        "zh": "Group Exhibition, Black in Full Colour, The Collective Makers, London"
+      },
+      "appliedAt": "2026-05-21T12:08:39.999Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000n04lbksh21dkp",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition, Awakening, Chilliart Projects, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition, Awakening, Chilliart Projects, London",
+        "fr": "Group Exhibition, Awakening, Chilliart Projects, London",
+        "zh": "Group Exhibition, Awakening, Chilliart Projects, London"
+      },
+      "appliedAt": "2026-05-21T12:08:40.193Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000o04lbr5oc43vz",
+      "field": "title",
+      "before": {
+        "en": "Create Magazine Springing forward exhibition Curated By Gita Joshi",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Create Magazine Springing forward exhibition Curated By Gita Joshi",
+        "fr": "Create Magazine Springing forward exhibition Curated By Gita Joshi",
+        "zh": "Create Magazine Springing forward exhibition Curated By Gita Joshi"
+      },
+      "appliedAt": "2026-05-21T12:08:40.386Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000p04lb9z1drxbr",
+      "field": "title",
+      "before": {
+        "en": "Virtual Group Exhibition. Change. Norman Rea Gallery, United Kingdom",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Virtual Group Exhibition. Change. Norman Rea Gallery, United Kingdom",
+        "fr": "Virtual Group Exhibition. Change. Norman Rea Gallery, United Kingdom",
+        "zh": "Virtual Group Exhibition. Change. Norman Rea Gallery, United Kingdom"
+      },
+      "appliedAt": "2026-05-21T12:08:40.579Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000q04lbln7ulhjo",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition Isolation Mastered, JD Malat Gallery, London.",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition Isolation Mastered, JD Malat Gallery, London.",
+        "fr": "Group Exhibition Isolation Mastered, JD Malat Gallery, London.",
+        "zh": "Group Exhibition Isolation Mastered, JD Malat Gallery, London."
+      },
+      "appliedAt": "2026-05-21T12:08:40.772Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfclerf000r04lb3g4r97bs",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition Figuratively Speaking, Elizabeth James Gallery, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition Figuratively Speaking, Elizabeth James Gallery, London",
+        "fr": "Group Exhibition Figuratively Speaking, Elizabeth James Gallery, London",
+        "zh": "Group Exhibition Figuratively Speaking, Elizabeth James Gallery, London"
+      },
+      "appliedAt": "2026-05-21T12:08:40.965Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdad2p000004icrz04p83j",
+      "field": "title",
+      "before": {
+        "en": "Mental Landscapes, Abbozzo Gallery, Toronto, Canada",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mental Landscapes, Abbozzo Gallery, Toronto, Canada",
+        "fr": "Mental Landscapes, Abbozzo Gallery, Toronto, Canada",
+        "zh": "Mental Landscapes, Abbozzo Gallery, Toronto, Canada"
+      },
+      "appliedAt": "2026-05-21T12:08:41.159Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdad2p000104icqx6h9aev",
+      "field": "title",
+      "before": {
+        "en": "Chronic Maintenance, Monti8 Gallery, Latina, Italy ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Chronic Maintenance, Monti8 Gallery, Latina, Italy ",
+        "fr": "Chronic Maintenance, Monti8 Gallery, Latina, Italy ",
+        "zh": "Chronic Maintenance, Monti8 Gallery, Latina, Italy "
+      },
+      "appliedAt": "2026-05-21T12:08:41.353Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdad2p000204iclcrdh6f1",
+      "field": "title",
+      "before": {
+        "en": "Longview, Harkawik Gallery, NYC, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Longview, Harkawik Gallery, NYC, USA",
+        "fr": "Longview, Harkawik Gallery, NYC, USA",
+        "zh": "Longview, Harkawik Gallery, NYC, USA"
+      },
+      "appliedAt": "2026-05-21T12:08:41.546Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdad2p000304ickocawx8f",
+      "field": "title",
+      "before": {
+        "en": "String Theory, Gagne Contemporary, Toronto, Canada",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "String Theory, Gagne Contemporary, Toronto, Canada",
+        "fr": "String Theory, Gagne Contemporary, Toronto, Canada",
+        "zh": "String Theory, Gagne Contemporary, Toronto, Canada"
+      },
+      "appliedAt": "2026-05-21T12:08:41.743Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdad2p000404icoqrqhzwr",
+      "field": "title",
+      "before": {
+        "en": "Compatibility, Monti8 Gallery, Latina, Italy",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Compatibility, Monti8 Gallery, Latina, Italy",
+        "fr": "Compatibility, Monti8 Gallery, Latina, Italy",
+        "zh": "Compatibility, Monti8 Gallery, Latina, Italy"
+      },
+      "appliedAt": "2026-05-21T12:08:41.935Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdad2p000504icxtqsff8t",
+      "field": "title",
+      "before": {
+        "en": "Entre El Cielo Y El Suelo Art House, Mexico City, Mexico",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Entre El Cielo Y El Suelo Art House, Mexico City, Mexico",
+        "fr": "Entre El Cielo Y El Suelo Art House, Mexico City, Mexico",
+        "zh": "Entre El Cielo Y El Suelo Art House, Mexico City, Mexico"
+      },
+      "appliedAt": "2026-05-21T12:08:42.129Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdad2p000604icgsz0n39m",
+      "field": "title",
+      "before": {
+        "en": "Dallas Art Fair  1969 Gallery, Dallas, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Dallas Art Fair  1969 Gallery, Dallas, USA",
+        "fr": "Dallas Art Fair  1969 Gallery, Dallas, USA",
+        "zh": "Dallas Art Fair  1969 Gallery, Dallas, USA"
+      },
+      "appliedAt": "2026-05-21T12:08:42.321Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdad2p000704icsl1zb1c4",
+      "field": "title",
+      "before": {
+        "en": "Works on Paper on Fridges Harkawik Gallery ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Works on Paper on Fridges Harkawik Gallery ",
+        "fr": "Works on Paper on Fridges Harkawik Gallery ",
+        "zh": "Works on Paper on Fridges Harkawik Gallery "
+      },
+      "appliedAt": "2026-05-21T12:08:42.515Z",
+      "status": "applied"
+    },
+    {
+      "ref": "exhibition:cmpfdad2p000804ic7hzk97jc",
+      "field": "title",
+      "before": {
+        "en": "Exit 26 Monti8 Gallery, Latina, Italy",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Exit 26 Monti8 Gallery, Latina, Italy",
+        "fr": "Exit 26 Monti8 Gallery, Latina, Italy",
+        "zh": "Exit 26 Monti8 Gallery, Latina, Italy"
+      },
+      "appliedAt": "2026-05-21T12:08:42.710Z",
+      "status": "applied"
+    },
+    {
+      "ref": "collection:cmpfd9jv3000004l196oleqgw",
+      "field": "title",
+      "before": {
+        "en": "Private Collections, France and Asia",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Private Collections, France and Asia",
+        "fr": "Collections privées, France et Asie",
+        "zh": "私人收藏，法國與亞洲"
+      },
+      "appliedAt": "2026-05-21T12:08:42.906Z",
+      "status": "applied"
+    },
+    {
+      "ref": "collection:cmpfdjps5000n04ict6ythivc",
+      "field": "title",
+      "before": {
+        "en": "European, African and American private collection",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "European, African and American private collection",
+        "fr": "Collection privée européenne, africaine et américaine",
+        "zh": "歐洲、非洲與美洲私人收藏"
+      },
+      "appliedAt": "2026-05-21T12:08:43.100Z",
+      "status": "applied"
+    },
+    {
+      "ref": "collection:cmpfdjps5000o04ickp6z25ve",
+      "field": "title",
+      "before": {
+        "en": "Saatchi Gallery USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Saatchi Gallery USA",
+        "fr": "Saatchi Gallery, USA",
+        "zh": "Saatchi Gallery，美國"
+      },
+      "appliedAt": "2026-05-21T12:08:43.292Z",
+      "status": "applied"
+    },
+    {
+      "ref": "collection:cmpfdazp4002104latt2lm2ve",
+      "field": "title",
+      "before": {
+        "en": "Private Collections, Poland and Europe",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Private Collections, Poland and Europe",
+        "fr": "Collections privées, Pologne et Europe",
+        "zh": "私人收藏，波蘭與歐洲"
+      },
+      "appliedAt": "2026-05-21T12:08:43.491Z",
+      "status": "applied"
+    },
+    {
+      "ref": "collection:cmpfdad31000904ic6bwm0rv3",
+      "field": "title",
+      "before": {
+        "en": "Private collection of Beth DeWoody",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Private collection of Beth DeWoody",
+        "fr": "Collection privée de Beth DeWoody",
+        "zh": "Beth DeWoody 私人收藏"
+      },
+      "appliedAt": "2026-05-21T12:08:43.686Z",
+      "status": "applied"
+    },
+    {
+      "ref": "collection:cmpfdad31000a04icuajck8l7",
+      "field": "title",
+      "before": {
+        "en": "The Nixon Collection",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "The Nixon Collection",
+        "fr": "The Nixon Collection",
+        "zh": "The Nixon Collection"
+      },
+      "appliedAt": "2026-05-21T12:08:43.881Z",
+      "status": "applied"
+    }
+  ]
+}

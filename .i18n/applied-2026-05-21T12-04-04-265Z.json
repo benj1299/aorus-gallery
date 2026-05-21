@@ -1,0 +1,4666 @@
+{
+  "mode": "apply",
+  "summary": {
+    "applied": 126,
+    "skipped": 165,
+    "errors": 0
+  },
+  "log": [
+    {
+      "ref": "artist:cmn3seal9001cag9kbc311i74",
+      "field": "nationality",
+      "before": {
+        "en": "Poland",
+        "fr": "Pologne",
+        "zh": "波蘭"
+      },
+      "merged": {
+        "en": "Poland",
+        "fr": "Pologne",
+        "zh": "波蘭"
+      },
+      "appliedAt": "2026-05-21T12:03:23.813Z",
+      "status": "skipped-already-filled"
+    },
+    {
+      "ref": "artist:cmn3se23x000wag9kqykjgrxv",
+      "field": "nationality",
+      "before": {
+        "en": "United States",
+        "fr": "États-Unis ",
+        "zh": "美國"
+      },
+      "merged": {
+        "en": "United States",
+        "fr": "États-Unis ",
+        "zh": "美國"
+      },
+      "appliedAt": "2026-05-21T12:03:23.910Z",
+      "status": "skipped-already-filled"
+    },
+    {
+      "ref": "artist:cmn3sdiny0000ag9ks3gev6kg",
+      "field": "nationality",
+      "before": {
+        "en": "France",
+        "fr": "France",
+        "zh": "法國"
+      },
+      "merged": {
+        "en": "France",
+        "fr": "France",
+        "zh": "法國"
+      },
+      "appliedAt": "2026-05-21T12:03:24.004Z",
+      "status": "skipped-already-filled"
+    },
+    {
+      "ref": "artist:cmn3sejvj001sag9kcu6bbrgf",
+      "field": "nationality",
+      "before": {
+        "en": "Canada",
+        "fr": " Canada",
+        "zh": "加拿大"
+      },
+      "merged": {
+        "en": "Canada",
+        "fr": " Canada",
+        "zh": "加拿大"
+      },
+      "appliedAt": "2026-05-21T12:03:24.100Z",
+      "status": "skipped-already-filled"
+    },
+    {
+      "ref": "artist:cmn3sdyxg000oag9kbyl3twn6",
+      "field": "nationality",
+      "before": {
+        "en": "Ghana / Germany",
+        "fr": "Ghana / Allemagne",
+        "zh": "迦納 / 德國"
+      },
+      "merged": {
+        "en": "Ghana / Germany",
+        "fr": "Ghana / Allemagne",
+        "zh": "迦納 / 德國"
+      },
+      "appliedAt": "2026-05-21T12:03:24.197Z",
+      "status": "skipped-already-filled"
+    },
+    {
+      "ref": "artist:cmn3sdotc0008ag9kt2ul1gp1",
+      "field": "nationality",
+      "before": {
+        "en": "France",
+        "fr": "",
+        "zh": "法國"
+      },
+      "merged": {
+        "en": "France",
+        "fr": "France",
+        "zh": "法國"
+      },
+      "appliedAt": "2026-05-21T12:03:24.409Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artist:cmn3seefk001kag9kkibmp60k",
+      "field": "nationality",
+      "before": {
+        "en": "Ghana / England",
+        "fr": "Ghana / Angleterre",
+        "zh": "迦納 / 英格蘭"
+      },
+      "merged": {
+        "en": "Ghana / England",
+        "fr": "Ghana / Angleterre",
+        "zh": "迦納 / 英格蘭"
+      },
+      "appliedAt": "2026-05-21T12:03:24.504Z",
+      "status": "skipped-already-filled"
+    },
+    {
+      "ref": "exhibition:cmp000rsx000004i88mhje0c7",
+      "field": "title",
+      "before": {
+        "en": "Beyond natural, Vin’s Gallery, Taiwan ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Beyond natural, Vin’s Gallery, Taiwan ",
+        "fr": "Beyond natural, Vin’s Gallery, Taiwan ",
+        "zh": "Beyond natural, Vin’s Gallery, Taiwan "
+      },
+      "appliedAt": "2026-05-21T12:03:24.611Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp000rsy000104i8vhtumnku",
+      "field": "title",
+      "before": {
+        "en": "On oublie le nom des fleurs, Cohle Gallery, Paris ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "On oublie le nom des fleurs, Cohle Gallery, Paris ",
+        "fr": "On oublie le nom des fleurs, Cohle Gallery, Paris ",
+        "zh": "On oublie le nom des fleurs, Cohle Gallery, Paris "
+      },
+      "appliedAt": "2026-05-21T12:03:24.707Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp000rsy000204i8fwixbi5b",
+      "field": "title",
+      "before": {
+        "en": "Curation “Emerging artist” salon des beaux arts, Paris",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Curation “Emerging artist” salon des beaux arts, Paris",
+        "fr": "Curation “Emerging artist” salon des beaux arts, Paris",
+        "zh": "Curation “Emerging artist” salon des beaux arts, Paris"
+      },
+      "appliedAt": "2026-05-21T12:03:24.802Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp000rsy000304i8zswxor8t",
+      "field": "title",
+      "before": {
+        "en": "Emergency Exit, Cohle Gallery, Minorque",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Emergency Exit, Cohle Gallery, Minorque",
+        "fr": "Emergency Exit, Cohle Gallery, Minorque",
+        "zh": "Emergency Exit, Cohle Gallery, Minorque"
+      },
+      "appliedAt": "2026-05-21T12:03:24.897Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp000rsy000404i8di7vvaxc",
+      "field": "title",
+      "before": {
+        "en": "Art Monster Fair, Vin’s Gallery, Taïwan ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Art Monster Fair, Vin’s Gallery, Taïwan ",
+        "fr": "Art Monster Fair, Vin’s Gallery, Taïwan ",
+        "zh": "Art Monster Fair, Vin’s Gallery, Taïwan "
+      },
+      "appliedAt": "2026-05-21T12:03:24.993Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp000rsy000504i8nznjn7dg",
+      "field": "title",
+      "before": {
+        "en": "Blue Horizon, Cohle Gallery, Paris ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Blue Horizon, Cohle Gallery, Paris ",
+        "fr": "Blue Horizon, Cohle Gallery, Paris ",
+        "zh": "Blue Horizon, Cohle Gallery, Paris "
+      },
+      "appliedAt": "2026-05-21T12:03:25.089Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp000rsy000604i8hq972dha",
+      "field": "title",
+      "before": {
+        "en": "Baignade, personnel, Rueil - Malmaison",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Baignade, personnel, Rueil - Malmaison",
+        "fr": "Baignade, personnel, Rueil - Malmaison",
+        "zh": "Baignade, personnel, Rueil - Malmaison"
+      },
+      "appliedAt": "2026-05-21T12:03:25.184Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp000rsy000704i8gbfuspho",
+      "field": "title",
+      "before": {
+        "en": "Young Designer Award, Autumn Salon",
+        "fr": "Prix du Jeune Créateur, Salon d’Automne",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Young Designer Award, Autumn Salon",
+        "fr": "Prix du Jeune Créateur, Salon d’Automne",
+        "zh": "Prix du Jeune Créateur, Salon d’Automne"
+      },
+      "appliedAt": "2026-05-21T12:03:25.279Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93s000004l5pbmbhyy8",
+      "field": "title",
+      "before": {
+        "en": "Afrophilia - Anthologies of a Semba, April/May Lisbon, Portugal",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Afrophilia - Anthologies of a Semba, April/May Lisbon, Portugal",
+        "fr": "Afrophilia - Anthologies of a Semba, April/May Lisbon, Portugal",
+        "zh": "Afrophilia - Anthologies of a Semba, April/May Lisbon, Portugal"
+      },
+      "appliedAt": "2026-05-21T12:03:25.375Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93s000104l5ftc0l4t3",
+      "field": "title",
+      "before": {
+        "en": "Afrophilia anthologies of a Semba, May/June, Stockholm, Sweden ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Afrophilia anthologies of a Semba, May/June, Stockholm, Sweden ",
+        "fr": "Afrophilia anthologies of a Semba, May/June, Stockholm, Sweden ",
+        "zh": "Afrophilia anthologies of a Semba, May/June, Stockholm, Sweden "
+      },
+      "appliedAt": "2026-05-21T12:03:25.472Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93s000204l5ubs9uibr",
+      "field": "title",
+      "before": {
+        "en": "Private Show, Cape Town, South Africa",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Private Show, Cape Town, South Africa",
+        "fr": "Private Show, Cape Town, South Africa",
+        "zh": "Private Show, Cape Town, South Africa"
+      },
+      "appliedAt": "2026-05-21T12:03:25.567Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93s000304l5pufgxhky",
+      "field": "title",
+      "before": {
+        "en": " ⁠⁠Armory Show - New York, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": " ⁠⁠Armory Show - New York, USA",
+        "fr": " ⁠⁠Armory Show - New York, USA",
+        "zh": " ⁠⁠Armory Show - New York, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:25.663Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93s000404l5w8eoky61",
+      "field": "title",
+      "before": {
+        "en": "NYC Art Expo - New York, USA,",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "NYC Art Expo - New York, USA,",
+        "fr": "NYC Art Expo - New York, USA,",
+        "zh": "NYC Art Expo - New York, USA,"
+      },
+      "appliedAt": "2026-05-21T12:03:25.758Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93s000504l5k1igx9sz",
+      "field": "title",
+      "before": {
+        "en": "Artbasel Miami - Miami, USA, December",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Artbasel Miami - Miami, USA, December",
+        "fr": "Artbasel Miami - Miami, USA, December",
+        "zh": "Artbasel Miami - Miami, USA, December"
+      },
+      "appliedAt": "2026-05-21T12:03:25.853Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93s000604l5ccz43i56",
+      "field": "title",
+      "before": {
+        "en": "Artbasel - Basel, Switzerland,",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Artbasel - Basel, Switzerland,",
+        "fr": "Artbasel - Basel, Switzerland,",
+        "zh": "Artbasel - Basel, Switzerland,"
+      },
+      "appliedAt": "2026-05-21T12:03:25.949Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93s000704l5q5u998i8",
+      "field": "title",
+      "before": {
+        "en": "Metro of Lisbon Art Festival - Lisbon, Portugal ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Metro of Lisbon Art Festival - Lisbon, Portugal ",
+        "fr": "Metro of Lisbon Art Festival - Lisbon, Portugal ",
+        "zh": "Metro of Lisbon Art Festival - Lisbon, Portugal "
+      },
+      "appliedAt": "2026-05-21T12:03:26.044Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93s000804l58otw4rsn",
+      "field": "title",
+      "before": {
+        "en": "London Contemporary Art Fair - London, England,",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "London Contemporary Art Fair - London, England,",
+        "fr": "London Contemporary Art Fair - London, England,",
+        "zh": "London Contemporary Art Fair - London, England,"
+      },
+      "appliedAt": "2026-05-21T12:03:26.140Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93s000904l5j22iiw5t",
+      "field": "title",
+      "before": {
+        "en": "Largo Residencies - Lisbon, Portugal",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Largo Residencies - Lisbon, Portugal",
+        "fr": "Largo Residencies - Lisbon, Portugal",
+        "zh": "Largo Residencies - Lisbon, Portugal"
+      },
+      "appliedAt": "2026-05-21T12:03:26.237Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93t000a04l582yc0vdg",
+      "field": "title",
+      "before": {
+        "en": "Private Residencies, offered for a private art collector, New York, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Private Residencies, offered for a private art collector, New York, USA",
+        "fr": "Private Residencies, offered for a private art collector, New York, USA",
+        "zh": "Private Residencies, offered for a private art collector, New York, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:26.333Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6su93t000b04l5lmv2f9jg",
+      "field": "title",
+      "before": {
+        "en": "Private Residencies, offered for a private art collector, Zurich, Switzerland ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Private Residencies, offered for a private art collector, Zurich, Switzerland ",
+        "fr": "Private Residencies, offered for a private art collector, Zurich, Switzerland ",
+        "zh": "Private Residencies, offered for a private art collector, Zurich, Switzerland "
+      },
+      "appliedAt": "2026-05-21T12:03:26.429Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p3000004la1ji7glkg",
+      "field": "title",
+      "before": {
+        "en": "The Realms of In-Between, Soho House Berlin, Germany",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "The Realms of In-Between, Soho House Berlin, Germany",
+        "fr": "The Realms of In-Between, Soho House Berlin, Germany",
+        "zh": "The Realms of In-Between, Soho House Berlin, Germany"
+      },
+      "appliedAt": "2026-05-21T12:03:26.525Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000104lat6lkx4fl",
+      "field": "title",
+      "before": {
+        "en": "Womanhood, SLP Gallery",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Womanhood, SLP Gallery",
+        "fr": "Womanhood, SLP Gallery",
+        "zh": "Womanhood, SLP Gallery"
+      },
+      "appliedAt": "2026-05-21T12:03:26.620Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000204la3nucx14t",
+      "field": "title",
+      "before": {
+        "en": "Growing., Cologne, Germany",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Growing., Cologne, Germany",
+        "fr": "Growing., Cologne, Germany",
+        "zh": "Growing., Cologne, Germany"
+      },
+      "appliedAt": "2026-05-21T12:03:26.715Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000304lav6aeoj0y",
+      "field": "title",
+      "before": {
+        "en": "Fragile Wings of Motherhood, Gallery 1957, Accra, Ghana",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Fragile Wings of Motherhood, Gallery 1957, Accra, Ghana",
+        "fr": "Fragile Wings of Motherhood, Gallery 1957, Accra, Ghana",
+        "zh": "Fragile Wings of Motherhood, Gallery 1957, Accra, Ghana"
+      },
+      "appliedAt": "2026-05-21T12:03:26.810Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000404lai1ehociy",
+      "field": "title",
+      "before": {
+        "en": "Liaison, BetterGoSouth Gallery, Stuttgart, Germany",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Liaison, BetterGoSouth Gallery, Stuttgart, Germany",
+        "fr": "Liaison, BetterGoSouth Gallery, Stuttgart, Germany",
+        "zh": "Liaison, BetterGoSouth Gallery, Stuttgart, Germany"
+      },
+      "appliedAt": "2026-05-21T12:03:26.905Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000504la2xs8gfa8",
+      "field": "title",
+      "before": {
+        "en": "Cumulus, Bethanien Berlin, Germany",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Cumulus, Bethanien Berlin, Germany",
+        "fr": "Cumulus, Bethanien Berlin, Germany",
+        "zh": "Cumulus, Bethanien Berlin, Germany"
+      },
+      "appliedAt": "2026-05-21T12:03:27.003Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000604lalttgsxhi",
+      "field": "title",
+      "before": {
+        "en": "Studio Talks, ARTCO Gallery",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Studio Talks, ARTCO Gallery",
+        "fr": "Studio Talks, ARTCO Gallery",
+        "zh": "Studio Talks, ARTCO Gallery"
+      },
+      "appliedAt": "2026-05-21T12:03:27.098Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000704laggxpdakf",
+      "field": "title",
+      "before": {
+        "en": "Collateral Beauty, Reinbeckhallen, Berlin Art Week, Germany",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Collateral Beauty, Reinbeckhallen, Berlin Art Week, Germany",
+        "fr": "Collateral Beauty, Reinbeckhallen, Berlin Art Week, Germany",
+        "zh": "Collateral Beauty, Reinbeckhallen, Berlin Art Week, Germany"
+      },
+      "appliedAt": "2026-05-21T12:03:27.193Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000804lav05qquu7",
+      "field": "title",
+      "before": {
+        "en": "Human Electricity, MaHalla Berlin, Berlin Art Week, Germany",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Human Electricity, MaHalla Berlin, Berlin Art Week, Germany",
+        "fr": "Human Electricity, MaHalla Berlin, Berlin Art Week, Germany",
+        "zh": "Human Electricity, MaHalla Berlin, Berlin Art Week, Germany"
+      },
+      "appliedAt": "2026-05-21T12:03:27.288Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000904lat6muibea",
+      "field": "title",
+      "before": {
+        "en": "Residency, dot.ateliers, founded by Amoako Boafo, Accra, Ghana",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Residency, dot.ateliers, founded by Amoako Boafo, Accra, Ghana",
+        "fr": "Residency, dot.ateliers, founded by Amoako Boafo, Accra, Ghana",
+        "zh": "Residency, dot.ateliers, founded by Amoako Boafo, Accra, Ghana"
+      },
+      "appliedAt": "2026-05-21T12:03:27.383Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000a04laeb4bxehm",
+      "field": "title",
+      "before": {
+        "en": "Residency, Gallery 1957, Accra, Ghana",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Residency, Gallery 1957, Accra, Ghana",
+        "fr": "Residency, Gallery 1957, Accra, Ghana",
+        "zh": "Residency, Gallery 1957, Accra, Ghana"
+      },
+      "appliedAt": "2026-05-21T12:03:27.479Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmou9g2p4000b04lal27unkz8",
+      "field": "title",
+      "before": {
+        "en": "Berlin Fellowship Award, Soho House Fellowship Program",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Berlin Fellowship Award, Soho House Fellowship Program",
+        "fr": "Berlin Fellowship Award, Soho House Fellowship Program",
+        "zh": "Berlin Fellowship Award, Soho House Fellowship Program"
+      },
+      "appliedAt": "2026-05-21T12:03:27.575Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000004juwfuozamg",
+      "field": "title",
+      "before": {
+        "en": "Self Titled Show, Flowerstone Frame and Art Studio, Riverton, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Self Titled Show, Flowerstone Frame and Art Studio, Riverton, Utah, USA",
+        "fr": "Self Titled Show, Flowerstone Frame and Art Studio, Riverton, Utah, USA",
+        "zh": "Self Titled Show, Flowerstone Frame and Art Studio, Riverton, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:27.670Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000104jus2grob3b",
+      "field": "title",
+      "before": {
+        "en": "The Human Spirit, A Gallery Allen and Allan Fine Art, Salt Lake CIty, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "The Human Spirit, A Gallery Allen and Allan Fine Art, Salt Lake CIty, Utah, USA",
+        "fr": "The Human Spirit, A Gallery Allen and Allan Fine Art, Salt Lake CIty, Utah, USA",
+        "zh": "The Human Spirit, A Gallery Allen and Allan Fine Art, Salt Lake CIty, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:27.765Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000204jus8prcw10",
+      "field": "title",
+      "before": {
+        "en": "Self Titled Show, 15th Street Gallery, Salt Lake City, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Self Titled Show, 15th Street Gallery, Salt Lake City, Utah, USA",
+        "fr": "Self Titled Show, 15th Street Gallery, Salt Lake City, Utah, USA",
+        "zh": "Self Titled Show, 15th Street Gallery, Salt Lake City, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:27.861Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000304jut6eqw8wu",
+      "field": "title",
+      "before": {
+        "en": "Love in the Abstract, Allan and Allen Fine Art, Salt Lake City, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Love in the Abstract, Allan and Allen Fine Art, Salt Lake City, Utah, USA",
+        "fr": "Love in the Abstract, Allan and Allen Fine Art, Salt Lake City, Utah, USA",
+        "zh": "Love in the Abstract, Allan and Allen Fine Art, Salt Lake City, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:27.955Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000404jumdvk3fjz",
+      "field": "title",
+      "before": {
+        "en": "Spring Salon, Statewide Competition, Springville Museum Of Art, Springville, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Spring Salon, Statewide Competition, Springville Museum Of Art, Springville, Utah, USA",
+        "fr": "Spring Salon, Statewide Competition, Springville Museum Of Art, Springville, Utah, USA",
+        "zh": "Spring Salon, Statewide Competition, Springville Museum Of Art, Springville, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:28.051Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000504jut6kw3qhj",
+      "field": "title",
+      "before": {
+        "en": "Honoring Minerva,Group Show, Ramble Gallery, Bountiful, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Honoring Minerva,Group Show, Ramble Gallery, Bountiful, Utah, USA",
+        "fr": "Honoring Minerva,Group Show, Ramble Gallery, Bountiful, Utah, USA",
+        "zh": "Honoring Minerva,Group Show, Ramble Gallery, Bountiful, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:28.146Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000604juo99zk2y5",
+      "field": "title",
+      "before": {
+        "en": "Nude, Manifest Gallery, Cincinnati, Ohio, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Nude, Manifest Gallery, Cincinnati, Ohio, USA",
+        "fr": "Nude, Manifest Gallery, Cincinnati, Ohio, USA",
+        "zh": "Nude, Manifest Gallery, Cincinnati, Ohio, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:28.242Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000704juckeqpze4",
+      "field": "title",
+      "before": {
+        "en": "Online Exhibition, Almenara art Prize 2025",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Online Exhibition, Almenara art Prize 2025",
+        "fr": "Online Exhibition, Almenara art Prize 2025",
+        "zh": "Online Exhibition, Almenara art Prize 2025"
+      },
+      "appliedAt": "2026-05-21T12:03:28.338Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000804ju84jxjtpp",
+      "field": "title",
+      "before": {
+        "en": "Sonder, The Vendue Gallery, Charleston, South Carolina, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Sonder, The Vendue Gallery, Charleston, South Carolina, USA",
+        "fr": "Sonder, The Vendue Gallery, Charleston, South Carolina, USA",
+        "zh": "Sonder, The Vendue Gallery, Charleston, South Carolina, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:28.435Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000904juh3g07qn8",
+      "field": "title",
+      "before": {
+        "en": "Duo Exhibition, Experience, Process, Discover, Bountiful Davis Art Center, Bountiful, Utah, USA ‍",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Duo Exhibition, Experience, Process, Discover, Bountiful Davis Art Center, Bountiful, Utah, USA ‍",
+        "fr": "Duo Exhibition, Experience, Process, Discover, Bountiful Davis Art Center, Bountiful, Utah, USA ‍",
+        "zh": "Duo Exhibition, Experience, Process, Discover, Bountiful Davis Art Center, Bountiful, Utah, USA ‍"
+      },
+      "appliedAt": "2026-05-21T12:03:28.531Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000a04ju7ambhtaq",
+      "field": "title",
+      "before": {
+        "en": "Beaux Arts, Scottdale Artists' School, Scottsdale, Arizona, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Beaux Arts, Scottdale Artists' School, Scottsdale, Arizona, USA",
+        "fr": "Beaux Arts, Scottdale Artists' School, Scottsdale, Arizona, USA",
+        "zh": "Beaux Arts, Scottdale Artists' School, Scottsdale, Arizona, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:28.627Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000b04jui6058y1b",
+      "field": "title",
+      "before": {
+        "en": "Reflections of Eden, Urban Arts Gallery, Salt Lake City, Utah, USA ‍",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Reflections of Eden, Urban Arts Gallery, Salt Lake City, Utah, USA ‍",
+        "fr": "Reflections of Eden, Urban Arts Gallery, Salt Lake City, Utah, USA ‍",
+        "zh": "Reflections of Eden, Urban Arts Gallery, Salt Lake City, Utah, USA ‍"
+      },
+      "appliedAt": "2026-05-21T12:03:28.724Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000c04ju7kmgi8dr",
+      "field": "title",
+      "before": {
+        "en": "A ‍Salon 100, Springville Museum of Art, Springville, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "A ‍Salon 100, Springville Museum of Art, Springville, Utah, USA",
+        "fr": "A ‍Salon 100, Springville Museum of Art, Springville, Utah, USA",
+        "zh": "A ‍Salon 100, Springville Museum of Art, Springville, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:28.819Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000d04ju3y9rizzf",
+      "field": "title",
+      "before": {
+        "en": "‍ Statewide Competition, Bountiful Davis Art Center, Bountiful, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "‍ Statewide Competition, Bountiful Davis Art Center, Bountiful, Utah, USA",
+        "fr": "‍ Statewide Competition, Bountiful Davis Art Center, Bountiful, Utah, USA",
+        "zh": "‍ Statewide Competition, Bountiful Davis Art Center, Bountiful, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:28.913Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000e04juuwqp8b96",
+      "field": "title",
+      "before": {
+        "en": "Freedom Festival Art Exhibit, Covey Center for the Arts, Provo, Utah, USA ‍",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Freedom Festival Art Exhibit, Covey Center for the Arts, Provo, Utah, USA ‍",
+        "fr": "Freedom Festival Art Exhibit, Covey Center for the Arts, Provo, Utah, USA ‍",
+        "zh": "Freedom Festival Art Exhibit, Covey Center for the Arts, Provo, Utah, USA ‍"
+      },
+      "appliedAt": "2026-05-21T12:03:29.010Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000f04juxb7l81mx",
+      "field": "title",
+      "before": {
+        "en": "Statewide Competition, Eccles Art Center, Ogden, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Statewide Competition, Eccles Art Center, Ogden, Utah, USA",
+        "fr": "Statewide Competition, Eccles Art Center, Ogden, Utah, USA",
+        "zh": "Statewide Competition, Eccles Art Center, Ogden, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:29.106Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000g04juey8gq2xl",
+      "field": "title",
+      "before": {
+        "en": "President's Art Show, SLCC, Salt Lake City, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "President's Art Show, SLCC, Salt Lake City, Utah, USA",
+        "fr": "President's Art Show, SLCC, Salt Lake City, Utah, USA",
+        "zh": "President's Art Show, SLCC, Salt Lake City, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:29.200Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000h04jurttu6b49",
+      "field": "title",
+      "before": {
+        "en": "Holiday Exhibition,, 15th Street Gallery, Salt Lake City, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Holiday Exhibition,, 15th Street Gallery, Salt Lake City, Utah, USA",
+        "fr": "Holiday Exhibition,, 15th Street Gallery, Salt Lake City, Utah, USA",
+        "zh": "Holiday Exhibition,, 15th Street Gallery, Salt Lake City, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:29.297Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000i04juse4u5z9k",
+      "field": "title",
+      "before": {
+        "en": "First Place, Women: The Creative Edge Competition, Eccles Art Center, Ogden, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "First Place, Women: The Creative Edge Competition, Eccles Art Center, Ogden, Utah, USA",
+        "fr": "First Place, Women: The Creative Edge Competition, Eccles Art Center, Ogden, Utah, USA",
+        "zh": "First Place, Women: The Creative Edge Competition, Eccles Art Center, Ogden, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:29.391Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpcyxbg6000j04ju1vwj7q1z",
+      "field": "title",
+      "before": {
+        "en": "Honorable Mention, Spring Salon Statewide Competition, Springville, Utah, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Honorable Mention, Spring Salon Statewide Competition, Springville, Utah, USA",
+        "fr": "Honorable Mention, Spring Salon Statewide Competition, Springville, Utah, USA",
+        "zh": "Honorable Mention, Spring Salon Statewide Competition, Springville, Utah, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:29.485Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000004jmq5obtnto",
+      "field": "title",
+      "before": {
+        "en": "Polish Academy of Sience Botanical Garden, Powsin, PL ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Polish Academy of Sience Botanical Garden, Powsin, PL ",
+        "fr": "Polish Academy of Sience Botanical Garden, Powsin, PL ",
+        "zh": "Polish Academy of Sience Botanical Garden, Powsin, PL "
+      },
+      "appliedAt": "2026-05-21T12:03:29.581Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000104jmwf1944db",
+      "field": "title",
+      "before": {
+        "en": "“Botanic Fever” ArtAround Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "“Botanic Fever” ArtAround Gallery, Warsaw, PL",
+        "fr": "“Botanic Fever” ArtAround Gallery, Warsaw, PL",
+        "zh": "“Botanic Fever” ArtAround Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:29.677Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000204jmnupdqrt7",
+      "field": "title",
+      "before": {
+        "en": "Westin, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Westin, Warsaw, PL",
+        "fr": "Westin, Warsaw, PL",
+        "zh": "Westin, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:29.772Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000304jm15omfyfe",
+      "field": "title",
+      "before": {
+        "en": "Artinfo, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Artinfo, Warsaw, PL",
+        "fr": "Artinfo, Warsaw, PL",
+        "zh": "Artinfo, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:29.868Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000404jmluj02mp9",
+      "field": "title",
+      "before": {
+        "en": "Universes curated by Kinga Szafrankowska, Emi_Art_Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Universes curated by Kinga Szafrankowska, Emi_Art_Warsaw, PL",
+        "fr": "Universes curated by Kinga Szafrankowska, Emi_Art_Warsaw, PL",
+        "zh": "Universes curated by Kinga Szafrankowska, Emi_Art_Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:29.965Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000504jmq1z7b7zv",
+      "field": "title",
+      "before": {
+        "en": "Dzielna Foundation, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Dzielna Foundation, PL",
+        "fr": "Dzielna Foundation, PL",
+        "zh": "Dzielna Foundation, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:30.061Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000604jmottszdcy",
+      "field": "title",
+      "before": {
+        "en": "Bielska BWA Gallery, Bielsko-Biała, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Bielska BWA Gallery, Bielsko-Biała, PL",
+        "fr": "Bielska BWA Gallery, Bielsko-Biała, PL",
+        "zh": "Bielska BWA Gallery, Bielsko-Biała, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:30.157Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4w000704jm8qidia9w",
+      "field": "title",
+      "before": {
+        "en": "BWA Gallery Krosno, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BWA Gallery Krosno, PL",
+        "fr": "BWA Gallery Krosno, PL",
+        "zh": "BWA Gallery Krosno, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:30.253Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000804jmr8xwccn1",
+      "field": "title",
+      "before": {
+        "en": "BWA Gallery, Sanok, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BWA Gallery, Sanok, PL",
+        "fr": "BWA Gallery, Sanok, PL",
+        "zh": "BWA Gallery, Sanok, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:30.348Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000904jmb306cluw",
+      "field": "title",
+      "before": {
+        "en": "Silent Manifesto, Venice Biennale, Performance, Venice, ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Silent Manifesto, Venice Biennale, Performance, Venice, ",
+        "fr": "Silent Manifesto, Venice Biennale, Performance, Venice, ",
+        "zh": "Silent Manifesto, Venice Biennale, Performance, Venice, "
+      },
+      "appliedAt": "2026-05-21T12:03:30.444Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000a04jmpwzy0ul9",
+      "field": "title",
+      "before": {
+        "en": "BWA Gallery, Ostrowiec, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BWA Gallery, Ostrowiec, PL",
+        "fr": "BWA Gallery, Ostrowiec, PL",
+        "zh": "BWA Gallery, Ostrowiec, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:30.539Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000b04jm4y200q2k",
+      "field": "title",
+      "before": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "Arttrakt Gallery, Wrocław, PL",
+        "zh": "Arttrakt Gallery, Wrocław, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:30.636Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000c04jmnm1x9ik7",
+      "field": "title",
+      "before": {
+        "en": "OFF FRAME Gallery, Kraków, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "OFF FRAME Gallery, Kraków, PL",
+        "fr": "OFF FRAME Gallery, Kraków, PL",
+        "zh": "OFF FRAME Gallery, Kraków, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:30.731Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000d04jmbwe9kdrl",
+      "field": "title",
+      "before": {
+        "en": "Plant Consciousness, Regent’s University, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Plant Consciousness, Regent’s University, London, UK",
+        "fr": "Plant Consciousness, Regent’s University, London, UK",
+        "zh": "Plant Consciousness, Regent’s University, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:03:30.827Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000e04jm32rha9s6",
+      "field": "title",
+      "before": {
+        "en": "Polish Academy of Siences, Botany Institute, Kraków, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Polish Academy of Siences, Botany Institute, Kraków, PL",
+        "fr": "Polish Academy of Siences, Botany Institute, Kraków, PL",
+        "zh": "Polish Academy of Siences, Botany Institute, Kraków, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:30.922Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000f04jm7v67xo3a",
+      "field": "title",
+      "before": {
+        "en": "Unit24 Gallery, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Unit24 Gallery, London, UK",
+        "fr": "Unit24 Gallery, London, UK",
+        "zh": "Unit24 Gallery, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:03:31.018Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000g04jm9z2buoxy",
+      "field": "title",
+      "before": {
+        "en": "Idea Fix, Cracow, PL ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Idea Fix, Cracow, PL ",
+        "fr": "Idea Fix, Cracow, PL ",
+        "zh": "Idea Fix, Cracow, PL "
+      },
+      "appliedAt": "2026-05-21T12:03:31.115Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000h04jms33jlncz",
+      "field": "title",
+      "before": {
+        "en": "Inny Śląsk Gallery, Tarnowskie Góry, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Inny Śląsk Gallery, Tarnowskie Góry, PL",
+        "fr": "Inny Śląsk Gallery, Tarnowskie Góry, PL",
+        "zh": "Inny Śląsk Gallery, Tarnowskie Góry, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:31.211Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000i04jm20acjdp5",
+      "field": "title",
+      "before": {
+        "en": "“Kwiatostany” Mazovia Centre of Contemporaty Art Elektrownia, Radom, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "“Kwiatostany” Mazovia Centre of Contemporaty Art Elektrownia, Radom, PL",
+        "fr": "“Kwiatostany” Mazovia Centre of Contemporaty Art Elektrownia, Radom, PL",
+        "zh": "“Kwiatostany” Mazovia Centre of Contemporaty Art Elektrownia, Radom, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:31.308Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000j04jmdstdlwwm",
+      "field": "title",
+      "before": {
+        "en": "ArtAround Gallery / Foksal, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "ArtAround Gallery / Foksal, Warsaw, PL",
+        "fr": "ArtAround Gallery / Foksal, Warsaw, PL",
+        "zh": "ArtAround Gallery / Foksal, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:31.403Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000k04jmk1i9skn3",
+      "field": "title",
+      "before": {
+        "en": "BigHUB/ArtAround, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BigHUB/ArtAround, Warsaw, PL",
+        "fr": "BigHUB/ArtAround, Warsaw, PL",
+        "zh": "BigHUB/ArtAround, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:31.498Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000l04jmht2o7bug",
+      "field": "title",
+      "before": {
+        "en": " “Phantom of Happines” ArtAround Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": " “Phantom of Happines” ArtAround Gallery, Warsaw, PL",
+        "fr": " “Phantom of Happines” ArtAround Gallery, Warsaw, PL",
+        "zh": " “Phantom of Happines” ArtAround Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:31.592Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000m04jmcqv281cb",
+      "field": "title",
+      "before": {
+        "en": "“Dziewczynki”, ArtAround Gallery, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "“Dziewczynki”, ArtAround Gallery, PL",
+        "fr": "“Dziewczynki”, ArtAround Gallery, PL",
+        "zh": "“Dziewczynki”, ArtAround Gallery, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:31.688Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000n04jmsd18vu6j",
+      "field": "title",
+      "before": {
+        "en": "5:5, B383 Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "5:5, B383 Gallery, Warsaw, PL",
+        "fr": "5:5, B383 Gallery, Warsaw, PL",
+        "zh": "5:5, B383 Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:31.783Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000o04jmw9iceit2",
+      "field": "title",
+      "before": {
+        "en": "“Żywa krew” Oblatów 4 Gallery, Katowice, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "“Żywa krew” Oblatów 4 Gallery, Katowice, PL",
+        "fr": "“Żywa krew” Oblatów 4 Gallery, Katowice, PL",
+        "zh": "“Żywa krew” Oblatów 4 Gallery, Katowice, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:31.877Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000p04jmd3xx9ylj",
+      "field": "title",
+      "before": {
+        "en": "Municipal Museum in Żory, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Municipal Museum in Żory, PL",
+        "fr": "Municipal Museum in Żory, PL",
+        "zh": "Municipal Museum in Żory, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:31.972Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000q04jmu9nbq75c",
+      "field": "title",
+      "before": {
+        "en": "Sotto63 Gallery, Mystery Keepers with A.Grucela, M.Kolesnik, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Sotto63 Gallery, Mystery Keepers with A.Grucela, M.Kolesnik, Warsaw, PL",
+        "fr": "Sotto63 Gallery, Mystery Keepers with A.Grucela, M.Kolesnik, Warsaw, PL",
+        "zh": "Sotto63 Gallery, Mystery Keepers with A.Grucela, M.Kolesnik, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:32.069Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000r04jmssljv42p",
+      "field": "title",
+      "before": {
+        "en": "Artinfo/WellArt, Katowice, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Artinfo/WellArt, Katowice, PL",
+        "fr": "Artinfo/WellArt, Katowice, PL",
+        "zh": "Artinfo/WellArt, Katowice, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:32.165Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000s04jmvo00dh32",
+      "field": "title",
+      "before": {
+        "en": "Kongres Rysowniczek with Paweł Althamer, Program Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Kongres Rysowniczek with Paweł Althamer, Program Gallery, Warsaw, PL",
+        "fr": "Kongres Rysowniczek with Paweł Althamer, Program Gallery, Warsaw, PL",
+        "zh": "Kongres Rysowniczek with Paweł Althamer, Program Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:32.260Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000t04jm84dj7k8q",
+      "field": "title",
+      "before": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "Arttrakt Gallery, Wrocław, PL",
+        "zh": "Arttrakt Gallery, Wrocław, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:32.356Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000u04jmg6wi56c3",
+      "field": "title",
+      "before": {
+        "en": "BWA Gallery Krosno, PL “Mikrobiom”",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BWA Gallery Krosno, PL “Mikrobiom”",
+        "fr": "BWA Gallery Krosno, PL “Mikrobiom”",
+        "zh": "BWA Gallery Krosno, PL “Mikrobiom”"
+      },
+      "appliedAt": "2026-05-21T12:03:32.452Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000v04jmr11m38gx",
+      "field": "title",
+      "before": {
+        "en": "15th International Autumn Salon of Art, BWA Gallery Ostrowiec, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "15th International Autumn Salon of Art, BWA Gallery Ostrowiec, PL",
+        "fr": "15th International Autumn Salon of Art, BWA Gallery Ostrowiec, PL",
+        "zh": "15th International Autumn Salon of Art, BWA Gallery Ostrowiec, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:32.547Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000w04jmgorw9axb",
+      "field": "title",
+      "before": {
+        "en": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "fr": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "zh": "Stolarska/Krupowicz Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:32.643Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000x04jmjkp6kqmx",
+      "field": "title",
+      "before": {
+        "en": "HOS Gallery/Nanazenit Warszawa, PL “Rozkwitamy”",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "HOS Gallery/Nanazenit Warszawa, PL “Rozkwitamy”",
+        "fr": "HOS Gallery/Nanazenit Warszawa, PL “Rozkwitamy”",
+        "zh": "HOS Gallery/Nanazenit Warszawa, PL “Rozkwitamy”"
+      },
+      "appliedAt": "2026-05-21T12:03:32.739Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000y04jmy5pn6l2p",
+      "field": "title",
+      "before": {
+        "en": "9TH YOUNG TRIENNALE in Orońsko, PL “So Long as We Still Live”",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "9TH YOUNG TRIENNALE in Orońsko, PL “So Long as We Still Live”",
+        "fr": "9TH YOUNG TRIENNALE in Orońsko, PL “So Long as We Still Live”",
+        "zh": "9TH YOUNG TRIENNALE in Orońsko, PL “So Long as We Still Live”"
+      },
+      "appliedAt": "2026-05-21T12:03:32.834Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x000z04jmmjxab4ei",
+      "field": "title",
+      "before": {
+        "en": " Szyb Wilsona Gallery, Katowice, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": " Szyb Wilsona Gallery, Katowice, PL",
+        "fr": " Szyb Wilsona Gallery, Katowice, PL",
+        "zh": " Szyb Wilsona Gallery, Katowice, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:32.937Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001004jmjkh0c5g4",
+      "field": "title",
+      "before": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Arttrakt Gallery, Wrocław, PL",
+        "fr": "Arttrakt Gallery, Wrocław, PL",
+        "zh": "Arttrakt Gallery, Wrocław, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:33.031Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001104jmixmiueib",
+      "field": "title",
+      "before": {
+        "en": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "fr": "Stolarska/Krupowicz Gallery, Warsaw, PL",
+        "zh": "Stolarska/Krupowicz Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:33.128Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001204jmlbo0flzj",
+      "field": "title",
+      "before": {
+        "en": "Zealous X, RichMix, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Zealous X, RichMix, London, UK",
+        "fr": "Zealous X, RichMix, London, UK",
+        "zh": "Zealous X, RichMix, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:03:33.224Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001304jma96757hs",
+      "field": "title",
+      "before": {
+        "en": "Gruning Gallery, Krakow, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Gruning Gallery, Krakow, PL",
+        "fr": "Gruning Gallery, Krakow, PL",
+        "zh": "Gruning Gallery, Krakow, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:33.321Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001404jmen5oo2rw",
+      "field": "title",
+      "before": {
+        "en": "Bohema Nowa Sztuka Gallery, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Bohema Nowa Sztuka Gallery, Warsaw, PL",
+        "fr": "Bohema Nowa Sztuka Gallery, Warsaw, PL",
+        "zh": "Bohema Nowa Sztuka Gallery, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:33.416Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001504jmp5e9lv4o",
+      "field": "title",
+      "before": {
+        "en": "SoContemporary Gallery, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "SoContemporary Gallery, London, UK",
+        "fr": "SoContemporary Gallery, London, UK",
+        "zh": "SoContemporary Gallery, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:03:33.511Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001604jm4l619o5z",
+      "field": "title",
+      "before": {
+        "en": "Espacio Gallery, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Espacio Gallery, London, UK",
+        "fr": "Espacio Gallery, London, UK",
+        "zh": "Espacio Gallery, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:03:33.607Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001704jmcnjk5axe",
+      "field": "title",
+      "before": {
+        "en": "Forbes Charity Ball, Hilton Hotel, Warsaw, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Forbes Charity Ball, Hilton Hotel, Warsaw, PL",
+        "fr": "Forbes Charity Ball, Hilton Hotel, Warsaw, PL",
+        "zh": "Forbes Charity Ball, Hilton Hotel, Warsaw, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:33.702Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001804jm51is4d7w",
+      "field": "title",
+      "before": {
+        "en": "Silence is a Lie, Urban Art Exhibition, SEZ, Berlin, DE",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Silence is a Lie, Urban Art Exhibition, SEZ, Berlin, DE",
+        "fr": "Silence is a Lie, Urban Art Exhibition, SEZ, Berlin, DE",
+        "zh": "Silence is a Lie, Urban Art Exhibition, SEZ, Berlin, DE"
+      },
+      "appliedAt": "2026-05-21T12:03:33.797Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001904jm9t9jz1dj",
+      "field": "title",
+      "before": {
+        "en": "Polish deConstruction Show, London, UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Polish deConstruction Show, London, UK",
+        "fr": "Polish deConstruction Show, London, UK",
+        "zh": "Polish deConstruction Show, London, UK"
+      },
+      "appliedAt": "2026-05-21T12:03:33.893Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001a04jm83y0tqqu",
+      "field": "title",
+      "before": {
+        "en": "BWA Gallery, Bielsko Biala, PL",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "BWA Gallery, Bielsko Biala, PL",
+        "fr": "BWA Gallery, Bielsko Biala, PL",
+        "zh": "BWA Gallery, Bielsko Biala, PL"
+      },
+      "appliedAt": "2026-05-21T12:03:33.990Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001b04jmj8i5m2xs",
+      "field": "title",
+      "before": {
+        "en": "15th International Autumn Salon of Art, BWA Ostrowiec - exhibition",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "15th International Autumn Salon of Art, BWA Ostrowiec - exhibition",
+        "fr": "15th International Autumn Salon of Art, BWA Ostrowiec - exhibition",
+        "zh": "15th International Autumn Salon of Art, BWA Ostrowiec - exhibition"
+      },
+      "appliedAt": "2026-05-21T12:03:34.085Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001c04jm3gomim9h",
+      "field": "title",
+      "before": {
+        "en": "9TH YOUNG TRIENNALE in Orońsko “So Long as We Still Live” - exhibition",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "9TH YOUNG TRIENNALE in Orońsko “So Long as We Still Live” - exhibition",
+        "fr": "9TH YOUNG TRIENNALE in Orońsko “So Long as We Still Live” - exhibition",
+        "zh": "9TH YOUNG TRIENNALE in Orońsko “So Long as We Still Live” - exhibition"
+      },
+      "appliedAt": "2026-05-21T12:03:34.181Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001d04jmq4p98m19",
+      "field": "title",
+      "before": {
+        "en": "Nowa Awangarda - Szyb Wilsona Gallery - exhibition",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Nowa Awangarda - Szyb Wilsona Gallery - exhibition",
+        "fr": "Nowa Awangarda - Szyb Wilsona Gallery - exhibition",
+        "zh": "Nowa Awangarda - Szyb Wilsona Gallery - exhibition"
+      },
+      "appliedAt": "2026-05-21T12:03:34.277Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001e04jm1ca4bnod",
+      "field": "title",
+      "before": {
+        "en": "Muraspec, wallpaper design competition - distinction",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Muraspec, wallpaper design competition - distinction",
+        "fr": "Muraspec, wallpaper design competition - distinction",
+        "zh": "Muraspec, wallpaper design competition - distinction"
+      },
+      "appliedAt": "2026-05-21T12:03:34.372Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001f04jmp4c8meyp",
+      "field": "title",
+      "before": {
+        "en": "Zealous X London - exhibition",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Zealous X London - exhibition",
+        "fr": "Zealous X London - exhibition",
+        "zh": "Zealous X London - exhibition"
+      },
+      "appliedAt": "2026-05-21T12:03:34.469Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmpb4gd4x001g04jmhhqdhnnv",
+      "field": "title",
+      "before": {
+        "en": "Polish Biennale of Young Artists in Bielsko Biala - 3th prize",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Polish Biennale of Young Artists in Bielsko Biala - 3th prize",
+        "fr": "Polish Biennale of Young Artists in Bielsko Biala - 3th prize",
+        "zh": "Polish Biennale of Young Artists in Bielsko Biala - 3th prize"
+      },
+      "appliedAt": "2026-05-21T12:03:34.564Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000004k0yt6c8497",
+      "field": "title",
+      "before": {
+        "en": "The Waters We Claimed, Chilli, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "The Waters We Claimed, Chilli, London",
+        "fr": "The Waters We Claimed, Chilli, London",
+        "zh": "The Waters We Claimed, Chilli, London"
+      },
+      "appliedAt": "2026-05-21T12:03:34.660Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000104k0aqctpe59",
+      "field": "title",
+      "before": {
+        "en": "Solo show, Chilliart Projects, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Solo show, Chilliart Projects, London",
+        "fr": "Solo show, Chilliart Projects, London",
+        "zh": "Solo show, Chilliart Projects, London"
+      },
+      "appliedAt": "2026-05-21T12:03:34.755Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000204k0q3mps9uk",
+      "field": "title",
+      "before": {
+        "en": "Solo show, Band of Vices, Los Angeles",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Solo show, Band of Vices, Los Angeles",
+        "fr": "Solo show, Band of Vices, Los Angeles",
+        "zh": "Solo show, Band of Vices, Los Angeles"
+      },
+      "appliedAt": "2026-05-21T12:03:34.851Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000304k01wh1rnlp",
+      "field": "title",
+      "before": {
+        "en": "The Softer Side of Us, Afikaris, Paris France",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "The Softer Side of Us, Afikaris, Paris France",
+        "fr": "The Softer Side of Us, Afikaris, Paris France",
+        "zh": "The Softer Side of Us, Afikaris, Paris France"
+      },
+      "appliedAt": "2026-05-21T12:03:34.947Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000404k0rwo76kbn",
+      "field": "title",
+      "before": {
+        "en": "Stepping Back To Move Forward, Chilliart Project, Cheshire",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Stepping Back To Move Forward, Chilliart Project, Cheshire",
+        "fr": "Stepping Back To Move Forward, Chilliart Project, Cheshire",
+        "zh": "Stepping Back To Move Forward, Chilliart Project, Cheshire"
+      },
+      "appliedAt": "2026-05-21T12:03:35.042Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000504k01yujsu52",
+      "field": "title",
+      "before": {
+        "en": "Fluid Movement, Solo Show, Chilliart Projects, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Fluid Movement, Solo Show, Chilliart Projects, London",
+        "fr": "Fluid Movement, Solo Show, Chilliart Projects, London",
+        "zh": "Fluid Movement, Solo Show, Chilliart Projects, London"
+      },
+      "appliedAt": "2026-05-21T12:03:35.138Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000604k0wm0zv7y9",
+      "field": "title",
+      "before": {
+        "en": " Solo Exhibition Black History Month ‘Our History’, Financial Ombudsman Black History Month Art exhibition, London UK",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": " Solo Exhibition Black History Month ‘Our History’, Financial Ombudsman Black History Month Art exhibition, London UK",
+        "fr": " Solo Exhibition Black History Month ‘Our History’, Financial Ombudsman Black History Month Art exhibition, London UK",
+        "zh": " Solo Exhibition Black History Month ‘Our History’, Financial Ombudsman Black History Month Art exhibition, London UK"
+      },
+      "appliedAt": "2026-05-21T12:03:35.234Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000704k0l1mhcc3q",
+      "field": "title",
+      "before": {
+        "en": "Butter Art Fair, Band of Vices, Los Angeles",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Butter Art Fair, Band of Vices, Los Angeles",
+        "fr": "Butter Art Fair, Band of Vices, Los Angeles",
+        "zh": "Butter Art Fair, Band of Vices, Los Angeles"
+      },
+      "appliedAt": "2026-05-21T12:03:35.331Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000804k0botq5lf3",
+      "field": "title",
+      "before": {
+        "en": "Harlem Fine Arts Show, US",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Harlem Fine Arts Show, US",
+        "fr": "Harlem Fine Arts Show, US",
+        "zh": "Harlem Fine Arts Show, US"
+      },
+      "appliedAt": "2026-05-21T12:03:35.426Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000904k0e886a02n",
+      "field": "title",
+      "before": {
+        "en": "Atlanta Art fair, Atlanta, US",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Atlanta Art fair, Atlanta, US",
+        "fr": "Atlanta Art fair, Atlanta, US",
+        "zh": "Atlanta Art fair, Atlanta, US"
+      },
+      "appliedAt": "2026-05-21T12:03:35.522Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000a04k0lzomndw9",
+      "field": "title",
+      "before": {
+        "en": " In His Own image, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": " In His Own image, London",
+        "fr": " In His Own image, London",
+        "zh": " In His Own image, London"
+      },
+      "appliedAt": "2026-05-21T12:03:35.618Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000b04k08hdboob1",
+      "field": "title",
+      "before": {
+        "en": "Harlem Fine Arts Show, US",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Harlem Fine Arts Show, US",
+        "fr": "Harlem Fine Arts Show, US",
+        "zh": "Harlem Fine Arts Show, US"
+      },
+      "appliedAt": "2026-05-21T12:03:35.713Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000c04k07bzrf28l",
+      "field": "title",
+      "before": {
+        "en": "Christie’s Lates, Voices of Black Artistry, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Christie’s Lates, Voices of Black Artistry, London",
+        "fr": "Christie’s Lates, Voices of Black Artistry, London",
+        "zh": "Christie’s Lates, Voices of Black Artistry, London"
+      },
+      "appliedAt": "2026-05-21T12:03:35.811Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000d04k0qc7cpyye",
+      "field": "title",
+      "before": {
+        "en": "Reclaiming Our Narrative, Westminster City Council, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Reclaiming Our Narrative, Westminster City Council, London",
+        "fr": "Reclaiming Our Narrative, Westminster City Council, London",
+        "zh": "Reclaiming Our Narrative, Westminster City Council, London"
+      },
+      "appliedAt": "2026-05-21T12:03:35.906Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000e04k0e6w7igcy",
+      "field": "title",
+      "before": {
+        "en": "Amalgam -, Chilliart Projects",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Amalgam -, Chilliart Projects",
+        "fr": "Amalgam -, Chilliart Projects",
+        "zh": "Amalgam -, Chilliart Projects"
+      },
+      "appliedAt": "2026-05-21T12:03:36.003Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000f04k0vzjebzh0",
+      "field": "title",
+      "before": {
+        "en": "Reflections, Chilliart Projects, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Reflections, Chilliart Projects, London",
+        "fr": "Reflections, Chilliart Projects, London",
+        "zh": "Reflections, Chilliart Projects, London"
+      },
+      "appliedAt": "2026-05-21T12:03:36.099Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000g04k0d6efkqgp",
+      "field": "title",
+      "before": {
+        "en": "Surface 1, Chilliart Projects, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Surface 1, Chilliart Projects, London",
+        "fr": "Surface 1, Chilliart Projects, London",
+        "zh": "Surface 1, Chilliart Projects, London"
+      },
+      "appliedAt": "2026-05-21T12:03:36.193Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000h04k08cnduos7",
+      "field": "title",
+      "before": {
+        "en": "Classique, Afikaris, Paris",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Classique, Afikaris, Paris",
+        "fr": "Classique, Afikaris, Paris",
+        "zh": "Classique, Afikaris, Paris"
+      },
+      "appliedAt": "2026-05-21T12:03:36.287Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000i04k0trr673m0",
+      "field": "title",
+      "before": {
+        "en": "Masterpieces 3, Band of Vices, Los Angeles",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Masterpieces 3, Band of Vices, Los Angeles",
+        "fr": "Masterpieces 3, Band of Vices, Los Angeles",
+        "zh": "Masterpieces 3, Band of Vices, Los Angeles"
+      },
+      "appliedAt": "2026-05-21T12:03:36.383Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000j04k0ontmw2ph",
+      "field": "title",
+      "before": {
+        "en": "The Stories We Tell, Chilliart Projects, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "The Stories We Tell, Chilliart Projects, London",
+        "fr": "The Stories We Tell, Chilliart Projects, London",
+        "zh": "The Stories We Tell, Chilliart Projects, London"
+      },
+      "appliedAt": "2026-05-21T12:03:36.477Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000k04k071olbs3r",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition, Ascension, Zari Gallery, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition, Ascension, Zari Gallery, London",
+        "fr": "Group Exhibition, Ascension, Zari Gallery, London",
+        "zh": "Group Exhibition, Ascension, Zari Gallery, London"
+      },
+      "appliedAt": "2026-05-21T12:03:36.572Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000l04k01d4gjdnr",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition, Honour Remember Inspire, Zari Gallery, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition, Honour Remember Inspire, Zari Gallery, London",
+        "fr": "Group Exhibition, Honour Remember Inspire, Zari Gallery, London",
+        "zh": "Group Exhibition, Honour Remember Inspire, Zari Gallery, London"
+      },
+      "appliedAt": "2026-05-21T12:03:36.669Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000m04k0eu1zacdh",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition, Black in Full Colour, The Collective Makers, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition, Black in Full Colour, The Collective Makers, London",
+        "fr": "Group Exhibition, Black in Full Colour, The Collective Makers, London",
+        "zh": "Group Exhibition, Black in Full Colour, The Collective Makers, London"
+      },
+      "appliedAt": "2026-05-21T12:03:36.764Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000n04k0k4kp0ljb",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition, Awakening, Chilliart Projects, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition, Awakening, Chilliart Projects, London",
+        "fr": "Group Exhibition, Awakening, Chilliart Projects, London",
+        "zh": "Group Exhibition, Awakening, Chilliart Projects, London"
+      },
+      "appliedAt": "2026-05-21T12:03:36.859Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000o04k0vcudiq8y",
+      "field": "title",
+      "before": {
+        "en": "Create Magazine Springing forward exhibition Curated By Gita Joshi",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Create Magazine Springing forward exhibition Curated By Gita Joshi",
+        "fr": "Create Magazine Springing forward exhibition Curated By Gita Joshi",
+        "zh": "Create Magazine Springing forward exhibition Curated By Gita Joshi"
+      },
+      "appliedAt": "2026-05-21T12:03:36.955Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000p04k0o2ofzvzv",
+      "field": "title",
+      "before": {
+        "en": "Virtual Group Exhibition. Change. Norman Rea Gallery, United Kingdom",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Virtual Group Exhibition. Change. Norman Rea Gallery, United Kingdom",
+        "fr": "Virtual Group Exhibition. Change. Norman Rea Gallery, United Kingdom",
+        "zh": "Virtual Group Exhibition. Change. Norman Rea Gallery, United Kingdom"
+      },
+      "appliedAt": "2026-05-21T12:03:37.050Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000q04k0kpzgsxu4",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition Isolation Mastered, JD Malat Gallery, London.",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition Isolation Mastered, JD Malat Gallery, London.",
+        "fr": "Group Exhibition Isolation Mastered, JD Malat Gallery, London.",
+        "zh": "Group Exhibition Isolation Mastered, JD Malat Gallery, London."
+      },
+      "appliedAt": "2026-05-21T12:03:37.145Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000r04k02s44j053",
+      "field": "title",
+      "before": {
+        "en": "Group Exhibition Figuratively Speaking, Elizabeth James Gallery, London",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Group Exhibition Figuratively Speaking, Elizabeth James Gallery, London",
+        "fr": "Group Exhibition Figuratively Speaking, Elizabeth James Gallery, London",
+        "zh": "Group Exhibition Figuratively Speaking, Elizabeth James Gallery, London"
+      },
+      "appliedAt": "2026-05-21T12:03:37.241Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4e000s04k0paqjag99",
+      "field": "title",
+      "before": {
+        "en": "AKAA Fair, Paris",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "AKAA Fair, Paris",
+        "fr": "AKAA Fair, Paris",
+        "zh": "AKAA Fair, Paris"
+      },
+      "appliedAt": "2026-05-21T12:03:37.337Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000t04k0b4tiq26e",
+      "field": "title",
+      "before": {
+        "en": "Manchester Art Fair, Zari Gallery",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Manchester Art Fair, Zari Gallery",
+        "fr": "Manchester Art Fair, Zari Gallery",
+        "zh": "Manchester Art Fair, Zari Gallery"
+      },
+      "appliedAt": "2026-05-21T12:03:37.432Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000u04k0lod777lf",
+      "field": "title",
+      "before": {
+        "en": "LGC Art Prize Finalist",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "LGC Art Prize Finalist",
+        "fr": "LGC Art Prize Finalist",
+        "zh": "LGC Art Prize Finalist"
+      },
+      "appliedAt": "2026-05-21T12:03:37.527Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000v04k0j3g18afk",
+      "field": "title",
+      "before": {
+        "en": "Robert Walters Group UK New Artist of the Year Award longlisted",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Robert Walters Group UK New Artist of the Year Award longlisted",
+        "fr": "Robert Walters Group UK New Artist of the Year Award longlisted",
+        "zh": "Robert Walters Group UK New Artist of the Year Award longlisted"
+      },
+      "appliedAt": "2026-05-21T12:03:37.622Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000w04k0u3x1mv7a",
+      "field": "title",
+      "before": {
+        "en": "Shortlisted Royal Academy of Arts Summer Exhibition 2021",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Shortlisted Royal Academy of Arts Summer Exhibition 2021",
+        "fr": "Shortlisted Royal Academy of Arts Summer Exhibition 2021",
+        "zh": "Shortlisted Royal Academy of Arts Summer Exhibition 2021"
+      },
+      "appliedAt": "2026-05-21T12:03:37.820Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000x04k0sbzecypu",
+      "field": "title",
+      "before": {
+        "en": "Longlisted on Jackson’s Painting Prize 2021 – Among 400 artworks selected from 8674 entries",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Longlisted on Jackson’s Painting Prize 2021 – Among 400 artworks selected from 8674 entries",
+        "fr": "Longlisted on Jackson’s Painting Prize 2021 – Among 400 artworks selected from 8674 entries",
+        "zh": "Longlisted on Jackson’s Painting Prize 2021 – Among 400 artworks selected from 8674 entries"
+      },
+      "appliedAt": "2026-05-21T12:03:37.916Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000y04k0b5sgn4xs",
+      "field": "title",
+      "before": {
+        "en": "Selected Among 25 Artist UK wide to Exhibit at JD Malat Gallery",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Selected Among 25 Artist UK wide to Exhibit at JD Malat Gallery",
+        "fr": "Selected Among 25 Artist UK wide to Exhibit at JD Malat Gallery",
+        "zh": "Selected Among 25 Artist UK wide to Exhibit at JD Malat Gallery"
+      },
+      "appliedAt": "2026-05-21T12:03:38.012Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmp6s6z4f000z04k0aloj4s42",
+      "field": "title",
+      "before": {
+        "en": "Longlisted Jackson’s Painting Prize 2020",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Longlisted Jackson’s Painting Prize 2020",
+        "fr": "Longlisted Jackson’s Painting Prize 2020",
+        "zh": "Longlisted Jackson’s Painting Prize 2020"
+      },
+      "appliedAt": "2026-05-21T12:03:38.107Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001i04l7k3nl5t55",
+      "field": "title",
+      "before": {
+        "en": "Untitled, LBF Contemporary, London, England",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Untitled, LBF Contemporary, London, England",
+        "fr": "Untitled, LBF Contemporary, London, England",
+        "zh": "Untitled, LBF Contemporary, London, England"
+      },
+      "appliedAt": "2026-05-21T12:03:38.203Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001j04l7blqzccry",
+      "field": "title",
+      "before": {
+        "en": "Mental Landscapes, Abbozzo Gallery, Toronto, Canada",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mental Landscapes, Abbozzo Gallery, Toronto, Canada",
+        "fr": "Mental Landscapes, Abbozzo Gallery, Toronto, Canada",
+        "zh": "Mental Landscapes, Abbozzo Gallery, Toronto, Canada"
+      },
+      "appliedAt": "2026-05-21T12:03:38.298Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001k04l71zpm4w25",
+      "field": "title",
+      "before": {
+        "en": "Chronic Maintenance, Monti8 Gallery, Latina, Italy ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Chronic Maintenance, Monti8 Gallery, Latina, Italy ",
+        "fr": "Chronic Maintenance, Monti8 Gallery, Latina, Italy ",
+        "zh": "Chronic Maintenance, Monti8 Gallery, Latina, Italy "
+      },
+      "appliedAt": "2026-05-21T12:03:38.394Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001l04l7fj990e8r",
+      "field": "title",
+      "before": {
+        "en": "Longview, Harkawik Gallery, NYC, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Longview, Harkawik Gallery, NYC, USA",
+        "fr": "Longview, Harkawik Gallery, NYC, USA",
+        "zh": "Longview, Harkawik Gallery, NYC, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:38.490Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001m04l7tphuzsr4",
+      "field": "title",
+      "before": {
+        "en": "String Theory, Gagne Contemporary, Toronto, Canada",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "String Theory, Gagne Contemporary, Toronto, Canada",
+        "fr": "String Theory, Gagne Contemporary, Toronto, Canada",
+        "zh": "String Theory, Gagne Contemporary, Toronto, Canada"
+      },
+      "appliedAt": "2026-05-21T12:03:38.588Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001n04l7qwr4466n",
+      "field": "title",
+      "before": {
+        "en": "Compatibility, Monti8 Gallery, Latina, Italy",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Compatibility, Monti8 Gallery, Latina, Italy",
+        "fr": "Compatibility, Monti8 Gallery, Latina, Italy",
+        "zh": "Compatibility, Monti8 Gallery, Latina, Italy"
+      },
+      "appliedAt": "2026-05-21T12:03:38.683Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001o04l7764rkiec",
+      "field": "title",
+      "before": {
+        "en": "Entre El Cielo Y El Suelo Art House, Mexico City, Mexico",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Entre El Cielo Y El Suelo Art House, Mexico City, Mexico",
+        "fr": "Entre El Cielo Y El Suelo Art House, Mexico City, Mexico",
+        "zh": "Entre El Cielo Y El Suelo Art House, Mexico City, Mexico"
+      },
+      "appliedAt": "2026-05-21T12:03:38.779Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001p04l7avg2sou1",
+      "field": "title",
+      "before": {
+        "en": "Dallas Art Fair  1969 Gallery, Dallas, USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Dallas Art Fair  1969 Gallery, Dallas, USA",
+        "fr": "Dallas Art Fair  1969 Gallery, Dallas, USA",
+        "zh": "Dallas Art Fair  1969 Gallery, Dallas, USA"
+      },
+      "appliedAt": "2026-05-21T12:03:38.875Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001q04l7phs9d4pj",
+      "field": "title",
+      "before": {
+        "en": "Works on Paper on Fridges Harkawik Gallery ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Works on Paper on Fridges Harkawik Gallery ",
+        "fr": "Works on Paper on Fridges Harkawik Gallery ",
+        "zh": "Works on Paper on Fridges Harkawik Gallery "
+      },
+      "appliedAt": "2026-05-21T12:03:38.971Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "exhibition:cmozzu7zq001r04l70xgo0s7r",
+      "field": "title",
+      "before": {
+        "en": "Exit 26 Monti8 Gallery, Latina, Italy",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Exit 26 Monti8 Gallery, Latina, Italy",
+        "fr": "Exit 26 Monti8 Gallery, Latina, Italy",
+        "zh": "Exit 26 Monti8 Gallery, Latina, Italy"
+      },
+      "appliedAt": "2026-05-21T12:03:39.067Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "collection:cmpb4fzpk000004lgdbq8dz97",
+      "field": "title",
+      "before": {
+        "en": "Private Collections, France and Asia",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Private Collections, France and Asia",
+        "fr": "Collections privées, France et Asie",
+        "zh": "私人收藏，法國與亞洲"
+      },
+      "appliedAt": "2026-05-21T12:03:39.171Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "collection:cmp6su94e000c04l5tl6z5o47",
+      "field": "title",
+      "before": {
+        "en": "European, African and American private collection",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "European, African and American private collection",
+        "fr": "Collection privée européenne, africaine et américaine",
+        "zh": "歐洲、非洲與美洲私人收藏"
+      },
+      "appliedAt": "2026-05-21T12:03:39.267Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "collection:cmp6su94e000d04l5gk170o54",
+      "field": "title",
+      "before": {
+        "en": "Saatchi Gallery USA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Saatchi Gallery USA",
+        "fr": "Saatchi Gallery, USA",
+        "zh": "Saatchi Gallery，美國"
+      },
+      "appliedAt": "2026-05-21T12:03:39.363Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "collection:cmou9g2pn000c04lahlu3glum",
+      "field": "title",
+      "before": {
+        "en": "Soho House Collection, London and Berlin",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Soho House Collection, London and Berlin",
+        "fr": "Soho House Collection, Londres et Berlin",
+        "zh": "Soho House 收藏，倫敦與柏林"
+      },
+      "appliedAt": "2026-05-21T12:03:39.461Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "collection:cmou9g2pn000d04la8rcftg3n",
+      "field": "title",
+      "before": {
+        "en": "Private collections, including Amoako Boafo Collection",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Private collections, including Amoako Boafo Collection",
+        "fr": "Collections privées, dont la Collection Amoako Boafo",
+        "zh": "私人收藏，包括 Amoako Boafo 收藏"
+      },
+      "appliedAt": "2026-05-21T12:03:39.557Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "collection:cmpb4gd5p001h04jmbohxxn3x",
+      "field": "title",
+      "before": {
+        "en": "Private Collections, Poland and Europe",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Private Collections, Poland and Europe",
+        "fr": "Collections privées, Pologne et Europe",
+        "zh": "私人收藏，波蘭與歐洲"
+      },
+      "appliedAt": "2026-05-21T12:03:39.653Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "collection:cmozzu7zu001s04l73pl8odon",
+      "field": "title",
+      "before": {
+        "en": "Private collection of Beth DeWoody",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Private collection of Beth DeWoody",
+        "fr": "Collection privée de Beth DeWoody",
+        "zh": "Beth DeWoody 私人收藏"
+      },
+      "appliedAt": "2026-05-21T12:03:39.748Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "collection:cmozzu7zu001t04l7bp84r7x4",
+      "field": "title",
+      "before": {
+        "en": "The Nixon Collection",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "The Nixon Collection",
+        "fr": "The Nixon Collection",
+        "zh": "The Nixon Collection"
+      },
+      "appliedAt": "2026-05-21T12:03:39.844Z",
+      "status": "skipped-not-found"
+    },
+    {
+      "ref": "artwork:cmn3sdls80005ag9kgxb5h6ml",
+      "field": "title",
+      "before": {
+        "en": "Untitled I",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Untitled I",
+        "fr": "Untitled I",
+        "zh": "Untitled I"
+      },
+      "appliedAt": "2026-05-21T12:03:40.038Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdls80005ag9kgxb5h6ml",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:40.232Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmni2l5go000004l46nvize58",
+      "field": "title",
+      "before": {
+        "en": "Crocodile",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Crocodile",
+        "fr": "Crocodile",
+        "zh": "Crocodile"
+      },
+      "appliedAt": "2026-05-21T12:03:40.424Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmni2l5go000004l46nvize58",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:40.623Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmo98p74r000004l83albcrh2",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:40.824Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdn9i0006ag9kk905h4h9",
+      "field": "title",
+      "before": {
+        "en": "Untitled II",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Untitled II",
+        "fr": "Untitled II",
+        "zh": "Untitled II"
+      },
+      "appliedAt": "2026-05-21T12:03:41.020Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdn9i0006ag9kk905h4h9",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:41.506Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdndi0007ag9kublbgal1",
+      "field": "title",
+      "before": {
+        "en": "Series III",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Series III",
+        "fr": "Series III",
+        "zh": "Series III"
+      },
+      "appliedAt": "2026-05-21T12:03:41.699Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdndi0007ag9kublbgal1",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on panel",
+        "fr": "Technique mixte sur panneau",
+        "zh": "板上綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:41.890Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmozyan68000004jlegiv6knb",
+      "field": "medium",
+      "before": {
+        "en": "Résine & acrylique sur support bois",
+        "fr": "Résine & acrylique sur support bois",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Résine & acrylique sur support bois",
+        "fr": "Résine & acrylique sur support bois",
+        "zh": "木板樹脂與壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:42.083Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmopnr7dv000204l0mc3l2nxf",
+      "field": "medium",
+      "before": {
+        "en": "résine et filtre dichroïque sur support en bois",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "résine et filtre dichroïque sur support en bois",
+        "fr": "Resin and dichroic filter on wood panel",
+        "zh": "木板樹脂與二色性濾片"
+      },
+      "appliedAt": "2026-05-21T12:03:42.276Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmozyjnla000104jl254ylkbq",
+      "field": "medium",
+      "before": {
+        "en": "",
+        "fr": "résine & filtre dichroïque sur support bois",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Resin & dichroic filter on wood panel",
+        "fr": "résine & filtre dichroïque sur support bois",
+        "zh": "木板樹脂與二色性濾片"
+      },
+      "appliedAt": "2026-05-21T12:03:42.470Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmozz64u8000004lbrir6rip8",
+      "field": "medium",
+      "before": {
+        "en": "",
+        "fr": "Résine & acrylique sur support bois",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Resin & acrylic on wood panel",
+        "fr": "Résine & acrylique sur support bois",
+        "zh": "木板樹脂與壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:42.663Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmozydwle000004jnvth3dpvc",
+      "field": "medium",
+      "before": {
+        "en": "Résine & filtre dichroïque sur support bois",
+        "fr": "Résine & filtre dichroïque sur support bois",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Résine & filtre dichroïque sur support bois",
+        "fr": "Résine & filtre dichroïque sur support bois",
+        "zh": "木板樹脂與二色性濾片"
+      },
+      "appliedAt": "2026-05-21T12:03:42.854Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdr6g000dag9kh5k53lma",
+      "field": "medium",
+      "before": {
+        "en": "Resine et Acrylique sur support en bois",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Resine et Acrylique sur support en bois",
+        "fr": "Resin and acrylic on wood panel",
+        "zh": "木板樹脂與壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:43.046Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdr95000eag9kv91zctf2",
+      "field": "medium",
+      "before": {
+        "en": "Résine et acrylique sur support de bois",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Résine et acrylique sur support de bois",
+        "fr": "Resin and acrylic on wood panel",
+        "zh": "木板樹脂與壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:43.238Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdrvw000fag9k511b1qug",
+      "field": "title",
+      "before": {
+        "en": "POUSSIÈRE D’ÉTOILES",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "POUSSIÈRE D’ÉTOILES",
+        "fr": "POUSSIÈRE D’ÉTOILES",
+        "zh": "POUSSIÈRE D’ÉTOILES"
+      },
+      "appliedAt": "2026-05-21T12:03:43.432Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdrvw000fag9k511b1qug",
+      "field": "medium",
+      "before": {
+        "en": "Résine & filtre dichroïque sur support bois",
+        "fr": "Résine & filtre dichroïque sur support bois",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Résine & filtre dichroïque sur support bois",
+        "fr": "Résine & filtre dichroïque sur support bois",
+        "zh": "木板樹脂與二色性濾片"
+      },
+      "appliedAt": "2026-05-21T12:03:43.625Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa8jvwm000004jm1fv2g200",
+      "field": "title",
+      "before": {
+        "en": "Tutu Maiado",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Tutu Maiado",
+        "fr": "Tutu Maiado",
+        "zh": "Tutu Maiado"
+      },
+      "appliedAt": "2026-05-21T12:03:43.816Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa8jvwm000004jm1fv2g200",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:44.009Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa8kx9g000604l4yk04jugy",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:44.203Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmo992m0p000104l8bo2i3xqg",
+      "field": "title",
+      "before": {
+        "en": "Weeping",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Weeping",
+        "fr": "Weeping",
+        "zh": "Weeping"
+      },
+      "appliedAt": "2026-05-21T12:03:44.394Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmo992m0p000104l8bo2i3xqg",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:44.586Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdwod000lag9kvkfvk7w4",
+      "field": "title",
+      "before": {
+        "en": "Solea",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Solea",
+        "fr": "Solea",
+        "zh": "Solea"
+      },
+      "appliedAt": "2026-05-21T12:03:44.779Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sdwod000lag9kvkfvk7w4",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:44.971Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa8jfd5000504l4tk39y1sb",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:45.165Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp00acpy000904i8mzaq96q0",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:45.364Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa8ih6v000304l41yflv664",
+      "field": "title",
+      "before": {
+        "en": "Gg",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Gg",
+        "fr": "Gg",
+        "zh": "Gg"
+      },
+      "appliedAt": "2026-05-21T12:03:45.555Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa8kfn5000104jmzfja7feg",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:45.745Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa8hnix000004l4r1srcz9b",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:45.939Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou83ik0000004l7od78f045",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas ",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas ",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:46.131Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou7ryto000004k0018he64l",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:46.322Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou7o6tq000004l4mlqv8wj4",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:46.514Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou9873p000104jjlcoj0ykq",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:46.707Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou8o0fo000004jiwrrpv92i",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:46.900Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmocqmt2k000104jxbp0y7uyd",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:47.092Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou94w2e000404jioz0j2aeh",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:47.284Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou8ylzx000204jiseo8o4am",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:47.477Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou8rjun000104jivadrav8d",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:47.673Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3se0f7000tag9kvtjsokuq",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:47.867Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou9dwuc000204jjuu0pxksh",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:48.060Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou8vj5i000004jjbrk2g2bw",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas ",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas ",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:48.252Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmocqgktf000004jxhjp3m5ll",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile ",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile ",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:48.443Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou7u47v000104k0i3140qnt",
+      "field": "medium",
+      "before": {
+        "en": "oil on canvas, cotton fabric",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "oil on canvas, cotton fabric",
+        "fr": "Huile sur toile, tissu de coton",
+        "zh": "畫布與棉布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:48.636Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou91xow000304jic24e99pf",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:48.831Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmocqkd91000404l5qkaq913u",
+      "field": "title",
+      "before": {
+        "en": "entangle (left) unravel (right), diptych",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "entangle (left) unravel (right), diptych",
+        "fr": "entangle (left) unravel (right), diptych",
+        "zh": "entangle (left) unravel (right), diptych"
+      },
+      "appliedAt": "2026-05-21T12:03:49.022Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmocqkd91000404l5qkaq913u",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:49.217Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmou8f0tp000104l7zzpym56x",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:49.407Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3se0hz000uag9kcarpfgql",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:49.601Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3se173000vag9k4t0rvxul",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:03:49.793Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa2ovww000004ie83f5es0p",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:49.985Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3se4ja0011ag9krnmfyb74",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:50.178Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa0skh8000004i7pd1ui0zs",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:50.372Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa0tctb000104i7uabbojuh",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:50.564Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa1xa4r000104jpua929rtx",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:50.755Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa0u71x000204i7skrk9d50",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:50.947Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa1znh9000004i2z66naqqj",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:51.141Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa1ur2u000004l5s3li2lhh",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:51.332Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa1xzcc000204jp9j0bhiow",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:51.524Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa1wjcq000004kyx4ox088q",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:51.717Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa1vtzj000004jpb25f1ix7",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:51.907Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa20anz000104i2hb6i2tq5",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:52.099Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa20w1t000304jpj0kaw2z6",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:52.290Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa2r4or000004jvv46newls",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:52.484Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa2rnx3000104l168ol1r5h",
+      "field": "title",
+      "before": {
+        "en": "Water on Parched Earth ",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Water on Parched Earth ",
+        "fr": "Water on Parched Earth ",
+        "zh": "Water on Parched Earth "
+      },
+      "appliedAt": "2026-05-21T12:03:52.677Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa2rnx3000104l168ol1r5h",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:52.871Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmotvoybq000004jxif0ngy38",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:53.064Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp9r0uf3000204l1mikdkv9r",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:53.256Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp9qr3sk000404l42171cbo7",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:53.448Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp9qtctd000004l2zfn9himz",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:53.639Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp9qoosl000304l4kpr1veo2",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:53.831Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp9qi58v000104l4m0n0cyd8",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:54.025Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp9qffgk000004jm617hy016",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:54.218Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp9qd0mc000004l4gqwjwvv0",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:54.410Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa1z2jb000104kyj7gbn8e9",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:54.601Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa2qdh3000004l13uvxqyl1",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:54.790Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3se53h0012ag9kst8vgcd7",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:54.982Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3se5670013ag9kg562bbj5",
+      "field": "medium",
+      "before": {
+        "en": "Mixed media on wood panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Mixed media on wood panel",
+        "fr": "Technique mixte sur panneau de bois",
+        "zh": "木板綜合媒材"
+      },
+      "appliedAt": "2026-05-21T12:03:55.176Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcsz7xq000204l94i36fzus",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and oil on canvas,",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and oil on canvas,",
+        "fr": "Acrylique et huile sur toile",
+        "zh": "畫布壓克力與油彩"
+      },
+      "appliedAt": "2026-05-21T12:03:55.366Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpct5014000104jv1brzczcf",
+      "field": "title",
+      "before": {
+        "en": "FLORA LUNA",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "FLORA LUNA",
+        "fr": "FLORA LUNA",
+        "zh": "FLORA LUNA"
+      },
+      "appliedAt": "2026-05-21T12:03:55.560Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpct5014000104jv1brzczcf",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:55.752Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcymz33000004l16fvjjcul",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and glitter on canvas,",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and glitter on canvas,",
+        "fr": "Acrylique et paillettes sur toile",
+        "zh": "畫布壓克力與亮粉"
+      },
+      "appliedAt": "2026-05-21T12:03:55.945Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcsuotc000004jvsoyztaah",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "Acrylique et huile sur toile",
+        "zh": "畫布壓克力與油彩"
+      },
+      "appliedAt": "2026-05-21T12:03:56.140Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp01zzd9000004l58s5teaug",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:56.334Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcuav7t000004l8m9dcierg",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:56.527Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcu8kup000004l4owor2cal",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic, oil, glitter and spray on canvas,",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic, oil, glitter and spray on canvas,",
+        "fr": "Acrylique, huile, paillettes et aérosol sur toile",
+        "zh": "畫布壓克力、油彩、亮粉與噴漆"
+      },
+      "appliedAt": "2026-05-21T12:03:56.716Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpctqrjm000104jysyuvhj5a",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "Acrylique et huile sur toile",
+        "zh": "畫布壓克力與油彩"
+      },
+      "appliedAt": "2026-05-21T12:03:56.908Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp02awsf000004lbflpck4hw",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:57.099Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp0gyz58000004jr30qqo6nm",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and oil on canvas,",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and oil on canvas,",
+        "fr": "Acrylique et huile sur toile",
+        "zh": "畫布壓克力與油彩"
+      },
+      "appliedAt": "2026-05-21T12:03:57.292Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp0gjrwf000004joawr95j4s",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:57.486Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcyed3t000004jk7kvej7pt",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:57.678Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcygo8m000004l8ptlagwc1",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "Acrylique et huile sur toile",
+        "zh": "畫布壓克力與油彩"
+      },
+      "appliedAt": "2026-05-21T12:03:57.871Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcyoon4000204jstzf90jpd",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and oil on canvas,",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and oil on canvas,",
+        "fr": "Acrylique et huile sur toile",
+        "zh": "畫布壓克力與油彩"
+      },
+      "appliedAt": "2026-05-21T12:03:58.062Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcyrfk0000204l1m7alkilj",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and glitter on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and glitter on canvas",
+        "fr": "Acrylique et paillettes sur toile",
+        "zh": "畫布壓克力與亮粉"
+      },
+      "appliedAt": "2026-05-21T12:03:58.255Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcyq0vf000104l13amzq05e",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and glitter on canvas,",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and glitter on canvas,",
+        "fr": "Acrylique et paillettes sur toile",
+        "zh": "畫布壓克力與亮粉"
+      },
+      "appliedAt": "2026-05-21T12:03:58.447Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcyw41r000304l1htm119kt",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and glitter on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and glitter on canvas",
+        "fr": "Acrylique et paillettes sur toile",
+        "zh": "畫布壓克力與亮粉"
+      },
+      "appliedAt": "2026-05-21T12:03:58.639Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmp01o2m4000004lgovea46fj",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:58.833Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpctkfil000004jyme5yj49v",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "Acrylique et huile sur toile",
+        "zh": "畫布壓克力與油彩"
+      },
+      "appliedAt": "2026-05-21T12:03:59.026Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sedml001hag9kwroy4xnj",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile ",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile ",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:59.219Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpctaa5i000004l8cgjt258r",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:59.411Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcsqeq0000004l9cbiw1or2",
+      "field": "medium",
+      "before": {
+        "en": "acrylic on canvas,",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "acrylic on canvas,",
+        "fr": "acrylic on canvas,",
+        "zh": "acrylic on canvas,"
+      },
+      "appliedAt": "2026-05-21T12:03:59.614Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmpcssk38000104l9zabn4cjc",
+      "field": "medium",
+      "before": {
+        "en": "acrylic on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "acrylic on canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:03:59.807Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sedpd001iag9k7jlrckvr",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic and oil on canvas",
+        "fr": "Acrylique et huile sur toile",
+        "zh": "畫布壓克力與油彩"
+      },
+      "appliedAt": "2026-05-21T12:03:59.999Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3seds0001jag9k9agj8w97",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic, oil and glitter on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic, oil and glitter on canvas",
+        "fr": "Acrylique, huile et paillettes sur toile",
+        "zh": "畫布壓克力、油彩與亮粉"
+      },
+      "appliedAt": "2026-05-21T12:04:00.193Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmopnijmu000104l0ssxuw9ua",
+      "field": "medium",
+      "before": {
+        "en": "Oil on Linen Canvas with imitated copper leaves",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on Linen Canvas with imitated copper leaves",
+        "fr": "Huile sur toile de lin avec imitation de feuilles de cuivre",
+        "zh": "亞麻畫布油畫，配仿銅葉"
+      },
+      "appliedAt": "2026-05-21T12:04:00.385Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3segut001pag9kp18g14dv",
+      "field": "title",
+      "before": {
+        "en": "Untitled I",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Untitled I",
+        "fr": "Untitled I",
+        "zh": "Untitled I"
+      },
+      "appliedAt": "2026-05-21T12:04:00.577Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3segut001pag9kp18g14dv",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:04:00.771Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmopnk043000004l1t5em9q3n",
+      "field": "title",
+      "before": {
+        "en": "Grace Above Water",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Grace Above Water",
+        "fr": "Grace Above Water",
+        "zh": "Grace Above Water"
+      },
+      "appliedAt": "2026-05-21T12:04:00.964Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmopnk043000004l1t5em9q3n",
+      "field": "medium",
+      "before": {
+        "en": "Oil on wooden board in restored frame.",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on wooden board in restored frame.",
+        "fr": "Huile sur panneau de bois dans un cadre restauré.",
+        "zh": "木板油畫，配修復畫框。"
+      },
+      "appliedAt": "2026-05-21T12:04:01.157Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmopng0gp000004jxt6ytd73x",
+      "field": "medium",
+      "before": {
+        "en": "Oil, Gold Leaf on Wood Panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil, Gold Leaf on Wood Panel",
+        "fr": "Huile et feuille d'or sur panneau de bois",
+        "zh": "木板油彩與金箔"
+      },
+      "appliedAt": "2026-05-21T12:04:01.351Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmopne093000004l0e70sdokp",
+      "field": "title",
+      "before": {
+        "en": "Dance of a King",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Dance of a King",
+        "fr": "Dance of a King",
+        "zh": "Dance of a King"
+      },
+      "appliedAt": "2026-05-21T12:04:01.542Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmopne093000004l0e70sdokp",
+      "field": "medium",
+      "before": {
+        "en": "Oil on a restored frame",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on a restored frame",
+        "fr": "Huile sur cadre restauré",
+        "zh": "修復畫框上的油畫"
+      },
+      "appliedAt": "2026-05-21T12:04:01.736Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sehgh001qag9kxcfncns8",
+      "field": "medium",
+      "before": {
+        "en": "acrylic modelling paste on wooden birch panel",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "acrylic modelling paste on wooden birch panel",
+        "fr": "Pâte à modeler acrylique sur panneau de bouleau",
+        "zh": "樺木板上壓克力塑形膏"
+      },
+      "appliedAt": "2026-05-21T12:04:01.925Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3sehja001rag9k342go18z",
+      "field": "medium",
+      "before": {
+        "en": "Oil, goldleaf, on cotton canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil, goldleaf, on cotton canvas",
+        "fr": "Huile et feuille d'or sur toile de coton",
+        "zh": "棉布油彩與金箔"
+      },
+      "appliedAt": "2026-05-21T12:04:02.117Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmoa7lplh000404jpz26bi03l",
+      "field": "medium",
+      "before": {
+        "en": "Colored Pencil on Paper",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Colored Pencil on Paper",
+        "fr": "Crayon de couleur sur papier",
+        "zh": "紙上彩色鉛筆"
+      },
+      "appliedAt": "2026-05-21T12:04:02.310Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3semb1001xag9kejoon2rr",
+      "field": "title",
+      "before": {
+        "en": "Longview",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Longview",
+        "fr": "Longview",
+        "zh": "Longview"
+      },
+      "appliedAt": "2026-05-21T12:04:02.504Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3semb1001xag9kejoon2rr",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on Canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on Canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:04:02.698Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3semvu001yag9kzjv8zwqv",
+      "field": "title",
+      "before": {
+        "en": "Beach Day",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Beach Day",
+        "fr": "Beach Day",
+        "zh": "Beach Day"
+      },
+      "appliedAt": "2026-05-21T12:04:02.892Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3semvu001yag9kzjv8zwqv",
+      "field": "medium",
+      "before": {
+        "en": "Oil on canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Oil on canvas",
+        "fr": "Huile sur toile",
+        "zh": "畫布油畫"
+      },
+      "appliedAt": "2026-05-21T12:04:03.083Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3semyl001zag9kk48996mz",
+      "field": "title",
+      "before": {
+        "en": "Nightstand",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Nightstand",
+        "fr": "Nightstand",
+        "zh": "Nightstand"
+      },
+      "appliedAt": "2026-05-21T12:04:03.277Z",
+      "status": "applied"
+    },
+    {
+      "ref": "artwork:cmn3semyl001zag9kk48996mz",
+      "field": "medium",
+      "before": {
+        "en": "Acrylic on Canvas",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Acrylic on Canvas",
+        "fr": "Acrylique sur toile",
+        "zh": "畫布壓克力"
+      },
+      "appliedAt": "2026-05-21T12:04:03.471Z",
+      "status": "applied"
+    },
+    {
+      "ref": "homeBanner:cmndv12y700004mcak125z09f",
+      "field": "title",
+      "before": {
+        "en": "Chapter One",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Chapter One",
+        "fr": "Chapitre Un",
+        "zh": "第一章"
+      },
+      "appliedAt": "2026-05-21T12:04:03.670Z",
+      "status": "applied"
+    },
+    {
+      "ref": "galleryExhibition:cmnlg2q1h005tc2cawlws9o8i",
+      "field": "title",
+      "before": {
+        "en": "Checkbox Test 1775374393878",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "Checkbox Test 1775374393878",
+        "fr": "Checkbox Test 1775374393878",
+        "zh": "Checkbox Test 1775374393878"
+      },
+      "appliedAt": "2026-05-21T12:04:03.881Z",
+      "status": "applied"
+    },
+    {
+      "ref": "galleryExhibition:cmne3gdy0000404l7rwdfinar",
+      "field": "title",
+      "before": {
+        "en": "ddd",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "ddd",
+        "fr": "ddd",
+        "zh": "ddd"
+      },
+      "appliedAt": "2026-05-21T12:04:04.074Z",
+      "status": "applied"
+    },
+    {
+      "ref": "galleryExhibition:cmngdwpkd0003c2cacp6tru1j",
+      "field": "description",
+      "before": {
+        "en": "<p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>",
+        "fr": "",
+        "zh": ""
+      },
+      "merged": {
+        "en": "<p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>",
+        "fr": "<p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>",
+        "zh": "<p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>"
+      },
+      "appliedAt": "2026-05-21T12:04:04.265Z",
+      "status": "applied"
+    }
+  ]
+}
