@@ -147,7 +147,8 @@ export function ArtistDetailClient({ artist }: { artist: Artist }) {
       {/* ── Section 3: Selected Works ── */}
       <AnimatedSection
         bg="blanc"
-        container="wide"
+        container={false}
+        containerClassName="w-full"
         className="py-16 md:py-20"
         initial={{ opacity: 0, y: 40 }}
         transition={{ duration: 1 }}
