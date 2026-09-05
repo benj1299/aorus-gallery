@@ -1,11 +1,12 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
 export function Footer() {
   const t = useTranslations('footer');
-  const cities = t('contact.cities').replace(/\s*\/\s*/g, ' · ');
+  const locale = useLocale();
+  const cities = locale === 'zh' ? '巴黎 · 台北' : 'Paris · Taipei';
 
   return (
     <footer className="border-t border-hairline bg-blanc">
