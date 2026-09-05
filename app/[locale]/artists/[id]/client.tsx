@@ -6,7 +6,8 @@ import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { CTAStrip } from '@/components/CTAStrip';
-import { ArtworkSalon, type ArtworkMedia } from '@/components/artwork-display';
+import type { ArtworkMedia } from '@/components/artwork-display';
+import { ArtworkSalon } from '@/components/artwork-salon';
 
 interface Artwork {
   id: string;
